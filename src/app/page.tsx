@@ -311,17 +311,10 @@ export default function Home() {
       {/* FOOTER CTA */}
       <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-24 text-center">
         <AnimatedSection>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-400 border border-gray-200 px-3 py-1 rounded-full mb-4 md:mb-6">
-            Let&apos;s build something
-          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-700 mb-4">
             Let&apos;s build something<br />
             <span className="text-gray-400">worth using.</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto mb-6 md:mb-8">
-            Looking for full-time product design roles. B2B SaaS, developer tools,
-            HealthTech, and AI-native products.
-          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-wrap">
             <motion.a
               href="https://calendly.com/saksheedurshettiwar/growth_call"
@@ -332,14 +325,6 @@ export default function Home() {
               whileTap={{ scale: 0.98 }}
             >
               Schedule a call →
-            </motion.a>
-            <motion.a
-              href="mailto:saksheedurshettiwar@gmail.com"
-              className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg inline-block"
-              whileHover={{ scale: 1.05, y: -2, borderColor: "#9CA3AF" }}
-              whileTap={{ scale: 0.98 }}
-            >
-              saksheedurshettiwar@gmail.com
             </motion.a>
           </div>
         </AnimatedSection>
