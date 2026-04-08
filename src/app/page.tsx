@@ -58,29 +58,6 @@ const stats = [
   { num: "1M+", label: "Dental images managed on the native viewer I built to replace third-party tools" },
 ];
 
-const testimonials = [
-  {
-    text: "Rare combination of strategic thinking and pixel-perfect execution. She transformed our complex broker workflows into something our users actually love.",
-    name: "Alex B.",
-    role: "Product Manager · Enterprise SaaS",
-  },
-  {
-    text: "Working with her was seamless — she understood technical constraints while never compromising on user experience. Engineering loved collaborating with her.",
-    name: "Mike K.",
-    role: "Software Engineer · Fintech",
-  },
-  {
-    text: "Her research-first approach meant every decision had evidence behind it. The 60% adoption improvement didn't happen by accident — it was methodical.",
-    name: "Sarah R.",
-    role: "Head of Design · AI Platform",
-  },
-  {
-    text: "She thinks in systems. Not just screens. Her design work scales in ways most designers can't anticipate, and that saves enormous time during engineering.",
-    name: "James P.",
-    role: "CTO · B2B SaaS",
-  },
-];
-
 const companies = ["Hivel", "Dentread", "Photoshooto", "MemoNeet", "Freelance Clients"];
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -330,55 +307,6 @@ export default function Home() {
           </AnimatedSection>
         ))}
       </div>
-
-      {/* TESTIMONIALS */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
-        <AnimatedSection>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-400 border border-gray-200 px-3 py-1 rounded-full mb-4 md:mb-6">
-            Testimonials
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-700 mb-8 md:mb-12">
-            What people<br />
-            <span className="text-gray-400">say about working</span>
-            <br />
-            <span className="text-gray-400">with me.</span>
-          </h2>
-        </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-          {testimonials.map((testi, index) => (
-            <AnimatedSection key={testi.name} delay={index * 0.1}>
-              <motion.div
-                className="p-7 border border-gray-200 rounded-xl"
-                whileHover={{ 
-                  y: -8, 
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
-                  borderColor: "#D1D5DB"
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="text-sm text-gray-800 leading-relaxed mb-5">
-                  &ldquo;{testi.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <motion.span 
-                    className="w-7 h-7 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-[10px] font-semibold text-gray-400"
-                    whileHover={{ scale: 1.1, backgroundColor: "#E5E7EB" }}
-                  >
-                    {testi.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </motion.span>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-900">{testi.name}</p>
-                    <p className="text-[11px] text-gray-300">{testi.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </section>
 
       {/* FOOTER CTA */}
       <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-24 text-center">
