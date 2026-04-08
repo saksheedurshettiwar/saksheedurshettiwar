@@ -75,13 +75,16 @@ export default function CaseStudies() {
         </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <AnimatedSection key={project.title} delay={index * 0.1}>
-              <motion.div
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer flex flex-col h-full"
-                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-                transition={{ duration: 0.3 }}
-              >
+          {projects.map((project, index) => {
+            const href = index === 0 ? "/case-studies/hivel" : "#";
+            return (
+              <AnimatedSection key={project.title} delay={index * 0.1}>
+                <Link href={href}>
+                  <motion.div
+                    className="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer flex flex-col h-full"
+                    whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                    transition={{ duration: 0.3 }}
+                  >
                 <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center flex-shrink-0">
                   <div className="w-64 h-40 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                     <div className="h-7 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
@@ -124,8 +127,10 @@ export default function CaseStudies() {
                   </p>
                 </div>
               </motion.div>
-            </AnimatedSection>
-          ))}
+                </Link>
+              </AnimatedSection>
+            );
+          })}
         </div>
       </section>
     </div>

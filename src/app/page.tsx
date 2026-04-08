@@ -179,13 +179,15 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <motion.button 
-              className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg"
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              View case studies →
-            </motion.button>
+            <Link href="/case-studies">
+              <motion.button 
+                className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View case studies →
+              </motion.button>
+            </Link>
             <motion.a 
               href="/resume.pdf"
               download="Sakshee Durshettiwar_Resume.pdf"
@@ -233,13 +235,16 @@ export default function Home() {
         </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 auto-rows-fr">
-          {projects.slice(0, 2).map((project, index) => (
-            <AnimatedSection key={project.title} delay={index * 0.1}>
-              <motion.div
-                className="bg-white border border-gray-200 rounded-xl p-0 hover:bg-gray-50 transition-colors cursor-pointer overflow-hidden flex flex-col h-full"
-                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-                transition={{ duration: 0.3 }}
-              >
+          {projects.slice(0, 2).map((project, index) => {
+            const href = index === 0 ? "/case-studies/hivel" : "/case-studies";
+            return (
+              <AnimatedSection key={project.title} delay={index * 0.1}>
+                <Link href={href}>
+                  <motion.div
+                    className="bg-white border border-gray-200 rounded-xl p-0 hover:bg-gray-50 transition-colors cursor-pointer overflow-hidden flex flex-col h-full"
+                    whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                    transition={{ duration: 0.3 }}
+                  >
                 <ParallaxFloat speed={0.05 * (index % 2 === 0 ? 1 : -1)} className="h-40 md:h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center flex-shrink-0">
                   <motion.div 
                     className="w-64 h-40 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden"
@@ -286,8 +291,10 @@ export default function Home() {
                   </p>
                 </div>
               </motion.div>
-            </AnimatedSection>
-          ))}
+                </Link>
+              </AnimatedSection>
+            );
+          })}
         </div>
       </section>
 
