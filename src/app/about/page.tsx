@@ -23,36 +23,48 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
   );
 }
 
-const tools = ["Figma", "Claude", "Cursor", "Framer", "Jitter", "Notion", "Jira", "OpenCode"];
+const tools = [
+  { name: "Figma", color: "#F24E1E" },
+  { name: "Claude", color: "#D4A574" },
+  { name: "Cursor", color: "#000000" },
+  { name: "Framer", color: "#0055FF" },
+  { name: "Jitter", color: "#FFD02F" },
+  { name: "Notion", color: "#000000" },
+  { name: "Jira", color: "#2684FF" },
+  { name: "OpenCode", color: "#7C3AED" },
+];
 
 function ToolsChips() {
   return (
-    <div className="mt-4 h-40 overflow-hidden">
-      <motion.div
-        className="flex flex-col gap-2"
-        animate={{ y: [0, -180] }}
-        transition={{ 
-          duration: 8, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-      >
-        {[...tools, ...tools].map((tool, i) => (
-          <motion.span
-            key={`${tool}-${i}`}
-            className="px-4 py-2 bg-gray-900 text-white rounded-full text-sm font-medium whitespace-nowrap text-center"
-            whileHover={{ 
-              scale: 1.1,
-              backgroundColor: "#fff",
-              color: "#111",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
-            }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            {tool}
-          </motion.span>
-        ))}
-      </motion.div>
+    <div className="mt-4 relative h-40">
+      {tools.map((tool, i) => (
+        <motion.div
+          key={tool.name}
+          className="absolute flex items-center gap-3"
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ 
+            x: 0, 
+            opacity: 1,
+            y: [0, -8, 0]
+          }}
+          transition={{ 
+            x: { delay: i * 0.1, duration: 0.5 },
+            opacity: { delay: i * 0.1, duration: 0.5 },
+            y: { 
+              duration: 2, 
+              delay: i * 0.2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
+        >
+          <div 
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: tool.color }}
+          />
+          <span className="text-sm font-medium text-gray-700">{tool.name}</span>
+        </motion.div>
+      ))}
     </div>
   );
 }
