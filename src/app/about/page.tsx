@@ -116,7 +116,7 @@ export default function About() {
                       100% { transform: translateY(0px) rotate(25deg); opacity: 1; }
                     }
                   `}</style>
-                  <div className="absolute bottom-2 left-4" style={{ animation: "fall1 0.8s ease-out forwards" }}>
+                  <div className="absolute bottom-2 left-4" style={{ animation: "fall1 1.5s ease-out forwards" }}>
                     <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 38 57" className="w-7 h-7">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
@@ -127,7 +127,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-16" style={{ animation: "fall2 0.8s ease-out 0.15s forwards" }}>
+                  <div className="absolute bottom-3 left-16" style={{ animation: "fall2 1.5s ease-out 0.15s forwards" }}>
                     <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#FF6B6B"/>
@@ -135,7 +135,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-2 right-16" style={{ animation: "fall3 0.8s ease-out 0.3s forwards" }}>
+                  <div className="absolute bottom-2 right-16" style={{ animation: "fall3 1.5s ease-out 0.3s forwards" }}>
                     <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
@@ -143,7 +143,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 right-4" style={{ animation: "fall4 0.8s ease-out 0.45s forwards" }}>
+                  <div className="absolute bottom-3 right-4" style={{ animation: "fall4 1.5s ease-out 0.45s forwards" }}>
                     <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="8" cy="8" r="3" fill="#FF6B6B"/>
@@ -153,7 +153,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall5 0.8s ease-out 0.6s forwards" }}>
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall5 1.5s ease-out 0.6s forwards" }}>
                     <div className="w-14 h-14 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#5C6AC4"/>
