@@ -68,9 +68,9 @@ export default function About() {
         </AnimatedSection>
         
         <AnimatedSection delay={0.5}>
-          <div className="flex items-start gap-4 mt-8">
-            <div className="w-[3px] h-20 bg-gray-900 rounded-full mt-2"></div>
-            <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-4xl">
+          <div className="flex items-center gap-4 mt-8">
+            <div className="w-[3px] h-12 bg-gray-900 rounded-full"></div>
+            <p className="text-base md:text-lg text-gray-900 leading-relaxed max-w-4xl font-medium">
               I see design as a quiet conversation between intent and imagination, one that never really ends — it just evolves.
             </p>
           </div>
