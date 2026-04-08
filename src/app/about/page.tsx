@@ -88,21 +88,30 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <p className="text-lg font-bold text-gray-900">Tools I can use</p>
-                <div className="flex justify-center items-end h-32">
-                  <div className="relative" style={{ perspective: "200px" }}>
-                    <div className="flex items-center justify-center" style={{ transform: "rotateX(-20deg) rotateY(-30deg)", transformStyle: "preserve-3d" }}>
-                      <div className="w-16 h-16 bg-white/30 backdrop-blur-md border border-white/40 rounded-xl" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1)", transform: "translateZ(20px)" }}>
-                        <div className="w-full h-full flex items-center justify-center">
-                          <svg viewBox="0 0 38 57" className="w-10 h-10" fill="none">
-                            <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
-                            <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-                            <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-                            <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-                            <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
-                          </svg>
-                        </div>
+                <div className="flex justify-center items-center h-40" style={{ perspective: "800px", perspectiveOrigin: "center" }}>
+                  <div className="relative" style={{ width: "80px", height: "80px", transformStyle: "preserve-3d", animation: "spin 8s linear infinite" }}>
+                    <style jsx>{`
+                      @keyframes spin {
+                        from { transform: rotateX(-20deg) rotateY(0deg); }
+                        to { transform: rotateX(-20deg) rotateY(360deg); }
+                      }
+                    `}</style>
+                    <div className="absolute bg-white/80 backdrop-blur-md border border-white/60" style={{ width: "80px", height: "80px", transform: "rotateY(0deg) translateZ(40px)" }}>
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-400/20 to-blue-500/20">
+                        <svg viewBox="0 0 38 57" className="w-12 h-12" fill="none">
+                          <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                          <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                          <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                          <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                          <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                        </svg>
                       </div>
                     </div>
+                    <div className="absolute bg-white/60 backdrop-blur-md border border-white/40" style={{ width: "80px", height: "80px", transform: "rotateY(90deg) translateZ(40px)" }} />
+                    <div className="absolute bg-white/60 backdrop-blur-md border border-white/40" style={{ width: "80px", height: "80px", transform: "rotateY(180deg) translateZ(40px)" }} />
+                    <div className="absolute bg-white/60 backdrop-blur-md border border-white/40" style={{ width: "80px", height: "80px", transform: "rotateY(270deg) translateZ(40px)" }} />
+                    <div className="absolute bg-white/60 backdrop-blur-md border border-white/40" style={{ width: "80px", height: "80px", transform: "rotateX(90deg) translateZ(40px)" }} />
+                    <div className="absolute bg-white/60 backdrop-blur-md border border-white/40" style={{ width: "80px", height: "80px", transform: "rotateX(-90deg) translateZ(40px)" }} />
                   </div>
                 </div>
               </motion.div>
