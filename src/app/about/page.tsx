@@ -142,7 +142,7 @@ export default function About() {
 
               {/* Card 4 - Products */}
               <motion.div 
-                className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl p-6 h-[390px] flex flex-col justify-between"
+                className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(245,158,11,0.15)" }}
                 transition={{ duration: 0.3 }}
               >
@@ -159,7 +159,7 @@ export default function About() {
 
               {/* Card 5 - Photo */}
               <motion.div 
-                className="rounded-2xl h-[390px] overflow-hidden"
+                className="rounded-2xl h-[395px] overflow-hidden"
                 whileHover={{ scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.15)" }}
                 transition={{ duration: 0.3 }}
               >
@@ -167,14 +167,14 @@ export default function About() {
                   src="/sakshee.png" 
                   alt="Sakshee Durshettiwar" 
                   width={400}
-                  height={390}
+                  height={395}
                   className="w-full h-full object-cover object-top"
                 />
               </motion.div>
 
               {/* Card 6 - Writing */}
               <motion.div 
-                className="bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-100 rounded-2xl p-6 h-[390px] flex flex-col justify-between"
+                className="bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-100 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(244,63,94,0.15)" }}
                 transition={{ duration: 0.3 }}
               >
