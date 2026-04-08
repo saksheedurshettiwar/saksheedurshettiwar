@@ -200,21 +200,14 @@ export default function About() {
                 />
               </motion.div>
 
-              {/* Card 6 - Writing */}
+              {/* Card 6 - Experience */}
               <motion.div 
-                className="bg-white border border-gray-200 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
+                className="bg-white border border-gray-200 rounded-2xl h-[395px] flex flex-col items-center justify-center"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900">Design Blogger</p>
-                </div>
-                <p className="text-sm text-gray-500 leading-relaxed">Sharing thoughts on design, creativity & life through words and ideas.</p>
+                <p className="text-6xl font-bold text-gray-900">5+</p>
+                <p className="text-base text-gray-500 mt-4">Years of experience</p>
               </motion.div>
             </div>
           </div>
