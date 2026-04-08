@@ -83,35 +83,84 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {/* Card 1 - Tools */}
               <motion.div 
-                className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex flex-col justify-between"
+                className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex flex-col justify-between overflow-hidden"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-lg font-bold text-gray-900">Tools I can use</p>
-                <div className="flex justify-center items-center h-40" style={{ perspective: "800px", perspectiveOrigin: "center" }}>
-                  <div className="relative" style={{ width: "80px", height: "80px", transformStyle: "preserve-3d", animation: "spin 8s linear infinite" }}>
-                    <style jsx>{`
-                      @keyframes spin {
-                        from { transform: rotateX(-20deg) rotateY(0deg); }
-                        to { transform: rotateX(-20deg) rotateY(360deg); }
-                      }
-                    `}</style>
-                    <div className="absolute bg-gray-200/80 backdrop-blur-md border border-gray-300/60 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateY(0deg) translateZ(40px)" }}>
-                      <div className="w-full h-full flex items-center justify-center" style={{ filter: "drop-shadow(1px 1px 0 rgba(255,255,255,0.8)) drop-shadow(-1px -1px 0 rgba(0,0,0,0.1))" }}>
-                        <svg viewBox="0 0 38 57" className="w-12 h-12" style={{ filter: "drop-shadow(1px 1px 0 rgba(0,0,0,0.15)) drop-shadow(-0.5px -0.5px 0 rgba(255,255,255,0.5))" }}>
-                          <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
-                          <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-                          <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-                          <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-                          <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
-                        </svg>
-                      </div>
+                <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
+                <div className="relative h-48 mt-auto">
+                  <style jsx>{`
+                    @keyframes fall1 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      100% { transform: translateY(0px) rotate(15deg); opacity: 1; }
+                    }
+                    @keyframes fall2 {
+                      0% { transform: translateY(-120px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      100% { transform: translateY(0px) rotate(-20deg); opacity: 1; }
+                    }
+                    @keyframes fall3 {
+                      0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      100% { transform: translateY(0px) rotate(10deg); opacity: 1; }
+                    }
+                    @keyframes fall4 {
+                      0% { transform: translateY(-140px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      100% { transform: translateY(0px) rotate(-10deg); opacity: 1; }
+                    }
+                    @keyframes fall5 {
+                      0% { transform: translateY(-90px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      100% { transform: translateY(0px) rotate(25deg); opacity: 1; }
+                    }
+                  `}</style>
+                  <div className="absolute bottom-2 left-4" style={{ animation: "fall1 0.8s ease-out forwards" }}>
+                    <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 38 57" className="w-7 h-7">
+                        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                        <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                        <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                        <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                      </svg>
                     </div>
-                    <div className="absolute bg-gray-200/60 backdrop-blur-md border border-gray-300/40 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateY(90deg) translateZ(40px)" }} />
-                    <div className="absolute bg-gray-200/60 backdrop-blur-md border border-gray-300/40 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateY(180deg) translateZ(40px)" }} />
-                    <div className="absolute bg-gray-200/60 backdrop-blur-md border border-gray-300/40 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateY(270deg) translateZ(40px)" }} />
-                    <div className="absolute bg-gray-200/60 backdrop-blur-md border border-gray-300/40 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateX(90deg) translateZ(40px)" }} />
-                    <div className="absolute bg-gray-200/60 backdrop-blur-md border border-gray-300/40 rounded-xl" style={{ width: "80px", height: "80px", transform: "rotateX(-90deg) translateZ(40px)" }} />
+                  </div>
+                  <div className="absolute bottom-3 left-16" style={{ animation: "fall2 0.8s ease-out 0.15s forwards" }}>
+                    <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#FF6B6B"/>
+                        <circle cx="12" cy="12" r="4" fill="white"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 right-16" style={{ animation: "fall3 0.8s ease-out 0.3s forwards" }}>
+                    <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+                        <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
+                        <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">N</text>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-3 right-4" style={{ animation: "fall4 0.8s ease-out 0.45s forwards" }}>
+                    <div className="w-12 h-12 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+                        <circle cx="8" cy="8" r="3" fill="#FF6B6B"/>
+                        <circle cx="16" cy="8" r="3" fill="#4ECDC4"/>
+                        <circle cx="8" cy="16" r="3" fill="#45B7D1"/>
+                        <circle cx="16" cy="16" r="3" fill="#96CEB4"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall5 0.8s ease-out 0.6s forwards" }}>
+                    <div className="w-14 h-14 bg-gray-200/90 backdrop-blur-sm border border-gray-300/60 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#5C6AC4"/>
+                        <path d="M2 17l10 5 10-5" stroke="#5C6AC4" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M2 12l10 5 10-5" stroke="#5C6AC4" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </motion.div>
