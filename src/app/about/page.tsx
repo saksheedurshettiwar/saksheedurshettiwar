@@ -151,7 +151,7 @@ export default function About() {
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards" }}>
-                    <div className="w-10 h-10 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
                         <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
                         <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">N</text>
@@ -159,7 +159,7 @@ export default function About() {
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-14" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
-                    <div className="w-11 h-11 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
                         <circle cx="8" cy="8" r="3" fill="#FF6B6B"/>
                         <circle cx="16" cy="8" r="3" fill="#4ECDC4"/>
@@ -169,7 +169,7 @@ export default function About() {
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-0" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards" }}>
-                    <div className="w-10 h-10 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#5C6AC4"/>
                         <path d="M2 17l10 5 10-5" stroke="#5C6AC4" strokeWidth="2" strokeLinecap="round"/>
@@ -204,7 +204,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
                     <svg className="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
@@ -259,7 +259,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                     <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
