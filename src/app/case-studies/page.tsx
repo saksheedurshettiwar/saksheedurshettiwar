@@ -2,6 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const projects = [
   {
@@ -52,10 +54,18 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 }
 
 export default function CaseStudies() {
+  const router = useRouter();
+  
   return (
     <div className="pt-20 min-h-screen">
       <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
         <AnimatedSection>
+          <button 
+            onClick={() => router.back()}
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 mb-6 transition-colors"
+          >
+            <span>←</span> Back
+          </button>
           <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-400 border border-gray-200 px-3 py-1 rounded-full mb-6">
             Case Studies
           </span>
