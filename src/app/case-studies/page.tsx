@@ -66,11 +66,8 @@ export default function CaseStudies() {
           >
             <span>←</span> Back
           </button>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-400 border border-gray-200 px-3 py-1 rounded-full mb-6">
-            Case Studies
-          </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-            Selected Work
+            Case Studies
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl leading-relaxed mb-12">
             A collection of 0→1 product design projects across healthtech, analytics, and developer tools.
