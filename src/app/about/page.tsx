@@ -90,58 +90,45 @@ export default function About() {
                 <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
                 <div className="relative h-48 mt-auto">
                   <style jsx>{`
-                    @keyframes drop {
-                      0% { transform: translateY(-100px) rotate(0deg) scale(0.5); opacity: 0; }
-                      10% { opacity: 1; }
-                      60% { transform: translateY(5px) rotate(180deg) scale(1.1); }
-                      75% { transform: translateY(-3px) rotate(195deg) scale(0.95); }
-                      90% { transform: translateY(0px) rotate(200deg) scale(1); }
-                      100% { transform: translateY(0px) rotate(200deg) scale(1); opacity: 1; }
+                    @keyframes fall1 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      70% { transform: translateY(4px) rotate(12deg); }
+                      85% { transform: translateY(-2px) rotate(8deg); }
+                      100% { transform: translateY(0px) rotate(10deg); opacity: 1; }
                     }
-                    @keyframes drop2 {
-                      0% { transform: translateY(-100px) rotate(0deg) scale(0.5); opacity: 0; }
-                      10% { opacity: 1; }
-                      60% { transform: translateY(8px) rotate(-150deg) scale(1.15); }
-                      75% { transform: translateY(-2px) rotate(-165deg) scale(0.98); }
-                      90% { transform: translateY(0px) rotate(-160deg) scale(1); }
-                      100% { transform: translateY(0px) rotate(-160deg) scale(1); opacity: 1; }
+                    @keyframes fall2 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      70% { transform: translateY(5px) rotate(-8deg); }
+                      85% { transform: translateY(-2px) rotate(-5deg); }
+                      100% { transform: translateY(0px) rotate(-6deg); opacity: 1; }
                     }
-                    @keyframes drop3 {
-                      0% { transform: translateY(-100px) rotate(0deg) scale(0.5); opacity: 0; }
-                      10% { opacity: 1; }
-                      60% { transform: translateY(3px) rotate(120deg) scale(1.08); }
-                      75% { transform: translateY(-4px) rotate(135deg) scale(0.92); }
-                      90% { transform: translateY(0px) rotate(130deg) scale(1); }
-                      100% { transform: translateY(0px) rotate(130deg) scale(1); opacity: 1; }
+                    @keyframes fall3 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      70% { transform: translateY(3px) rotate(15deg); }
+                      85% { transform: translateY(-1px) rotate(12deg); }
+                      100% { transform: translateY(0px) rotate(14deg); opacity: 1; }
                     }
-                    @keyframes drop4 {
-                      0% { transform: translateY(-100px) rotate(0deg) scale(0.5); opacity: 0; }
-                      10% { opacity: 1; }
-                      60% { transform: translateY(6px) rotate(-90deg) scale(1.12); }
-                      75% { transform: translateY(-2px) rotate(-100deg) scale(0.96); }
-                      90% { transform: translateY(0px) rotate(-95deg) scale(1); }
-                      100% { transform: translateY(0px) rotate(-95deg) scale(1); opacity: 1; }
+                    @keyframes fall4 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      70% { transform: translateY(4px) rotate(-12deg); }
+                      85% { transform: translateY(-2px) rotate(-9deg); }
+                      100% { transform: translateY(0px) rotate(-10deg); opacity: 1; }
                     }
-                    @keyframes drop5 {
-                      0% { transform: translateY(-100px) rotate(0deg) scale(0.5); opacity: 0; }
-                      10% { opacity: 1; }
-                      60% { transform: translateY(4px) rotate(240deg) scale(1.1); }
-                      75% { transform: translateY(-3px) rotate(255deg) scale(0.94); }
-                      90% { transform: translateY(0px) rotate(250deg) scale(1); }
-                      100% { transform: translateY(0px) rotate(250deg) scale(1); opacity: 1; }
-                    }
-                    @keyframes float {
-                      0%, 100% { transform: translateY(0px) rotate(var(--rot)) scale(1); }
-                      50% { transform: translateY(-3px) rotate(var(--rot)) scale(1.02); }
-                    }
-                    @keyframes blink {
-                      0%, 90%, 100% { opacity: 1; }
-                      95% { opacity: 0.3; }
+                    @keyframes fall5 {
+                      0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
+                      20% { opacity: 1; }
+                      70% { transform: translateY(5px) rotate(6deg); }
+                      85% { transform: translateY(-2px) rotate(4deg); }
+                      100% { transform: translateY(0px) rotate(5deg); opacity: 1; }
                     }
                   `}</style>
-                  <div className="absolute bottom-2 left-2" style={{ "--rot": "200deg" } as React.CSSProperties}>
-                    <div className="w-11 h-11 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300 rounded-xl flex items-center justify-center shadow-md" style={{ animation: "drop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite, float 2s ease-in-out 0.8s infinite" }}>
-                      <svg viewBox="0 0 38 57" className="w-6 h-6">
+                  <div className="absolute bottom-2 left-2" style={{ animation: "fall1 0.7s ease-out 0s forwards" }}>
+                    <div className="w-12 h-12 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 38 57" className="w-7 h-7">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
                         <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
                         <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
@@ -150,25 +137,25 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-14">
-                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300 rounded-xl flex items-center justify-center shadow-md" style={{ animation: "drop2 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s infinite, float 2.3s ease-in-out 1.1s infinite" }}>
-                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+                  <div className="absolute bottom-3 left-14" style={{ animation: "fall2 0.7s ease-out 0.15s forwards" }}>
+                    <div className="w-11 h-11 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#FF6B6B"/>
                         <circle cx="12" cy="12" r="4" fill="white"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-4 right-12">
-                    <div className="w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300 rounded-xl flex items-center justify-center shadow-md" style={{ animation: "drop3 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s infinite, float 1.8s ease-in-out 1.25s infinite" }}>
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+                  <div className="absolute bottom-2 right-2" style={{ animation: "fall3 0.7s ease-out 0.3s forwards" }}>
+                    <div className="w-12 h-12 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
                         <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">N</text>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-2 right-2">
-                    <div className="w-11 h-11 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300 rounded-xl flex items-center justify-center shadow-md" style={{ animation: "drop4 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s infinite, float 2.1s ease-in-out 1.1s infinite" }}>
-                      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall4 0.7s ease-out 0.45s forwards" }}>
+                    <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
                         <circle cx="8" cy="8" r="3" fill="#FF6B6B"/>
                         <circle cx="16" cy="8" r="3" fill="#4ECDC4"/>
                         <circle cx="8" cy="16" r="3" fill="#45B7D1"/>
@@ -176,8 +163,8 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2">
-                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300 rounded-xl flex items-center justify-center shadow-md" style={{ animation: "drop5 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s infinite, float 1.9s ease-in-out 1.05s infinite" }}>
+                  <div className="absolute bottom-3 left-1/3" style={{ animation: "fall5 0.7s ease-out 0.6s forwards" }}>
+                    <div className="w-11 h-11 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#5C6AC4"/>
                         <path d="M2 17l10 5 10-5" stroke="#5C6AC4" strokeWidth="2" strokeLinecap="round"/>
