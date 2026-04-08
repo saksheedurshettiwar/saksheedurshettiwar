@@ -92,41 +92,41 @@ export default function About() {
                   <style jsx>{`
                     @keyframes fall1 {
                       0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
-                      20% { opacity: 1; }
-                      70% { transform: translateY(4px) rotate(12deg); }
-                      85% { transform: translateY(-2px) rotate(8deg); }
+                      15% { opacity: 1; }
+                      70% { transform: translateY(3px) rotate(10deg); }
+                      85% { transform: translateY(-1px) rotate(8deg); }
                       100% { transform: translateY(0px) rotate(10deg); opacity: 1; }
                     }
                     @keyframes fall2 {
                       0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
-                      20% { opacity: 1; }
-                      70% { transform: translateY(5px) rotate(-8deg); }
-                      85% { transform: translateY(-2px) rotate(-5deg); }
+                      15% { opacity: 1; }
+                      70% { transform: translateY(4px) rotate(-8deg); }
+                      85% { transform: translateY(-1px) rotate(-6deg); }
                       100% { transform: translateY(0px) rotate(-6deg); opacity: 1; }
                     }
                     @keyframes fall3 {
                       0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
-                      20% { opacity: 1; }
-                      70% { transform: translateY(3px) rotate(15deg); }
-                      85% { transform: translateY(-1px) rotate(12deg); }
-                      100% { transform: translateY(0px) rotate(14deg); opacity: 1; }
+                      15% { opacity: 1; }
+                      70% { transform: translateY(3px) rotate(12deg); }
+                      85% { transform: translateY(-1px) rotate(10deg); }
+                      100% { transform: translateY(0px) rotate(12deg); opacity: 1; }
                     }
                     @keyframes fall4 {
                       0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
-                      20% { opacity: 1; }
-                      70% { transform: translateY(4px) rotate(-12deg); }
-                      85% { transform: translateY(-2px) rotate(-9deg); }
-                      100% { transform: translateY(0px) rotate(-10deg); opacity: 1; }
+                      15% { opacity: 1; }
+                      70% { transform: translateY(3px) rotate(-10deg); }
+                      85% { transform: translateY(-1px) rotate(-8deg); }
+                      100% { transform: translateY(0px) rotate(-8deg); opacity: 1; }
                     }
                     @keyframes fall5 {
                       0% { transform: translateY(-80px) rotate(0deg); opacity: 0; }
-                      20% { opacity: 1; }
-                      70% { transform: translateY(5px) rotate(6deg); }
-                      85% { transform: translateY(-2px) rotate(4deg); }
-                      100% { transform: translateY(0px) rotate(5deg); opacity: 1; }
+                      15% { opacity: 1; }
+                      70% { transform: translateY(3px) rotate(5deg); }
+                      85% { transform: translateY(-1px) rotate(4deg); }
+                      100% { transform: translateY(0px) rotate(4deg); opacity: 1; }
                     }
                   `}</style>
-                  <div className="absolute bottom-2 left-2" style={{ animation: "fall1 0.7s ease-out 0s forwards; animation-fill-mode: forwards" }}>
+                  <div className="absolute bottom-2 left-2" style={{ animation: "fall1 0.8s ease-out 0s forwards" }}>
                     <div className="w-12 h-12 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 38 57" className="w-7 h-7">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
@@ -137,7 +137,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-14" style={{ animation: "fall2 0.7s ease-out 0.15s forwards; animation-fill-mode: forwards" }}>
+                  <div className="absolute bottom-3 left-14" style={{ animation: "fall2 0.8s ease-out 0.15s forwards" }}>
                     <div className="w-11 h-11 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#FF6B6B"/>
@@ -145,7 +145,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-2 right-2" style={{ animation: "fall3 0.7s ease-out 0.3s forwards; animation-fill-mode: forwards" }}>
+                  <div className="absolute bottom-2 right-2" style={{ animation: "fall3 0.8s ease-out 0.3s forwards" }}>
                     <div className="w-12 h-12 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
@@ -153,7 +153,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall4 0.7s ease-out 0.45s forwards; animation-fill-mode: forwards" }}>
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2" style={{ animation: "fall4 0.8s ease-out 0.45s forwards" }}>
                     <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
                         <circle cx="8" cy="8" r="3" fill="#FF6B6B"/>
@@ -163,7 +163,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-1/3" style={{ animation: "fall5 0.7s ease-out 0.6s forwards; animation-fill-mode: forwards" }}>
+                  <div className="absolute bottom-3 left-1/3" style={{ animation: "fall5 0.8s ease-out 0.6s forwards" }}>
                     <div className="w-11 h-11 bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#5C6AC4"/>
