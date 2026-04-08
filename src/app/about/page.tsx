@@ -164,11 +164,6 @@ export default function About() {
                         <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
                         <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-14 group" style={{ animation: "drop2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards" }}>
@@ -180,11 +175,6 @@ export default function About() {
                         <circle cx="12" cy="12" r="1" fill="#D4A574"/>
                         <circle cx="15" cy="12" r="1" fill="#D4A574"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-28 group" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
@@ -194,11 +184,6 @@ export default function About() {
                         <path d="M7 8h4v8H7V8z" fill="#00D9FF"/>
                         <path d="M13 8h4l-2 4 2 4h-4" fill="#00D9FF"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-42 group" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards" }}>
@@ -207,11 +192,6 @@ export default function About() {
                         <rect width="24" height="24" rx="4" fill="#7C3AED"/>
                         <path d="M12 6l1.5 3.5L17 11l-3.5 1.5L12 16l-1.5-3.5L7 11l3.5-1.5L12 6z" fill="white"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-42 group" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
@@ -220,11 +200,6 @@ export default function About() {
                         <circle cx="12" cy="12" r="12" fill="#FF6B6B"/>
                         <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-28 group" style={{ animation: "drop6 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s forwards" }}>
@@ -233,11 +208,6 @@ export default function About() {
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#FFB800"/>
                         <path d="M12 6v6l4 2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-14 group" style={{ animation: "drop7 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards" }}>
@@ -248,11 +218,6 @@ export default function About() {
                         <circle cx="6" cy="12" r="2" fill="white" opacity="0.7"/>
                         <circle cx="18" cy="12" r="2" fill="white" opacity="0.7"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-0 group" style={{ animation: "drop8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards" }}>
@@ -263,11 +228,6 @@ export default function About() {
                         <path d="M10 6h3v10h-3V6z" fill="white"/>
                         <path d="M15 10h3v6h-3v-6z" fill="white"/>
                       </svg>
-                      <div className="absolute -top-2 -right-2 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                        <svg className="w-3 h-3 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7-6-4.6h7.6z"/></svg>
-                      </div>
                     </div>
                   </div>
                 </div>
