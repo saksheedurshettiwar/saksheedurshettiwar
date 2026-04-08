@@ -131,11 +131,10 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="relative w-48 h-48 flex items-center justify-center">
+                <div className="relative w-48 h-48 flex items-center justify-center" style={{ perspective: 1000 }}>
                   <motion.div
                     animate={{ rotateY: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    style={{ perspective: 800 }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                   >
                     <svg viewBox="0 0 280 150" className="w-48 h-32">
                       <defs>
