@@ -137,16 +137,16 @@ export default function About() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                   >
-                    <svg viewBox="0 0 280 280" className="w-52 h-52">
+                    <svg viewBox="-10 -10 280 280" className="w-52 h-52">
                       <defs>
-                        <path id="circlePath" d="M 140 10 A 130 130 0 1 1 139.9 10" />
+                        <path id="circlePath" d="M 140 20 A 120 120 0 1 1 139.99 20" />
                       </defs>
                       <text
                         fill="#111"
-                        fontSize="20"
+                        fontSize="18"
                         fontWeight="bold"
                         fontFamily="system-ui, sans-serif"
-                        letterSpacing="3"
+                        letterSpacing="2"
                       >
                         <textPath href="#circlePath" startOffset="0%">
                           AI FIRST • PRODUCT DESIGNER •
@@ -165,8 +165,8 @@ export default function About() {
                     { shape: "cross", delay: 2.1, angle: 315 },
                   ].map((item, i) => {
                     const rad = (item.angle * Math.PI) / 180;
-                    const x = Math.cos(rad) * 100 + 90;
-                    const y = Math.sin(rad) * 100 + 90;
+                    const x = Math.cos(rad) * 95 + 95;
+                    const y = Math.sin(rad) * 95 + 95;
                     return (
                       <motion.div
                         key={i}
