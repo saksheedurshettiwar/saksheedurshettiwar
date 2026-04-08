@@ -7,6 +7,20 @@ import { useRouter } from "next/navigation";
 
 const projects = [
   {
+    tag: "Enterprise IAM · B2B SaaS",
+    title: "AccessIQ — Access Governance Platform",
+    description:
+      "Redesigning access decisions for non-technical managers at 10,000+ employee fintechs. From permission strings and two buttons to AI-guided decisions in plain English.",
+    metric: "↓ 67% access risk reduction",
+  },
+  {
+    tag: "Fintech · AI · B2C",
+    title: "FinCo — Smart Remittance",
+    description:
+      "AI Rate Forecasting for Smarter Transfer Timing. Transparent Recommendations & Smart Routing for Better Value.",
+    metric: "Coming soon",
+  },
+  {
     tag: "Dev Tools · 0→1 · B2B SaaS",
     title: "Hivel — Integrations & Team Setup",
     description:
@@ -14,25 +28,11 @@ const projects = [
     metric: "↓ 40–50% integration tickets",
   },
   {
-    tag: "Dev Tools · Analytics · 0→1",
-    title: "Hivel Score — Engineering Performance",
-    description:
-      "Designed from scratch: a weighted performance system integrating DORA, SPACE, PR, and custom metrics with user-configurable weightage across org, team, and individual levels.",
-    metric: "0→1 shipped",
-  },
-  {
     tag: "HealthTech · 0→1 · 6 Portals",
     title: "Dentread — Practice Management System",
     description:
       "Sole designer. Six user types. No playbook. PMS used by 10,000+ doctors; native imaging viewer replaced all third-party tools across 500+ dental organisations.",
     metric: "10,000+ doctors · 1M+ images",
-  },
-  {
-    tag: "EdTech · Mobile · 0→1",
-    title: "MemoNeet — Competitive Exam App",
-    description:
-      "Designed mobile and web from scratch. Reduced complexity for competitive exam students and improved learning engagement for a fast-growing user base.",
-    metric: "800K+ downloads",
   },
 ];
 
