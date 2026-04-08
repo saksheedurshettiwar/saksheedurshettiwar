@@ -236,7 +236,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 auto-rows-fr">
           {projects.slice(0, 2).map((project, index) => {
-            const href = index === 0 ? "/case-studies/hivel" : "/case-studies";
+            const href = index === 0 ? "/case-studies/accessiq" : "/case-studies";
             return (
               <AnimatedSection key={project.title} delay={index * 0.1}>
                 <Link href={href}>

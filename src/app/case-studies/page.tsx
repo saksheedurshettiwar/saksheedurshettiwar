@@ -76,7 +76,7 @@ export default function CaseStudies() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
-            const href = index === 0 ? "/case-studies/hivel" : "#";
+            const href = index === 0 ? "/case-studies/accessiq" : "#";
             return (
               <AnimatedSection key={project.title} delay={index * 0.1}>
                 <Link href={href}>
