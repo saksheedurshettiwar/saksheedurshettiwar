@@ -35,7 +35,7 @@ function ToolsChips() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: i * 0.08 }}
-          whileHover={{ color: "#374151" }}
+          whileHover={{ color: "#fff" }}
         >
           {tool}
         </motion.span>
@@ -105,27 +105,42 @@ export default function About() {
               {/* Card 1 - Tools */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex flex-col justify-between overflow-hidden"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)", backgroundColor: "#111", borderColor: "#333" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-lg font-bold text-gray-900">Tools I can use</p>
+                <motion.p 
+                  className="text-lg font-bold text-gray-900"
+                  whileHover={{ color: "#fff" }}
+                >
+                  Tools I can use
+                </motion.p>
                 <ToolsChips />
               </motion.div>
 
               {/* Card 2 - Experience */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex flex-col justify-between"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)", backgroundColor: "#111", borderColor: "#333" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900">5+</p>
-                <p className="text-base text-gray-500">Years of experience</p>
+                <motion.p 
+                  className="text-6xl font-bold text-gray-900"
+                  whileHover={{ color: "#fff" }}
+                >
+                  5+
+                </motion.p>
+                <motion.p 
+                  className="text-base text-gray-500"
+                  whileHover={{ color: "#ccc" }}
+                >
+                  Years of experience
+                </motion.p>
               </motion.div>
 
               {/* Card 3 - AI First */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex items-center justify-center overflow-hidden"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)", backgroundColor: "#111", borderColor: "#333" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-64 h-64 flex items-center justify-center">
@@ -178,11 +193,21 @@ export default function About() {
               {/* Card 4 - Experience */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl h-[395px] flex flex-col items-center justify-center"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)", backgroundColor: "#111", borderColor: "#333" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900">5+</p>
-                <p className="text-base text-gray-500 mt-4">Years of experience</p>
+                <motion.p 
+                  className="text-6xl font-bold text-gray-900"
+                  whileHover={{ color: "#fff" }}
+                >
+                  5+
+                </motion.p>
+                <motion.p 
+                  className="text-base text-gray-500 mt-4"
+                  whileHover={{ color: "#ccc" }}
+                >
+                  Years of experience
+                </motion.p>
               </motion.div>
 
               {/* Card 5 - Photo */}
@@ -203,11 +228,21 @@ export default function About() {
               {/* Card 6 - Sectors */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl h-[395px] flex flex-col items-center justify-center"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)", backgroundColor: "#111", borderColor: "#333" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900">6+</p>
-                <p className="text-base text-gray-500 mt-4">Sectors Navigated</p>
+                <motion.p 
+                  className="text-6xl font-bold text-gray-900"
+                  whileHover={{ color: "#fff" }}
+                >
+                  6+
+                </motion.p>
+                <motion.p 
+                  className="text-base text-gray-500 mt-4"
+                  whileHover={{ color: "#ccc" }}
+                >
+                  Sectors Navigated
+                </motion.p>
               </motion.div>
             </div>
           </div>
