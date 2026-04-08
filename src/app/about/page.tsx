@@ -146,7 +146,7 @@ export default function About() {
                         <path id="circlePath" d="M 150,150 m -110,0 a 110,110 0 1,1 220,0 a 110,110 0 1,1 -220,0" />
                       </defs>
                       <text
-                        fill="#111"
+                        className="fill-gray-900 group-hover:fill-white transition-colors duration-300"
                         fontSize="16"
                         fontWeight="bold"
                         fontFamily="system-ui, sans-serif"
