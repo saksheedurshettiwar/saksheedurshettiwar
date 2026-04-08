@@ -131,29 +131,35 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="relative flex items-center justify-center" style={{ perspective: 1200 }}>
+                <div className="relative w-full h-full flex items-center justify-center">
                   <motion.div
-                    animate={{ rotateY: 360 }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    style={{ transformStyle: "preserve-3d" }}
+                    className="absolute"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                   >
-                    {[...Array(24)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute"
-                        style={{
-                          transform: `rotateY(${i * 15}deg) translateZ(90px)`,
-                          backfaceVisibility: "hidden",
-                        }}
+                    <svg viewBox="0 0 280 280" className="w-52 h-52">
+                      <defs>
+                        <path id="circlePath" d="M 140 10 A 130 130 0 1 1 139.9 10" />
+                      </defs>
+                      <text
+                        fill="#111"
+                        fontSize="20"
+                        fontWeight="bold"
+                        fontFamily="system-ui, sans-serif"
+                        letterSpacing="3"
                       >
-                        <span 
-                          className="text-gray-900 font-bold text-base whitespace-nowrap"
-                          style={{ letterSpacing: "-2px" }}
-                        >
-                          AI FIRST PRODUCT DESIGNER
-                        </span>
-                      </div>
-                    ))}
+                        <textPath href="#circlePath" startOffset="0%">
+                          AI FIRST • PRODUCT DESIGNER •
+                        </textPath>
+                      </text>
+                    </svg>
+                  </motion.div>
+                  <motion.div
+                    className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center"
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <span className="text-gray-900 font-bold text-xs">S</span>
                   </motion.div>
                 </div>
               </motion.div>
