@@ -30,19 +30,19 @@ export default function Navbar() {
 
       {/* Desktop Nav */}
       <div className="hidden lg:flex items-center gap-0.5 flex-1">
-        <button className="px-3 py-1.5 text-[13px] text-gray-500 hover:bg-gray-100 rounded-md transition-colors">
+        <button className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors">
           Work
         </button>
-        <button className="px-3 py-1.5 text-[13px] text-gray-500 hover:bg-gray-100 rounded-md transition-colors">
+        <button className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors">
           About
         </button>
-        <button className="px-3 py-1.5 text-[13px] text-gray-500 hover:bg-gray-100 rounded-md transition-colors">
+        <button className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors">
           Skills
         </button>
         <a
           href="/resume.pdf"
           download="Sakshee Durshettiwar_Resume.pdf"
-          className="px-3 py-1.5 text-[13px] text-gray-500 hover:bg-gray-100 rounded-md transition-colors"
+          className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors"
         >
           Resume ↗
         </a>
@@ -50,7 +50,7 @@ export default function Navbar() {
           href="https://www.linkedin.com/in/sakshee-durshettiwar-product-designer/"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-3 py-1.5 text-[13px] text-gray-500 hover:bg-gray-100 rounded-md transition-colors"
+          className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors"
         >
           LinkedIn ↗
         </a>
@@ -58,7 +58,7 @@ export default function Navbar() {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-2 ml-auto">
-        <span className="text-[13px] text-gray-500">saksheedurshettiwar@gmail.com</span>
+        <span className="text-[13px] text-gray-400">saksheedurshettiwar@gmail.com</span>
         <button className="px-3.5 py-1.5 bg-gray-900 text-white text-[13px] font-medium rounded-md">
           Get in touch
         </button>

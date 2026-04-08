@@ -223,7 +223,7 @@ export default function Home() {
             </span>
             <Link href="/case-studies">
               <motion.button 
-                className="px-4 py-1.5 bg-white border border-gray-200 text-gray-500 text-xs rounded-lg"
+                className="px-4 py-1.5 bg-white border border-gray-200 text-gray-400 text-xs rounded-lg hover:border-gray-300 transition-colors"
                 whileHover={{ scale: 1.05, x: 2 }}
               >
                 View all →
@@ -265,7 +265,7 @@ export default function Home() {
                 </ParallaxFloat>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-medium text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
+                    <span className="text-[10px] font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
                       {project.tag}
                     </span>
                     <motion.span 

@@ -6,7 +6,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/sakshee-durshettiwar-product-designer/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-xs md:text-sm text-gray-400 hover:text-gray-600 transition-colors"
+          className="text-xs md:text-sm text-gray-500 hover:text-gray-700 transition-colors"
         >
           LinkedIn
         </a>
@@ -14,12 +14,12 @@ export default function Footer() {
           href="https://www.behance.net/saksheedurshet" 
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs md:text-sm text-gray-400 hover:text-gray-600 transition-colors"
+          className="text-xs md:text-sm text-gray-500 hover:text-gray-700 transition-colors"
         >
           Behance
         </a>
       </div>
-      <span className="text-xs md:text-sm text-gray-300">©2026</span>
+      <span className="text-xs md:text-sm text-gray-400">©2026</span>
     </footer>
   );
 }

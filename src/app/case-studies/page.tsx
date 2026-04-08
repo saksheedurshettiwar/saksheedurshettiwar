@@ -62,14 +62,14 @@ export default function CaseStudies() {
         <AnimatedSection>
           <button 
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 mb-6 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mb-6 transition-colors"
           >
             <span>←</span> Back
           </button>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
             Case Studies
           </h1>
-          <p className="text-lg text-gray-500 max-w-2xl leading-relaxed mb-12">
+          <p className="text-base text-gray-500 max-w-2xl leading-relaxed mb-12">
             Every project starts with a question worth answering
           </p>
         </AnimatedSection>
@@ -103,7 +103,7 @@ export default function CaseStudies() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-medium text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
+                    <span className="text-[10px] font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
                       {project.tag}
                     </span>
                     <motion.span 
