@@ -315,8 +315,8 @@ export default function Home() {
             Let&apos;s build something
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-700 mb-4">
-            Open to the<br />
-            <span className="text-gray-400">right opportunity.</span>
+            Let&apos;s build something<br />
+            <span className="text-gray-400">worth using.</span>
           </h2>
           <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto mb-6 md:mb-8">
             Looking for full-time product design roles. B2B SaaS, developer tools,
@@ -324,31 +324,22 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-wrap">
             <motion.a
-              href="mailto:saksheedurshettiwar@gmail.com"
+              href="https://calendly.com/saksheedurshettiwar/growth_call"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg inline-block"
               whileHover={{ scale: 1.05, y: -2, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
               whileTap={{ scale: 0.98 }}
             >
-              saksheedurshettiwar@gmail.com →
-            </motion.a>
-            <motion.a 
-              href="/resume.pdf"
-              download="Sakshee Durshettiwar_Resume.pdf"
-              className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg flex items-center gap-2"
-              whileHover={{ scale: 1.05, y: -2, borderColor: "#9CA3AF" }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Download Resume <span className="text-gray-300">↗</span>
+              Schedule a call →
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/sakshee-durshettiwar-product-designer/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg flex items-center gap-2"
+              href="mailto:saksheedurshettiwar@gmail.com"
+              className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg inline-block"
               whileHover={{ scale: 1.05, y: -2, borderColor: "#9CA3AF" }}
               whileTap={{ scale: 0.98 }}
             >
-              LinkedIn <span className="text-gray-300">↗</span>
+              saksheedurshettiwar@gmail.com
             </motion.a>
           </div>
         </AnimatedSection>
