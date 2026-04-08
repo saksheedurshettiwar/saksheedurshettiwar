@@ -79,7 +79,7 @@ export default function About() {
         {/* Bento Grid */}
         <AnimatedSection delay={0.6}>
           <div className="mt-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {/* Card 1 - Profile */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
@@ -93,16 +93,25 @@ export default function About() {
                 </p>
               </motion.div>
 
-              {/* Card 2 - Experience */}
+              {/* Card 2 - Years Experience */}
               <motion.div 
-                className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
+                className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[195px] flex flex-col justify-between"
                 whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
               >
                 <p className="text-4xl font-bold text-gray-900 mb-2">5+</p>
-                <p className="text-sm text-gray-500">Years of experience in product design</p>
+                <p className="text-sm text-gray-500">Years of experience</p>
               </motion.div>
 
-              {/* Card 3 - Expertise */}
+              {/* Card 3 - Products */}
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[195px] flex flex-col justify-between"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <p className="text-4xl font-bold text-gray-900 mb-2">10+</p>
+                <p className="text-sm text-gray-500">Products shipped</p>
+              </motion.div>
+
+              {/* Card 4 - Expertise */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
                 whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
@@ -117,7 +126,7 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Card 4 - Travel */}
+              {/* Card 5 - Travel */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
                 whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
@@ -129,7 +138,7 @@ export default function About() {
                 <p className="text-sm text-gray-500">Exploring new places fuels my creativity and design thinking.</p>
               </motion.div>
 
-              {/* Card 5 - Tools */}
+              {/* Card 6 - Tools */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
                 whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
@@ -144,7 +153,7 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Card 6 - Writing */}
+              {/* Card 7 - Writing */}
               <motion.div 
                 className="bg-white border border-gray-200 rounded-2xl p-6 min-h-[400px] flex flex-col justify-between"
                 whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
