@@ -177,7 +177,7 @@ export default function About() {
 
               {/* Card 4 - Experience */}
               <motion.div 
-                className="bg-white border border-gray-200 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
+                className="bg-white border border-gray-200 rounded-2xl h-[395px] flex flex-col items-center justify-center"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
