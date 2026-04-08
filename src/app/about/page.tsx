@@ -131,19 +131,13 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <svg viewBox="0 0 300 120" className="w-full h-full max-h-[200px]">
+                <svg viewBox="0 0 280 150" className="w-full h-full max-h-[220px]">
                   <defs>
-                    <path id="topArc" d="M 30 80 Q 150 0 270 80" />
-                    <path id="bottomArc" d="M 30 90 Q 150 170 270 90" />
+                    <path id="halfCircle" d="M 20 130 A 120 120 0 0 1 260 130" />
                   </defs>
-                  <text className="fill-gray-900" fontSize="22" fontWeight="bold" fontFamily="system-ui, sans-serif">
-                    <textPath href="#topArc" startOffset="50%" textAnchor="middle" letterSpacing="4">
-                      AI FIRST
-                    </textPath>
-                  </text>
-                  <text className="fill-gray-900" fontSize="26" fontWeight="bold" fontFamily="system-ui, sans-serif">
-                    <textPath href="#bottomArc" startOffset="50%" textAnchor="middle" letterSpacing="3">
-                      PRODUCT DESIGNER
+                  <text className="fill-gray-900" fontSize="20" fontWeight="bold" fontFamily="system-ui, sans-serif">
+                    <textPath href="#halfCircle" startOffset="50%" textAnchor="middle" letterSpacing="3">
+                      AI FIRST PRODUCT DESIGNER
                     </textPath>
                   </text>
                 </svg>
