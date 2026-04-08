@@ -11,7 +11,9 @@ export default function Footer() {
           LinkedIn
         </a>
         <a 
-          href="#" 
+          href="https://www.behance.net/saksheedurshet" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xs md:text-sm text-gray-400 hover:text-gray-600 transition-colors"
         >
           Behance
