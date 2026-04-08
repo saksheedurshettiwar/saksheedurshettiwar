@@ -117,15 +117,12 @@ export default function About() {
 
               {/* Card 2 - Experience */}
               <motion.div 
-                className="group bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex flex-col justify-between hover:bg-gray-900 hover:border-gray-700"
+                className="group bg-white border border-gray-200 rounded-2xl p-6 min-h-[300px] flex items-center justify-center hover:bg-gray-900 hover:border-gray-700"
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900 group-hover:text-white">
-                  5+
-                </p>
-                <p className="text-base text-gray-500 group-hover:text-gray-300">
-                  Years of experience
+                <p className="text-2xl font-bold text-gray-900 text-center group-hover:text-white leading-tight">
+                  Designing Tomorrow's<br />Experiences
                 </p>
               </motion.div>
 
