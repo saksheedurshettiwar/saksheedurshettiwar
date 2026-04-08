@@ -134,20 +134,23 @@ export default function About() {
                 <div className="relative flex items-center justify-center" style={{ perspective: 1200 }}>
                   <motion.div
                     animate={{ rotateY: 360 }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    {[...Array(8)].map((_, i) => (
+                    {[...Array(24)].map((_, i) => (
                       <div
                         key={i}
                         className="absolute"
                         style={{
-                          transform: `rotateY(${i * 45}deg) translateZ(80px)`,
+                          transform: `rotateY(${i * 15}deg) translateZ(90px)`,
                           backfaceVisibility: "hidden",
                         }}
                       >
-                        <span className="text-gray-900 font-bold text-lg whitespace-nowrap">
-                          AI FIRST
+                        <span 
+                          className="text-gray-900 font-bold text-base whitespace-nowrap"
+                          style={{ letterSpacing: "-2px" }}
+                        >
+                          AI FIRST PRODUCT DESIGNER
                         </span>
                       </div>
                     ))}
