@@ -89,73 +89,81 @@ export default function About() {
               >
                 <style jsx global>{`
                   @keyframes drop1 {
-                    0% { transform: translateY(-80px) translateX(30px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
-                    75% { transform: translateY(-4px) translateX(-2px) rotate(-8deg); }
-                    85% { transform: translateY(0px) translateX(1px) rotate(-3deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-3deg); }
+                    70% { transform: translateY(-8px) translateX(-2px) rotate(-5deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-2deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(-3deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-3deg); }
                   }
                   @keyframes drop2 {
-                    0% { transform: translateY(-100px) translateX(-20px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(6deg); }
-                    75% { transform: translateY(-4px) translateX(2px) rotate(9deg); }
-                    85% { transform: translateY(0px) translateX(-1px) rotate(5deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(6deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(3deg); }
+                    70% { transform: translateY(-8px) translateX(2px) rotate(5deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(2deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(3deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(3deg); }
                   }
                   @keyframes drop3 {
-                    0% { transform: translateY(-120px) translateX(40px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
-                    75% { transform: translateY(-4px) translateX(-2px) rotate(-10deg); }
-                    85% { transform: translateY(0px) translateX(1px) rotate(-5deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
-                  }
-                  @keyframes drop4 {
-                    0% { transform: translateY(-140px) translateX(-30px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(5deg); }
-                    75% { transform: translateY(-4px) translateX(2px) rotate(8deg); }
-                    85% { transform: translateY(0px) translateX(-1px) rotate(4deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(5deg); }
-                  }
-                  @keyframes drop5 {
-                    0% { transform: translateY(-80px) translateX(-35px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(-4deg); }
-                    75% { transform: translateY(-4px) translateX(-2px) rotate(-7deg); }
-                    85% { transform: translateY(0px) translateX(1px) rotate(-2deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-4deg); }
+                    70% { transform: translateY(-8px) translateX(-2px) rotate(-6deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-3deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(-4deg); }
                     100% { transform: translateY(0px) translateX(0px) rotate(-4deg); }
                   }
+                  @keyframes drop4 {
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(4deg); }
+                    70% { transform: translateY(-8px) translateX(2px) rotate(6deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(3deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(4deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(4deg); }
+                  }
+                  @keyframes drop5 {
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-2deg); }
+                    70% { transform: translateY(-8px) translateX(-2px) rotate(-4deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-1deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(-2deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-2deg); }
+                  }
                   @keyframes drop6 {
-                    0% { transform: translateY(-100px) translateX(25px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(8deg); }
-                    75% { transform: translateY(-4px) translateX(3px) rotate(11deg); }
-                    85% { transform: translateY(0px) translateX(-1px) rotate(6deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(8deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(5deg); }
+                    70% { transform: translateY(-8px) translateX(2px) rotate(7deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(4deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(5deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(5deg); }
                   }
                   @keyframes drop7 {
-                    0% { transform: translateY(-120px) translateX(-40px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
-                    75% { transform: translateY(-4px) translateX(-2px) rotate(-9deg); }
-                    85% { transform: translateY(0px) translateX(1px) rotate(-4deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
+                    70% { transform: translateY(-8px) translateX(-2px) rotate(-7deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-3deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(-5deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
                   }
                   @keyframes drop8 {
-                    0% { transform: translateY(-140px) translateX(35px) rotate(0deg); opacity: 0; }
-                    20% { opacity: 1; }
-                    65% { transform: translateY(0px) translateX(0px) rotate(4deg); }
-                    75% { transform: translateY(-4px) translateX(2px) rotate(7deg); }
-                    85% { transform: translateY(0px) translateX(-1px) rotate(3deg); }
-                    100% { transform: translateY(0px) translateX(0px) rotate(4deg); }
+                    0% { transform: translateY(-200px) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(2deg); }
+                    70% { transform: translateY(-8px) translateX(2px) rotate(4deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(1deg); }
+                    90% { transform: translateY(-3px) translateX(0px) rotate(2deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(2deg); }
                   }
                 `}</style>
                 <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
                 <div className="relative h-48 mt-4">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: "drop1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards" }}>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: "drop1 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 38 57" className="w-9 h-9">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
@@ -166,7 +174,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute top-16 left-4" style={{ animation: "drop2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards" }}>
+                  <div className="absolute top-16 left-4" style={{ animation: "drop2 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#D4A574"/>
@@ -177,7 +185,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute top-16 left-24" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
+                  <div className="absolute top-16 left-24" style={{ animation: "drop3 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <rect width="24" height="24" rx="6" fill="#000000"/>
@@ -186,7 +194,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute top-16 right-24" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards" }}>
+                  <div className="absolute top-16 right-24" style={{ animation: "drop4 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <rect width="24" height="24" rx="4" fill="#7C3AED"/>
@@ -194,7 +202,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute top-16 right-4" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
+                  <div className="absolute top-16 right-4" style={{ animation: "drop5 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <circle cx="12" cy="12" r="12" fill="#FF6B6B"/>
@@ -202,7 +210,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0" style={{ animation: "drop6 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s forwards" }}>
+                  <div className="absolute bottom-0 left-0" style={{ animation: "drop6 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#FFB800"/>
@@ -210,7 +218,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-24" style={{ animation: "drop7 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards" }}>
+                  <div className="absolute bottom-0 left-24" style={{ animation: "drop7 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <rect width="24" height="24" rx="4" fill="#5850EC"/>
@@ -220,7 +228,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-0" style={{ animation: "drop8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards" }}>
+                  <div className="absolute bottom-0 right-0" style={{ animation: "drop8 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.05s forwards" }}>
                     <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
                       <svg viewBox="0 0 24 24" className="w-9 h-9">
                         <rect width="24" height="24" rx="4" fill="#0052CC"/>
