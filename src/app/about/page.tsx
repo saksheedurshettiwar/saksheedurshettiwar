@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -170,6 +171,15 @@ export default function About() {
                     </svg>
                   </div>
                   <p className="text-sm font-semibold text-gray-900">Tools & Stack</p>
+                </div>
+                <div className="mb-4">
+                  <Image 
+                    src="/sakshee.png" 
+                    alt="Sakshee Durshettiwar" 
+                    width={120}
+                    height={120}
+                    className="rounded-2xl object-cover w-28 h-28"
+                  />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {["Figma", "Framer", "Notion", "Miro"].map((tool) => (
