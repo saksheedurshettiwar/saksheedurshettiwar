@@ -31,7 +31,7 @@ function ToolsChips() {
       {tools.map((tool, i) => (
         <motion.span
           key={tool}
-          className="text-sm text-gray-400 cursor-default"
+          className="text-base text-gray-400 cursor-default"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: i * 0.08 }}
