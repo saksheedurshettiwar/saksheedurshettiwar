@@ -27,22 +27,42 @@ const tools = ["Figma", "Claude", "Cursor", "Framer", "Jitter", "Notion", "Jira"
 
 function ToolsChips() {
   return (
-    <div className="mt-4 flex flex-wrap gap-3">
-      {tools.map((tool, i) => (
-        <motion.span
-          key={tool}
-          className="text-sm font-medium text-gray-500"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.4,
-            delay: i * 0.1
-          }}
-          whileHover={{ color: "#111" }}
+    <div className="mt-4 flex items-center justify-center">
+      <div className="relative w-40 h-40">
+        <motion.div
+          className="absolute inset-0 rounded-full border-2 border-dashed border-gray-200"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        {tools.map((tool, i) => {
+          const angle = (i / tools.length) * 2 * Math.PI - Math.PI / 2;
+          const x = Math.cos(angle) * 70 + 80;
+          const y = Math.sin(angle) * 70 + 80;
+          return (
+            <motion.span
+              key={tool}
+              className="absolute text-xs font-medium text-gray-500"
+              style={{ left: x, top: y, transform: "translate(-50%, -50%)" }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ 
+                duration: 0.3,
+                delay: i * 0.1
+              }}
+              whileHover={{ color: "#111", scale: 1.1 }}
+            >
+              {tool}
+            </motion.span>
+          );
+        })}
+        <motion.div
+          className="absolute inset-8 rounded-full bg-gray-50 flex items-center justify-center"
+          animate={{ scale: [1, 1.02, 1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
-          {tool}
-        </motion.span>
-      ))}
+          <span className="text-2xl">⚡</span>
+        </motion.div>
+      </div>
     </div>
   );
 }
