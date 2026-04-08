@@ -23,6 +23,76 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
   );
 }
 
+const tools = [
+  { name: "Figma", delay: 0, top: "0", left: "calc(50% - 32px)", color: "#F24E1E", paths: [
+    { d: "M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z", fill: "#1ABCFE" },
+    { d: "M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z", fill: "#0ACF83" },
+    { d: "M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z", fill: "#FF7262" },
+    { d: "M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z", fill: "#F24E1E" },
+    { d: "M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z", fill: "#A259FF" }
+  ]},
+  { name: "Claude", delay: 0.15, top: "64px", left: "16px", color: "#D4A574", paths: [
+    { d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z", fill: "#D4A574" },
+    { d: "M17 12c0-1.1-.9-2-2-2h-2V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v2H7c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-4z", fill: "#D4A574" },
+    { d: "M9 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm2 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm3 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1z", fill: "#D4A574" }
+  ]},
+  { name: "Cursor", delay: 0.3, top: "64px", left: "calc(25% - 16px)", color: "#000000", paths: [
+    { d: "M5 5h6v6H5V5zm8 0h6v6h-6V5zM5 13h6v6H5v-6zm8 8l4-8 2 4 3-6 4 10H5z", fill: "#000000" }
+  ]},
+  { name: "Framer", delay: 0.45, top: "64px", left: "calc(75% - 48px)", color: "#0055FF", paths: [
+    { d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 14l-4-8h3v4h2v-4h3l-4 8z", fill: "#0055FF" }
+  ]},
+  { name: "Jitter", delay: 0.6, top: "64px", left: "calc(100% - 80px)", color: "#FFD02F", paths: [
+    { d: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", fill: "none", stroke: "#FFD02F", strokeWidth: "2" }
+  ]},
+  { name: "Notion", delay: 0.75, top: "calc(64px + 64px + 16px)", left: "16px", color: "#000000", paths: [
+    { d: "M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.746-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z", fill: "#000000" }
+  ]},
+  { name: "Jira", delay: 0.9, top: "calc(64px + 64px + 16px)", left: "calc(25% + 16px)", color: "#2684FF", paths: [
+    { d: "M11.571 11.429L6 5.857 11.571.286 17.143 5.857 11.571 11.429zM6 17.143L11.571 22.714 17.143 17.143 11.571 11.571 6 17.143zM11.571 17.143L17.143 22.714 22.714 17.143 17.143 11.571 11.571 17.143zM6 11.571L11.571 17.143 17.143 11.571 11.571 6 6 11.571z", fill: "#2684FF" }
+  ]},
+  { name: "OpenCode", delay: 1.05, top: "calc(64px + 64px + 16px)", left: "calc(50% + 16px)", color: "#7C3AED", paths: [
+    { d: "M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z", fill: "#7C3AED" }
+  ]},
+];
+
+const dropVariant = {
+  hidden: { y: -200, opacity: 0 },
+  visible: (delay: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      damping: 12,
+      stiffness: 100,
+      delay: delay,
+      duration: 0.8,
+    },
+  }),
+};
+
+function ToolCube({ tool, onHover }: { tool: typeof tools[0]; onHover: boolean }) {
+  return (
+    <motion.div
+      className="absolute"
+      style={{ top: tool.top, left: tool.left }}
+      variants={dropVariant}
+      initial="hidden"
+      animate="visible"
+      custom={tool.delay}
+      whileHover={{ scale: 1.1, y: -5 }}
+    >
+      <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
+        <svg viewBox="0 0 24 24" className="w-9 h-9">
+          {tool.paths.map((path, i) => (
+            <path key={i} d={path.d} fill={path.fill} stroke={path.stroke} strokeWidth={path.strokeWidth} />
+          ))}
+        </svg>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function About() {
   const router = useRouter();
   
@@ -87,157 +157,11 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <style>{`
-                  @keyframes drop1 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop2 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop3 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop4 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop5 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop6 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop7 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                  @keyframes drop8 {
-                    0% { transform: translateY(-250px); opacity: 0; }
-                    15% { opacity: 1; }
-                    50% { transform: translateY(5px); }
-                    65% { transform: translateY(-3px); }
-                    80% { transform: translateY(2px); }
-                    90% { transform: translateY(0px); }
-                    100% { transform: translateY(0px); opacity: 1; }
-                  }
-                `}</style>
                 <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
                 <div className="relative h-48 mt-4">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: "drop1 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 38 57" className="w-9 h-9">
-                        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
-                        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-                        <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-                        <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-                        <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute top-16 left-4" style={{ animation: "drop2 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#D4A574"/>
-                        <path d="M17 12c0-1.1-.9-2-2-2h-2V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v2H7c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-4z" fill="#D4A574"/>
-                        <circle cx="9" cy="12" r="1" fill="#D4A574"/>
-                        <circle cx="12" cy="12" r="1" fill="#D4A574"/>
-                        <circle cx="15" cy="12" r="1" fill="#D4A574"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute top-16 left-24" style={{ animation: "drop3 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <rect width="24" height="24" rx="6" fill="#000000"/>
-                        <path d="M7 8h4v8H7V8z" fill="#00D9FF"/>
-                        <path d="M13 8h4l-2 4 2 4h-4" fill="#00D9FF"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute top-16 right-24" style={{ animation: "drop4 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <rect width="24" height="24" rx="4" fill="#7C3AED"/>
-                        <path d="M12 6l1.5 3.5L17 11l-3.5 1.5L12 16l-1.5-3.5L7 11l3.5-1.5L12 6z" fill="white"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute top-16 right-4" style={{ animation: "drop5 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <circle cx="12" cy="12" r="12" fill="#FF6B6B"/>
-                        <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0" style={{ animation: "drop6 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#FFB800"/>
-                        <path d="M12 6v6l4 2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-24" style={{ animation: "drop7 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <rect width="24" height="24" rx="4" fill="#5850EC"/>
-                        <circle cx="12" cy="12" r="4" fill="white"/>
-                        <circle cx="6" cy="12" r="2" fill="white" opacity="0.7"/>
-                        <circle cx="18" cy="12" r="2" fill="white" opacity="0.7"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 right-0" style={{ animation: "drop8 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.05s forwards" }}>
-                    <div className="w-16 h-16 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-                      <svg viewBox="0 0 24 24" className="w-9 h-9">
-                        <rect width="24" height="24" rx="4" fill="#0052CC"/>
-                        <path d="M5 8h3v8H5V8z" fill="white"/>
-                        <path d="M10 6h3v10h-3V6z" fill="white"/>
-                        <path d="M15 10h3v6h-3v-6z" fill="white"/>
-                      </svg>
-                    </div>
-                  </div>
+                  {tools.map((tool) => (
+                    <ToolCube key={tool.name} tool={tool} />
+                  ))}
                 </div>
               </motion.div>
 
