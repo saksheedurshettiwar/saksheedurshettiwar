@@ -154,10 +154,10 @@ export default function About() {
                   }
                 `}</style>
                 <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
-                <div className="relative h-28 mt-4">
-                  <div className="absolute bottom-0 left-0 group" style={{ animation: "drop1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 38 57" className="w-8 h-8">
+                <div className="relative h-40 mt-4">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ animation: "drop1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 38 57" className="w-7 h-7">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
                         <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
                         <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
@@ -166,9 +166,9 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-16 group" style={{ animation: "drop2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute top-14 left-4" style={{ animation: "drop2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#D4A574"/>
                         <path d="M17 12c0-1.1-.9-2-2-2h-2V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v2H7c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-4z" fill="#D4A574"/>
                         <circle cx="9" cy="12" r="1" fill="#D4A574"/>
@@ -177,42 +177,42 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-32 group" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute top-14 left-20" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <rect width="24" height="24" rx="6" fill="#000000"/>
                         <path d="M7 8h4v8H7V8z" fill="#00D9FF"/>
                         <path d="M13 8h4l-2 4 2 4h-4" fill="#00D9FF"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-48 group" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute top-14 right-20" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <rect width="24" height="24" rx="4" fill="#7C3AED"/>
                         <path d="M12 6l1.5 3.5L17 11l-3.5 1.5L12 16l-1.5-3.5L7 11l3.5-1.5L12 6z" fill="white"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-48 group" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute top-14 right-4" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <circle cx="12" cy="12" r="12" fill="#FF6B6B"/>
                         <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-32 group" style={{ animation: "drop6 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute bottom-0 left-0" style={{ animation: "drop6 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#FFB800"/>
                         <path d="M12 6v6l4 2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-16 group" style={{ animation: "drop7 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute bottom-0 left-16" style={{ animation: "drop7 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <rect width="24" height="24" rx="4" fill="#5850EC"/>
                         <circle cx="12" cy="12" r="4" fill="white"/>
                         <circle cx="6" cy="12" r="2" fill="white" opacity="0.7"/>
@@ -220,9 +220,9 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-0 group" style={{ animation: "drop8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards" }}>
-                    <div className="w-14 h-14 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8">
+                  <div className="absolute bottom-0 right-16" style={{ animation: "drop8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards" }}>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:border-yellow-400 transition-all duration-200">
+                      <svg viewBox="0 0 24 24" className="w-7 h-7">
                         <rect width="24" height="24" rx="4" fill="#0052CC"/>
                         <path d="M5 8h3v8H5V8z" fill="white"/>
                         <path d="M10 6h3v10h-3V6z" fill="white"/>
