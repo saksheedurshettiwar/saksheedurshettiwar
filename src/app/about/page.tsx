@@ -190,9 +190,13 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900 group-hover:text-white">
-                  5+
-                </p>
+                <motion.p 
+                  className="text-6xl font-bold text-gray-900"
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <span className="group-hover:text-white">5+</span>
+                </motion.p>
                 <p className="text-base text-gray-500 mt-4 group-hover:text-gray-300">
                   Years of experience
                 </p>
@@ -219,9 +223,13 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-6xl font-bold text-gray-900 group-hover:text-white">
-                  6+
-                </p>
+                <motion.p 
+                  className="text-6xl font-bold text-gray-900"
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <span className="group-hover:text-white">6+</span>
+                </motion.p>
                 <p className="text-base text-gray-500 mt-4 group-hover:text-gray-300">
                   Sectors Navigated
                 </p>
