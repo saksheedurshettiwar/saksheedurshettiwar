@@ -131,16 +131,24 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <svg viewBox="0 0 280 150" className="w-full h-full max-h-[220px]">
-                  <defs>
-                    <path id="halfCircle" d="M 20 130 A 120 120 0 0 1 260 130" />
-                  </defs>
-                  <text className="fill-gray-900" fontSize="20" fontWeight="bold" fontFamily="system-ui, sans-serif">
-                    <textPath href="#halfCircle" startOffset="50%" textAnchor="middle" letterSpacing="3">
-                      AI FIRST PRODUCT DESIGNER
-                    </textPath>
-                  </text>
-                </svg>
+                <div className="relative w-48 h-48 flex items-center justify-center">
+                  <motion.div
+                    animate={{ rotateY: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    style={{ perspective: 800 }}
+                  >
+                    <svg viewBox="0 0 280 150" className="w-48 h-32">
+                      <defs>
+                        <path id="halfCircle" d="M 20 130 A 120 120 0 0 1 260 130" />
+                      </defs>
+                      <text className="fill-gray-900" fontSize="20" fontWeight="bold" fontFamily="system-ui, sans-serif">
+                        <textPath href="#halfCircle" startOffset="50%" textAnchor="middle" letterSpacing="3">
+                          AI FIRST PRODUCT DESIGNER
+                        </textPath>
+                      </text>
+                    </svg>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Card 4 - Products */}
