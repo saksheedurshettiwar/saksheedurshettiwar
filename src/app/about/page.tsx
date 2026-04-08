@@ -142,18 +142,18 @@ export default function About() {
 
               {/* Card 4 - Products */}
               <motion.div 
-                className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(245,158,11,0.15)" }}
+                className="bg-white border border-gray-200 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-5xl font-bold text-amber-600 mb-2">10+</p>
-                  <p className="text-sm text-gray-600 font-medium">Products shipped from scratch</p>
+                  <p className="text-5xl font-bold text-gray-900 mb-2">10+</p>
+                  <p className="text-sm text-gray-500 font-medium">Products shipped from scratch</p>
                 </div>
               </motion.div>
 
@@ -174,19 +174,19 @@ export default function About() {
 
               {/* Card 6 - Writing */}
               <motion.div 
-                className="bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-100 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
-                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(244,63,94,0.15)" }}
+                className="bg-white border border-gray-200 rounded-2xl p-6 h-[395px] flex flex-col justify-between"
+                whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center">
-                    <svg className="w-5 h-5 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center">
+                    <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                   </div>
                   <p className="text-sm font-semibold text-gray-900">Design Blogger</p>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">Sharing thoughts on design, creativity & life through words and ideas.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">Sharing thoughts on design, creativity & life through words and ideas.</p>
               </motion.div>
             </div>
           </div>
