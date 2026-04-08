@@ -75,6 +75,85 @@ export default function About() {
             </p>
           </div>
         </AnimatedSection>
+
+        {/* Bento Grid */}
+        <AnimatedSection delay={0.6}>
+          <div className="mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Large card - Profile/Intro */}
+              <motion.div 
+                className="md:col-span-2 md:row-span-2 bg-white border border-gray-200 rounded-2xl p-6 md:p-8"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                      Sakshee Durshettiwar
+                    </h3>
+                    <p className="text-gray-500 leading-relaxed mb-6">
+                      Product Designer crafting meaningful digital experiences across healthtech, analytics, and developer tools.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {["B2B SaaS", "HealthTech", "UX/UI", "0→1 Products"].map((tag) => (
+                      <span key={tag} className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Stats card */}
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">5+</p>
+                <p className="text-sm text-gray-500">Years of experience in product design</p>
+              </motion.div>
+
+              {/* Fun fact card */}
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">✈️</span>
+                  <span className="text-sm font-medium text-gray-900">Travel Enthusiast</span>
+                </div>
+                <p className="text-xs text-gray-500">Exploring new places fuels my creativity and design thinking.</p>
+              </motion.div>
+
+              {/* Tools card */}
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <p className="text-sm font-semibold text-gray-900 mb-4">Tools & Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Figma", "Framer", "Notion", "Miro"].map((tool) => (
+                    <span key={tool} className="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Writing card */}
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">✍️</span>
+                  <span className="text-sm font-medium text-gray-900">Design Blogger</span>
+                </div>
+                <p className="text-xs text-gray-500">Sharing thoughts on design, creativity & life.</p>
+              </motion.div>
+            </div>
+          </div>
+        </AnimatedSection>
       </section>
     </div>
   );
