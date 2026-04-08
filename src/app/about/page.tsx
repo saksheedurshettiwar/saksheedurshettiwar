@@ -43,43 +43,11 @@ export default function About() {
           </p>
         </AnimatedSection>
         
-        <div className="space-y-8">
-          <AnimatedSection delay={0.1}>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Background
-            </h2>
-            <p className="text-gray-500 leading-relaxed max-w-2xl">
-              [Add your background story here]
-            </p>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.2}>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Experience
-            </h2>
-            <p className="text-gray-500 leading-relaxed max-w-2xl">
-              [Add your work experience here]
-            </p>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.3}>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Skills
-            </h2>
-            <p className="text-gray-500 leading-relaxed max-w-2xl">
-              [Add your skills here]
-            </p>
-          </AnimatedSection>
-          
-          <AnimatedSection delay={0.4}>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Education
-            </h2>
-            <p className="text-gray-500 leading-relaxed max-w-2xl">
-              [Add your education here]
-            </p>
-          </AnimatedSection>
-        </div>
+        <AnimatedSection delay={0.1}>
+          <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-2xl">
+            I began my journey in engineering, like many who set out to discover what truly excites them. My degree says textile technologist, but my heart has always belonged to creativity — sketching people, capturing details, and turning ideas into something meaningful. That curiosity slowly led me toward the world of design.
+          </p>
+        </AnimatedSection>
       </section>
     </div>
   );
