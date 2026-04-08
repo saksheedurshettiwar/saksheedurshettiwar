@@ -121,9 +121,14 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-2xl font-bold text-gray-900 text-center group-hover:text-white leading-tight">
-                  Designing Tomorrow's<br />Experiences
-                </p>
+                <div className="text-center group-hover:text-white">
+                  <p className="text-2xl font-bold text-gray-900 leading-tight">
+                    Designing Tomorrow's
+                  </p>
+                  <p className="text-2xl font-bold text-gray-900 leading-tight mt-4">
+                    Experiences
+                  </p>
+                </div>
               </motion.div>
 
               {/* Card 3 - AI First */}
