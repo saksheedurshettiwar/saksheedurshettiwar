@@ -237,13 +237,15 @@ export default function Home() {
             >
               View case studies →
             </motion.button>
-            <motion.button 
+            <motion.a 
+              href="/resume.pdf"
+              download="Sakshee Durshettiwar_Resume.pdf"
               className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg flex items-center gap-2"
               whileHover={{ scale: 1.02, y: -2, borderColor: "#9CA3AF" }}
               whileTap={{ scale: 0.98 }}
             >
               Download resume <span className="text-gray-300">↗</span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 
@@ -400,15 +402,15 @@ export default function Home() {
           </div>
         </AnimatedSection>
         
-        <div className="grid md:grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 auto-rows-fr">
           {projects.map((project, index) => (
             <AnimatedSection key={project.title} delay={index * 0.1}>
               <motion.div
-                className="bg-white p-0 hover:bg-gray-50 transition-colors cursor-pointer"
-                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                className="bg-white border border-gray-200 rounded-xl p-0 hover:bg-gray-50 transition-colors cursor-pointer overflow-hidden flex flex-col h-full"
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <ParallaxFloat speed={0.05 * (index % 2 === 0 ? 1 : -1)} className="h-48 bg-gradient-to-br from-gray-100 to-gray-50 border-b border-gray-100 flex items-center justify-center">
+                <ParallaxFloat speed={0.05 * (index % 2 === 0 ? 1 : -1)} className="h-40 md:h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center flex-shrink-0">
                   <motion.div 
                     className="w-64 h-40 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden"
                     whileHover={{ scale: 1.02 }}
@@ -618,13 +620,15 @@ export default function Home() {
             >
               saksheedurshettiwar@gmail.com →
             </motion.a>
-            <motion.button 
+            <motion.a 
+              href="/resume.pdf"
+              download="Sakshee Durshettiwar_Resume.pdf"
               className="px-5 py-2.5 bg-white border border-gray-200 text-gray-600 text-sm rounded-lg flex items-center gap-2"
               whileHover={{ scale: 1.05, y: -2, borderColor: "#9CA3AF" }}
               whileTap={{ scale: 0.98 }}
             >
               Download Resume <span className="text-gray-300">↗</span>
-            </motion.button>
+            </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/sakshee-durshettiwar-product-designer/"
               target="_blank"
