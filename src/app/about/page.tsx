@@ -87,75 +87,83 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
+                <style jsx global>{`
+                  @keyframes drop1 {
+                    0% { transform: translateY(-120px) translateX(25px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
+                    70% { transform: translateY(-6px) translateX(-2px) rotate(-9deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-4deg); }
+                    90% { transform: translateY(-2px) translateX(0px) rotate(-5deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
+                  }
+                  @keyframes drop2 {
+                    0% { transform: translateY(-130px) translateX(-20px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(7deg); }
+                    70% { transform: translateY(-6px) translateX(3px) rotate(10deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(6deg); }
+                    90% { transform: translateY(-2px) translateX(1px) rotate(6deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(7deg); }
+                  }
+                  @keyframes drop3 {
+                    0% { transform: translateY(-140px) translateX(30px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-8deg); }
+                    70% { transform: translateY(-6px) translateX(-3px) rotate(-11deg); }
+                    80% { transform: translateY(0px) translateX(2px) rotate(-6deg); }
+                    90% { transform: translateY(-2px) translateX(-1px) rotate(-7deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-8deg); }
+                  }
+                  @keyframes drop4 {
+                    0% { transform: translateY(-150px) translateX(-25px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(6deg); }
+                    70% { transform: translateY(-6px) translateX(2px) rotate(9deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(5deg); }
+                    90% { transform: translateY(-2px) translateX(0px) rotate(5deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(6deg); }
+                  }
+                  @keyframes drop5 {
+                    0% { transform: translateY(-160px) translateX(20px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
+                    70% { transform: translateY(-6px) translateX(-2px) rotate(-8deg); }
+                    80% { transform: translateY(0px) translateX(1px) rotate(-4deg); }
+                    90% { transform: translateY(-2px) translateX(0px) rotate(-4deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
+                  }
+                  @keyframes drop6 {
+                    0% { transform: translateY(-170px) translateX(-30px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(9deg); }
+                    70% { transform: translateY(-6px) translateX(3px) rotate(12deg); }
+                    80% { transform: translateY(0px) translateX(-2px) rotate(7deg); }
+                    90% { transform: translateY(-2px) translateX(1px) rotate(8deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(9deg); }
+                  }
+                  @keyframes drop7 {
+                    0% { transform: translateY(-180px) translateX(35px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
+                    70% { transform: translateY(-6px) translateX(-3px) rotate(-10deg); }
+                    80% { transform: translateY(0px) translateX(2px) rotate(-5deg); }
+                    90% { transform: translateY(-2px) translateX(-1px) rotate(-6deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
+                  }
+                  @keyframes drop8 {
+                    0% { transform: translateY(-190px) translateX(-15px) rotate(0deg); opacity: 0; }
+                    20% { opacity: 1; }
+                    60% { transform: translateY(0px) translateX(0px) rotate(5deg); }
+                    70% { transform: translateY(-6px) translateX(2px) rotate(8deg); }
+                    80% { transform: translateY(0px) translateX(-1px) rotate(4deg); }
+                    90% { transform: translateY(-2px) translateX(0px) rotate(4deg); }
+                    100% { transform: translateY(0px) translateX(0px) rotate(5deg); }
+                  }
+                `}</style>
                 <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
                 <div className="relative h-48 mt-auto">
-                  <style jsx>{`
-                    @keyframes drop1 {
-                      0% { transform: translateY(-100px) translateX(20px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
-                      70% { transform: translateY(-6px) translateX(-2px) rotate(-9deg); }
-                      80% { transform: translateY(0px) translateX(1px) rotate(-4deg); }
-                      90% { transform: translateY(-2px) translateX(0px) rotate(-5deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
-                    }
-                    @keyframes drop2 {
-                      0% { transform: translateY(-110px) translateX(-15px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(7deg); }
-                      70% { transform: translateY(-6px) translateX(3px) rotate(10deg); }
-                      80% { transform: translateY(0px) translateX(-1px) rotate(6deg); }
-                      90% { transform: translateY(-2px) translateX(1px) rotate(6deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(7deg); }
-                    }
-                    @keyframes drop3 {
-                      0% { transform: translateY(-120px) translateX(25px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(-8deg); }
-                      70% { transform: translateY(-6px) translateX(-3px) rotate(-11deg); }
-                      80% { transform: translateY(0px) translateX(2px) rotate(-6deg); }
-                      90% { transform: translateY(-2px) translateX(-1px) rotate(-7deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(-8deg); }
-                    }
-                    @keyframes drop4 {
-                      0% { transform: translateY(-130px) translateX(-20px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(6deg); }
-                      70% { transform: translateY(-6px) translateX(2px) rotate(9deg); }
-                      80% { transform: translateY(0px) translateX(-1px) rotate(5deg); }
-                      90% { transform: translateY(-2px) translateX(0px) rotate(5deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(6deg); }
-                    }
-                    @keyframes drop5 {
-                      0% { transform: translateY(-140px) translateX(15px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
-                      70% { transform: translateY(-6px) translateX(-2px) rotate(-8deg); }
-                      80% { transform: translateY(0px) translateX(1px) rotate(-4deg); }
-                      90% { transform: translateY(-2px) translateX(0px) rotate(-4deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(-5deg); }
-                    }
-                    @keyframes drop6 {
-                      0% { transform: translateY(-150px) translateX(-25px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(9deg); }
-                      70% { transform: translateY(-6px) translateX(3px) rotate(12deg); }
-                      80% { transform: translateY(0px) translateX(-2px) rotate(7deg); }
-                      90% { transform: translateY(-2px) translateX(1px) rotate(8deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(9deg); }
-                    }
-                    @keyframes drop7 {
-                      0% { transform: translateY(-160px) translateX(30px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
-                      70% { transform: translateY(-6px) translateX(-3px) rotate(-10deg); }
-                      80% { transform: translateY(0px) translateX(2px) rotate(-5deg); }
-                      90% { transform: translateY(-2px) translateX(-1px) rotate(-6deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(-7deg); }
-                    }
-                    @keyframes drop8 {
-                      0% { transform: translateY(-170px) translateX(-10px) rotate(0deg); }
-                      60% { transform: translateY(0px) translateX(0px) rotate(5deg); }
-                      70% { transform: translateY(-6px) translateX(2px) rotate(8deg); }
-                      80% { transform: translateY(0px) translateX(-1px) rotate(4deg); }
-                      90% { transform: translateY(-2px) translateX(0px) rotate(4deg); }
-                      100% { transform: translateY(0px) translateX(0px) rotate(5deg); }
-                    }
-                  `}</style>
-                  <div className="absolute bottom-0 left-0" style={{ animation: "drop1 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards" }}>
+                  <div className="absolute bottom-0 left-0" style={{ animation: "drop1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 38 57" className="w-7 h-7">
                         <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
@@ -166,7 +174,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-12" style={{ animation: "drop2 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards" }}>
+                  <div className="absolute bottom-0 left-12" style={{ animation: "drop2 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="12" cy="12" r="11" fill="#CC785C"/>
@@ -174,7 +182,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-24" style={{ animation: "drop3 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards" }}>
+                  <div className="absolute bottom-0 left-24" style={{ animation: "drop3 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="2" y="2" width="20" height="20" rx="4" fill="#000000"/>
@@ -182,7 +190,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-36" style={{ animation: "drop4 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards" }}>
+                  <div className="absolute bottom-0 left-36" style={{ animation: "drop4 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#7C3AED"/>
@@ -190,7 +198,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-36" style={{ animation: "drop5 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards" }}>
+                  <div className="absolute bottom-0 right-36" style={{ animation: "drop5 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="3" y="3" width="18" height="18" rx="3" fill="#FF6B6B"/>
@@ -198,7 +206,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-24" style={{ animation: "drop6 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards" }}>
+                  <div className="absolute bottom-0 right-24" style={{ animation: "drop6 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#FFB800"/>
@@ -206,7 +214,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-12" style={{ animation: "drop7 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards" }}>
+                  <div className="absolute bottom-0 right-12" style={{ animation: "drop7 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <rect x="2" y="3" width="20" height="18" rx="2" fill="#000000"/>
@@ -216,7 +224,7 @@ export default function About() {
                       </svg>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-0" style={{ animation: "drop8 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s forwards" }}>
+                  <div className="absolute bottom-0 right-0" style={{ animation: "drop8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s forwards" }}>
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 border-2 border-gray-300 rounded-xl flex items-center justify-center shadow-md">
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
                         <circle cx="12" cy="12" r="10" fill="#0052CC"/>
