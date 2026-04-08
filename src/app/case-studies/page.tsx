@@ -70,7 +70,7 @@ export default function CaseStudies() {
             Case Studies
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl leading-relaxed mb-12">
-            A collection of 0→1 product design projects across healthtech, analytics, and developer tools.
+            Every project starts with a question worth answering
           </p>
         </AnimatedSection>
         
