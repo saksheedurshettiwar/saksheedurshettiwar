@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -23,74 +23,19 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
   );
 }
 
-const tools = [
-  { name: "Figma", color: "#F24E1E", paths: [
-    { d: "M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z", fill: "#1ABCFE" },
-    { d: "M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z", fill: "#0ACF83" },
-    { d: "M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z", fill: "#FF7262" },
-    { d: "M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z", fill: "#F24E1E" },
-    { d: "M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z", fill: "#A259FF" }
-  ]},
-  { name: "Claude", color: "#D4A574", paths: [
-    { d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z", fill: "#D4A574" },
-    { d: "M17 12c0-1.1-.9-2-2-2h-2V8c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v2H7c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-4z", fill: "#D4A574" }
-  ]},
-  { name: "Cursor", color: "#000000", paths: [
-    { d: "M5 5h6v6H5V5zm8 0h6v6h-6V5zM5 13h6v6H5v-6zm8 8l4-8 2 4 3-6 4 10H5z", fill: "#000000" }
-  ]},
-  { name: "Framer", color: "#0055FF", paths: [
-    { d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 14l-4-8h3v4h2v-4h3l-4 8z", fill: "#0055FF" }
-  ]},
-  { name: "Jitter", color: "#FFD02F", paths: [
-    { d: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", fill: "none", stroke: "#FFD02F", strokeWidth: "2" }
-  ]},
-  { name: "Notion", color: "#000000", paths: [
-    { d: "M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.746-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z", fill: "#000000" }
-  ]},
-  { name: "Jira", color: "#2684FF", paths: [
-    { d: "M11.571 11.429L6 5.857 11.571.286 17.143 5.857 11.571 11.429zM6 17.143L11.571 22.714 17.143 17.143 11.571 11.571 6 17.143zM11.571 17.143L17.143 22.714 22.714 17.143 17.143 11.571 11.571 17.143zM6 11.571L11.571 17.143 17.143 11.571 11.571 6 6 11.571z", fill: "#2684FF" }
-  ]},
-  { name: "OpenCode", color: "#7C3AED", paths: [
-    { d: "M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z", fill: "#7C3AED" }
-  ]},
-];
+const tools = ["Figma", "Claude", "Cursor", "Framer", "Jitter", "Notion", "Jira", "OpenCode"];
 
-function ToolCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % tools.length);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, []);
-
-  const tool = tools[currentIndex];
-
+function ToolsChips() {
   return (
-    <div className="relative h-48 mt-4">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0, y: -30, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 30, scale: 0.8 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+    <div className="flex flex-wrap gap-2 mt-4">
+      {tools.map((tool) => (
+        <span
+          key={tool}
+          className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
         >
-          <div className="w-32 h-20 backdrop-blur-xl bg-white/30 border border-white/50 rounded-2xl flex items-center justify-center shadow-xl" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.8)" }}>
-            <span className="text-xl font-bold text-gray-900">{tool.name}</span>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
-        {tools.map((_, i) => (
-          <div
-            key={i}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-gray-900 w-4' : 'bg-gray-300'}`}
-          />
-        ))}
-      </div>
+          {tool}
+        </span>
+      ))}
     </div>
   );
 }
@@ -159,8 +104,8 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.02, boxShadow: "0 25px 50px rgba(0,0,0,0.1)" }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-lg font-bold text-gray-900 relative z-10">Tools I can use</p>
-                <ToolCarousel />
+                <p className="text-lg font-bold text-gray-900">Tools I can use</p>
+                <ToolsChips />
               </motion.div>
 
               {/* Card 2 - Experience */}
