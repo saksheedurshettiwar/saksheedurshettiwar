@@ -104,7 +104,7 @@ export default function CaseStudies() {
                       }}
                     >
                       {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[260px] h-40 overflow-hidden rounded-lg border border-gray-200 bg-white">
+                        <div key={idx} className="flex-shrink-0 w-[260px] h-40 overflow-hidden">
                           <Image 
                             src={`/case-studies/accessiq/0${i}.png`} 
                             alt={`AccessIQ Dashboard ${i}`}
