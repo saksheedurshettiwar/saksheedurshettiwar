@@ -148,17 +148,16 @@ export default function HivelCaseStudy() {
         <AnimatedSection delay={0.9}>
           <div className="flex justify-between items-center pt-8 border-t border-gray-200">
             <Link 
+              href="/case-studies/finco"
+              className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              ← Previous
+            </Link>
+            <Link 
               href="/case-studies"
               className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
             >
-              ← All Case Studies
-            </Link>
-            <Link 
-              href="/case-studies/hivel-score"
-              className="text-sm text-gray-900 hover:text-gray-600 font-medium transition-colors flex items-center gap-2"
-            >
-              Next Project: Hivel Score
-              <span>→</span>
+              All Case Studies →
             </Link>
           </div>
         </AnimatedSection>

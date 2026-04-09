@@ -54,3 +54,39 @@ a:hover {
 .animate-scroll {
   animation: scroll 15s linear infinite;
 }
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide {
+  animation: slideInFromRight 12s linear infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-scale {
+  animation: fadeInOut 4s ease-in-out infinite;
+}
