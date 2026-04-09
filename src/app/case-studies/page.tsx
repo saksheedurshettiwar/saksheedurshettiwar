@@ -21,20 +21,6 @@ const projects = [
       "AI Rate Forecasting for Smarter Transfer Timing. Transparent Recommendations & Smart Routing for Better Value.",
     metric: "Coming soon",
   },
-  {
-    tag: "Dev Tools · 0→1 · B2B SaaS",
-    title: "Hivel — Integrations & Team Setup",
-    description:
-      "Turned support-heavy, engineering-dependent surfaces into fully self-serve. 200+ member org setup went from 1–2 days to minutes.",
-    metric: "↓ 40–50% integration tickets",
-  },
-  {
-    tag: "HealthTech · 0→1 · 6 Portals",
-    title: "Dentread — Practice Management System",
-    description:
-      "Sole designer. Six user types. No playbook. PMS used by 10,000+ doctors; native imaging viewer replaced all third-party tools across 500+ dental organisations.",
-    metric: "10,000+ doctors · 1M+ images",
-  },
 ];
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -77,7 +63,7 @@ export default function CaseStudies() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
-            const hrefs = ["/case-studies/accessiq", "/case-studies/finco", "/case-studies/hivel", "#"];
+            const hrefs = ["/case-studies/accessiq", "/case-studies/finco"];
             const href = hrefs[index];
             return (
               <AnimatedSection key={project.title} delay={index * 0.1}>
