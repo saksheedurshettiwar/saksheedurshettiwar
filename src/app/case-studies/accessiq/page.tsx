@@ -56,39 +56,53 @@ export default function AccessIQCaseStudy() {
           </p>
         </AnimatedSection>
         
+        <AnimatedSection delay={0.35}>
+          <div className="w-full mb-16">
+            <Image 
+              src="/case-studies/accessiq/dashboard.png" 
+              alt="AccessIQ Dashboard" 
+              width={1920} 
+              height={1080}
+              className="w-full h-auto rounded-xl"
+            />
+          </div>
+        </AnimatedSection>
+        
         <AnimatedSection delay={0.4}>
-          <div className="flex flex-wrap gap-8 mb-16 pb-8 border-b border-gray-200">
+          <div className="grid grid-cols-3 gap-8 mb-16">
             <div>
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Role</p>
               <p className="text-base text-gray-700">Product Designer</p>
             </div>
-            <div>
+            <div className="text-center">
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Timeline</p>
               <p className="text-base text-gray-700">4 Months</p>
             </div>
-            <div>
+            <div className="text-right">
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Impact</p>
               <p className="text-base text-gray-700">67% risk reduction</p>
             </div>
           </div>
         </AnimatedSection>
         
-        <AnimatedSection delay={0.5}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="bg-gray-50 rounded-xl p-6 text-center">
-              <p className="text-4xl font-bold text-gray-900 mb-2">67%</p>
-              <p className="text-sm text-gray-500">reduction in stale access to cardholder data</p>
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">What success looks like</h2>
+          <div className="bg-gray-900 -mx-4 md:-mx-8 lg:-mx-16 px-4 md:px-8 py-12 rounded-xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center text-white max-w-4xl mx-auto">
+            <div>
+              <p className="text-4xl md:text-5xl font-bold mb-2">67%</p>
+              <p className="text-sm text-gray-400">reduction in stale access to cardholder data</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 text-center">
-              <p className="text-4xl font-bold text-gray-900 mb-2">4X</p>
-              <p className="text-sm text-gray-500">faster onboarding — from 5-day chaos to same-day</p>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold mb-2">4X</p>
+              <p className="text-sm text-gray-400">faster onboarding — from 5-day chaos to same-day</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 text-center">
-              <p className="text-4xl font-bold text-gray-900 mb-2">100%</p>
-              <p className="text-sm text-gray-500">audit evidence coverage with zero manual exports</p>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold mb-2">100%</p>
+              <p className="text-sm text-gray-400">audit evidence coverage with zero manual exports</p>
             </div>
           </div>
-        </AnimatedSection>
+        </div>
         
         <AnimatedSection delay={0.6}>
           <div className="mb-16">
@@ -99,51 +113,72 @@ export default function AccessIQCaseStudy() {
             <p className="text-base text-gray-500 leading-relaxed font-medium mb-6">
               Existing tools were built by security engineers, for security engineers. Non-technical managers were handed this interface and asked to make a risk-based decision.
             </p>
-            <div className="bg-gray-100 rounded-xl p-6 text-center">
-              <p className="text-lg text-gray-600 italic">
-                "What is schema_admin? Is that bad? I'll just approve it so James isn't blocked."
-              </p>
-            </div>
+            <p className="text-lg text-gray-700 italic font-medium border-l-4 border-gray-900 pl-4 py-2">
+              "What is schema_admin? Is that bad? I'll just approve it so James isn't blocked."
+            </p>
           </div>
         </AnimatedSection>
         
         <AnimatedSection delay={0.7}>
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">What Existing Tools Show vs What AccessIQ Shows</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-red-50 border border-red-100 rounded-xl p-6">
-                <p className="text-sm font-semibold text-red-700 mb-4">What Existing Tools Show</p>
-                <ul className="space-y-3 text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>"scope:write:export" — no plain-English explanation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>No risk context, no suggestion, no compliance note</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>"PERMANENT" is the default — nobody defaults to time-limited</span>
-                  </li>
-                </ul>
+            <div className="flex gap-8">
+              <div className="flex-1 space-y-4">
+                <p className="text-sm font-semibold text-gray-700">What existing tools show a manager</p>
+                <Image 
+                  src="/case-studies/accessiq/red.png" 
+                  alt="What Existing Tools Show" 
+                  width={600} 
+                  height={400}
+                  className="w-full rounded-xl border border-gray-200"
+                />
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="text-red-500 mt-0.5">✗</span>
+                    <span className="text-sm text-gray-600">"What is schema_admin? Is that bad? I'll just approve it so James isn't blocked."</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-red-500 mt-0.5">✗</span>
+                    <span className="text-sm text-gray-600">No plain-English explanation of what this actually does</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-red-500 mt-0.5">✗</span>
+                    <span className="text-sm text-gray-600">No risk context. No suggestion. No compliance note.</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-red-500 mt-0.5">✗</span>
+                    <span className="text-sm text-gray-600">"PERMANENT" is the default — nobody defaults to time-limited</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-green-50 border border-green-100 rounded-xl p-6">
-                <p className="text-sm font-semibold text-green-700 mb-4">What AccessIQ Shows Instead</p>
-                <ul className="space-y-3 text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Plain English — "Full Dashboard + Data Export"</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span>AI suggestion with a clear reason in business language</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Time-limited by default — 14 days, not permanent</span>
-                  </li>
-                </ul>
+              <div className="w-px bg-gray-300"></div>
+              <div className="flex-1 space-y-4">
+                <p className="text-sm font-semibold text-gray-700">What AccessIQ shows instead</p>
+                <Image 
+                  src="/case-studies/accessiq/green.png" 
+                  alt="What AccessIQ Shows Instead" 
+                  width={600} 
+                  height={400}
+                  className="w-full rounded-xl border border-gray-200"
+                />
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 mt-0.5">✓</span>
+                    <span className="text-sm text-gray-600">Plain English — "Full Dashboard + Data Export" not scope:read:write:export</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 mt-0.5">✓</span>
+                    <span className="text-sm text-gray-600">Risk explained in one sentence, in business language</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 mt-0.5">✓</span>
+                    <span className="text-sm text-gray-600">AI suggestion with a clear reason — manager can agree in one click</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-green-600 mt-0.5">✓</span>
+                    <span className="text-sm text-gray-600">Time-limited by default — 14 days, not permanent</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -152,8 +187,8 @@ export default function AccessIQCaseStudy() {
         <AnimatedSection delay={0.8}>
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">The Core Problems</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-8">
-              Moments where everything goes wrong. Not edge cases. These happen daily at every global fintech.
+            <p className="text-lg text-gray-700 leading-relaxed font-medium mb-8">
+              Moments where everything goes wrong. Not edge cases. These happen daily at every global fintech, each one a UX failure, a process failure, and a compliance failure rolled into one.
             </p>
             
             <div className="space-y-6">
@@ -165,8 +200,8 @@ export default function AccessIQCaseStudy() {
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   When someone joins a company, their manager needs to set up their access. There's no standard. The role definition lives in a document nobody reads. So managers copy permissions from a random colleague, or approve whatever list lands in their inbox.
                 </p>
-                <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
-                  <span className="font-medium text-gray-900">The consequence:</span> A junior Cards Analyst gets full export access to cardholder data because their peer happened to have it.
+                <p className="text-sm text-gray-700 font-medium">
+                  The consequence: A junior Cards Analyst gets full export access to cardholder data because their peer happened to have it.
                 </p>
               </div>
               
@@ -178,8 +213,8 @@ export default function AccessIQCaseStudy() {
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   Someone moves from the risk team to marketing. Their old access stays. Their new access gets added. Six months later they have permissions from two completely different jobs, and nobody flagged it.
                 </p>
-                <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
-                  <span className="font-medium text-gray-900">The consequence:</span> A former fraud analyst retains write access to the payments database six months after moving to marketing.
+                <p className="text-sm text-gray-700 font-medium">
+                  The consequence: A former fraud analyst retains write access to the payments database six months after moving to marketing.
                 </p>
               </div>
               
@@ -191,8 +226,8 @@ export default function AccessIQCaseStudy() {
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   Regulations require companies to confirm who has access to sensitive data every 90 days. In practice, this means a security team exports data from six different tools into a spreadsheet and emails it to 40 managers.
                 </p>
-                <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
-                  <span className="font-medium text-gray-900">The consequence:</span> Managers tick every box in three minutes. The evidence looks complete. The auditor finds the gaps anyway.
+                <p className="text-sm text-gray-700 font-medium">
+                  The consequence: Managers tick every box in three minutes. The evidence looks complete. The auditor finds the gaps anyway.
                 </p>
               </div>
             </div>
@@ -205,7 +240,7 @@ export default function AccessIQCaseStudy() {
             <p className="text-base text-gray-500 leading-relaxed mb-6">
               I looked at 12 platforms in this space — the big enterprise names and newer challengers. Every single one showed managers raw technical data and asked them to make a judgment call.
             </p>
-            <p className="text-base text-gray-500 leading-relaxed font-medium">
+            <p className="text-base text-gray-900 leading-relaxed font-semibold">
               None of them explained what the data meant. None suggested what the manager should do. None were designed for someone without a security background.
             </p>
           </div>
@@ -231,7 +266,7 @@ export default function AccessIQCaseStudy() {
                 <p className="text-sm text-gray-500">No templates for regulated roles like "EU Cards Analyst." Built from scratch, every time.</p>
               </div>
             </div>
-            <p className="text-base text-gray-500 leading-relaxed mt-6 font-medium">
+            <p className="text-base text-gray-900 leading-relaxed font-semibold mt-6">
               The gap wasn't in the technology. It was in who the technology was talking to.
             </p>
           </div>
@@ -240,7 +275,7 @@ export default function AccessIQCaseStudy() {
         <AnimatedSection delay={1.1}>
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">The People</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-8">
+            <p className="text-lg text-gray-900 leading-relaxed font-semibold mb-8">
               This isn't a technology problem. It's a people problem.
             </p>
             
@@ -297,7 +332,7 @@ export default function AccessIQCaseStudy() {
               </div>
             </div>
             
-            <p className="text-base text-gray-500 leading-relaxed mt-6">
+            <p className="text-base text-gray-900 leading-relaxed font-medium mt-6">
               The problem isn't that managers are careless. It's that the tools they're given speak a language they were never taught.
             </p>
           </div>
@@ -305,8 +340,8 @@ export default function AccessIQCaseStudy() {
         
         <AnimatedSection delay={1.2}>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">The Design Principle</h2>
-            <p className="text-2xl md:text-3xl text-gray-700 font-medium leading-relaxed">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">The Design Principle</h2>
+            <p className="text-2xl md:text-3xl text-gray-900 font-semibold leading-relaxed">
               Can a non-technical manager make a confident decision in under 60 seconds?
             </p>
           </div>
@@ -314,14 +349,14 @@ export default function AccessIQCaseStudy() {
         
         <AnimatedSection delay={1.3}>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Screens & Design Decisions</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">Key Screens & Design Decisions</h2>
             
-            <div className="space-y-12">
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 p-8 flex items-center justify-center min-h-[300px]">
-                  <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+            <div className="space-y-16">
+              <div>
+                <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <p className="text-xs text-gray-400 mb-4">Manager Dashboard — Joiner, Mover, Leaver</p>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
                       <div className="bg-green-50 rounded-lg p-3 text-center">
                         <p className="text-2xl font-bold text-green-600">3</p>
                         <p className="text-xs text-gray-500">New Hires</p>
@@ -337,23 +372,23 @@ export default function AccessIQCaseStudy() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Manager Dashboard</h3>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 mb-3">
                     <span className="font-medium text-gray-700">The Problem:</span> Managers found out about access problems only when security escalated or an auditor raised a finding. There was no proactive surface.
                   </p>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500">
                     <span className="font-medium text-gray-700">The Design Decision:</span> Most tools answer "how bad is it?" This one answers "what do I do right now?"
                   </p>
-                  <p className="text-xs text-gray-400 mt-3 bg-gray-50 p-2 rounded">
-                    💡 91% of managers had no visibility into their team's access health.
+                  <p className="text-sm text-gray-700 mt-4 border-l-2 border-gray-900 pl-3 py-1">
+                    <span className="font-semibold text-gray-900">Research insight:</span> 91% of managers had no visibility into their team's access health. The five KPIs map directly to what they were checking manually every morning — across emails, Slack, and spreadsheet tabs.
                   </p>
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 p-8 flex items-center justify-center min-h-[300px]">
-                  <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+              <div>
+                <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <p className="text-xs text-gray-400 mb-4">Conflict Detection Alert</p>
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
                       <p className="text-sm font-semibold text-red-700 mb-2">⚠️ Conflict Detected</p>
@@ -370,23 +405,23 @@ export default function AccessIQCaseStudy() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Conflict Detection <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-2">AI Powered</span></h3>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 mb-3">
                     <span className="font-medium text-gray-700">The Problem:</span> A conflict gets detected. The tool shows a red badge. The manager has no idea what it means so they approve it anyway.
                   </p>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500">
                     <span className="font-medium text-gray-700">The Design Decision:</span> The consequence comes before the buttons. Always.
                   </p>
-                  <p className="text-xs text-gray-400 mt-3 bg-gray-50 p-2 rounded">
-                    💡 Managers approved conflicts in other tools because the warning was just a colour. Explain what could actually go wrong and they stop and think.
+                  <p className="text-sm text-gray-700 mt-4 border-l-2 border-gray-900 pl-3 py-1">
+                    <span className="font-semibold text-gray-900">Research insight:</span> Managers approved conflicts in other tools because the warning was just a colour. Explain what could actually go wrong and they stop and think.
                   </p>
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 p-8 flex items-center justify-center min-h-[300px]">
-                  <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+              <div>
+                <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <p className="text-xs text-gray-400 mb-4">AI Recommendation in Plain English</p>
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
                       <p className="text-sm text-gray-700 mb-2">
@@ -401,9 +436,9 @@ export default function AccessIQCaseStudy() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">AI Recommendation <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-2">AI Powered</span></h3>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 mb-3">
                     <span className="font-medium text-gray-700">The Problem:</span> The manager receives a permission string and two buttons. No context, no suggested action, no risk signal. 91% approve everything to avoid blocking their team.
                   </p>
                   <p className="text-sm text-gray-500">
@@ -412,9 +447,9 @@ export default function AccessIQCaseStudy() {
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <div className="bg-gradient-to-br from-gray-100 to-gray-50 p-8 flex items-center justify-center min-h-[300px]">
-                  <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+              <div>
+                <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <p className="text-xs text-gray-400 mb-4">Request Queue — Triage View</p>
                     <div className="grid grid-cols-4 gap-2 mb-4">
                       <div className="bg-yellow-50 rounded-lg p-3 text-center">
@@ -437,9 +472,9 @@ export default function AccessIQCaseStudy() {
                     <p className="text-xs text-gray-500 text-center">The shape of today's work in four numbers.</p>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Triage the Queue</h3>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 mb-3">
                     <span className="font-medium text-gray-700">The Problem:</span> 80–120 requests a month. A flat list. Everything looks equally urgent, so nothing gets real attention.
                   </p>
                   <p className="text-sm text-gray-500">
@@ -454,14 +489,12 @@ export default function AccessIQCaseStudy() {
         <AnimatedSection delay={1.4}>
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Insight</h2>
-            <div className="bg-gray-900 text-white rounded-xl p-8">
-              <p className="text-lg leading-relaxed mb-4">
-                Adding the confidence score and plain-English reasoning was the single change that lifted AI suggestion adoption from 22% to 61% in testing.
-              </p>
-              <p className="text-gray-400 text-sm">
-                When managers understood why the AI suggested something, they trusted it more and acted on it.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl text-gray-900 leading-relaxed mb-4 font-semibold">
+              Adding the confidence score and plain-English reasoning was the single change that lifted AI suggestion adoption from 22% to 61% in testing.
+            </p>
+            <p className="text-base text-gray-600">
+              When managers understood why the AI suggested something, they trusted it more and acted on it.
+            </p>
           </div>
         </AnimatedSection>
         
