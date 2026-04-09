@@ -87,7 +87,7 @@ export default function CaseStudies() {
                     whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     transition={{ duration: 0.3 }}
                   >
-                <div className="h-36 md:h-44 bg-gray-800 flex items-center flex-shrink-0 overflow-hidden p-3">
+                <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden p-3">
                   {index === 0 && (
                     <div className="w-full p-3 h-full flex items-center overflow-hidden">
                       <motion.div 
@@ -119,8 +119,22 @@ export default function CaseStudies() {
                     </div>
                   )}
                   {index !== 0 && (
-                    <div className="w-64 h-32 bg-gray-700 border border-gray-600 rounded-lg shadow-sm overflow-hidden flex items-center justify-center">
-                      <span className="text-gray-400 text-sm font-medium">{project.tag.split('·')[0]}</span>
+                    <div className="w-64 h-40 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                      <div className="h-7 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                      </div>
+                      <div className="p-3">
+                        <div className="h-2 w-32 bg-gray-200 rounded mb-2"></div>
+                        <div className="h-2 w-20 bg-gray-100 rounded mb-3"></div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="h-8 bg-gray-100 rounded"></div>
+                          <div className="h-8 bg-gray-100 rounded"></div>
+                          <div className="h-8 bg-purple-100 rounded"></div>
+                          <div className="h-8 bg-gray-100 rounded"></div>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
