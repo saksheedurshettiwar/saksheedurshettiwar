@@ -544,24 +544,22 @@ export default function AccessIQCaseStudy() {
                     </div>
                     
                     {/* Mock Image(s) - Full Width */}
-                    <div className="mb-6 space-y-6">
-                      {(screen.images || (screen.image ? [screen.image] : [])).map((img, imgIdx) => (
+                    {'image' in screen && screen.image && (
+                      <div className="mb-6 overflow-hidden rounded-xl border border-gray-200">
                         <motion.div
-                          key={imgIdx}
                           whileHover={{ scale: 1.01 }}
                           transition={{ duration: 0.3 }}
-                          className="overflow-hidden rounded-xl border border-gray-200"
                         >
                           <Image 
-                            src={img} 
-                            alt={`${screen.title} ${imgIdx + 1}`} 
+                            src={screen.image} 
+                            alt={screen.title} 
                             width={1200} 
                             height={675} 
                             className="w-full h-auto" 
                           />
                         </motion.div>
-                      ))}
-                    </div>
+                      </div>
+                    )}
                     
                     {/* Research Insight */}
                     <div className="border-l-4 border-gray-900 pl-5 py-3">
