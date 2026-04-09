@@ -87,7 +87,7 @@ export default function CaseStudies() {
                     whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     transition={{ duration: 0.3 }}
                   >
-                <div className="h-56 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <div className="h-56 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden">
                   {index === 0 && (
                     <motion.div 
                       className="flex gap-3"
