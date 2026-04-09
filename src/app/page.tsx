@@ -19,20 +19,6 @@ const projects = [
       "AI Rate Forecasting for Smarter Transfer Timing. Transparent Recommendations & Smart Routing for Better Value.",
     metric: "Coming soon",
   },
-  {
-    tag: "Dev Tools · 0→1 · B2B SaaS",
-    title: "Hivel — Integrations & Team Setup",
-    description:
-      "Turned support-heavy, engineering-dependent surfaces into fully self-serve. 200+ member org setup went from 1–2 days to minutes.",
-    metric: "↓ 40–50% integration tickets",
-  },
-  {
-    tag: "HealthTech · 0→1 · 6 Portals",
-    title: "Dentread — Practice Management System",
-    description:
-      "Sole designer. Six user types. No playbook. PMS used by 10,000+ doctors; native imaging viewer replaced all third-party tools across 500+ dental organisations.",
-    metric: "10,000+ doctors · 1M+ images",
-  },
 ];
 
 const skills = [
@@ -234,42 +220,82 @@ export default function Home() {
           </div>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 auto-rows-fr">
-          {projects.slice(0, 2).map((project, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => {
             const hrefs = ["/case-studies/accessiq", "/case-studies/finco"];
             const href = hrefs[index];
             return (
               <AnimatedSection key={project.title} delay={index * 0.1}>
                 <Link href={href}>
                   <motion.div
-                    className="bg-white border border-gray-200 rounded-xl p-0 hover:bg-gray-50 transition-colors cursor-pointer overflow-hidden flex flex-col h-full"
+                    className="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer flex flex-col h-full"
                     whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     transition={{ duration: 0.3 }}
                   >
-                <ParallaxFloat speed={0.05 * (index % 2 === 0 ? 1 : -1)} className="h-40 md:h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center flex-shrink-0">
-                  <motion.div 
-                    className="w-64 h-40 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="h-7 bg-gray-50 border-b border-gray-100 flex items-center px-3 gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-400"></span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden p-3">
+                  {index === 0 && (
+                    <div className="w-full p-3 h-full flex items-center overflow-hidden">
+                      <motion.div 
+                        className="flex gap-3"
+                        animate={{
+                          x: [0, -1000],
+                        }}
+                        transition={{
+                          x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 12,
+                            ease: "linear",
+                          },
+                        }}
+                      >
+                        {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
+                          <div key={idx} className="flex-shrink-0 w-[160px] md:w-[240px] h-[90px] md:h-[110px]">
+                            <img 
+                              src={`/case-studies/accessiq/0${i}.png`}
+                              alt={`AccessIQ Dashboard ${i}`}
+                              className="w-full h-full object-cover object-top rounded-lg"
+                            />
+                          </div>
+                        ))}
+                      </motion.div>
                     </div>
-                    <div className="p-3">
-                      <div className="h-2 w-32 bg-gray-200 rounded mb-2"></div>
-                      <div className="h-2 w-20 bg-gray-100 rounded mb-3"></div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="h-8 bg-gray-100 rounded"></div>
-                        <div className="h-8 bg-gray-100 rounded"></div>
-                        <div className="h-8 bg-purple-100 rounded"></div>
-                        <div className="h-8 bg-gray-100 rounded"></div>
+                  )}
+                  {index !== 0 && (
+                    <div className="w-full p-3 h-full flex items-center overflow-hidden">
+                      <div className="w-full bg-gradient-to-br from-indigo-600 to-purple-700 rounded-lg p-4 shadow-lg">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">$</span>
+                            </div>
+                            <span className="text-white/80 text-xs">FinCo</span>
+                          </div>
+                          <div className="flex gap-1">
+                            <div className="w-6 h-6 bg-green-400/80 rounded"></div>
+                            <div className="w-6 h-6 bg-blue-400/80 rounded"></div>
+                            <div className="w-6 h-6 bg-yellow-400/80 rounded"></div>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 rounded p-2 mb-2">
+                          <div className="h-1.5 w-20 bg-white/30 rounded mb-1.5"></div>
+                          <div className="h-1 w-14 bg-green-400/60 rounded"></div>
+                        </div>
+                        <div className="flex gap-2">
+                          <div className="flex-1 bg-white/10 rounded p-2">
+                            <div className="h-3 w-6 bg-white/40 rounded mb-1"></div>
+                            <div className="h-1.5 w-4 bg-green-400/80 rounded"></div>
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded p-2">
+                            <div className="h-3 w-6 bg-white/40 rounded mb-1"></div>
+                            <div className="h-1.5 w-4 bg-blue-400/80 rounded"></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </motion.div>
-                </ParallaxFloat>
-                <div className="p-6">
+                  )}
+                </div>
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
                       {project.tag}
@@ -284,7 +310,7 @@ export default function Home() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed mb-4">
+                  <p className="text-xs text-gray-500 leading-relaxed mb-4 flex-1">
                     {project.description}
                   </p>
                   <p className="text-xs font-medium text-gray-900 flex items-center gap-1.5">
