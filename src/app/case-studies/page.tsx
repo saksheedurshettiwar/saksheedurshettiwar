@@ -75,7 +75,7 @@ export default function CaseStudies() {
           </p>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
             const hrefs = ["/case-studies/accessiq", "/case-studies/finco", "/case-studies/hivel", "#"];
             const href = hrefs[index];
