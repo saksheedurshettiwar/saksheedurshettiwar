@@ -57,50 +57,34 @@ export default function AccessIQCaseStudy() {
         </AnimatedSection>
         
         <AnimatedSection delay={0.35}>
-          <div className="w-full mb-16">
-            <Image 
-              src="/case-studies/accessiq/dashboard.png" 
-              alt="AccessIQ Dashboard" 
-              width={1920} 
-              height={1080}
-              className="w-full h-auto rounded-xl"
-            />
-          </div>
-        </AnimatedSection>
-        
-        <AnimatedSection delay={0.4}>
-          <div className="grid grid-cols-3 gap-8 mb-16">
-            <div>
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Role</p>
-              <p className="text-base text-gray-700">Product Designer</p>
-            </div>
-            <div className="text-center">
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Timeline</p>
-              <p className="text-base text-gray-700">4 Months</p>
-            </div>
-            <div className="text-right">
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Impact</p>
-              <p className="text-base text-gray-700">67% risk reduction</p>
+          <div className="relative w-[100vw] left-1/2 right-1/2 -translate-x-1/2 mb-16 overflow-hidden">
+            <div className="flex gap-8 animate-scroll whitespace-nowrap">
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
+              <Image src="/case-studies/accessiq/dashboard.png" alt="AccessIQ Dashboard" width={800} height={450} className="h-auto rounded-xl flex-shrink-0 w-auto" />
             </div>
           </div>
         </AnimatedSection>
         
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">What success looks like</h2>
           <div className="bg-gray-900 -mx-4 md:-mx-8 lg:-mx-16 px-4 md:px-8 py-12 rounded-xl">
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">What success looks like</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center text-white max-w-4xl mx-auto">
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">67%</p>
-              <p className="text-sm text-gray-400">reduction in stale access to cardholder data</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">4X</p>
-              <p className="text-sm text-gray-400">faster onboarding — from 5-day chaos to same-day</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">100%</p>
-              <p className="text-sm text-gray-400">audit evidence coverage with zero manual exports</p>
-            </div>
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">67%</p>
+                <p className="text-sm text-gray-400">reduction in stale access to cardholder data</p>
+              </div>
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">4X</p>
+                <p className="text-sm text-gray-400">faster onboarding — from 5-day chaos to same-day</p>
+              </div>
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">100%</p>
+                <p className="text-sm text-gray-400">audit evidence coverage with zero manual exports</p>
+              </div>
             </div>
           </div>
         </div>
@@ -275,59 +259,53 @@ export default function AccessIQCaseStudy() {
         
         <AnimatedSection delay={1.1}>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">The People</h2>
-            <p className="text-lg text-gray-900 leading-relaxed font-semibold mb-8">
-              This isn't a technology problem. It's a people problem.
-            </p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">The People</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-purple-600 font-bold">M</span>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-3">Manager</h3>
-                <div className="space-y-3 text-sm">
+            <div className="bg-gray-900 rounded-xl p-8 mb-8">
+              <p className="text-lg text-white leading-relaxed font-medium">
+                This isn't a technology problem. It's a people problem.
+              </p>
+            </div>
+            
+            <div className="flex flex-col md:flex-row">
+              <div className="flex-1 p-6 border-r border-gray-200">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Manager</p>
+                <div className="space-y-6">
                   <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What they know well</p>
-                    <p className="text-gray-600">Their team, their goals, who needs what to do their job.</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What they know well</p>
+                    <p className="text-sm text-gray-700">Their team, their goals, who needs what to do their job.</p>
                   </div>
                   <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What they don't know</p>
-                    <p className="text-gray-600">"scope:write:export" — what any permission string means.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-green-600 font-bold">E</span>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-3">Employee</h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What they need</p>
-                    <p className="text-gray-600">Quick access to tools so they can start work without waiting days.</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What happens instead</p>
-                    <p className="text-gray-600">They request everything upfront to avoid going back and asking again.</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What they don't know</p>
+                    <p className="text-sm text-gray-700">"scope:write:export" — what any permission string means.</p>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-blue-600 font-bold">S</span>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-3">Security Team</h3>
-                <div className="space-y-3 text-sm">
+              <div className="flex-1 p-6 border-r border-gray-200">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Employee</p>
+                <div className="space-y-6">
                   <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What they're responsible for</p>
-                    <p className="text-gray-600">Proving to auditors that only the right people can access sensitive data.</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What they need</p>
+                    <p className="text-sm text-gray-700">Quick access to tools so they can start work without waiting days.</p>
                   </div>
                   <div>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">What they're stuck with</p>
-                    <p className="text-gray-600">Managers who approve everything and spreadsheets they stitch together manually.</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What happens instead</p>
+                    <p className="text-sm text-gray-700">They request everything upfront to avoid going back and asking again.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex-1 p-6">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Security Team</p>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What they're responsible for</p>
+                    <p className="text-sm text-gray-700">Proving to auditors that only the right people can access sensitive data.</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">What they're stuck with</p>
+                    <p className="text-sm text-gray-700">Managers who approve everything and spreadsheets they stitch together manually.</p>
                   </div>
                 </div>
               </div>
@@ -355,23 +333,7 @@ export default function AccessIQCaseStudy() {
             <div className="space-y-16">
               <div>
                 <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
-                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
-                    <p className="text-xs text-gray-400 mb-4">Manager Dashboard — Joiner, Mover, Leaver</p>
-                    <div className="grid grid-cols-3 gap-3 md:gap-4">
-                      <div className="bg-green-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-green-600">3</p>
-                        <p className="text-xs text-gray-500">New Hires</p>
-                      </div>
-                      <div className="bg-yellow-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-yellow-600">2</p>
-                        <p className="text-xs text-gray-500">Role Changes</p>
-                      </div>
-                      <div className="bg-red-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-red-600">1</p>
-                        <p className="text-xs text-gray-500">Pending Offboard</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Image src="/case-studies/accessiq/dashboard.png" alt="Manager Dashboard" width={800} height={450} className="w-full rounded-xl" />
                 </div>
                 <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Manager Dashboard</h3>
@@ -389,22 +351,7 @@ export default function AccessIQCaseStudy() {
               
               <div>
                 <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
-                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
-                    <p className="text-xs text-gray-400 mb-4">Conflict Detection Alert</p>
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                      <p className="text-sm font-semibold text-red-700 mb-2">⚠️ Conflict Detected</p>
-                      <p className="text-sm text-gray-600 mb-2">
-                        James requesting "Full Admin Access" conflicts with his current "Cards Team" role.
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        If approved, James would have access to 6 systems he doesn't need.
-                      </p>
-                    </div>
-                    <div className="flex gap-2">
-                      <button className="flex-1 bg-green-600 text-white text-sm py-2 rounded-lg">Approve with Conditions</button>
-                      <button className="flex-1 bg-gray-100 text-gray-600 text-sm py-2 rounded-lg">Deny</button>
-                    </div>
-                  </div>
+                  <Image src="/case-studies/accessiq/dashboard.png" alt="Conflict Detection" width={800} height={450} className="w-full rounded-xl" />
                 </div>
                 <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Conflict Detection <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-2">AI Powered</span></h3>
@@ -422,20 +369,7 @@ export default function AccessIQCaseStudy() {
               
               <div>
                 <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
-                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
-                    <p className="text-xs text-gray-400 mb-4">AI Recommendation in Plain English</p>
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-gray-700 mb-2">
-                        <span className="font-semibold text-green-700">✓ Approve:</span> James has a valid business need for this access.
-                      </p>
-                      <p className="text-xs text-gray-500">Full dashboard + data export access for the EU Cards team.</p>
-                    </div>
-                    <div className="flex gap-2">
-                      <button className="flex-1 bg-green-600 text-white text-sm py-2 rounded-lg">Approve</button>
-                      <button className="flex-1 bg-gray-100 text-gray-600 text-sm py-2 rounded-lg">Modify</button>
-                      <button className="flex-1 bg-gray-100 text-gray-600 text-sm py-2 rounded-lg">Deny</button>
-                    </div>
-                  </div>
+                  <Image src="/case-studies/accessiq/dashboard.png" alt="AI Recommendation" width={800} height={450} className="w-full rounded-xl" />
                 </div>
                 <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">AI Recommendation <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-2">AI Powered</span></h3>
@@ -450,28 +384,7 @@ export default function AccessIQCaseStudy() {
               
               <div>
                 <div className="bg-gray-100 rounded-xl p-4 md:p-8 mb-4">
-                  <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
-                    <p className="text-xs text-gray-400 mb-4">Request Queue — Triage View</p>
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      <div className="bg-yellow-50 rounded-lg p-3 text-center">
-                        <p className="text-xl font-bold text-yellow-600">3</p>
-                        <p className="text-xs text-gray-500">Need Judgment</p>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-3 text-center">
-                        <p className="text-xl font-bold text-green-600">8</p>
-                        <p className="text-xs text-gray-500">AI Handles</p>
-                      </div>
-                      <div className="bg-red-50 rounded-lg p-3 text-center">
-                        <p className="text-xl font-bold text-red-600">1</p>
-                        <p className="text-xs text-gray-500">Blocked</p>
-                      </div>
-                      <div className="bg-gray-100 rounded-lg p-3 text-center">
-                        <p className="text-xl font-bold text-gray-600">12</p>
-                        <p className="text-xs text-gray-500">Total</p>
-                      </div>
-                    </div>
-                    <p className="text-xs text-gray-500 text-center">The shape of today's work in four numbers.</p>
-                  </div>
+                  <Image src="/case-studies/accessiq/dashboard.png" alt="Triage Queue" width={800} height={450} className="w-full rounded-xl" />
                 </div>
                 <div className="max-w-2xl">
                   <h3 className="font-semibold text-gray-900 mb-2">Triage the Queue</h3>
