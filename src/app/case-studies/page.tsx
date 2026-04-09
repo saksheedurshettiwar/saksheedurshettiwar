@@ -87,30 +87,30 @@ export default function CaseStudies() {
                     whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     transition={{ duration: 0.3 }}
                   >
-                <div className="h-56 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden">
+                <div className="h-48 md:h-56 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden">
                   {index === 0 && (
                     <motion.div 
-                      className="flex gap-1"
+                      className="flex gap-4"
                       animate={{
-                        x: [0, -800],
+                        x: [0, -2400],
                       }}
                       transition={{
                         x: {
                           repeat: Infinity,
                           repeatType: "loop",
-                          duration: 10,
+                          duration: 15,
                           ease: "linear",
                         },
                       }}
                     >
                       {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[260px] h-40 overflow-hidden">
+                        <div key={idx} className="flex-shrink-0 w-[400px] md:w-[600px]">
                           <Image 
                             src={`/case-studies/accessiq/0${i}.png`} 
                             alt={`AccessIQ Dashboard ${i}`}
-                            width={260}
-                            height={160}
-                            className="w-full h-full object-contain"
+                            width={600}
+                            height={340}
+                            className="w-full h-auto rounded-xl"
                           />
                         </div>
                       ))}
