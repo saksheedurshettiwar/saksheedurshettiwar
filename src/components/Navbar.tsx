@@ -64,10 +64,12 @@ export default function Navbar() {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex items-center gap-2 ml-auto">
-        <span className="text-[13px] text-gray-400">saksheedurshettiwar@gmail.com</span>
-        <button className="px-3.5 py-1.5 bg-gray-900 text-white text-[13px] font-medium rounded-md">
+        <a 
+          href="mailto:saksheedurshettiwar@gmail.com"
+          className="px-3.5 py-1.5 bg-gray-900 text-white text-[13px] font-medium rounded-md hover:bg-gray-800 transition-colors"
+        >
           Get in touch
-        </button>
+        </a>
       </div>
 
       {/* Mobile Menu Button */}
