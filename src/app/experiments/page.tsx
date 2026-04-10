@@ -12,7 +12,7 @@ const experiments = [
     tag: "AI · Figma Plugin",
     icon: "🎨",
     color: "bg-purple-100",
-    link: "#",
+    link: "/experiments/design-system-generator",
   },
   {
     title: "User Research Tracker",
