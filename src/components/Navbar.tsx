@@ -40,9 +40,11 @@ export default function Navbar() {
             About
           </button>
         </Link>
-        <button className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors">
-          Skills
-        </button>
+        <Link href="/experiments">
+          <button className="px-3 py-1.5 text-[13px] text-gray-400 hover:bg-gray-100 rounded-md transition-colors">
+            Experiments
+          </button>
+        </Link>
         <a
           href="/resume.pdf"
           download="Sakshee Durshettiwar_Resume.pdf"
@@ -102,9 +104,11 @@ export default function Navbar() {
                   About
                 </button>
               </Link>
-              <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md text-left">
-                Skills
-              </button>
+              <Link href="/experiments">
+                <button className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md text-left w-full text-left">
+                  Experiments
+                </button>
+              </Link>
               <a href="/resume.pdf" download="Sakshee Durshettiwar_Resume.pdf" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
                 Resume ↗
               </a>
