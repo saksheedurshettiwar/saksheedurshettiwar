@@ -37,6 +37,57 @@ const skills = [
   "Founder Collaboration",
 ];
 
+const experiments = [
+  {
+    title: "Design System Generator",
+    description: "AI-powered tool that generates design systems from brand guidelines. Currently processing 50+ components automatically.",
+    tag: "AI · Figma Plugin",
+    icon: "🎨",
+    color: "bg-purple-100",
+    link: "#",
+  },
+  {
+    title: "User Research Tracker",
+    description: "A lightweight CRM for UX researchers. Manage participants, insights, and synthesis in one place.",
+    tag: "Productivity · Side Project",
+    icon: "🔍",
+    color: "bg-blue-100",
+    link: "#",
+  },
+  {
+    title: "Motion Design Playground",
+    description: "Interactive playground for testing animation curves and transitions. Export to CSS, Swift, or Compose.",
+    tag: "Developer Tool · Open Source",
+    icon: "✨",
+    color: "bg-green-100",
+    link: "#",
+  },
+  {
+    title: "Accessibility Checklist",
+    description: "Step-by-step WCAG compliance checker for product teams. Includes remediation suggestions and code snippets.",
+    tag: "Accessibility · In Progress",
+    icon: "♿",
+    color: "bg-orange-100",
+    link: "#",
+  },
+  {
+    title: "Portfolio Template",
+    description: "Minimal, fast, and customizable portfolio template built with Next.js and Tailwind CSS.",
+    tag: "Open Source · Template",
+    icon: "📁",
+    color: "bg-gray-100",
+    link: "#",
+  },
+  {
+    title: "Design-to-Code CLI",
+    description: "Command-line tool that converts Figma variables to design tokens in multiple formats.",
+    tag: "Developer Tool · CLI",
+    icon: "⚡",
+    color: "bg-yellow-100",
+    link: "#",
+  },
+];
+
 const stats = [
   { num: "5+", label: "Years designing 0→1 products across B2B SaaS, HealthTech, and EdTech" },
   { num: "10K+", label: "Doctors using the Practice Management System I designed at Dentread" },
@@ -187,20 +238,45 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* SKILLS MARQUEE */}
-      <div className="border-y border-gray-200 py-14 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...skills, ...skills].map((skill, index) => (
-            <span
-              key={index}
-              className="inline-flex items-center gap-3 px-8 border-r border-gray-200"
-            >
-              <span className="text-sm font-medium text-gray-500">{skill}</span>
-              <span className="w-1 h-1 rounded-full bg-gray-200"></span>
-            </span>
+      {/* EXPERIMENTS */}
+      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:pt-24 pb-16 md:pb-24">
+        <AnimatedSection>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-gray-400 border border-gray-200 px-3 py-1 rounded-full">
+                Experiments
+              </span>
+              <span className="text-xs text-gray-400">Things I&apos;m building</span>
+            </div>
+          </div>
+        </AnimatedSection>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {experiments.map((experiment, index) => (
+            <AnimatedSection key={experiment.title} delay={index * 0.1}>
+              <motion.a
+                href={experiment.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 hover:shadow-lg transition-all cursor-pointer h-full"
+                whileHover={{ y: -4 }}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${experiment.color}`}>
+                    <span className="text-lg">{experiment.icon}</span>
+                  </div>
+                  <span className="text-gray-300">↗</span>
+                </div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">{experiment.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-3">{experiment.description}</p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-medium text-gray-400 bg-gray-100 px-2 py-1 rounded">
+                  {experiment.tag}
+                </span>
+              </motion.a>
+            </AnimatedSection>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* WORK */}
       <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:pt-24 pb-16 md:pb-24">
