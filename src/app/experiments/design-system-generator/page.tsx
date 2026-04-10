@@ -17,10 +17,15 @@ const fontFamilies = [
 
 const colorPalettes = [
   { name: "Midnight", primary: "#6366F1", secondary: "#8B5CF6", accent: "#EC4899", bg: "#FFFFFF", text: "#0F172A", surface: "#F8FAFC", border: "#E2E8F0" },
-  { name: "Ocean", primary: "#0EA5E9", secondary: "#06B6D4", accent: "#F59E0B", bg: "#FFFFFF", text: "#0C4A6E", surface: "#F0F9FF", border: "#BAE6FD" },
-  { name: "Forest", primary: "#059669", secondary: "#10B981", accent: "#F59E0B", bg: "#FFFFFF", text: "#064E3B", surface: "#ECFDF5", border: "#A7F3D0" },
-  { name: "Berry", primary: "#DB2777", secondary: "#C026D3", accent: "#FACC15", bg: "#FFFFFF", text: "#831843", surface: "#FDF2F8", border: "#FBCFE8" },
-  { name: "Sunset", primary: "#F97316", secondary: "#EF4444", accent: "#8B5CF6", bg: "#FFFFFF", text: "#78350F", surface: "#FFFBEB", border: "#FED7AA" },
+  { name: "Ocean", primary: "#0891B2", secondary: "#06B6D4", accent: "#22D3EE", bg: "#FFFFFF", text: "#0C4A6E", surface: "#F0F9FF", border: "#BAE6FD" },
+  { name: "Forest", primary: "#059669", secondary: "#10B981", accent: "#34D399", bg: "#FFFFFF", text: "#064E3B", surface: "#ECFDF5", border: "#A7F3D0" },
+  { name: "Ember", primary: "#DC2626", secondary: "#EA580C", accent: "#FCD34D", bg: "#FFFFFF", text: "#450A0A", surface: "#FEF2F2", border: "#FECACA" },
+  { name: "Violet", primary: "#7C3AED", secondary: "#8B5CF6", accent: "#F472B6", bg: "#FFFFFF", text: "#1E1B4B", surface: "#F5F3FF", border: "#DDD6FE" },
+  { name: "Slate", primary: "#475569", secondary: "#64748B", accent: "#F59E0B", bg: "#FFFFFF", text: "#0F172A", surface: "#F8FAFC", border: "#E2E8F0" },
+  { name: "Rose", primary: "#E11D48", secondary: "#F43F5E", accent: "#FBBF24", bg: "#FFFFFF", text: "#4C0519", surface: "#FFF1F2", border: "#FECDD3" },
+  { name: "Teal", primary: "#0D9488", secondary: "#14B8A6", accent: "#FB923C", bg: "#FFFFFF", text: "#042F2E", surface: "#F0FDFA", border: "#99F6E4" },
+  { name: "Indigo", primary: "#4338CA", secondary: "#6366F1", accent: "#A78BFA", bg: "#FFFFFF", text: "#1E1B4B", surface: "#EEF2FF", border: "#C7D2FE" },
+  { name: "Amber", primary: "#D97706", secondary: "#F59E0B", accent: "#FCD34D", bg: "#FFFFFF", text: "#451A03", surface: "#FFFBEB", border: "#FDE68A" },
 ];
 
 const componentCategories = [
@@ -60,6 +65,7 @@ export default function DesignSystemGenerator() {
   const [inputValue, setInputValue] = useState("");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [toggleOn, setToggleOn] = useState(false);
+  const [figmaInstructions, setFigmaInstructions] = useState(false);
 
   const generateTokens = () => {
     return JSON.stringify({
@@ -160,6 +166,55 @@ module.exports = {
 }`;
   };
 
+  const exportToFigma = () => {
+    const figmaTokens = {
+      color: {
+        primary: { "$value": colors.primary, "$type": "color" },
+        secondary: { "$value": colors.secondary, "$type": "color" },
+        accent: { "$value": colors.accent, "$type": "color" },
+        background: { "$value": colors.bg, "$type": "color" },
+        foreground: { "$value": colors.text, "$type": "color" },
+        surface: { "$value": colors.surface, "$type": "color" },
+        border: { "$value": colors.border, "$type": "color" },
+      },
+      typography: {
+        fontFamily: { "$value": fontFamily.name, "$type": "string" },
+        baseSize: { "$value": `${baseSize}px`, "$type": "dimension" },
+        heading1: { "$value": `${baseSize * 2}px`, "$type": "dimension" },
+        heading2: { "$value": `${Math.round(baseSize * 1.5)}px`, "$type": "dimension" },
+        body: { "$value": `${baseSize}px`, "$type": "dimension" },
+        small: { "$value": `${Math.round(baseSize * 0.875)}px`, "$type": "dimension" },
+      },
+      spacing: {
+        xs: { "$value": spacingScale, "$type": "number" },
+        sm: { "$value": spacingScale * 2, "$type": "number" },
+        md: { "$value": spacingScale * 4, "$type": "number" },
+        lg: { "$value": spacingScale * 6, "$type": "number" },
+        xl: { "$value": spacingScale * 8, "$type": "number" },
+        "2xl": { "$value": spacingScale * 12, "$type": "number" },
+      },
+      borderRadius: {
+        sm: { "$value": spacingScale, "$type": "number" },
+        md: { "$value": spacingScale * 2, "$type": "number" },
+        lg: { "$value": spacingScale * 3, "$type": "number" },
+        xl: { "$value": spacingScale * 4, "$type": "number" },
+        full: { "$value": 9999, "$type": "number" },
+      },
+    };
+    
+    const blob = new Blob([JSON.stringify(figmaTokens, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "design-tokens.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    setFigmaInstructions(true);
+  };
+
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
@@ -221,7 +276,7 @@ module.exports = {
                     >
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-3">Color Presets</label>
-                        <div className="grid grid-cols-5 gap-2">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
                           {colorPalettes.map((palette) => (
                             <button
                               key={palette.name}
@@ -230,10 +285,10 @@ module.exports = {
                                 colors.name === palette.name ? "border-gray-900" : "border-gray-100 hover:border-gray-300"
                               }`}
                             >
-                              <div className="flex flex-col gap-1">
-                                <div className="w-full h-8 rounded-lg" style={{ backgroundColor: palette.primary }} />
-                                <div className="w-full h-8 rounded-lg" style={{ backgroundColor: palette.secondary }} />
-                                <div className="w-full h-8 rounded-lg" style={{ backgroundColor: palette.accent }} />
+                              <div className="flex flex-col gap-0.5">
+                                <div className="w-full h-6 rounded-md" style={{ backgroundColor: palette.primary }} />
+                                <div className="w-full h-6 rounded-md" style={{ backgroundColor: palette.secondary }} />
+                                <div className="w-full h-6 rounded-md" style={{ backgroundColor: palette.accent }} />
                               </div>
                               <span className="text-[9px] text-gray-500 mt-1.5 block text-center">{palette.name}</span>
                               {colors.name === palette.name && (
@@ -804,6 +859,15 @@ module.exports = {
                   >
                     {copied === "tailwind" ? "✓ Copied!" : "Tailwind Config"}
                   </button>
+                  <button
+                    onClick={exportToFigma}
+                    className="flex-1 px-4 py-2.5 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Export to Figma
+                  </button>
                 </div>
 
                 <div className="bg-gray-900 rounded-xl p-4 overflow-auto max-h-48">
@@ -812,6 +876,52 @@ module.exports = {
                   </pre>
                 </div>
               </div>
+
+              {/* Figma Plugin Instructions */}
+              <AnimatePresence>
+                {figmaInstructions && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    className="bg-indigo-900 border border-indigo-700 rounded-2xl p-6"
+                  >
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-sm">F</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">Figma Plugin Ready!</h4>
+                        <p className="text-indigo-200 text-sm">Follow these steps to install:</p>
+                      </div>
+                    </div>
+                    <ol className="text-sm text-indigo-100 space-y-2 mb-4">
+                      <li className="flex gap-2">
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">1</span>
+                        <span>Extract the downloaded ZIP file</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                        <span>In Figma: Search for "Variables JSON Import" in the community plugins</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                        <span>Open the plugin and paste the JSON or upload the file</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">3</span>
+                        <span>Your design tokens will be created as Figma Variables</span>
+                      </li>
+                    </ol>
+                    <button
+                      onClick={() => setFigmaInstructions(false)}
+                      className="w-full px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+                    >
+                      Got it!
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* CTA */}
               <div className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white">
@@ -822,17 +932,17 @@ module.exports = {
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Want the Full Version?</h3>
                     <p className="text-sm text-white/80 mb-4">
-                      Get the Figma plugin to generate complete design systems with AI-powered component suggestions.
+                      Download your design tokens as Figma Variables format for direct import.
                     </p>
-                    <a 
-                      href="#"
+                    <button 
+                      onClick={exportToFigma}
                       className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors"
                     >
-                      Get the Plugin
+                      Download for Figma
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
