@@ -85,7 +85,7 @@ export default function AccessIQCaseStudy() {
       image: "/case-studies/accessiq/Manager Dashboard.png",
     },
     {
-      title: "02 — Conflict Detection",
+      title: "Conflict Detection",
       subtitle: "Segregation of Duties · Toxic Combinations",
       problem: "When a conflict was flagged, tools showed a red badge and nothing else. Managers had no idea what it meant — so they approved it anyway and moved on.",
       decision: "The consequence of approving comes before the buttons. Always. Showing the real-world risk in plain English — not just a colour — is what makes managers actually stop and think.",
