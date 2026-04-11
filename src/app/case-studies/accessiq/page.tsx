@@ -101,11 +101,10 @@ export default function AccessIQCaseStudy() {
     },
     {
       title: "AI Recommendation",
-      badge: "AI Powered",
-      problem: "The manager receives a permission string and two buttons. No context, no suggested action, no risk signal. 91% approve everything to avoid blocking their team.",
-      decision: "AI recommendation leads at 97% confidence in plain English. \"James has a valid business need — but full export isn't required for it.\" Below that: exactly what he can and cannot do on each platform. Manager confirms a recommendation — they don't interpret raw data.",
+      problem: "Managers received a permission string and two buttons — no context, no suggestion, no risk signal. With nothing to go on, 91% approved everything to avoid blocking their team.",
+      decision: "The AI recommendation leads at 97% confidence, in plain English, before any buttons appear. Managers confirm a recommendation — they don't interpret raw data.",
       insight: "Adding the confidence score and plain-English reasoning was the single change that lifted AI suggestion adoption from 22% to 61% in testing.",
-      insightLabel: "AI driven",
+      insightLabel: "Research insight",
       images: ["/case-studies/accessiq/AI Recommendation/01.png", "/case-studies/accessiq/AI Recommendation/02.png"],
     },
     {
