@@ -117,9 +117,9 @@ export default function AccessIQCaseStudy() {
     },
     {
       title: "One Click to Request",
-      problem: "Employees had no self-service way to manage access. Everything went through the manager via Slack — and when access expired silently, they only found out when locked out.",
-      decision: "Every catalogue action leads to the same modal — two decisions only: how long, and why. Current access is shown upfront so employees know what they already have before submitting.",
-      insight: "Showing the expiry warning inside the modal let employees extend access themselves in under 60 seconds — eliminating the emergency Slack messages managers got every time someone was locked out.",
+      problem: "Employees had no self-service way to manage access. Everything went through the manager via Slack — and expired access was only discovered when they got locked out.",
+      decision: "Two decisions only: how long, and why. Current access is shown upfront so employees know what they already have before submitting a new request.",
+      insight: "The expiry warning inside the modal let employees extend access in under 60 seconds — eliminating the emergency Slack messages managers got every time someone was locked out.",
       insightLabel: "Research insight",
       images: ["/case-studies/accessiq/One click to request/01.png", "/case-studies/accessiq/One click to request/02.png"],
     },
