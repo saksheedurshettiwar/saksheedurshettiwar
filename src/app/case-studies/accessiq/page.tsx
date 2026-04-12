@@ -538,11 +538,7 @@ export default function AccessIQCaseStudy() {
                       </span>
                       <div>
                         <h3 className="font-semibold text-gray-900 text-lg">{screen.title}</h3>
-                        {screen.subtitle && <p className="text-sm text-gray-500">{screen.subtitle}</p>}
                       </div>
-                      {screen.badge && (
-                        <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full ml-auto font-medium">{screen.badge}</span>
-                      )}
                     </div>
                     
                     {/* Problem & Decision */}
