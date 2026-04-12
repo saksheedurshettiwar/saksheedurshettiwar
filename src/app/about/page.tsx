@@ -284,33 +284,23 @@ export default function About() {
                 description: "The best work happens when design, eng, and product work as one team, not handoffs.",
                 icon: "⬡",
               },
-            ].map((value, i) => {
-              const cardRef = useRef(null);
-              const isInView = useInView(cardRef, { once: true, margin: "-50px" });
-              return (
-                <motion.div
-                  key={value.title}
-                  ref={cardRef}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            ].map((value, i) => (
+              <AnimatedSection key={value.title} delay={i * 0.1}>
+                <motion.div 
+                  className="bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-300 transition-all h-full group cursor-pointer overflow-hidden"
+                  whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                 >
                   <motion.div 
-                    className="bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-300 transition-all h-full group cursor-pointer overflow-hidden"
-                    whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-900 transition-colors"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <motion.div 
-                      className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-900 transition-colors"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <span className="text-lg group-hover:text-white transition-colors font-medium">{value.icon}</span>
-                    </motion.div>
-                    <h3 className="text-base font-semibold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">{value.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors">{value.description}</p>
+                    <span className="text-lg group-hover:text-white transition-colors font-medium">{value.icon}</span>
                   </motion.div>
+                  <h3 className="text-base font-semibold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">{value.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors">{value.description}</p>
                 </motion.div>
-              );
-            })}
+              </AnimatedSection>
+            ))}
           </div>
         </AnimatedSection>
       </section>
