@@ -378,7 +378,7 @@ export default function AccessIQCaseStudy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Research</h2>
             <p className="text-base text-gray-500 mb-4">What I found when I looked at existing tools</p>
             <p className="text-base text-gray-500 leading-relaxed mb-4">
-              I looked at 12 platforms in this space — the big enterprise names and newer challengers. Every single one showed managers raw technical data and asked them to make a judgment call.
+              I looked at 12 platforms in this space, the big enterprise names and newer challengers. Every single one showed managers raw technical data and asked them to make a judgment call.
             </p>
             <p className="text-base text-gray-900 font-semibold border-l-4 border-gray-900 pl-4 py-2">
               None of them explained what the data meant. None suggested what the manager should do. None were designed for someone without a security background.
