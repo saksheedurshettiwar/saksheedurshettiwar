@@ -4,6 +4,8 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
+import { DotPattern } from "@/components/DotPattern";
+import { GridFill } from "@/components/GridFill";
 
 const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
 
@@ -163,8 +165,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 min-h-screen flex items-center overflow-visible">
-        <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 w-full items-center">
+      <section className="min-h-screen flex items-center overflow-visible relative">
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 w-full items-center relative" style={{ zIndex: 10 }}>
           <div className="flex flex-col justify-center py-16 lg:py-0">
             <motion.h1 
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight"
@@ -366,9 +369,57 @@ export default function Home() {
       </div>
 
       {/* FOOTER CTA */}
-      <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-24 text-center">
+      <section className="bg-gray-900 border-t border-gray-800 py-16 md:py-24 text-center relative overflow-hidden">
+        {/* 3D Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div 
+            className="absolute w-32 h-32 rounded-full opacity-10"
+            style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
+            animate={{ 
+              y: [0, -30, 0],
+              rotate: [0, 180, 360],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ top: '10%', left: '5%' }}
+          />
+          <motion.div 
+            className="absolute w-24 h-24 rounded-full opacity-10"
+            style={{ background: 'linear-gradient(135deg, #ec4899, #f43f5e)' }}
+            animate={{ 
+              y: [0, 40, 0],
+              rotate: [0, -120, -240],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            style={{ top: '60%', right: '10%' }}
+          />
+          <motion.div 
+            className="absolute w-40 h-40 rounded-full opacity-5"
+            style={{ background: 'linear-gradient(135deg, #06b6d4, #3b82f6)' }}
+            animate={{ 
+              y: [0, -50, 0],
+              x: [0, 30, 0],
+              scale: [1, 1.3, 1]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            style={{ bottom: '10%', left: '15%' }}
+          />
+          <motion.div 
+            className="absolute w-20 h-20 rounded-full opacity-15"
+            style={{ background: 'linear-gradient(135deg, #10b981, #14b8a6)' }}
+            animate={{ 
+              y: [0, 30, 0],
+              rotate: [0, 90, 180],
+              scale: [1, 1.15, 1]
+            }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            style={{ top: '30%', right: '20%' }}
+          />
+        </div>
+        
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-700 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 relative z-10">
             Let&apos;s build something<br />
             <span className="text-gray-400">worth using.</span>
           </h2>
@@ -377,8 +428,8 @@ export default function Home() {
               href="https://calendly.com/saksheedurshettiwar/growth_call"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg inline-block"
-              whileHover={{ scale: 1.05, y: -2, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+              className="px-5 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-lg inline-block relative z-10"
+              whileHover={{ scale: 1.05, y: -2, boxShadow: "0 10px 30px rgba(255,255,255,0.2)" }}
               whileTap={{ scale: 0.98 }}
             >
               Schedule a call →

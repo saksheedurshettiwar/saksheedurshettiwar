@@ -149,9 +149,9 @@ function Band({ isMobile = false, photoSrc = "/Sakshee 1.png" }: { isMobile?: bo
     <>
       <group position={[0, 5, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
-        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
-        <RigidBody position={[1, 0, 0]} ref={j2} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
-        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
+        <RigidBody position={[0.5, 4, 0]} ref={j1} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
+        <RigidBody position={[1, 3, 0]} ref={j2} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
+        <RigidBody position={[1.5, 2, 0]} ref={j3} {...segmentProps} type="dynamic"><BallCollider args={[0.1]} /></RigidBody>
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? "kinematicPosition" : "dynamic"}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group scale={scale} position={[0, -1.5, -0.05]} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}

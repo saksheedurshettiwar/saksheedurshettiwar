@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 px-4 md:px-8 lg:px-20 py-4 flex items-center justify-between">
+      <span className="text-xs md:text-sm text-gray-400">Copyright ©2026. All rights reserved Sakshee Durshettiwar</span>
       <div className="flex items-center gap-6 md:gap-8">
         <a 
           href="https://www.linkedin.com/in/sakshee-durshettiwar-product-designer/" 
@@ -19,7 +20,6 @@ export default function Footer() {
           Behance
         </a>
       </div>
-      <span className="text-xs md:text-sm text-gray-400">©2026</span>
     </footer>
   );
 }
