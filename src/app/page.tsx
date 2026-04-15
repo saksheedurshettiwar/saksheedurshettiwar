@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import { DotPattern } from "@/components/DotPattern";
@@ -258,66 +259,27 @@ export default function Home() {
                     whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     transition={{ duration: 0.3 }}
                   >
-                <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden p-3">
+                <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden pt-3 px-3">
                   {index === 0 && (
-                    <div className="w-full p-3 h-full flex items-center overflow-hidden">
-                      <motion.div 
-                        className="flex gap-3"
-                        animate={{
-                          x: [0, -1000],
-                        }}
-                        transition={{
-                          x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 12,
-                            ease: "linear",
-                          },
-                        }}
-                      >
-                        {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
-                          <div key={idx} className="flex-shrink-0 w-[160px] md:w-[240px] h-[90px] md:h-[110px]">
-                            <img 
-                              src={`/case-studies/accessiq/0${i}.png`}
-                              alt={`AccessIQ Dashboard ${i}`}
-                              className="w-full h-full object-cover object-top rounded-lg"
-                            />
-                          </div>
-                        ))}
-                      </motion.div>
+                    <div className="w-full h-full">
+                      <Image 
+                        src="/case-studies/accessiq/Manager Dashboard.png" 
+                        alt="AccessIQ"
+                        width={240}
+                        height={140}
+                        className="w-full h-full object-cover object-top rounded-lg"
+                      />
                     </div>
                   )}
                   {index !== 0 && (
-                    <div className="w-full p-3 h-full flex items-center overflow-hidden">
-                      <div className="w-full bg-gradient-to-br from-indigo-600 to-purple-700 rounded-lg p-4 shadow-lg">
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                              <span className="text-white text-xs font-bold">$</span>
-                            </div>
-                            <span className="text-white/80 text-xs">Finco</span>
-                          </div>
-                          <div className="flex gap-1">
-                            <div className="w-6 h-6 bg-green-400/80 rounded"></div>
-                            <div className="w-6 h-6 bg-blue-400/80 rounded"></div>
-                            <div className="w-6 h-6 bg-yellow-400/80 rounded"></div>
-                          </div>
-                        </div>
-                        <div className="bg-white/10 rounded p-2 mb-2">
-                          <div className="h-1.5 w-20 bg-white/30 rounded mb-1.5"></div>
-                          <div className="h-1 w-14 bg-green-400/60 rounded"></div>
-                        </div>
-                        <div className="flex gap-2">
-                          <div className="flex-1 bg-white/10 rounded p-2">
-                            <div className="h-3 w-6 bg-white/40 rounded mb-1"></div>
-                            <div className="h-1.5 w-4 bg-green-400/80 rounded"></div>
-                          </div>
-                          <div className="flex-1 bg-white/10 rounded p-2">
-                            <div className="h-3 w-6 bg-white/40 rounded mb-1"></div>
-                            <div className="h-1.5 w-4 bg-blue-400/80 rounded"></div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="w-full h-full">
+                      <Image 
+                        src="/Finco Cover.png" 
+                        alt="Finco"
+                        width={240}
+                        height={140}
+                        className="w-full h-full object-cover object-top rounded-lg"
+                      />
                     </div>
                   )}
                 </div>

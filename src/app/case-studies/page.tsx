@@ -75,33 +75,14 @@ export default function CaseStudies() {
                   >
                 <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden pt-3 px-3">
                   {index === 0 && (
-                    <div className="w-full p-3 h-full flex items-center overflow-hidden">
-                      <motion.div 
-                        className="flex gap-3"
-                        animate={{
-                          x: [0, -1000],
-                        }}
-                        transition={{
-                          x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 12,
-                            ease: "linear",
-                          },
-                        }}
-                      >
-                        {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
-                          <div key={idx} className="flex-shrink-0 w-[160px] md:w-[240px] h-[90px] md:h-[110px]">
-                            <Image 
-                              src={`/case-studies/accessiq/0${i}.png`} 
-                              alt={`AccessIQ Dashboard ${i}`}
-                              width={240}
-                              height={140}
-                              className="w-full h-full object-cover object-top rounded-lg"
-                            />
-                          </div>
-                        ))}
-                      </motion.div>
+                    <div className="w-full h-full">
+                      <Image 
+                        src="/case-studies/accessiq/Manager Dashboard.png" 
+                        alt="AccessIQ"
+                        width={240}
+                        height={140}
+                        className="w-full h-full object-cover object-top rounded-lg"
+                      />
                     </div>
                   )}
                   {index !== 0 && (
