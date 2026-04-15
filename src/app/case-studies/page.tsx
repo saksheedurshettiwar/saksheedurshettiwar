@@ -50,7 +50,7 @@ export default function CaseStudies() {
       <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
         <AnimatedSection>
           <button 
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
             className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mb-6 transition-colors"
           >
             <span>←</span> Back
