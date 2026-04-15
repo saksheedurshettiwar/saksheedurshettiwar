@@ -38,7 +38,7 @@ export default function HivelCaseStudy() {
         </AnimatedSection>
         
         <AnimatedSection delay={0.1}>
-          <span className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
+          <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">
             Dev Tools · 0→1 · B2B SaaS
           </span>
         </AnimatedSection>
@@ -59,15 +59,15 @@ export default function HivelCaseStudy() {
         <AnimatedSection delay={0.4}>
           <div className="flex flex-wrap gap-8 mb-16 pb-8 border-b border-gray-200">
             <div>
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Role</p>
+              <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">Role</p>
               <p className="text-base text-gray-700">Product Designer</p>
             </div>
             <div>
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Timeline</p>
+              <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">Timeline</p>
               <p className="text-base text-gray-700">3 Months</p>
             </div>
             <div>
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">Impact</p>
+              <p className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-1">Impact</p>
               <p className="text-base text-gray-700">↓ 40–50% integration tickets</p>
             </div>
           </div>

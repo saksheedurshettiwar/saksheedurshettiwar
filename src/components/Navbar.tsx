@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-14 md:h-[52px] flex items-center px-4 md:px-7 bg-white/80 backdrop-blur-xl border-b border-gray-200">
-      <Link href="/" className="flex items-center gap-2 text-xs md:text-sm font-semibold tracking-tight text-gray-900 md:mr-10">
+      <Link href="/" className="flex items-center gap-2 text-sm md:text-sm font-semibold tracking-tight text-gray-900 md:mr-10">
         <svg
           className="w-5 h-5 md:w-6 md:h-6"
           viewBox="0 0 24 24"

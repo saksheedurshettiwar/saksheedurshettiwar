@@ -109,7 +109,7 @@ export default function Experiments() {
                 </div>
                 <h3 className="text-base font-semibold text-gray-900 mb-2">{experiment.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4">{experiment.description}</p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1.5 rounded-full">
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-gray-400 bg-gray-100 px-3 py-1.5 rounded-full">
                   {experiment.tag}
                 </span>
               </Link>

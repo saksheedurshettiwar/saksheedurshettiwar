@@ -47,7 +47,7 @@ export default function Playground() {
                 {experiment.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-2 py-1 bg-zinc-100 rounded text-zinc-600"
+                    className="text-sm px-2 py-1 bg-zinc-100 rounded text-zinc-600"
                   >
                     {tag}
                   </span>

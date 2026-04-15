@@ -229,7 +229,7 @@ module.exports = {
             <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
               <span className="text-2xl">🎨</span>
             </div>
-            <span className="text-xs font-medium text-gray-500 bg-white border border-gray-200 px-3 py-1.5 rounded-full">
+            <span className="text-sm font-medium text-gray-500 bg-white border border-gray-200 px-3 py-1.5 rounded-full">
               AI · Figma Plugin
             </span>
           </div>
@@ -324,9 +324,9 @@ module.exports = {
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center justify-between">
                                 <span className="text-sm font-medium text-gray-700">{item.label}</span>
-                                <span className="text-xs text-gray-400 font-mono">{item.color}</span>
+                                <span className="text-sm text-gray-400 font-mono">{item.color}</span>
                               </div>
-                              <p className="text-xs text-gray-400">{item.desc}</p>
+                              <p className="text-sm text-gray-400">{item.desc}</p>
                             </div>
                           </div>
                         ))}
@@ -379,14 +379,14 @@ module.exports = {
                           onChange={(e) => setBaseSize(Number(e.target.value))}
                           className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-gray-900"
                         />
-                        <div className="flex justify-between text-xs text-gray-400 mt-2">
+                        <div className="flex justify-between text-sm text-gray-400 mt-2">
                           <span>12px (Small)</span>
                           <span>20px (Large)</span>
                         </div>
                       </div>
 
                       <div className="p-4 bg-gray-50 rounded-xl">
-                        <label className="block text-xs font-medium text-gray-500 mb-3 uppercase tracking-wide">Preview</label>
+                        <label className="block text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">Preview</label>
                         <div style={{ fontFamily: fontFamily.value, fontSize: `${baseSize}px` }}>
                           <p className="text-gray-900 font-bold" style={{ fontSize: `${baseSize * 2}px` }}>
                             Heading 1
@@ -430,7 +430,7 @@ module.exports = {
                           onChange={(e) => setSpacingScale(Number(e.target.value))}
                           className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-gray-900"
                         />
-                        <p className="text-xs text-gray-400 mt-2">
+                        <p className="text-sm text-gray-400 mt-2">
                           All spacing values are multiples of this base unit
                         </p>
                       </div>
@@ -446,26 +446,26 @@ module.exports = {
                           { name: "2xl", size: spacingScale * 12, desc: "Page margins" },
                         ].map((spacing) => (
                           <div key={spacing.name} className="flex items-center gap-3">
-                            <span className="text-xs font-mono text-gray-500 w-10">{spacing.name}</span>
+                            <span className="text-sm font-mono text-gray-500 w-10">{spacing.name}</span>
                             <div className="flex-1 flex items-center gap-3">
                               <div 
                                 className="h-5 bg-gray-900 rounded"
                                 style={{ width: `${Math.max(4, Math.min(spacing.size * 1.5, 80))}px` }}
                               />
-                              <span className="text-xs text-gray-400 w-16">{spacing.size}px</span>
+                              <span className="text-sm text-gray-400 w-16">{spacing.size}px</span>
                             </div>
-                            <span className="text-xs text-gray-400 hidden sm:block">{spacing.desc}</span>
+                            <span className="text-sm text-gray-400 hidden sm:block">{spacing.desc}</span>
                           </div>
                         ))}
                       </div>
 
                       <div className="p-4 bg-gray-50 rounded-xl">
-                        <label className="block text-xs font-medium text-gray-500 mb-3 uppercase tracking-wide">Visual Demo</label>
+                        <label className="block text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">Visual Demo</label>
                         <div className="flex items-center gap-2">
-                          <div className="h-8 px-3 flex items-center bg-gray-900 text-white text-xs rounded" style={{ padding: `${spacingScale}px ${spacingScale * 2}px` }}>
+                          <div className="h-8 px-3 flex items-center bg-gray-900 text-white text-sm rounded" style={{ padding: `${spacingScale}px ${spacingScale * 2}px` }}>
                             Button
                           </div>
-                          <div className="h-8 px-3 flex items-center border border-gray-200 text-xs rounded" style={{ padding: `${spacingScale}px ${spacingScale * 2}px` }}>
+                          <div className="h-8 px-3 flex items-center border border-gray-200 text-sm rounded" style={{ padding: `${spacingScale}px ${spacingScale * 2}px` }}>
                             Outlined
                           </div>
                         </div>
@@ -489,14 +489,14 @@ module.exports = {
                       <div className="w-3 h-3 rounded-full bg-yellow-400" />
                       <div className="w-3 h-3 rounded-full bg-green-400" />
                     </div>
-                    <span className="text-xs text-gray-400">Preview</span>
+                    <span className="text-sm text-gray-400">Preview</span>
                   </div>
                   <div className="flex gap-1">
                     {componentCategories.map((cat) => (
                       <button
                         key={cat.id}
                         onClick={() => setPreviewComponent(cat.id)}
-                        className={`px-3 py-1.5 text-xs rounded-lg transition-all ${
+                        className={`px-3 py-1.5 text-sm rounded-lg transition-all ${
                           previewComponent === cat.id
                             ? "bg-gray-900 text-white"
                             : "text-gray-500 hover:bg-gray-100"
@@ -526,7 +526,7 @@ module.exports = {
                         className="space-y-8"
                       >
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Primary Buttons</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">Primary Buttons</p>
                           <div className="flex flex-wrap gap-3">
                             <button 
                               className="px-5 py-2.5 rounded-xl text-white text-sm font-medium transition-all hover:opacity-90"
@@ -553,7 +553,7 @@ module.exports = {
                         </div>
 
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Secondary Buttons</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">Secondary Buttons</p>
                           <div className="flex flex-wrap gap-3">
                             <button 
                               className="px-5 py-2.5 rounded-xl text-white text-sm font-medium transition-all hover:opacity-90"
@@ -577,10 +577,10 @@ module.exports = {
                         </div>
 
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Sizes</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">Sizes</p>
                           <div className="flex items-center gap-3">
                             <button 
-                              className="px-3 py-1.5 rounded-lg text-white text-xs font-medium"
+                              className="px-3 py-1.5 rounded-lg text-white text-sm font-medium"
                               style={{ backgroundColor: colors.primary }}
                             >
                               Small
@@ -601,7 +601,7 @@ module.exports = {
                         </div>
 
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">With Accent</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">With Accent</p>
                           <div className="flex flex-wrap gap-3">
                             <button 
                               className="px-5 py-2.5 rounded-xl text-white text-sm font-medium"
@@ -734,10 +734,10 @@ module.exports = {
                                 A larger card component for highlighting important content or featured items.
                               </p>
                               <div className="flex gap-2">
-                                <button className="px-4 py-2 rounded-lg text-white text-xs font-medium" style={{ backgroundColor: colors.primary }}>
+                                <button className="px-4 py-2 rounded-lg text-white text-sm font-medium" style={{ backgroundColor: colors.primary }}>
                                   Learn More
                                 </button>
-                                <button className="px-4 py-2 rounded-lg text-xs font-medium border" style={{ borderColor: colors.border, color: colors.text }}>
+                                <button className="px-4 py-2 rounded-lg text-sm font-medium border" style={{ borderColor: colors.border, color: colors.text }}>
                                   Dismiss
                                 </button>
                               </div>
@@ -756,38 +756,38 @@ module.exports = {
                         className="space-y-6"
                       >
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Status Badges</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-3">Status Badges</p>
                           <div className="flex flex-wrap gap-2">
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium"
+                              className="px-3 py-1 rounded-full text-sm font-medium"
                               style={{ backgroundColor: colors.primary + "20", color: colors.primary }}
                             >
                               Primary
                             </span>
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium"
+                              className="px-3 py-1 rounded-full text-sm font-medium"
                               style={{ backgroundColor: colors.secondary + "20", color: colors.secondary }}
                             >
                               Secondary
                             </span>
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium"
+                              className="px-3 py-1 rounded-full text-sm font-medium"
                               style={{ backgroundColor: colors.accent + "20", color: colors.accent }}
                             >
                               Accent
                             </span>
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700"
+                              className="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-700"
                             >
                               Success
                             </span>
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700"
+                              className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-700"
                             >
                               Warning
                             </span>
                             <span 
-                              className="px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700"
+                              className="px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-700"
                             >
                               Error
                             </span>
@@ -795,22 +795,22 @@ module.exports = {
                         </div>
 
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Pill Badges</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-3">Pill Badges</p>
                           <div className="flex flex-wrap gap-2">
                             <span 
-                              className="px-3 py-1.5 rounded-xl text-xs font-medium border"
+                              className="px-3 py-1.5 rounded-xl text-sm font-medium border"
                               style={{ borderColor: colors.border, color: colors.text }}
                             >
                               Outline
                             </span>
                             <span 
-                              className="px-3 py-1.5 rounded-xl text-xs font-medium"
+                              className="px-3 py-1.5 rounded-xl text-sm font-medium"
                               style={{ backgroundColor: colors.surface, color: colors.text }}
                             >
                               Subtle
                             </span>
                             <span 
-                              className="px-3 py-1.5 rounded-xl text-xs font-medium text-white"
+                              className="px-3 py-1.5 rounded-xl text-sm font-medium text-white"
                               style={{ backgroundColor: colors.primary }}
                             >
                               Solid
@@ -819,17 +819,17 @@ module.exports = {
                         </div>
 
                         <div>
-                          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">With Icons</p>
+                          <p className="text-sm font-medium text-gray-400 uppercase tracking-wide mb-3">With Icons</p>
                           <div className="flex flex-wrap gap-2">
                             <span 
-                              className="px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5"
+                              className="px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5"
                               style={{ backgroundColor: colors.primary + "20", color: colors.primary }}
                             >
                               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.primary }} />
                               Live
                             </span>
                             <span 
-                              className="px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5"
+                              className="px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5"
                               style={{ backgroundColor: colors.secondary + "20", color: colors.secondary }}
                             >
                               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.secondary }} />
@@ -871,7 +871,7 @@ module.exports = {
                 </div>
 
                 <div className="bg-gray-900 rounded-xl p-4 overflow-auto max-h-48">
-                  <pre className="text-xs text-green-400 font-mono leading-relaxed">
+                  <pre className="text-sm text-green-400 font-mono leading-relaxed">
                     {copied === "css" ? exportToCSS() : copied === "tailwind" ? exportToTailwind() : generateTokens()}
                   </pre>
                 </div>
@@ -897,19 +897,19 @@ module.exports = {
                     </div>
                     <ol className="text-sm text-indigo-100 space-y-2 mb-4">
                       <li className="flex gap-2">
-                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">1</span>
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-sm">1</span>
                         <span>Extract the downloaded ZIP file</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-sm">2</span>
                         <span>In Figma: Search for "Variables JSON Import" in the community plugins</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-sm">2</span>
                         <span>Open the plugin and paste the JSON or upload the file</span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs">3</span>
+                        <span className="bg-indigo-600 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-sm">3</span>
                         <span>Your design tokens will be created as Figma Variables</span>
                       </li>
                     </ol>

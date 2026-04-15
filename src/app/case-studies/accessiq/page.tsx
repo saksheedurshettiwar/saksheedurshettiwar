@@ -156,7 +156,7 @@ export default function AccessIQCaseStudy() {
         {/* Hero */}
         <AnimatedSection delay={0.1}>
           <motion.span 
-            className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full inline-block mb-4"
+            className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full inline-block mb-4"
             whileHover={{ scale: 1.05 }}
           >
             Fintech · B2B SaaS · AI-Powered
@@ -414,7 +414,7 @@ export default function AccessIQCaseStudy() {
                       transition={{ delay: i * 0.1, duration: 0.5 }}
                       style={{ originY: 0 }}
                     />
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 relative z-10">{item.gap}</p>
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2 relative z-10">{item.gap}</p>
                     <h3 className="font-semibold text-gray-900 mb-1 relative z-10">{item.title}</h3>
                     <p className="text-sm font-medium text-gray-700 mb-3 relative z-10">{item.subtitle}</p>
                     <p className="text-sm text-gray-500 relative z-10">{item.desc}</p>
@@ -480,7 +480,7 @@ export default function AccessIQCaseStudy() {
                         whileHover={{ scale: 1.1, rotate: 10 }}
                         transition={{ type: 'spring', stiffness: 400 }}
                       >
-                        <span className="text-white text-xs font-bold">{i === 0 ? "M" : i === 1 ? "E" : "S"}</span>
+                        <span className="text-white text-sm font-bold">{i === 0 ? "M" : i === 1 ? "E" : "S"}</span>
                       </motion.div>
                       <p className="text-sm font-semibold text-gray-900">{person.role}</p>
                     </div>
@@ -513,7 +513,7 @@ export default function AccessIQCaseStudy() {
         <AnimatedSection>
           <div className="mb-16">
             <div className="bg-gray-900 rounded-2xl p-8 md:p-12 text-center">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">North Star</p>
+              <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">North Star</p>
               <p className="text-2xl md:text-3xl lg:text-4xl text-white font-medium leading-snug">
                 Can a non-technical manager make a confident decision in under 60 seconds?
               </p>
@@ -544,11 +544,11 @@ export default function AccessIQCaseStudy() {
                     {/* Problem & Decision */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                       <div className="bg-gray-50 rounded-xl p-5">
-                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">The Problem</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Problem</p>
                         <p className="text-sm text-gray-700 leading-relaxed">{screen.problem}</p>
                       </div>
                       <div className="bg-gray-50 rounded-xl p-5">
-                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">The Design Decision</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Design Decision</p>
                         <p className="text-sm text-gray-700 leading-relaxed">{screen.decision}</p>
                       </div>
                     </div>
@@ -591,7 +591,7 @@ export default function AccessIQCaseStudy() {
                     
                     {/* Research Insight */}
                     <div className="border-l-4 border-gray-900 pl-5 py-3">
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{screen.insightLabel}</p>
+                      <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">{screen.insightLabel}</p>
                       <p className="text-sm text-gray-700 leading-relaxed">{screen.insight}</p>
                     </div>
                   </div>

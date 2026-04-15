@@ -15,7 +15,7 @@ const projects = [
     tag: "Enterprise IAM · B2B SaaS",
     title: "Cutting Access Risk by 67% without the Security Jargon",
     description:
-      "Helping non-technical managers make access decisions without security jargon.",
+      "Non-technical managers making access decisions without security jargon.",
     description2:
       "From cryptic permission strings to AI-guided approvals in plain English.",
   },
@@ -23,9 +23,9 @@ const projects = [
     tag: "Fintech · AI · B2C",
     title: "Finco — Smart Remittance",
     description:
-      "Helping users send money at the right time using AI rate forecasting.",
+      "Users sending money at the right time with AI-powered rate forecasting.",
     description2:
-      "From guesswork and single providers to transparent, optimised transfers.",
+      "From single-provider guesswork to transparent, optimised split transfers.",
   },
 ];
 
@@ -240,7 +240,7 @@ export default function Home() {
             </span>
             <Link href="/case-studies">
               <motion.button 
-                className="px-4 py-1.5 bg-white border border-gray-200 text-gray-400 text-xs rounded-lg hover:border-gray-300 transition-colors"
+                className="px-4 py-1.5 bg-white border border-gray-200 text-gray-400 text-sm rounded-lg hover:border-gray-300 transition-colors"
                 whileHover={{ scale: 1.05, x: 2 }}
               >
                 View all →
@@ -300,7 +300,7 @@ export default function Home() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-snug">
                     {project.title}
                   </h3>
-                  <div className="text-xs text-gray-500 leading-relaxed mb-4 flex-1 space-y-1">
+                  <div className="text-sm text-gray-500 leading-relaxed mb-4 flex-1 space-y-1">
                     <p>• {project.description}</p>
                     {project.description2 && <p>• {project.description2}</p>}
                   </div>
@@ -324,7 +324,7 @@ export default function Home() {
               <p className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-1 md:mb-2">
                 {stat.num}
               </p>
-              <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{stat.label}</p>
+              <p className="text-sm md:text-sm text-gray-500 leading-relaxed">{stat.label}</p>
             </motion.div>
           </AnimatedSection>
         ))}

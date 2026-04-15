@@ -96,7 +96,7 @@ export default function FincoCaseStudy() {
         {/* Hero */}
         <AnimatedSection delay={0.1}>
           <motion.span 
-            className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full inline-block mb-4"
+            className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full inline-block mb-4"
             whileHover={{ scale: 1.05 }}
           >
             Fintech · AI · B2C
@@ -212,7 +212,7 @@ export default function FincoCaseStudy() {
         <AnimatedSection>
           <div className="mb-16">
             <div className="bg-gray-900 rounded-2xl p-8 md:p-12 text-center">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">North Star</p>
+              <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">North Star</p>
               <p className="text-2xl md:text-3xl lg:text-4xl text-white font-medium leading-snug">
                 Can a non-technical person make a confident decision in under 30 seconds?
               </p>
@@ -239,18 +239,18 @@ export default function FincoCaseStudy() {
                         <h3 className="font-semibold text-gray-900 text-lg">{screen.title}</h3>
                       </div>
                       {screen.badge && (
-                        <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full ml-auto font-medium">{screen.badge}</span>
+                        <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full ml-auto font-medium">{screen.badge}</span>
                       )}
                     </div>
                     
                     {/* Problem & Decision */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                       <div className="bg-gray-50 rounded-xl p-5">
-                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">The Problem</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Problem</p>
                         <p className="text-sm text-gray-700 leading-relaxed">{screen.problem}</p>
                       </div>
                       <div className="bg-gray-50 rounded-xl p-5">
-                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">The Design Decision</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Design Decision</p>
                         <p className="text-sm text-gray-700 leading-relaxed">{screen.decision}</p>
                       </div>
                     </div>
