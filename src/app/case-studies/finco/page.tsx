@@ -49,29 +49,27 @@ export default function FincoCaseStudy() {
   const screens = [
     {
       title: "Know the best time to send before you send",
-      problem: "Rates fluctuate constantly, but users lack clarity on the best time to send.",
-      decision: "Most financial tools show predictions as data. I showed them as decisions. The difference is giving someone directions instead of handing them a map.",
-      insight: "The insight was to transform raw data into actionable recommendations that users could immediately act upon.",
-      insightLabel: "Design Insight",
-      image: "/case-studies/accessiq/Manager Dashboard.png",
+      problem: "Rates shift constantly, but users never know the right moment to act.",
+      decision: "Most tools show predictions as data. I turned them into decisions.",
+      image: "/Know the best time to send before you send.png",
     },
     {
       title: "Stop picking blindly. See exactly why we recommend each provider",
-      badge: "AI Powered",
-      problem: "Comparison shows options, yet users still hesitate before sending.",
-      decision: "AI confidence is worthless without AI reasoning. Every recommendation shows its working so users can agree or override with full information.",
-      insight: "When users understand why a recommendation is made, they trust it more and act faster.",
-      insightLabel: "AI Powered",
-      image: "/case-studies/accessiq/AI Recommendation/01.png",
+      problem: "Options are visible, but users still hesitate before making a decision.",
+      decision: "Every recommendation shows its reasoning, so users can agree or override it.",
+      image: "/Stop picking blindly. See exactly why we recommend each provider.png",
     },
     {
       title: "Split your transfer. Get more to the other side",
-      badge: "AI Powered",
-      problem: "Users choose one provider without knowing if better payout strategies exist.",
-      decision: "Smart routing is only triggered when savings exceed ₹150. Below that threshold, the added complexity is not worth it for users. The flow is step-by-step and one-click confirmable.",
-      insight: "Complexity should only appear when it adds clear value to the user's decision.",
-      insightLabel: "Design Decision",
-      image: "/case-studies/accessiq/Conflict Detection.png",
+      problem: "Users pick one provider without knowing if a better option exists.",
+      decision: "Smart routing only triggers when savings exceed ₹150. Below that, the complexity isn't worth it.",
+      image: "/Split your transfer. Get more to the other side.png",
+    },
+    {
+      title: "Cofin — AI Assistant",
+      problem: "Users see the result but don't understand how it was calculated.",
+      decision: "Cofin explains costs, providers, and recommendations in plain language, so users decide with confidence, not guesswork.",
+      images: ["/Cofin/01.png", "/Cofin/02.png"],
     },
   ];
 
@@ -261,22 +259,31 @@ export default function FincoCaseStudy() {
                     <motion.div
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.3 }}
-                      className="mb-6 overflow-hidden rounded-xl border border-gray-200"
+                      className="mb-6 overflow-hidden rounded-xl"
                     >
-                      <Image 
-                        src={screen.image} 
-                        alt={screen.title} 
-                        width={1200} 
-                        height={675} 
-                        className="w-full h-auto" 
-                      />
+                      {screen.images ? (
+                        <div className="space-y-4">
+                          {screen.images.map((img, idx) => (
+                            <Image 
+                              key={idx}
+                              src={img} 
+                              alt={`${screen.title} ${idx + 1}`} 
+                              width={1200} 
+                              height={675} 
+                              className="w-full h-auto" 
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <Image 
+                          src={screen.image} 
+                          alt={screen.title} 
+                          width={1200} 
+                          height={675} 
+                          className="w-full h-auto" 
+                        />
+                      )}
                     </motion.div>
-                    
-                    {/* Research Insight */}
-                    <div className="border-l-4 border-gray-900 pl-5 py-3">
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{screen.insightLabel}</p>
-                      <p className="text-sm text-gray-700 leading-relaxed">{screen.insight}</p>
-                    </div>
                   </div>
                 </FadeInOnScroll>
               ))}
@@ -290,39 +297,25 @@ export default function FincoCaseStudy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8">Constraints</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                "Relies on real-time data, needing consistent updates for accuracy.",
-                "Smart routing needs a robust backend system to handle complex transfer logic.",
-                "Regulatory restrictions limit the transparency of certain pricing details.",
+                { text: "Accurate rates depend on real-time data and consistent updates." },
+                { text: "Smart routing depends on a robust backend for split logic." },
+                { text: "Pricing transparency depends on regulatory approvals in each market." },
               ].map((item, i) => (
                 <FadeInOnScroll key={i}>
                   <motion.div 
-                    className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+                    className="border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-gray-300 transition-all duration-300"
                     whileHover={{ y: -4 }}
                   >
-                    <p className="text-sm text-gray-600 leading-relaxed">{item}</p>
+                    <div className="grid grid-cols-2 gap-1 w-5 h-5 mb-4">
+                      <div className="w-2 h-2 bg-gray-300 rounded-full" />
+                      <div className="w-2 h-2 bg-gray-300 rounded-full" />
+                      <div className="w-2 h-2 bg-gray-300 rounded-full" />
+                      <div className="w-2 h-2 bg-gray-300 rounded-full" />
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.text}</p>
                   </motion.div>
                 </FadeInOnScroll>
               ))}
-            </div>
-          </div>
-        </AnimatedSection>
-        
-        {/* AI Assistant */}
-        <AnimatedSection>
-          <div className="mb-16">
-            <div className="bg-gray-900 rounded-2xl p-8 md:p-12">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🤖</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white">Finco AI Assistant (Cofin)</h3>
-                  <p className="text-sm text-gray-400">The smartest way to send money abroad</p>
-                </div>
-              </div>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Provides instant answers to user questions about transfer costs, provider trust, and how recommendations are calculated, helping users make decisions with confidence.
-              </p>
             </div>
           </div>
         </AnimatedSection>
