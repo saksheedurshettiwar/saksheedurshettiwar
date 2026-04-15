@@ -189,9 +189,9 @@ export default function FincoCaseStudy() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { num: "01", title: "Timing Uncertainty", desc: "Rates fluctuate constantly, but users lack clarity on the best time to send." },
-                { num: "02", title: "Decision Hesitation", desc: "Comparison shows options, yet users still hesitate before sending." },
-                { num: "03", title: "Strategy Blind Spots", desc: "Users choose one provider without knowing if better payout strategies exist." },
+                { num: "01", title: "Timing Uncertainty", desc: "Rates shift constantly, but users don't know when to act." },
+                { num: "02", title: "Decision Hesitation", desc: "Options are visible, but users still hesitate before committing." },
+                { num: "03", title: "Strategy Blind Spots", desc: "Providers are compared, but better payout strategies go unnoticed." },
               ].map((item, i) => (
                 <FadeInOnScroll key={i}>
                   <motion.div 
