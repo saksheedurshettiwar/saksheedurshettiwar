@@ -9,17 +9,19 @@ import Image from "next/image";
 const projects = [
   {
     tag: "Enterprise IAM · B2B SaaS",
-    title: "AccessIQ — Access Governance Platform",
+    title: "Cutting Access Risk by 67% without the Security Jargon",
     description:
-      "Redesigning access decisions for non-technical managers at 10,000+ employee fintechs. From permission strings and two buttons to AI-guided decisions in plain English.",
-    metric: "↓ 67% access risk reduction",
+      "Helping non-technical managers make access decisions without security jargon.",
+    description2:
+      "From cryptic permission strings to AI-guided approvals in plain English.",
   },
   {
     tag: "Fintech · AI · B2C",
     title: "Finco — Smart Remittance",
     description:
-      "AI Rate Forecasting for Smarter Transfer Timing. Transparent Recommendations & Smart Routing for Better Value.",
-    metric: "Coming soon",
+      "Helping users send money at the right time using AI rate forecasting.",
+    description2:
+      "From guesswork and single providers to transparent, optimised transfers.",
   },
 ];
 
@@ -112,12 +114,10 @@ export default function CaseStudies() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed mb-4 flex-1">
-                    {project.description}
-                  </p>
-                  <p className="text-xs font-medium text-gray-900 flex items-center gap-1.5">
-                    <span className="text-green-500">↑</span> {project.metric}
-                  </p>
+                  <div className="text-xs text-gray-500 leading-relaxed mb-4 flex-1 space-y-1">
+                    <p>• {project.description}</p>
+                    {project.description2 && <p>• {project.description2}</p>}
+                  </div>
                 </div>
               </motion.div>
                 </Link>
