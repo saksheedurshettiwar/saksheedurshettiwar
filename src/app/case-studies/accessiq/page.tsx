@@ -398,26 +398,14 @@ export default function AccessIQCaseStudy() {
               ].map((item, i) => (
                 <FadeInOnScroll key={i}>
                   <motion.div 
-                    className="bg-gray-50 rounded-xl p-6 h-full relative overflow-hidden"
-                    whileHover={{ 
-                      y: -6, 
-                      backgroundColor: '#f3f4f6',
-                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)'
-                    }}
+                    className="bg-white border border-gray-200 rounded-xl p-6 h-full"
+                    whileHover={{ y: -4, boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.1)' }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.div 
-                      className="absolute top-0 left-0 w-1 h-full bg-gray-900"
-                      initial={{ scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.5 }}
-                      style={{ originY: 0 }}
-                    />
-                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2 relative z-10">{item.gap}</p>
-                    <h3 className="font-semibold text-gray-900 mb-1 relative z-10">{item.title}</h3>
-                    <p className="text-sm font-medium text-gray-700 mb-3 relative z-10">{item.subtitle}</p>
-                    <p className="text-sm text-gray-500 relative z-10">{item.desc}</p>
+                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">{item.gap}</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-sm font-medium text-gray-700 mb-3">{item.subtitle}</p>
+                    <p className="text-sm text-gray-500">{item.desc}</p>
                   </motion.div>
                 </FadeInOnScroll>
               ))}
