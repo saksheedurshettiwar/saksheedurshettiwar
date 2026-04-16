@@ -195,7 +195,7 @@ export default function AccessIQCaseStudy() {
               {[1, 2, 3, 4, 1, 2, 3, 4].map((i, idx) => (
                 <div key={idx} className="flex-shrink-0 w-[400px] md:w-[600px]">
                   <Image 
-                    src={`/case-studies/accessiq/0${i}.png`} 
+                    src={`/case-studies/accessiq/cover img/0${i}.png`} 
                     alt={`AccessIQ Dashboard ${i}`}
                     width={600}
                     height={340}
