@@ -298,7 +298,7 @@ export default function AccessIQCaseStudy() {
                 <FadeInOnScroll>
                   <p className="text-sm font-semibold text-gray-700 mb-3">What existing tools show a manager</p>
                   <div className="rounded-xl overflow-hidden border border-gray-200">
-                    <Image src="/case-studies/accessiq/red.png" alt="Old Tool" width={600} height={400} className="w-full" />
+                    <Image src="/case-studies/accessIQ/Red.png" alt="Old Tool" width={600} height={400} className="w-full" />
                   </div>
                 </FadeInOnScroll>
                 <div className="space-y-3">
@@ -319,7 +319,7 @@ export default function AccessIQCaseStudy() {
                 <FadeInOnScroll>
                   <p className="text-sm font-semibold text-gray-700 mb-3">What AccessIQ shows instead</p>
                   <div className="rounded-xl overflow-hidden border border-gray-200">
-                    <Image src="/case-studies/accessiq/green.png" alt="New Tool" width={600} height={400} className="w-full" />
+                    <Image src="/case-studies/accessIQ/Green.png" alt="New Tool" width={600} height={400} className="w-full" />
                   </div>
                 </FadeInOnScroll>
                 <div className="space-y-3">
