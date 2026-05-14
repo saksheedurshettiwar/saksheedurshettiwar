@@ -337,41 +337,6 @@ export default function AccessIQCaseStudy() {
           </div>
         </AnimatedSection>
         
-        {/* The Core Problems */}
-        <AnimatedSection>
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">The Core Problems</h2>
-            <FadeInOnScroll>
-              <p className="text-lg text-gray-700 font-medium mb-8 border-l-4 border-gray-900 pl-4">
-                Moments where everything goes wrong. Not edge cases. These happen daily at every global fintech, each one a UX failure, a process failure, and a compliance failure rolled into one.
-              </p>
-            </FadeInOnScroll>
-            
-            <div className="space-y-6">
-              {[
-                { num: "01", title: "New hires start wrong", desc: "When someone joins a company, their manager needs to set up their access. There's no standard. The role definition lives in a document nobody reads. So managers copy permissions from a random colleague, or approve whatever list lands in their inbox.", consequence: "A junior Cards Analyst gets full export access to cardholder data because their peer happened to have it." },
-                { num: "02", title: "Access accumulates and nobody notices", desc: "Someone moves from the risk team to marketing. Their old access stays. Their new access gets added. Six months later they have permissions from two completely different jobs, and nobody flagged it because there was no system looking.", consequence: "A former fraud analyst retains write access to the payments database six months after moving to marketing. Nobody flagged it. That's exactly the kind of over-privileged, forgotten account that turns a phishing email into a breach." },
-                { num: "03", title: "Quarterly reviews are a tick-box exercise", desc: "Regulations require companies to formally confirm who has access to sensitive data every 90 days. In practice, this means a security team exports data from six different tools into a spreadsheet and emails it to 40 managers with \"please review column F by Friday.\"", consequence: "Managers tick every box in three minutes to get it off their plate. The evidence looks complete. The auditor arrives and finds the gaps anyway. Three weeks of manual work, repeated every quarter." },
-              ].map((problem, i) => (
-                <FadeInOnScroll key={i}>
-                  <div className="bg-white border border-gray-200 rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        {problem.num}
-                      </span>
-                      <h3 className="text-lg font-semibold text-gray-900">{problem.title}</h3>
-                    </div>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">{problem.desc}</p>
-                    <p className="text-sm text-gray-700 font-medium">
-                      The consequence: {problem.consequence}
-                    </p>
-                  </div>
-                </FadeInOnScroll>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-        
         {/* Research */}
         <AnimatedSection>
           <div className="mb-16">
