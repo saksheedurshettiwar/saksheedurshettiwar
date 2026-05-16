@@ -7,10 +7,22 @@ import { motion, useScroll, useTransform, useSpring, useInView } from "framer-mo
 import dynamic from "next/dynamic";
 import { DotPattern } from "@/components/DotPattern";
 import { GridFill } from "@/components/GridFill";
+import CaseStudyCard from "@/components/CaseStudyCard";
 
 const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
 
 const projects = [
+  {
+    tag: "Healthcare Staffing · B2B SaaS",
+    title: "Designing a Zero-Gap Compliance System That Ensures Every Healthcare Worker Is 100% Verified Before Day One",
+    description:
+      "Hospitals getting fully verified workers on day one, without chasing a single missing document.",
+    description2:
+      "From billing data accidentally bleeding across parties to a platform where no one ever sees what they shouldn't.",
+    image: "/case-studies/nexusforce/Card - NexusForce.png",
+    alt: "NexusForce",
+    href: "/case-studies/nexusforce-deep-dive",
+  },
   {
     tag: "Enterprise IAM · B2B SaaS",
     title: "Cutting Access Risk by 67% without the Security Jargon",
@@ -18,14 +30,9 @@ const projects = [
       "Non-technical managers making access decisions without security jargon.",
     description2:
       "From cryptic permission strings to AI-guided approvals in plain English.",
-  },
-  {
-    tag: "Fintech · AI · B2C",
-    title: "Finco — Smart Remittance",
-    description:
-      "Users sending money at the right time with AI-powered rate forecasting.",
-    description2:
-      "From single-provider guesswork to transparent, optimised split transfers.",
+    image: "/case-studies/AccessIQ/Card - AccessIQ.png",
+    alt: "AccessIQ",
+    href: "/case-studies/accessiq",
   },
 ];
 
@@ -81,10 +88,10 @@ const experiments = [
 ];
 
 const stats = [
-  { num: "5+", label: "Years designing 0→1 products across B2B SaaS, HealthTech, and EdTech" },
-  { num: "10K+", label: "Doctors using the Practice Management System I designed at Dentread" },
-  { num: "800K+", label: "Downloads on MemoNeet — EdTech mobile app designed from scratch" },
-  { num: "1M+", label: "Dental images managed on the native viewer I built to replace third-party tools" },
+  { icon: "◆", num: "0→1 thinking", label: "From blank canvas to shipped product" },
+  { icon: "◆", num: "Systems first", label: "Architecture and flows decided before any UI work" },
+  { icon: "◆", num: "Research driven", label: "Every decision backed by users, not assumptions" },
+  { icon: "◆", num: "AI as a layer", label: "Proactive intelligence designed in, not bolted on" },
 ];
 
 const companies = ["Hivel", "Dentread", "Photoshooto", "MemoNeet", "Freelance Clients"];
@@ -232,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* WORK */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:pt-24 pb-16 md:pb-24">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:pt-24 pb-16 md:pb-24">
         <AnimatedSection>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -249,79 +256,35 @@ export default function Home() {
           </div>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => {
-            const hrefs = ["/case-studies/accessiq", "/case-studies/finco-deep-dive"];
-            const href = hrefs[index];
-            return (
-              <AnimatedSection key={project.title} delay={index * 0.1}>
-                <Link href={href}>
-                  <motion.div
-                    className="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer flex flex-col h-full"
-                    whileHover={href !== "#" ? {} : { y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-                    transition={{ duration: 0.3 }}
-                  >
-                <div className="h-36 md:h-44 bg-gray-100 flex items-center flex-shrink-0 overflow-hidden pt-3 px-3">
-                  {index === 0 && (
-                    <div className="w-full h-full">
-                      <Image 
-                        src="/case-studies/AccessIQ/Manager Dashboard/Manager Dashboard.png" 
-                        alt="AccessIQ"
-                        width={240}
-                        height={140}
-                        className="w-full h-full object-cover object-top rounded-lg"
-                      />
-                    </div>
-                  )}
-                  {index !== 0 && (
-                    <div className="w-full h-full">
-                      <Image 
-                        src="/Finco Cover.png" 
-                        alt="Finco"
-                        width={240}
-                        height={140}
-                        className="w-full h-full object-cover object-top rounded-lg"
-                      />
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200">
-                      {project.tag}
-                    </span>
-                    <motion.span 
-                      className="text-gray-300"
-                      whileHover={{ scale: 1.2, x: 3 }}
-                    >
-                      ↗
-                    </motion.span>
-                  </div>
-                  <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-snug">
-                    {project.title}
-                  </h3>
-                  <div className="text-sm text-gray-500 leading-relaxed mb-4 flex-1 space-y-1">
-                    <p>• {project.description}</p>
-                    {project.description2 && <p>• {project.description2}</p>}
-                  </div>
-                </div>
-              </motion.div>
-                </Link>
-              </AnimatedSection>
-            );
-          })}
+        <div className="space-y-6">
+          {projects.map((project, index) => (
+            <CaseStudyCard
+              key={project.title}
+              tag={project.tag}
+              title={project.title}
+              description={project.description}
+              description2={project.description2}
+              image={project.image}
+              alt={project.alt}
+              href={project.href}
+              delay={index * 0.1}
+            />
+          ))}
         </div>
       </section>
 
       {/* STATS */}
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24 grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 border-b border-gray-200">
         {stats.map((stat, index) => (
           <AnimatedSection key={stat.num} delay={index * 0.15}>
               <motion.div 
               className="pr-0 md:pr-8"
               whileHover={{ y: -5 }}
             >
-              <p className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-1 md:mb-2">
+              <div className="w-8 h-8 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-sm text-gray-500">{stat.icon}</span>
+              </div>
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 mb-1 md:mb-2 leading-tight">
                 {stat.num}
               </p>
               <p className="text-sm md:text-sm text-gray-500 leading-relaxed">{stat.label}</p>
@@ -331,71 +294,41 @@ export default function Home() {
       </div>
 
       {/* FOOTER CTA */}
-      <section className="bg-gray-900 border-t border-gray-800 py-16 md:py-24 text-center relative overflow-hidden">
-        {/* 3D Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div 
-            className="absolute w-32 h-32 rounded-full opacity-10"
-            style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
-            animate={{ 
-              y: [0, -30, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            style={{ top: '10%', left: '5%' }}
-          />
-          <motion.div 
-            className="absolute w-24 h-24 rounded-full opacity-10"
-            style={{ background: 'linear-gradient(135deg, #ec4899, #f43f5e)' }}
-            animate={{ 
-              y: [0, 40, 0],
-              rotate: [0, -120, -240],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            style={{ top: '60%', right: '10%' }}
-          />
-          <motion.div 
-            className="absolute w-40 h-40 rounded-full opacity-5"
-            style={{ background: 'linear-gradient(135deg, #06b6d4, #3b82f6)' }}
-            animate={{ 
-              y: [0, -50, 0],
-              x: [0, 30, 0],
-              scale: [1, 1.3, 1]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            style={{ bottom: '10%', left: '15%' }}
-          />
-          <motion.div 
-            className="absolute w-20 h-20 rounded-full opacity-15"
-            style={{ background: 'linear-gradient(135deg, #10b981, #14b8a6)' }}
-            animate={{ 
-              y: [0, 30, 0],
-              rotate: [0, 90, 180],
-              scale: [1, 1.15, 1]
-            }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            style={{ top: '30%', right: '20%' }}
-          />
-        </div>
-        
+      <section className="bg-gray-900 border-t border-gray-800 py-20 md:py-28 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+            maskImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent)',
+            WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent)',
+          }}
+        />
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 relative z-10">
-            Let&apos;s build something<br />
-            <span className="text-gray-400">worth using.</span>
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-wrap">
-            <motion.a
-              href="https://calendly.com/saksheedurshettiwar/growth_call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-lg inline-block relative z-10"
-              whileHover={{ scale: 1.05, y: -2, boxShadow: "0 10px 30px rgba(255,255,255,0.2)" }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Schedule a call →
-            </motion.a>
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                  Let&apos;s build something <span className="text-gray-400">worth using.</span>
+                </h2>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+                <a
+                  href="https://calendly.com/saksheedurshettiwar/growth_call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-white text-gray-900 text-sm font-medium rounded-lg text-center whitespace-nowrap hover:bg-gray-100 transition-colors"
+                >
+                  Schedule a call →
+                </a>
+                <a
+                  href="mailto:saksheedurshettiwar@gmail.com"
+                  className="px-6 py-3 border border-gray-700 text-gray-400 text-sm font-medium rounded-lg text-center whitespace-nowrap hover:border-gray-500 hover:text-gray-300 transition-colors"
+                >
+                  Send an email
+                </a>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
       </section>
