@@ -161,7 +161,7 @@ Designing a Zero-Gap Compliance System That Ensures Every Healthcare Worker Is 1
                   <div className="w-1/2 bg-gray-100 flex-shrink-0">
                     <div className="h-48 md:h-full">
                       <Image 
-                        src="/Finco Cover.png"
+                        src="/case-studies/nexusforce/Hero/Step 1 - 3.png"
                         alt="NexusForce"
                         width={400}
                         height={300}
