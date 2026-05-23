@@ -239,15 +239,15 @@ export default function NexusForceCaseStudy() {
               }}
             >
               {[
-                "/case-studies/nexusforce/hero/Step 1 - 3.png",
-                "/case-studies/nexusforce/hero/Step 3 - 3.png",
-                "/case-studies/nexusforce/hero/Step 5 - 5.png",
-                "/case-studies/nexusforce/hero/Step 6 - 01.png",
+                "/case-studies/nexusforce/hero/Step1-3.png",
+                "/case-studies/nexusforce/hero/Step3-3.png",
+                "/case-studies/nexusforce/hero/Step5-5.png",
+                "/case-studies/nexusforce/hero/Step6-01.png",
               ].concat([
-                "/case-studies/nexusforce/hero/Step 1 - 3.png",
-                "/case-studies/nexusforce/hero/Step 3 - 3.png",
-                "/case-studies/nexusforce/hero/Step 5 - 5.png",
-                "/case-studies/nexusforce/hero/Step 6 - 01.png",
+                "/case-studies/nexusforce/hero/Step1-3.png",
+                "/case-studies/nexusforce/hero/Step3-3.png",
+                "/case-studies/nexusforce/hero/Step5-5.png",
+                "/case-studies/nexusforce/hero/Step6-01.png",
               ]).map((src, idx) => (
                 <div key={idx} className="flex-shrink-0 w-[400px] md:w-[600px]">
                   <Image 
