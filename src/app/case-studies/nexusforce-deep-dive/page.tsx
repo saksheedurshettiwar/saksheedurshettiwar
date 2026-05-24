@@ -92,50 +92,50 @@ export default function NexusForceCaseStudy() {
         {
           num: "01",
           name: "Type Selection",
-          problem: "Job type determines which fields, shift structures, and compensation options appear across every step that follows. Getting this wrong at the start cascades through the entire flow.",
-          decision: "Four types presented as visual selections before any details are entered. Long-Term Order, Per Diem, Permanent, Internal Flex Pool. Type selection gates the rest of the form. Everything adapts to what was chosen here.",
+          problem: "Job type controls the fields and options that follow. If this is wrong at the start, the rest of the flow breaks.",
+          decision: "Four job types appear as visual choices before any details are entered, and the selected type gates the rest of the form.",
           images: ["/case-studies/nexusforce/Type Selection/02 - Type Selection.png", "/case-studies/nexusforce/Type Selection/01 - Type Selection.png"],
         },
         {
           num: "02",
           name: "Details",
-          problem: "Occupation, specialty, and location determine which compliance checklist gets attached downstream. Inconsistent entries mean the wrong checklist, which means a non-compliant placement.",
-          decision: "Controlled vocabularies where precision matters: Occupation, Specialty, Department, and free text only where flexibility is genuinely needed. Multi-select benefits surface only when the job type supports them.",
+          problem: "Occupation, specialty, and location determine the checklist downstream. Inconsistent entry leads to the wrong checklist.",
+          decision: "Controlled vocabularies are used where precision matters, with free text only where flexibility is needed.",
           images: ["/case-studies/nexusforce/Details/02 - Details.png", "/case-studies/nexusforce/Details/01 - Details.png"],
         },
         {
           num: "03",
           name: "Shift and Schedule",
-          problem: "Shift labels like Day Shift or Night Shift meant different things to different people. Approximate times created timesheet disputes that required manual resolution every single week.",
-          decision: "Specific HH:MM time ranges, not labels. 07:00 to 19:00, not Day Shift. Exact times feed directly into timesheet validation downstream and eliminate disputes before they happen.",
+          problem: "Shift labels meant different things to different users. Approximate times created timesheet disputes every week.",
+          decision: "Exact time ranges replace labels, and those times feed directly into downstream validation.",
           images: ["/case-studies/nexusforce/Shift & Schedule/01 - Shift & Schedule.png", "/case-studies/nexusforce/Shift & Schedule/02 - Shift & Schedule.png"],
         },
         {
           num: "04",
           name: "Compensation",
-          problem: "Bill rates need to be visible in the client portal. Vendor rates must never be. In existing platforms both numbers sometimes appeared in the same compensation section managed only by a visibility toggle.",
-          decision: "Bill rates displayed. Vendor rates computed server-side and never rendered anywhere in the client portal. Number of positions entered here gates how many candidates can be placed against this requisition.",
+          problem: "Bill rates need to be visible in the client portal. Vendor rates must never be.",
+          decision: "Bill rates are displayed, vendor rates are computed server-side, and never rendered in the client portal.",
           images: ["/case-studies/nexusforce/Compensation/01 - Compensation.png", "/case-studies/nexusforce/Compensation/02 - Compensation.png"],
         },
         {
           num: "05",
           name: "Compliance and Submission",
-          problem: "Compliance checklists were the last thing added to a job posting and the first thing skipped under deadline pressure. Non-compliant placements were the direct result.",
-          decision: "Checklist attachment is the final step and cannot be skipped. A job cannot exist in the system without one. Approval workflow toggle surfaced here. Status at submission is Draft, Active, or Scheduled.",
+          problem: "Compliance checklists were often added last and skipped under pressure. That delay created non-compliant placements.",
+          decision: "Checklist attachment is the final required step, and a job cannot exist without one.",
           images: ["/case-studies/nexusforce/Compliance & Submission Rules/01 - Compliance & Submission Rules.png", "/case-studies/nexusforce/Compliance & Submission Rules/02 - Compliance & Submission Rules.png", "/case-studies/nexusforce/Compliance & Submission Rules/03 - Compliance & Submission Rules.png", "/case-studies/nexusforce/Compliance & Submission Rules/04 - Compliance & Submission Rules.png"],
         },
         {
           num: "06",
           name: "Review Template",
-          problem: "Users were submitting requisitions without a final check, leading to errors that only surfaced after the job was already live and candidates had started applying.",
-          decision: "Before the template is submitted, the user gets a full read-only summary of everything they entered across all five steps. Every field visible in one place. No editing here, that forces intent. If something is wrong, they go back to the specific step. Only when everything looks right does the submit button make sense.",
+          problem: "Users were submitting requisitions without a final check, and errors only surfaced after the job went live.",
+          decision: "A read-only summary shows all entered details before submission, so the final step forces intent.",
           images: ["/case-studies/nexusforce/Review Template/Review Template.png"],
         },
         {
           num: "07",
           name: "Job Posting",
-          problem: "After a template was submitted, users had no clear signal that the job was live. They would go back into the system and manually check, sometimes posting the same job twice.",
-          decision: "Once the template is reviewed and submitted, the user lands on a job posting screen with one action: Post Job. A success confirmation surfaces immediately after posting with a direct link to view submissions. No ambiguity about whether the job is live.",
+          problem: "After submission, users had no clear signal that the job was live. Some checked manually and posted twice.",
+          decision: "The user lands on a posting screen with one action: Post Job, followed by an immediate success state.",
           images: ["/case-studies/nexusforce/Job Posting/01 - Job Posting.png", "/case-studies/nexusforce/Job Posting/02 - Job Posting.png", "/case-studies/nexusforce/Job Posting/03 - Job Posting.png"],
         },
       ],
@@ -688,8 +688,11 @@ export default function NexusForceCaseStudy() {
                                     {step.num} &middot; {step.name}
                                   </span>
                                 </div>
-                                <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-6">
-                                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{step.problem}</p>
+                                <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-6 space-y-4">
+                                  <div>
+                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">The Problem</p>
+                                    <p className="text-sm text-gray-600 leading-relaxed">{step.problem}</p>
+                                  </div>
                                   <div className="border-l-4 border-gray-900 pl-4 py-2">
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">The Design Decision</p>
                                     <p className="text-sm text-gray-800 leading-relaxed">{step.decision}</p>
