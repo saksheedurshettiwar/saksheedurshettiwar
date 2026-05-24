@@ -153,9 +153,8 @@ export default function NexusForceCaseStudy() {
         {
           num: "02",
           name: "Bill Rate Negotiated After Job Is Live",
-          body: "An ICU job is posted at $250 per hour. Three vendors submit candidates. Procurement renegotiates the rate to $300 per hour. There is no mechanism to update the bill rate on a live job. Invoices will generate at the wrong number.",
-          tension: "The Snapshot Rule freezes job data at creation to protect integrity. But a rate change is not a template error. It is a legitimate business event that downstream billing depends on.",
-          resolution: "Bill rate updates on live jobs are allowed but gated. The change triggers an approval workflow before taking effect, notifying the hiring manager and operations. Once approved, all future invoices generate at the updated rate. Past invoices are untouched. The audit log captures exactly when the rate changed and who approved it.",
+          problem: "An ICU job goes live at $250 per hour. After three vendors submit candidates, procurement renegotiates the rate to $300 per hour, but the live job cannot be updated.",
+          solution: "The system allows bill rate changes on live jobs, but only through approval. Once approved, future invoices use the updated rate, past invoices stay unchanged, and the change is fully logged.",
           images: ["/case-studies/nexusforce/Bill Rate Negotiated After Job Is Live/Bill Rate Amendment - 01.png", "/case-studies/nexusforce/Bill Rate Negotiated After Job Is Live/Bill Rate Amendment - 02.png"],
         },
         {
