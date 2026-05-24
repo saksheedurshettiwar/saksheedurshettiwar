@@ -160,9 +160,8 @@ export default function NexusForceCaseStudy() {
         {
           num: "03",
           name: "Same Template Used Across Fiscal Year Boundary",
-          body: "A template is created in December 2025 with a $10,000 signing bonus. The same template is used to post jobs in January 2026 after tax rules change. Finance flags incorrect withholding three months later.",
-          tension: "The Snapshot Rule correctly froze the template data at job creation. But it could not account for a tax rule that changed after the template was originally built.",
-          resolution: "The system flags templates that have not been reviewed in over 90 days with a banner at the point of job creation, not after. Before the job goes live, the user is prompted to confirm the template details are still accurate for the current period. It is not a block. It is a forced moment of awareness before the job posts.",
+          problem: "A template built in December 2025 carries a $10,000 signing bonus into January 2026, after tax rules have changed. The issue is caught only after finance sees incorrect withholding.",
+          solution: "The system flags templates that have not been reviewed in over 90 days at the moment of job creation. Before posting, the user is prompted to confirm the template is still accurate for the current period.",
           image: "/case-studies/nexusforce/Same Template Used Across Fiscal Year Boundary/Template Fiscal Year Review.png",
         },
         {
