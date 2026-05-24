@@ -10,7 +10,7 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 const projects = [
   {
     tag: "Healthcare Staffing · B2B SaaS",
-    title: "Designing a Zero-Gap Compliance System That Ensures Every Healthcare Worker Is 100% Verified Before Day One",
+    title: "Eliminating the 48-Hour Compliance Gap That Puts Healthcare Organizations at Legal Risk",
     description:
       "Hospitals getting fully verified workers on day one, without chasing a single missing document.",
     description2:

@@ -76,18 +76,14 @@ export default function NexusForceCaseStudy() {
   const screens = [
     {
       title: "Ecosystem Architecture",
-      problem: "Four parties sharing one platform, each with strict boundaries around what they can see and do. Most platforms manage this with role-based field visibility: one shared data model, filtered differently per user type. It works in the main UI. It breaks the moment someone builds a report, exports data, or adds a new screen without applying the filter.",
-      decision: "Vendor rates are never included in the client portal's API response. Not filtered at render. Not hidden with CSS. Not disabled at the component level. Never sent. If the data is not in the response, no UI mistake downstream can expose it.\n\nNavigation follows the same logic. If a role has no access to a module, the module does not appear in the navigation at all. Not greyed out. Not locked with a tooltip. Absent. A user cannot accidentally navigate to something they should not see.",
-      insight: "The most common rate exposure incident in MSP platforms does not come from the main UI. It comes from report export templates built once and never audited again. Keeping vendor rates out of the client portal data model entirely is the only architecture that survives over time.",
-      insightLabel: "Research insight",
+      problem: "Four parties use one platform, but each needs strict data boundaries. Most systems rely on UI filters, which can fail in reports, exports, or new screens.",
+      decision: "Sensitive data is removed before it reaches the client portal. If a role cannot access a module, it does not appear in navigation.",
       image: "/case-studies/nexusforce/Ecosystem Information Architecture.png",
     },
     {
       title: "Compliance Logic",
-      problem: "Workforce compliance has three distinct failure modes: documents verified too late, template changes breaking active placements, and compliance tasks that ignore what a candidate already has on file. Existing platforms address each one with a separate UI control. None enforce all three at the system level.",
-      decision: "Three rules implemented before any screen is designed.\n\nThe Snapshot Rule: When a job is created from a requisition template, the template data is frozen into the job record at that moment. Subsequent edits to the template have zero effect on existing jobs.\n\nThe Immutability Rule: The same logic applies to compliance checklists. Once attached to a job, edits to the checklist template do not affect the job's requirements. Active placements are protected from retroactive changes.\n\nThe Union Rule: A placement's compliance task list is computed automatically as the union of the candidate's existing document wallet and the job's checklist requirements. Candidates are never asked to re-upload what they have already submitted. No required document is missed.",
-      insight: "The Immutability Rule was the hardest to defend. The instinct is to want compliance updates to push to active jobs. The risk is that this creates false violations for workers who were fully compliant under the original requirements. Immutability protects placement integrity. New requirements apply only to new jobs.",
-      insightLabel: "Research insight",
+      problem: "Compliance fails too late, too loosely, or too often. Existing platforms patch each one separately, but none enforce the full workflow.",
+      decision: "I defined three rules before any screen: frozen job snapshots, unchanged active checklists, and task lists based on the candidate's existing documents plus the job's requirements.",
       image: "/case-studies/nexusforce/Data Relationship & Compliance Mapping.png",
     },
     {
@@ -212,14 +208,22 @@ export default function NexusForceCaseStudy() {
         
         <AnimatedSection delay={0.2}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-            Designing a Zero-Gap Compliance System That Ensures Every Healthcare Worker Is 100% Verified Before Day One
+            Eliminating the 48-Hour Compliance Gap That Puts Healthcare Organizations at Legal Risk
           </h1>
         </AnimatedSection>
         
         <AnimatedSection delay={0.3}>
-          <p className="text-xl text-gray-500 leading-relaxed mb-12 max-w-3xl">
-            The post-hire operational layer hospitals rely on to guarantee that every worker who walks through their door is cleared to be there.
+          <p className="text-xl text-gray-500 leading-relaxed mb-6 max-w-3xl">
+            Redesigning compliance verification to prevent non-compliant placements before they occur, reducing manual verification overhead by 40+ hours per week and eliminating post-placement audit risk.
           </p>
+          <a
+            href="https://www.figma.com/proto/d3flG936CO8wKQd9woX1xe/NexusForce---Heizen?node-id=1-8674&p=f&viewport=378%2C-393%2C0.03&t=Q23yZ3GNZvDLxJ3r-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A8674&page-id=0%3A1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors mb-12"
+          >
+            View Prototype ↗
+          </a>
         </AnimatedSection>
         
         <AnimatedSection delay={0.4}>
@@ -263,51 +267,63 @@ export default function NexusForceCaseStudy() {
           </div>
         </AnimatedSection>
         
-        <motion.div 
-          className="bg-gray-900 p-8 md:p-12 rounded-2xl mb-16 relative overflow-hidden"
-          whileHover={{ scale: 1.01 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          />
-          <h2 className="text-2xl font-bold text-white mb-8 text-center relative z-10">What success looks like</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center text-white max-w-4xl mx-auto relative z-10">
-            {[
-              { num: "100%", text: "Document verification before the worker walks in" },
-              { num: "Zero", text: "Vendor rate exposures, enforced at the data layer, not a hidden field" },
-              { num: "One", text: "Mandatory path from requisition to placement, no shortcuts, no gaps" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
+        <AnimatedSection>
+          <div className="rounded-2xl border border-gray-900 bg-gray-900 mb-16 overflow-hidden">
+            <div className="px-6 py-8 md:px-10 md:py-12 border-b border-white/10">
+              <motion.h2
+                className="text-2xl md:text-3xl font-bold text-white text-center"
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className="cursor-default"
               >
-                <motion.p 
-                  className="text-4xl md:text-5xl font-bold mb-2"
-                  animate={{ 
-                    scale: [1, 1.02, 1],
-                  }}
-                  transition={{ 
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatDelay: 2,
-                    ease: "easeInOut"
-                  }}
+                What success looks like
+              </motion.h2>
+              <FadeInOnScroll>
+                <p className="text-sm text-gray-400 text-center mt-3 max-w-xl mx-auto">
+                  Outcomes enforced by the system, not by someone catching mistakes later.
+                </p>
+              </FadeInOnScroll>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              {[
+                {
+                  num: "100%",
+                  label: "Compliance gate",
+                  text: "Document verification before the worker walks in",
+                },
+                {
+                  num: "Zero",
+                  label: "Rate exposure",
+                  text: "Vendor rate exposures, enforced at the data layer, not a hidden field",
+                },
+                {
+                  num: "One",
+                  label: "Placement path",
+                  text: "Mandatory path from requisition to placement, no shortcuts, no gaps",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  className="flex flex-col p-6 md:p-8"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
                 >
-                  {item.num}
-                </motion.p>
-                <p className="text-sm text-gray-400">{item.text}</p>
-              </motion.div>
-            ))}
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-4">
+                    {String(i + 1).padStart(2, "0")} · {item.label}
+                  </span>
+                  <p className="text-4xl md:text-[2.75rem] font-bold text-white tracking-tight leading-none mb-4">
+                    {item.num}
+                  </p>
+                  <div className="w-10 h-px bg-[#2E90FA]/50 mb-4" aria-hidden />
+                  <p className="text-sm text-gray-400 leading-relaxed">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </motion.div>
+        </AnimatedSection>
         
         <AnimatedSection>
           <div className="mb-16">
@@ -321,29 +337,7 @@ export default function NexusForceCaseStudy() {
             </motion.h2>
             <FadeInOnScroll className="space-y-4">
               <p className="text-base text-gray-500 leading-relaxed">
-                Here is how most healthcare staffing platforms handle compliance. A worker gets placed. Timesheets start. Someone manually checks whether the documents are in order. If something is missing, they chase the worker. The worker chases the agency. Meanwhile the worker is already on the floor.
-              </p>
-              <p className="text-base text-gray-600 leading-relaxed">
-                This is not an edge case. This is the default workflow.
-              </p>
-            </FadeInOnScroll>
-            
-            <FadeInOnScroll className="mt-8">
-              <motion.blockquote 
-                className="border-l-4 border-gray-900 pl-6 py-2"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-lg text-gray-800 italic font-medium">
-                  "By the time we caught the missing license, she had already done two shifts. We had no idea until the audit."
-                </p>
-              </motion.blockquote>
-            </FadeInOnScroll>
-            
-            <FadeInOnScroll>
-              <p className="text-base text-gray-700 leading-relaxed mt-6">
-                The platform was not failing because nobody cared. It was failing because compliance was a check that happened after placement, not a gate that prevented a non-compliant placement from being created.
+                Most healthcare staffing platforms check compliance after a worker is already placed. By the time missing documents are found, the worker may already be on the floor. This isn't an exception, it's the default workflow. The real problem was simple: compliance was treated as a check, not a gate.
               </p>
             </FadeInOnScroll>
           </div>
@@ -351,40 +345,105 @@ export default function NexusForceCaseStudy() {
         
         <AnimatedSection>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">What Existing Platforms Do vs What NexusForce Does</h2>
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="flex-1 space-y-4">
-                <FadeInOnScroll>
-                  <p className="text-sm font-semibold text-gray-700 mb-3">What existing platforms do</p>
-                </FadeInOnScroll>
-                <div className="space-y-3">
-                  {["Compliance documents checked manually after the placement is created", "Vendor rates separated by a UI toggle — the data still exists in the shared model", "Template changes propagate to active jobs, making workers compliant yesterday non-compliant today", "Placement creation is a manual step someone has to remember after an offer is accepted"].map((item, i) => (
-                    <FadeInOnScroll key={i}>
-                      <div className="flex items-start gap-3">
-                        <span className="text-red-500 mt-0.5">✗</span>
-                        <span className="text-sm text-gray-600">{item}</span>
-                      </div>
-                    </FadeInOnScroll>
-                  ))}
-                </div>
+            <motion.h2
+              className="text-2xl md:text-3xl font-bold text-gray-900 mb-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              What Existing Platforms Do vs What NexusForce Does
+            </motion.h2>
+            <FadeInOnScroll>
+              <p className="text-base text-gray-500 mb-10 max-w-2xl">
+                Same features on paper. Different enforcement at the system layer.
+              </p>
+            </FadeInOnScroll>
+
+            <div className="relative">
+              <div className="hidden md:flex absolute left-1/2 top-10 -translate-x-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[11px] font-bold tracking-widest text-gray-400">
+                VS
               </div>
-              
-              <div className="w-px bg-gray-200 hidden md:block" />
-              
-              <div className="flex-1 space-y-4">
-                <FadeInOnScroll>
-                  <p className="text-sm font-semibold text-gray-700 mb-3">What NexusForce does instead</p>
+
+              <div className="grid md:grid-cols-2 gap-4 md:gap-0 md:rounded-2xl md:overflow-hidden md:border md:border-gray-200">
+                <FadeInOnScroll className="h-full">
+                  <div className="h-full rounded-2xl md:rounded-none border border-gray-200 md:border-0 bg-gradient-to-b from-rose-50/90 via-white to-white p-6 md:p-8">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-rose-800 mb-6">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500" aria-hidden />
+                      Industry default
+                    </span>
+                    <p className="text-sm font-medium text-gray-500 mb-5">What existing platforms do</p>
+                    <ul className="space-y-3">
+                      {[
+                        "Check compliance after placement.",
+                        "Hide vendor rates in the UI only.",
+                        "Let template edits affect active jobs.",
+                        "Create placements manually.",
+                      ].map((item, i) => (
+                        <motion.li
+                          key={item}
+                          className="flex items-start gap-3 rounded-xl bg-white/70 border border-rose-100/80 px-4 py-3.5"
+                          initial={{ opacity: 0, x: -12 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.08, duration: 0.45 }}
+                        >
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-600" aria-hidden>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="stroke-current stroke-[2]">
+                              <path d="M2.5 2.5l7 7M9.5 2.5l-7 7" strokeLinecap="round" />
+                            </svg>
+                          </span>
+                          <span className="text-sm text-gray-700 leading-snug pt-0.5">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
                 </FadeInOnScroll>
-                <div className="space-y-3">
-                  {["Compliance union computed automatically at the moment of placement creation — a non-compliant placement cannot be created", "Vendor rates computed server-side and never passed to the client portal's API response — not filtered, never sent", "Snapshot rule: template data frozen at job creation, edits have zero effect on active placements", "Placement auto-created on offer acceptance — no manual trigger, no gap between offer and placement record"].map((item, i) => (
-                    <FadeInOnScroll key={i}>
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-600 mt-0.5">✓</span>
-                        <span className="text-sm text-gray-600">{item}</span>
-                      </div>
-                    </FadeInOnScroll>
-                  ))}
-                </div>
+
+                <FadeInOnScroll className="h-full">
+                  <motion.div
+                    className="h-full rounded-2xl md:rounded-none border border-gray-900 md:border-0 bg-gray-900 text-white p-6 md:p-8 relative overflow-hidden"
+                    whileHover={{ scale: 1.005 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-40"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255,255,255,0.14), transparent 55%)",
+                      }}
+                      aria-hidden
+                    />
+                    <span className="relative inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-6 ring-1 ring-white/10">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2E90FA]" aria-hidden />
+                      NexusForce
+                    </span>
+                    <p className="relative text-sm font-medium text-gray-400 mb-5">What NexusForce does</p>
+                    <ul className="relative space-y-3">
+                      {[
+                        "Block non-compliant placements at creation.",
+                        "Keep vendor rates server-side.",
+                        "Freeze templates at job creation.",
+                        "Auto-create placements on offer acceptance.",
+                      ].map((item, i) => (
+                        <motion.li
+                          key={item}
+                          className="flex items-start gap-3 rounded-xl bg-white/[0.06] border border-white/10 px-4 py-3.5 backdrop-blur-sm"
+                          initial={{ opacity: 0, x: 12 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.08, duration: 0.45 }}
+                        >
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2E90FA]/20 text-[#7AB8F5]" aria-hidden>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="stroke-current stroke-[2]">
+                              <path d="M2.5 6.5l2.25 2.25L9.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                          <span className="text-sm text-gray-100 leading-snug pt-0.5">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </FadeInOnScroll>
               </div>
             </div>
           </div>
@@ -393,146 +452,167 @@ export default function NexusForceCaseStudy() {
         <AnimatedSection>
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Research</h2>
-            <p className="text-base text-gray-500 mb-4">What I found when I looked at how existing platforms handle this</p>
             <p className="text-base text-gray-500 leading-relaxed mb-4">
-              I mapped six enterprise workforce and MSP platforms. Every single one had compliance checklists. Every single one had role-based visibility controls. Not one had solved either problem at the data layer.
+              I reviewed six enterprise workforce platforms. All had compliance checklists and role-based controls. None solved either at the data layer.
             </p>
             <p className="text-base text-gray-500 leading-relaxed mb-4">
-              Compliance was always a post-placement check. Rate separation was always a UI-level filter. The assumption baked into every platform was that someone, somewhere, would catch it before it became a problem.
+              Compliance was always checked after placement. Rate separation was always handled in the UI. The shared assumption: someone would catch it in time.
             </p>
             <p className="text-base text-gray-900 font-semibold border-l-4 border-gray-900 pl-4 py-2">
-              In healthcare staffing, that assumption is a patient safety risk.
+              In healthcare staffing, that assumption is a liability.
             </p>
           </div>
         </AnimatedSection>
         
         <AnimatedSection>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">The Three Gaps</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { gap: "Gap 01", title: "Compliance Timing", subtitle: "Verified after placement, not before it", desc: "The highest-risk window in the entire staffing lifecycle, between offer accepted and first shift, has no system-level gate. A non-compliant worker can be placed, start work, and get caught in an audit weeks later." },
-                { gap: "Gap 02", title: "Data Architecture", subtitle: "Rate separation lives at the UI layer", desc: "Vendor rates exist in the shared data model and are filtered at render time. One missed filter on a report template or a new screen and the number surfaces where it should never appear." },
-                { gap: "Gap 03", title: "Template Integrity", subtitle: "No snapshot mechanism", desc: "Checklist updates propagate to active jobs. Workers who were compliant under the original requirements get retroactively flagged. Operations teams lose trust in templates and return to fully manual job creation." },
-              ].map((item, i) => (
-                <FadeInOnScroll key={i}>
-                  <motion.div 
-                    className="bg-white border border-gray-200 rounded-xl p-6 h-full"
-                    whileHover={{ y: -4, boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.1)' }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">{item.gap}</p>
-                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm font-medium text-gray-700 mb-3">{item.subtitle}</p>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
-                  </motion.div>
-                </FadeInOnScroll>
-              ))}
-            </div>
+            <motion.h2
+              className="text-2xl md:text-3xl font-bold text-gray-900 mb-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              The Three Gaps
+            </motion.h2>
             <FadeInOnScroll>
-              <p className="text-base text-gray-900 font-semibold mt-6 border-l-4 border-gray-900 pl-4 py-2">
-                The gap was not in what the platforms could do. It was in when and where they chose to enforce the rules.
+              <p className="text-base text-gray-500 mb-8 md:mb-10 max-w-2xl">
+                Every platform had the checklist, but none enforced it at the right moment.
               </p>
+            </FadeInOnScroll>
+
+            <div className="rounded-2xl bg-gray-100 p-2 md:p-2.5 space-y-2">
+              <ol className="space-y-2 list-none m-0 p-0">
+              {[
+                {
+                  label: "Timing",
+                  lead: "Compliance was checked after placement,",
+                  emphasis: "not before.",
+                },
+                {
+                  label: "Architecture",
+                  lead: "Rate separation lived in the UI,",
+                  emphasis: "not the data layer.",
+                },
+                {
+                  label: "Integrity",
+                  lead: "Template changes could affect active jobs,",
+                  emphasis: "because there was no snapshot system.",
+                },
+              ].map((gap, i) => (
+                <motion.li
+                  key={gap.label}
+                  className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 md:gap-12 rounded-xl bg-white px-5 py-5 md:px-8 md:py-6"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.45 }}
+                >
+                  <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-1 sm:min-w-[6.5rem] shrink-0">
+                    <span className="text-2xl font-bold text-gray-900 tabular-nums leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-400">
+                      {gap.label}
+                    </span>
+                  </div>
+                  <p className="text-[15px] md:text-base text-gray-600 leading-relaxed">
+                    {gap.lead}{" "}
+                    <span className="text-gray-900 font-semibold">{gap.emphasis}</span>
+                  </p>
+                </motion.li>
+              ))}
+              </ol>
+
+              <FadeInOnScroll>
+                <div className="rounded-xl bg-gray-900 px-5 py-5 md:px-8 md:py-6">
+                  <p className="text-base md:text-lg text-white font-medium leading-relaxed">
+                    The real gap was{" "}
+                    <span className="text-gray-300">timing and architecture</span>, not capability.
+                  </p>
+                </div>
+              </FadeInOnScroll>
+            </div>
+          </div>
+        </AnimatedSection>
+        
+        <AnimatedSection>
+          <div className="mb-16">
+            <motion.h2
+              className="text-2xl md:text-3xl font-bold text-gray-900 mb-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              The People
+            </motion.h2>
+            <FadeInOnScroll>
+              <p className="text-base text-gray-500 mb-8 md:mb-10 max-w-2xl">
+                Four parties. Four completely different agendas. One platform they all have to operate on without ever seeing what they should not.
+              </p>
+            </FadeInOnScroll>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 list-none m-0 p-0 mb-4 md:mb-5">
+              {[
+                { role: "Hospitals", need: "Compliance and role details." },
+                { role: "Agencies", need: "Placements and margins." },
+                { role: "Workers", need: "Job details and document status." },
+                { role: "Admin", need: "Full visibility to manage the system." },
+              ].map((party, i) => (
+                <motion.li
+                  key={party.role}
+                  className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07, duration: 0.45 }}
+                >
+                  <p className="text-[11px] font-bold text-[#2E90FA] tabular-nums tracking-wider mb-3">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-4">
+                    {party.role}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    <span className="font-semibold text-gray-900">Need </span>
+                    {party.need}
+                  </p>
+                </motion.li>
+              ))}
+            </ul>
+
+            <FadeInOnScroll>
+              <div className="rounded-2xl border border-gray-900 bg-gray-900 px-6 py-8 md:px-10 md:py-10">
+                <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#7AB8F5] mb-4 md:mb-5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2E90FA]" aria-hidden />
+                  Insight
+                </span>
+                <p className="text-base md:text-lg font-medium text-white leading-relaxed">
+                  The problem was not trust. It was designing one platform for four very different needs.
+                </p>
+              </div>
             </FadeInOnScroll>
           </div>
         </AnimatedSection>
         
         <AnimatedSection>
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">The People</h2>
-            <p className="text-base text-gray-500 mb-6">Four parties. Four completely different agendas. One platform they all have to operate on without ever seeing what they should not.</p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {[
-                { 
-                  role: "Hospital", initial: "H",
-                  points: [
-                    { label: "Know well", text: "Which roles need filling, what certifications are required, what their department compliance requirements are." },
-                    { label: "Do not know", text: "What the staffing agency earns per placement. And the platform has to guarantee that." },
-                  ]
-                },
-                { 
-                  role: "Staffing Agency", initial: "A",
-                  points: [
-                    { label: "Know well", text: "Their candidate pool, placement history, their own margins." },
-                    { label: "Do not know", text: "What the hospital is charged per hour. Also guaranteed by the platform." },
-                  ]
-                },
-                { 
-                  role: "Worker", initial: "W",
-                  points: [
-                    { label: "Need", text: "To know their placement details, which documents to upload, and when to show up." },
-                    { label: "Instead", text: "They get emails from three different people asking for the same document in different formats, with no single place to track what is submitted and what is still missing." },
-                  ]
-                },
-                { 
-                  role: "Platform Ops", initial: "P",
-                  points: [
-                    { label: "Responsible for", text: "Configuring all portals, setting fees, auditing every action across the system." },
-                    { label: "The only party", text: "That sees everything, and the only one for whom that is appropriate." },
-                  ]
-                },
-              ].map((person, i) => (
-                <FadeInOnScroll key={i}>
-                  <motion.div 
-                    className="bg-gray-50 rounded-xl p-6 h-full relative overflow-hidden"
-                    whileHover={{ 
-                      y: -6, 
-                      boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
-                      backgroundColor: '#f9fafb'
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <motion.div 
-                      className="absolute top-0 left-0 w-full h-1 bg-gray-900"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ originX: 0 }}
-                    />
-                    <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-200">
-                      <motion.div 
-                        className="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center"
-                        whileHover={{ scale: 1.1, rotate: 10 }}
-                        transition={{ type: 'spring', stiffness: 400 }}
-                      >
-                        <span className="text-white text-sm font-bold">{person.initial}</span>
-                      </motion.div>
-                      <p className="text-sm font-semibold text-gray-900">{person.role}</p>
-                    </div>
-                    <div className="space-y-5">
-                      {person.points.map((point, j) => (
-                        <motion.div 
-                          key={j}
-                          whileHover={{ x: 4 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1.5">{point.label}</p>
-                          <p className="text-sm text-gray-600 leading-relaxed">{point.text}</p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                </FadeInOnScroll>
-              ))}
-            </div>
-            
-            <FadeInOnScroll>
-              <p className="text-base text-gray-700 leading-relaxed border-l-4 border-gray-900 pl-4">
-                The problem was not that the parties did not trust each other. It was that the platform was built as if they all used the same screen.
-              </p>
-            </FadeInOnScroll>
-          </div>
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <div className="mb-16">
-            <div className="bg-gray-900 rounded-2xl p-8 md:p-12 text-center">
-              <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">North Star</p>
-              <p className="text-2xl md:text-3xl lg:text-4xl text-white font-medium leading-snug">
-                Can a worker walk into a hospital on day one knowing every document is verified, without anyone having to chase them?
-              </p>
-            </div>
+            <motion.div
+              className="rounded-2xl border border-gray-900 bg-gray-900 px-6 py-10 md:px-10 md:py-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#7AB8F5] mb-6 md:mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2E90FA]" aria-hidden />
+                North Star
+              </span>
+              <blockquote className="m-0">
+                <p className="text-xl md:text-2xl lg:text-[1.75rem] font-medium text-white leading-snug tracking-tight">
+                  Can every worker walk in on day one with all documents already verified, without anyone having to chase them?
+                </p>
+              </blockquote>
+            </motion.div>
           </div>
         </AnimatedSection>
         
