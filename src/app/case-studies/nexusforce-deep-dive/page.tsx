@@ -146,9 +146,8 @@ export default function NexusForceCaseStudy() {
         {
           num: "01",
           name: "Compliance Regulation Changes at State Level",
-          body: "California mandates a new document requirement for ICU nurses. The admin needs to update the compliance checklist immediately. But the Immutability Rule exists precisely to protect active placements from retroactive changes. Updating the checklist would flag workers who were fully compliant when they were placed.",
-          tension: "A legal obligation on one side, a system rule designed to protect placement integrity on the other.",
-          resolution: "The system separates the two actions. The admin can update the checklist for all future jobs instantly. For active placements, the system surfaces a flagged alert asking the admin to explicitly choose: apply to active placements as a regulatory override, or save for future jobs only. The decision is forced, logged, and auditable. Neither path is automatic.",
+          problem: "A state-level compliance requirement changes after some jobs are already active. Updating the checklist retroactively would wrongly flag workers who were compliant when they were placed.",
+          solution: "The system separates future updates from active placements. Admins can update the checklist for future jobs immediately, while active placements require an explicit, logged override decision.",
           image: "/case-studies/nexusforce/Compliance Regulation Changes at State Level/Compliance Regulation Changes at State Level.png",
         },
         {
@@ -647,16 +646,33 @@ export default function NexusForceCaseStudy() {
                                       {scenario.num} &middot; {scenario.name}
                                     </span>
                                   </div>
-                                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{scenario.body}</p>
-                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-                                    <div className="bg-gray-50 rounded-xl p-4">
-                                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The tension</p>
-                                      <p className="text-sm text-gray-700 leading-relaxed">{scenario.tension}</p>
-                                    </div>
-                                    <div className="bg-gray-50 rounded-xl p-4">
-                                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The resolution</p>
-                                      <p className="text-sm text-gray-700 leading-relaxed">{scenario.resolution}</p>
-                                    </div>
+                                  <div className="space-y-4 mb-5">
+                                    {'problem' in scenario ? (
+                                      <>
+                                        <div className="bg-gray-50 rounded-xl p-4">
+                                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Problem</p>
+                                          <p className="text-sm text-gray-700 leading-relaxed">{scenario.problem}</p>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-xl p-4">
+                                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Solution</p>
+                                          <p className="text-sm text-gray-700 leading-relaxed">{scenario.solution}</p>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <p className="text-sm text-gray-600 leading-relaxed">{scenario.body}</p>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                          <div className="bg-gray-50 rounded-xl p-4">
+                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The tension</p>
+                                            <p className="text-sm text-gray-700 leading-relaxed">{scenario.tension}</p>
+                                          </div>
+                                          <div className="bg-gray-50 rounded-xl p-4">
+                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The resolution</p>
+                                            <p className="text-sm text-gray-700 leading-relaxed">{scenario.resolution}</p>
+                                          </div>
+                                        </div>
+                                      </>
+                                    )}
                                   </div>
                                   {'images' in scenario && scenario.images ? (
                                     <div className="space-y-3">
