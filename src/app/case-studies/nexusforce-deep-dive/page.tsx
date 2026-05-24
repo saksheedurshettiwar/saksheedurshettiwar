@@ -167,9 +167,8 @@ export default function NexusForceCaseStudy() {
         {
           num: "04",
           name: "Job Posted During a Hiring Freeze",
-          body: "James posts an ICU job. The CFO approved a hiring freeze for Critical Care the same morning. The platform has no connection to budget approval systems. The job goes live. A candidate is placed. Finance rejects the placement weeks later.",
-          tension: "The platform cannot know what it was never told. A hiring freeze that lives in a finance system the platform does not talk to is invisible to every check the platform can run.",
-          resolution: "The confirmation screen before job posting surfaces a checklist the user must acknowledge: budget approval confirmed, department is not under a hiring freeze, headcount is approved. It is not a system verification because the system cannot make that verification. It is a legal and operational acknowledgement that shifts accountability to the right person before the job goes live.",
+          problem: "An ICU job is posted the same day a hiring freeze is approved for Critical Care. Because the platform is not connected to finance systems, the freeze is invisible and the job goes live anyway.",
+          solution: "Before posting, the confirmation screen requires the user to acknowledge that budget approval is confirmed, the department is not under a hiring freeze, and headcount is approved. This is not a system check; it is an explicit operational acknowledgment before the job is published.",
           images: ["/case-studies/nexusforce/Job Posted During a Hiring Freeze/Hiring Freeze Confirmation - 01.png", "/case-studies/nexusforce/Job Posted During a Hiring Freeze/Hiring Freeze Confirmation - 02.png"],
         },
       ],
