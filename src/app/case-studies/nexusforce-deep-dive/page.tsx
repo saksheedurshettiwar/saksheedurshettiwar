@@ -212,14 +212,24 @@ export default function NexusForceCaseStudy() {
           <p className="text-xl text-gray-500 leading-relaxed mb-6 max-w-3xl">
             Redesigning compliance verification to prevent non-compliant placements before they occur, reducing manual verification overhead by 40+ hours per week and eliminating post-placement audit risk.
           </p>
-          <a
-            href="https://www.figma.com/proto/d3flG936CO8wKQd9woX1xe/NexusForce---Heizen?node-id=1-8674&p=f&viewport=378%2C-393%2C0.03&t=Q23yZ3GNZvDLxJ3r-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A8674&page-id=0%3A1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors mb-12"
-          >
-            View Prototype ↗
-          </a>
+          <div className="flex flex-wrap gap-3 mb-12">
+            <a
+              href="https://www.figma.com/proto/d3flG936CO8wKQd9woX1xe/NexusForce---Heizen?node-id=1-8674&p=f&viewport=378%2C-393%2C0.03&t=Q23yZ3GNZvDLxJ3r-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A8674&page-id=0%3A1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              View Prototype ↗
+            </a>
+            <a
+              href="/case-studies/nexusforce-deep-dive/exploratory-stage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              Exploratory Stage ↗
+            </a>
+          </div>
         </AnimatedSection>
         
         <AnimatedSection delay={0.4}>
@@ -617,181 +627,154 @@ export default function NexusForceCaseStudy() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">The screens and the thinking behind each one</h2>
             <p className="text-lg text-gray-700 mb-12">One question drove every decision. If this is wrong, what breaks downstream?</p>
             
-            <div className="space-y-20">
+            <div className="space-y-24">
               {screens.map((screen, i) => (
                 <FadeInOnScroll key={i}>
-                  <div className="group">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  <div>
+                    {/* Section header */}
+                    <div className="flex items-start gap-4 mb-10 pb-6 border-b border-gray-100">
+                      <span className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-lg">{screen.title}</h3>
-                      </div>
+                      <h3 className="font-bold text-gray-900 text-xl md:text-2xl leading-snug mt-1">{screen.title}</h3>
                     </div>
-                    
-                    {(() => {
-                      if ('scenarios' in screen && screen.scenarios) {
-                        return (
-                          <div>
-                            <p className="text-base text-gray-500 leading-relaxed mb-8">Good architecture handles the happy path. What separates a system that actually works in production is how it handles the moment its own rules conflict with the real world. These are four of those moments.</p>
-                            <div className="space-y-16">
-                              {screen.scenarios.map((scenario, si) => (
-                                <div key={si}>
-                                  <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full border border-gray-200">
-                                      {scenario.num} &middot; {scenario.name}
-                                    </span>
-                                  </div>
-                                  <div className="space-y-4 mb-5">
-                                    {'problem' in scenario ? (
-                                      <>
-                                        <div className="bg-gray-50 rounded-xl p-4">
-                                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Problem</p>
-                                          <p className="text-sm text-gray-700 leading-relaxed">{scenario.problem}</p>
-                                        </div>
-                                        <div className="bg-gray-50 rounded-xl p-4">
-                                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Solution</p>
-                                          <p className="text-sm text-gray-700 leading-relaxed">{scenario.solution}</p>
-                                        </div>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <p className="text-sm text-gray-600 leading-relaxed">{scenario.body}</p>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                          <div className="bg-gray-50 rounded-xl p-4">
-                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The tension</p>
-                                            <p className="text-sm text-gray-700 leading-relaxed">{scenario.tension}</p>
-                                          </div>
-                                          <div className="bg-gray-50 rounded-xl p-4">
-                                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">The resolution</p>
-                                            <p className="text-sm text-gray-700 leading-relaxed">{scenario.resolution}</p>
-                                          </div>
-                                        </div>
-                                      </>
-                                    )}
-                                  </div>
-                                  {'images' in scenario && scenario.images ? (
-                                    <div className="space-y-3">
-                                      {scenario.images.map((img, imgIdx) => (
-                                        <motion.div key={imgIdx} whileHover={{ scale: 1.01 }} transition={{ duration: 0.3 }} className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
-                                          <Image src={img} alt={`Scenario ${scenario.num} ${imgIdx + 1}`} width={1200} height={675} className="w-full h-auto" />
-                                        </motion.div>
-                                      ))}
-                                    </div>
-                                  ) : 'image' in scenario && scenario.image && (
-                                    <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.3 }} className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
-                                      <Image src={scenario.image} alt={`Scenario ${scenario.num}`} width={1200} height={675} className="w-full h-auto" />
-                                    </motion.div>
-                                  )}
-                                  {si < screen.scenarios.length - 1 && <div className="w-full h-px bg-gray-100 mt-8" />}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      if ('steps' in screen && screen.steps) {
-                        return (
-                          <div className="space-y-16">
-                            {screen.steps.map((step, si) => (
-                              <div key={si}>
-                                <div className="flex items-center gap-3 mb-4">
-                                  <span className="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full border border-gray-200">
-                                    {step.num} &middot; {step.name}
-                                  </span>
-                                </div>
-                                <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-6 space-y-4">
-                                  <div>
-                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">The Problem</p>
-                                    <p className="text-sm text-gray-600 leading-relaxed">{step.problem}</p>
-                                  </div>
-                                  <div className="border-l-4 border-gray-900 pl-4 py-2">
-                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">The Design Decision</p>
-                                    <p className="text-sm text-gray-800 leading-relaxed">{step.decision}</p>
-                                  </div>
-                                </div>
-                                {step.images && (
-                                  <div className="space-y-3">
-                                    {step.images.map((img, imgIdx) => (
-                                      <motion.div
-                                        key={imgIdx}
-                                        whileHover={{ scale: 1.01 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50"
-                                      >
-                                        <Image 
-                                          src={img} 
-                                          alt={`${step.name} ${imgIdx + 1}`} 
-                                          width={1200} 
-                                          height={675} 
-                                          className="w-full h-auto" 
-                                        />
-                                      </motion.div>
-                                    ))}
-                                  </div>
-                                )}
-                                {si < screen.steps.length - 1 && <div className="w-full h-px bg-gray-100 mt-8" />}
+
+                    {/* Scenarios variant */}
+                    {'scenarios' in screen && screen.scenarios && (
+                      <div>
+                        <p className="text-base text-gray-500 leading-relaxed mb-10">Good architecture handles the happy path. What separates a system that actually works in production is how it handles the moment its own rules conflict with the real world. These are four of those moments.</p>
+                        <div className="space-y-14">
+                          {screen.scenarios.map((scenario, si) => (
+                            <div key={si}>
+                              <div className="flex items-center gap-3 mb-6">
+                                <span className="text-3xl font-bold text-gray-200 tabular-nums leading-none">{scenario.num}</span>
+                                <div className="w-px h-6 bg-gray-200 mx-1" />
+                                <span className="text-base font-semibold text-gray-900">{scenario.name}</span>
                               </div>
-                            ))}
-                          </div>
-                        );
-                      }
-                      return (
-                        <>
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                            <div className="bg-gray-50 rounded-xl p-5">
-                              <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Problem</p>
-                              <p className="text-sm text-gray-700 leading-relaxed">{screen.problem}</p>
-                            </div>
-                            <div className="bg-gray-50 rounded-xl p-5">
-                              <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">The Design Decision</p>
-                              <p className="text-sm text-gray-700 leading-relaxed">{screen.decision}</p>
-                            </div>
-                          </div>
-                          
-                          <div className="mb-6 space-y-6">
-                            {'images' in screen && screen.images ? (
-                              screen.images.map((img, imgIdx) => (
-                                <motion.div
-                                  key={imgIdx}
-                                  whileHover={{ scale: 1.01 }}
-                                  transition={{ duration: 0.3 }}
-                                  className="overflow-hidden rounded-lg border border-gray-200 bg-white"
-                                >
-                                  <Image 
-                                    src={img} 
-                                    alt={`${screen.title} ${imgIdx + 1}`} 
-                                    width={1200} 
-                                    height={675} 
-                                    className="w-full h-auto" 
-                                  />
+
+                              {'problem' in scenario ? (
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                  <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
+                                    <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">The Problem</p>
+                                    <p className="text-sm text-gray-600 leading-relaxed">{scenario.problem}</p>
+                                  </div>
+                                  <div className="rounded-xl bg-gray-900 p-5">
+                                    <p className="text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-3">The Solution</p>
+                                    <p className="text-sm text-gray-300 leading-relaxed">{scenario.solution}</p>
+                                  </div>
+                                </div>
+                              ) : (
+                                <>
+                                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{(scenario as any).body}</p>
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                    <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
+                                      <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">The Tension</p>
+                                      <p className="text-sm text-gray-600 leading-relaxed">{(scenario as any).tension}</p>
+                                    </div>
+                                    <div className="rounded-xl bg-gray-900 p-5">
+                                      <p className="text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-3">The Resolution</p>
+                                      <p className="text-sm text-gray-300 leading-relaxed">{(scenario as any).resolution}</p>
+                                    </div>
+                                  </div>
+                                </>
+                              )}
+
+                              {'images' in scenario && scenario.images ? (
+                                <div className="space-y-3">
+                                  {scenario.images.map((img, imgIdx) => (
+                                    <motion.div key={imgIdx} whileHover={{ scale: 1.005 }} transition={{ duration: 0.3 }} className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                                      <Image src={img} alt={`Scenario ${scenario.num} ${imgIdx + 1}`} width={1200} height={675} className="w-full h-auto" />
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              ) : 'image' in scenario && scenario.image && (
+                                <motion.div whileHover={{ scale: 1.005 }} transition={{ duration: 0.3 }} className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                                  <Image src={scenario.image} alt={`Scenario ${scenario.num}`} width={1200} height={675} className="w-full h-auto" />
                                 </motion.div>
-                              ))
-                            ) : 'image' in screen && screen.image && (
-                              <motion.div
-                                whileHover={{ scale: 1.01 }}
-                                transition={{ duration: 0.3 }}
-                                className="overflow-hidden rounded-xl border border-gray-200"
-                              >
-                                <Image 
-                                  src={screen.image} 
-                                  alt={screen.title} 
-                                  width={1200} 
-                                  height={675} 
-                                  className="w-full h-auto" 
-                                />
-                              </motion.div>
+                              )}
+
+                              {si < screen.scenarios.length - 1 && <div className="w-full h-px bg-gray-100 mt-12" />}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Steps variant */}
+                    {'steps' in screen && screen.steps && (
+                      <div className="space-y-12">
+                        {screen.steps.map((step, si) => (
+                          <div key={si}>
+                            <div className="flex items-center gap-3 mb-6">
+                              <span className="text-3xl font-bold text-gray-200 tabular-nums leading-none">{step.num}</span>
+                              <div className="w-px h-6 bg-gray-200 mx-1" />
+                              <span className="text-lg font-semibold text-gray-900">{step.name}</span>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                              <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
+                                <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">The Problem</p>
+                                <p className="text-sm text-gray-600 leading-relaxed">{step.problem}</p>
+                              </div>
+                              <div className="rounded-xl bg-gray-900 p-5">
+                                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-3">The Decision</p>
+                                <p className="text-sm text-gray-300 leading-relaxed">{step.decision}</p>
+                              </div>
+                            </div>
+
+                            {step.images && (
+                              <div className="space-y-3">
+                                {step.images.map((img, imgIdx) => (
+                                  <motion.div
+                                    key={imgIdx}
+                                    whileHover={{ scale: 1.005 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="overflow-hidden rounded-xl border border-gray-200 shadow-sm"
+                                  >
+                                    <Image src={img} alt={`${step.name} ${imgIdx + 1}`} width={1200} height={675} className="w-full h-auto" />
+                                  </motion.div>
+                                ))}
+                              </div>
                             )}
+
+                            {si < screen.steps.length - 1 && <div className="w-full h-px bg-gray-100 mt-10" />}
                           </div>
-                        </>
-                      );
-                    })()}
-                    
-                    {'insight' in screen && screen.insight && (
-                      <div className="border-l-4 border-gray-900 pl-5 py-3">
-                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">{screen.insightLabel}</p>
-                        <p className="text-sm text-gray-700 leading-relaxed">{screen.insight}</p>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Simple screen variant */}
+                    {!('scenarios' in screen) && !('steps' in screen) && (
+                      <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                          <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">The Problem</p>
+                            <p className="text-sm text-gray-600 leading-relaxed">{screen.problem}</p>
+                          </div>
+                          <div className="rounded-xl bg-gray-900 p-5">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-[#7AB8F5] mb-3">The Decision</p>
+                            <p className="text-sm text-gray-300 leading-relaxed">{screen.decision}</p>
+                          </div>
+                        </div>
+
+                        <div className="space-y-3">
+                          {'image' in screen && screen.image && (
+                            <motion.div
+                              whileHover={{ scale: 1.005 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden rounded-xl border border-gray-200 shadow-sm"
+                            >
+                              <Image src={screen.image} alt={screen.title} width={1200} height={675} className="w-full h-auto" />
+                            </motion.div>
+                          )}
+                        </div>
+                      </>
+                    )}
+
+                    {('insight' in screen) && !!(screen as any).insight && (
+                      <div className="border-l-4 border-gray-900 pl-5 py-3 mt-8">
+                        <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">{(screen as any).insightLabel}</p>
+                        <p className="text-sm text-gray-700 leading-relaxed">{(screen as any).insight}</p>
                       </div>
                     )}
                   </div>
