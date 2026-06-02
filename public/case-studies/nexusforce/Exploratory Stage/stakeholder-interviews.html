@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusForce — Stakeholder Interviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas: #F2EDE3;
+  --paper: #FEFCF8;
+  --ink: #1A1410;
+  --ink2: #3D3530;
+  --muted: #9A9088;
+  --border: #E2DAD0;
+  --purple: #6D28D9; --purple-l: #EDE9FE; --purple-m: #C4B5FD;
+  --amber: #D97706;  --amber-l: #FEF3C7;  --amber-m: #FCD34D;
+  --blue: #2563EB;   --blue-l: #DBEAFE;   --blue-m: #93C5FD;
+  --green: #16A34A;  --green-l: #DCFCE7;  --green-m: #86EFAC;
+  --red-l: #FEF2F2;  --red: #DC2626;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--canvas);
+  font-family: 'DM Sans', sans-serif;
+  padding: 52px 60px 80px;
+  min-width: 1320px;
+  background-image:
+    linear-gradient(rgba(160,148,130,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,148,130,0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.page-header {
+  margin-bottom: 48px;
+}
+.page-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.page-title {
+  font-family: 'Caveat', cursive;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.0;
+  margin-bottom: 10px;
+}
+.page-sub {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+
+.stakeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.sk-card {
+  background: var(--paper);
+  border-radius: 16px;
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.07);
+  position: relative;
+}
+.sk-card::before {
+  content: '';
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 60px; height: 18px;
+  background: rgba(255,255,230,0.8);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+.sk-header {
+  padding: 28px 20px 20px;
+  text-align: center;
+  position: relative;
+}
+.sk-avatar {
+  margin: 0 auto 12px;
+  position: relative;
+}
+.sk-name {
+  font-family: 'Caveat', cursive;
+  font-size: 22px; font-weight: 700;
+  color: var(--ink); margin-bottom: 2px;
+}
+.sk-role {
+  font-size: 11px; color: var(--muted);
+  font-weight: 500; letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+.sk-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+.sk-section {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+}
+.sk-section-label {
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.4px;
+  color: #C5BFB5; margin-bottom: 10px;
+}
+.goal-bubble {
+  font-family: 'Caveat', cursive;
+  font-size: 15px; line-height: 1.5;
+  padding: 10px 13px;
+  border-radius: 10px 10px 10px 2px;
+  margin-bottom: 8px;
+  position: relative;
+}
+.goal-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 12px;
+  width: 0; height: 0;
+  border-left: 9px solid transparent;
+  border-right: 4px solid transparent;
+}
+.q-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 9px;
+  align-items: flex-start;
+}
+.q-num {
+  font-size: 9px; font-weight: 700;
+  color: #C5BFB5; flex-shrink: 0;
+  margin-top: 3px; letter-spacing: 0.5px;
+}
+.q-text {
+  font-size: 12.5px; color: var(--ink2);
+  line-height: 1.55;
+}
+.insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 8px 10px;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.concern {
+  font-size: 12px; color: var(--red);
+  background: var(--red-l);
+  border-left: 3.5px solid var(--red);
+  padding: 8px 10px; border-radius: 0 6px 6px 0;
+  line-height: 1.5; font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.analysis-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.analysis-card {
+  background: var(--paper);
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  padding: 22px 24px;
+  box-shadow: 2px 3px 0 rgba(0,0,0,0.06);
+  position: relative;
+}
+.analysis-card::before {
+  content: '📌';
+  position: absolute;
+  top: -12px; left: 16px;
+  font-size: 20px;
+}
+.ac-title {
+  font-family: 'Caveat', cursive;
+  font-size: 20px; font-weight: 700;
+  color: var(--ink); margin: 6px 0 14px;
+}
+.tension-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px; border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 12.5px; color: var(--ink2); line-height: 1.55;
+}
+.tension-left { font-size: 13px; flex-shrink: 0; }
+
+@media print {
+  body { background: var(--canvas); -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-eyebrow">NexusForce · UX Research Phase 1</div>
+  <div class="page-title">Stakeholder Interviews</div>
+  <div class="page-sub">Before designing anything, we talked to the people who live inside the problem. Four stakeholders. Four completely different relationships with compliance. One broken system holding them all back.</div>
+</div>
+
+
+<div class="stakeholder-grid">
+
+  <div class="sk-card">
+    <div class="sk-header" style="background: linear-gradient(180deg, #FFFBEB 0%, #FEFCF8 100%);">
+      <div class="sk-avatar">
+        <svg width="80" height="88" viewBox="0 0 80 88" fill="none">
+          <ellipse cx="40" cy="70" rx="22" ry="18" fill="#1E40AF"/>
+          <path d="M30 58 L40 68 L50 58 L46 52 L40 56 L34 52Z" fill="#1D3A9E"/>
+          <path d="M36 52 L40 56 L44 52" fill="white"/>
+          <circle cx="40" cy="38" r="20" fill="#F4C490"/>
+          <path d="M20 36 Q20 18 40 16 Q60 18 60 36 Q60 28 56 26 Q48 22 40 22 Q32 22 24 26 Q20 28 20 36Z" fill="#7C3A00"/>
+          <path d="M20 36 Q18 44 22 50" fill="#7C3A00"/>
+          <path d="M60 36 Q62 44 58 50" fill="#7C3A00"/>
+          <ellipse cx="33" cy="38" rx="2.5" ry="2.5" fill="#3D2B1A"/>
+          <ellipse cx="47" cy="38" rx="2.5" ry="2.5" fill="#3D2B1A"/>
+          <path d="M30 33 Q33 31 36 33" stroke="#7C3A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M44 33 Q47 31 50 33" stroke="#7C3A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M34 46 Q40 50 46 46" stroke="#C68642" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="40" r="2" fill="#D97706"/>
+          <circle cx="60" cy="40" r="2" fill="#D97706"/>
+          <rect x="32" y="84" width="7" height="10" rx="3.5" fill="#1E3A8A"/>
+          <rect x="41" y="84" width="7" height="10" rx="3.5" fill="#1E3A8A"/>
+        </svg>
+      </div>
+      <div class="sk-name">Gloria Dorsey</div>
+      <div class="sk-role">Client Executive · St. Mary's Hospital, SF</div>
+      <div class="sk-tag" style="background: #FEF3C7; color: #92400E;">Hospital</div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Her goal</div>
+      <div class="goal-bubble" style="background: #FFFBEB; border: 1.5px solid #FDE68A; color: #78350F;">
+        "I need to staff my ICU without ever wondering if the person treating my patients is actually qualified. That's not a preference. That's a legal requirement."
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Questions we asked</div>
+      <div class="q-item"><div class="q-num">Q1</div><div class="q-text">Walk me through what happens when a travel nurse arrives on Day 1. What could go wrong?</div></div>
+      <div class="q-item"><div class="q-num">Q2</div><div class="q-text">Who is legally responsible if a nurse is working with an expired license?</div></div>
+      <div class="q-item"><div class="q-num">Q3</div><div class="q-text">How do you currently track whether compliance requirements are met?</div></div>
+      <div class="q-item"><div class="q-num">Q4</div><div class="q-text">What does the current handoff from the staffing agency look like to you?</div></div>
+      <div class="q-item"><div class="q-num">Q5</div><div class="q-text">If you could change one thing about how placements are verified, what would it be?</div></div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Key insights</div>
+      <div class="insight" style="background: #FFFBEB; border-left: 3.5px solid #F59E0B; color: #78350F;">
+        Hospital bears full legal liability — even for agency-placed nurses treating their patients
+      </div>
+      <div class="insight" style="background: #FFFBEB; border-left: 3.5px solid #F59E0B; color: #78350F;">
+        Current process is email + spreadsheet — no real-time compliance visibility
+      </div>
+      <div class="insight" style="background: #FFFBEB; border-left: 3.5px solid #F59E0B; color: #78350F;">
+        She discovered expired licenses in post-incident audits — not before
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Core tension</div>
+      <div class="concern">Needs nurses fast (ICU is understaffed) AND needs full compliance before Day 1. These two things were always in conflict.</div>
+    </div>
+  </div>
+
+  <div class="sk-card">
+    <div class="sk-header" style="background: linear-gradient(180deg, #EFF6FF 0%, #FEFCF8 100%);">
+      <div class="sk-avatar">
+        <svg width="80" height="88" viewBox="0 0 80 88" fill="none">
+          <ellipse cx="40" cy="70" rx="22" ry="18" fill="#1D4ED8"/>
+          <path d="M38 56 L40 62 L42 56 L41 52 L39 52Z" fill="#FBBF24"/>
+          <path d="M37 52 L40 56 L43 52" fill="white"/>
+          <circle cx="40" cy="38" r="20" fill="#6B4C2A"/>
+          <path d="M20 38 Q20 18 40 16 Q60 18 60 38" fill="#1A1008"/>
+          <path d="M20 38 Q20 26 40 24 Q60 26 60 38 Q58 32 40 30 Q22 32 20 38Z" fill="#1A1008"/>
+          <ellipse cx="33" cy="38" rx="2.5" ry="2.5" fill="#fff"/>
+          <ellipse cx="47" cy="38" rx="2.5" ry="2.5" fill="#fff"/>
+          <circle cx="33" cy="38" r="1.5" fill="#1A1008"/>
+          <circle cx="47" cy="38" r="1.5" fill="#1A1008"/>
+          <path d="M30 33 Q33 31 36 33" stroke="#1A1008" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M44 33 Q47 31 50 33" stroke="#1A1008" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M34 46 Q37 49 44 47" stroke="#8B6040" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M50 70 Q62 60 64 72" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <rect x="32" y="84" width="7" height="10" rx="3.5" fill="#1E3A8A"/>
+          <rect x="41" y="84" width="7" height="10" rx="3.5" fill="#1E3A8A"/>
+        </svg>
+      </div>
+      <div class="sk-name">Marcus Webb</div>
+      <div class="sk-role">Account Manager · HealthStaff Agency</div>
+      <div class="sk-tag" style="background: #DBEAFE; color: #1E40AF;">Agency</div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">His goal</div>
+      <div class="goal-bubble" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; color: #1E3A8A;">
+        "I need to close placements fast, keep both sides happy, and not get a call on a Friday morning saying a nurse showed up with missing documents."
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Questions we asked</div>
+      <div class="q-item"><div class="q-num">Q1</div><div class="q-text">Describe a placement that went wrong because of a documentation issue. What happened?</div></div>
+      <div class="q-item"><div class="q-num">Q2</div><div class="q-text">How do you currently know if a candidate has the right documents for a specific job?</div></div>
+      <div class="q-item"><div class="q-num">Q3</div><div class="q-text">When the hospital sends you a requirements list, how do you check your nurses against it?</div></div>
+      <div class="q-item"><div class="q-num">Q4</div><div class="q-text">What happens to your relationship with the hospital when a compliance gap is discovered after placement?</div></div>
+      <div class="q-item"><div class="q-num">Q5</div><div class="q-text">How do you currently track document expiry for nurses on active placements?</div></div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Key insights</div>
+      <div class="insight" style="background: #EFF6FF; border-left: 3.5px solid #3B82F6; color: #1E3A8A;">
+        Submitted candidates blind — no system to cross-check wallet vs job requirements before sending
+      </div>
+      <div class="insight" style="background: #EFF6FF; border-left: 3.5px solid #3B82F6; color: #1E3A8A;">
+        Gap discovery always post-selection — too late to prevent delay without damaging client trust
+      </div>
+      <div class="insight" style="background: #EFF6FF; border-left: 3.5px solid #3B82F6; color: #1E3A8A;">
+        Tracked renewals in a personal spreadsheet that nobody else could see or update
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Core tension</div>
+      <div class="concern">Responsible for both sides of the deal — but had no tool that showed him what each side needed from the other in real time.</div>
+    </div>
+  </div>
+
+  <div class="sk-card">
+    <div class="sk-header" style="background: linear-gradient(180deg, #F0FDF4 0%, #FEFCF8 100%);">
+      <div class="sk-avatar">
+        <svg width="80" height="88" viewBox="0 0 80 88" fill="none">
+          <ellipse cx="40" cy="70" rx="22" ry="18" fill="#16A34A"/>
+          <rect x="32" y="62" width="14" height="10" rx="2" fill="#15803D"/>
+          <path d="M50 60 Q60 55 60 65 Q60 72 53 72" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="52" cy="73" r="3" fill="#059669"/>
+          <circle cx="40" cy="38" r="20" fill="#FDDCB5"/>
+          <path d="M20 36 Q20 18 40 16 Q60 18 60 36 Q58 22 40 20 Q22 22 20 36Z" fill="#C85C00"/>
+          <path d="M56 26 Q66 28 64 42" stroke="#C85C00" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <ellipse cx="33" cy="38" rx="2.5" ry="2.5" fill="#3D2B1A"/>
+          <ellipse cx="47" cy="38" rx="2.5" ry="2.5" fill="#3D2B1A"/>
+          <circle cx="34" cy="37" r="0.8" fill="#fff"/>
+          <circle cx="48" cy="37" r="0.8" fill="#fff"/>
+          <path d="M30 33 Q33 30 36 32" stroke="#A0522D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M44 32 Q47 30 50 33" stroke="#A0522D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M33 46 Q40 52 47 46" stroke="#C68642" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="31" cy="46" r="1" fill="#E8A87C" opacity="0.6"/>
+          <circle cx="49" cy="46" r="1" fill="#E8A87C" opacity="0.6"/>
+          <rect x="32" y="84" width="7" height="10" rx="3.5" fill="#15803D"/>
+          <rect x="41" y="84" width="7" height="10" rx="3.5" fill="#15803D"/>
+        </svg>
+      </div>
+      <div class="sk-name">Sarah M.</div>
+      <div class="sk-role">ICU Travel Nurse · Candidate</div>
+      <div class="sk-tag" style="background: #DCFCE7; color: #166534;">Candidate</div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Her goal</div>
+      <div class="goal-bubble" style="background: #F0FDF4; border: 1.5px solid #86EFAC; color: #14532D;">
+        "I want to show up on Day 1 knowing everything is sorted. Not hoping. Not finding out at the reception desk. Just — knowing."
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Questions we asked</div>
+      <div class="q-item"><div class="q-num">Q1</div><div class="q-text">Has a placement ever been delayed or cancelled because of a document issue? What happened?</div></div>
+      <div class="q-item"><div class="q-num">Q2</div><div class="q-text">When you start a new assignment, how do you know if your documents are in order?</div></div>
+      <div class="q-item"><div class="q-num">Q3</div><div class="q-text">How many times have you re-submitted the same document — BLS cert, TB test — for different placements?</div></div>
+      <div class="q-item"><div class="q-num">Q4</div><div class="q-text">What does it cost you — financially, emotionally — when a start date gets pushed back?</div></div>
+      <div class="q-item"><div class="q-num">Q5</div><div class="q-text">How do you currently track when your licenses and certifications are about to expire?</div></div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Key insights</div>
+      <div class="insight" style="background: #F0FDF4; border-left: 3.5px solid #4ADE80; color: #14532D;">
+        Showed up to work in scrubs and was turned away — compliance gap nobody told her about
+      </div>
+      <div class="insight" style="background: #F0FDF4; border-left: 3.5px solid #4ADE80; color: #14532D;">
+        Re-submitted the same BLS certificate 4+ times in one year — no system remembered what was already approved
+      </div>
+      <div class="insight" style="background: #F0FDF4; border-left: 3.5px solid #4ADE80; color: #14532D;">
+        Tracked expiry dates in her phone calendar — first reminder she'd get was a coordinator panicking
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Core tension</div>
+      <div class="concern">She has zero visibility into the process that determines whether she works or doesn't — and loses real income when it fails.</div>
+    </div>
+  </div>
+
+  <div class="sk-card">
+    <div class="sk-header" style="background: linear-gradient(180deg, #F5F3FF 0%, #FEFCF8 100%);">
+      <div class="sk-avatar">
+        <svg width="80" height="88" viewBox="0 0 80 88" fill="none">
+          <ellipse cx="40" cy="70" rx="22" ry="18" fill="#5B21B6"/>
+          <path d="M35 60 L40 56 L45 60 L45 68 Q40 72 35 68Z" fill="#7C3AED"/>
+          <path d="M37 64 L39 66 L43 62" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="38" r="20" fill="#D4A87A"/>
+          <path d="M20 38 Q20 18 40 16 Q60 18 60 38 Q58 26 40 24 Q22 26 20 38Z" fill="#2C1810"/>
+          <path d="M20 38 Q20 34 22 32" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M60 38 Q60 34 58 32" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <ellipse cx="33" cy="38" rx="2.5" ry="2.5" fill="#1A1008"/>
+          <ellipse cx="47" cy="38" rx="2.5" ry="2.5" fill="#1A1008"/>
+          <rect x="28" y="35" width="10" height="7" rx="3.5" fill="none" stroke="#4B5563" stroke-width="1.2"/>
+          <rect x="42" y="35" width="10" height="7" rx="3.5" fill="none" stroke="#4B5563" stroke-width="1.2"/>
+          <line x1="38" y1="38" x2="42" y2="38" stroke="#4B5563" stroke-width="1.2"/>
+          <line x1="24" y1="38" x2="28" y2="38" stroke="#4B5563" stroke-width="1.2"/>
+          <line x1="52" y1="38" x2="56" y2="38" stroke="#4B5563" stroke-width="1.2"/>
+          <path d="M35 46 Q40 49 45 46" stroke="#B07840" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <rect x="32" y="84" width="7" height="10" rx="3.5" fill="#4C1D95"/>
+          <rect x="41" y="84" width="7" height="10" rx="3.5" fill="#4C1D95"/>
+        </svg>
+      </div>
+      <div class="sk-name">Platform Admin</div>
+      <div class="sk-role">NexusForce Operations · Compliance verification</div>
+      <div class="sk-tag" style="background: #EDE9FE; color: #5B21B6;">Platform Ops</div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Their goal</div>
+      <div class="goal-bubble" style="background: #F5F3FF; border: 1.5px solid #DDD6FE; color: #3B1F6B;">
+        "I need to verify that every document is real and current before a nurse touches a patient — and I need to prove that I did my job if anyone ever asks."
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Questions we asked</div>
+      <div class="q-item"><div class="q-num">Q1</div><div class="q-text">Walk me through how you currently verify documents for a new placement from start to finish.</div></div>
+      <div class="q-item"><div class="q-num">Q2</div><div class="q-text">What does your current audit trail look like? If something went wrong, how would you prove what you verified?</div></div>
+      <div class="q-item"><div class="q-num">Q3</div><div class="q-text">How do you know when a document is about to expire on an active placement?</div></div>
+      <div class="q-item"><div class="q-num">Q4</div><div class="q-text">What are the most common document gaps you see? What causes them?</div></div>
+      <div class="q-item"><div class="q-num">Q5</div><div class="q-text">How do you communicate compliance status back to the hospital and the agency right now?</div></div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Key insights</div>
+      <div class="insight" style="background: #F5F3FF; border-left: 3.5px solid #A78BFA; color: #3B1F6B;">
+        No immutable audit trail — "approved" meant an email that could be lost or overwritten
+      </div>
+      <div class="insight" style="background: #F5F3FF; border-left: 3.5px solid #A78BFA; color: #3B1F6B;">
+        Manually contacted both sides after verification — no system propagated status in real time
+      </div>
+      <div class="insight" style="background: #F5F3FF; border-left: 3.5px solid #A78BFA; color: #3B1F6B;">
+        Expiry monitoring was reactive — discovered lapsed documents in compliance audits, not before
+      </div>
+    </div>
+    <div class="sk-section">
+      <div class="sk-section-label">Core tension</div>
+      <div class="concern">Needed to be the source of truth for all four parties — but had no single system to track, verify, and prove what had been approved.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="analysis-row">
+  <div class="analysis-card">
+    <div class="sk-tag" style="background: #FEF9C3; color: #78350F; margin-bottom:0;">Where goals conflict</div>
+    <div class="ac-title">Tensions across stakeholders</div>
+    <div class="tension-item" style="background: #FFF7ED;">
+      <div class="tension-left">⚡</div>
+      <div>Hospital needs nurses fast. Compliance needs time to verify. These were always in direct conflict.</div>
+    </div>
+    <div class="tension-item" style="background: #FFF7ED;">
+      <div class="tension-left">⚡</div>
+      <div>Agency wants to close deals. Gaps slow deals down. So gaps got hidden until they couldn't be.</div>
+    </div>
+    <div class="tension-item" style="background: #FFF7ED;">
+      <div class="tension-left">⚡</div>
+      <div>Nurse needs income. Compliance delays mean no income. But she had no visibility or control.</div>
+    </div>
+    <div class="tension-item" style="background: #FFF7ED;">
+      <div class="tension-left">⚡</div>
+      <div>Admin needs accountability. But their verification had no permanent, tamper-proof record.</div>
+    </div>
+  </div>
+  <div class="analysis-card">
+    <div class="sk-tag" style="background: #DCFCE7; color: #166534; margin-bottom:0;">Where they agreed</div>
+    <div class="ac-title">Shared needs across all 4</div>
+    <div class="tension-item" style="background: #F0FDF4;">
+      <div class="tension-left">✓</div>
+      <div>Everyone wanted to know exactly what was missing — not vague "some documents are needed."</div>
+    </div>
+    <div class="tension-item" style="background: #F0FDF4;">
+      <div class="tension-left">✓</div>
+      <div>Everyone wanted proactive alerts — not to find out problems after they'd already caused damage.</div>
+    </div>
+    <div class="tension-item" style="background: #F0FDF4;">
+      <div class="tension-left">✓</div>
+      <div>Everyone needed one source of truth — not four people maintaining four separate spreadsheets.</div>
+    </div>
+    <div class="tension-item" style="background: #F0FDF4;">
+      <div class="tension-left">✓</div>
+      <div>Everyone needed the process to be impossible to skip — not reliant on someone remembering.</div>
+    </div>
+  </div>
+  <div class="analysis-card">
+    <div class="sk-tag" style="background: #EDE9FE; color: #5B21B6; margin-bottom:0;">The insight that changed everything</div>
+    <div class="ac-title">The real problem wasn't compliance</div>
+    <div class="tension-item" style="background: #F5F3FF;">
+      <div class="tension-left">🎯</div>
+      <div><strong>The compliance check was happening after the placement decision — not before activation.</strong> Every stakeholder assumed someone else had verified it. Nobody had a gate.</div>
+    </div>
+    <div class="tension-item" style="background: #F5F3FF;">
+      <div class="tension-left">🔒</div>
+      <div>This led to the core design decision: <strong>make non-compliant placements structurally impossible to create.</strong> Not a reminder. A gate.</div>
+    </div>
+    <div class="tension-item" style="background: #F5F3FF;">
+      <div class="tension-left">📐</div>
+      <div>This is the insight behind the Snapshot Rule, Immutability Rule, and Union Rule — the three structural decisions that NexusForce is built on.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

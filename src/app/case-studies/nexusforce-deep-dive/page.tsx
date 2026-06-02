@@ -212,14 +212,24 @@ export default function NexusForceCaseStudy() {
           <p className="text-xl text-gray-500 leading-relaxed mb-6 max-w-3xl">
             Redesigning compliance verification to prevent non-compliant placements before they occur, reducing manual verification overhead by 40+ hours per week and eliminating post-placement audit risk.
           </p>
-          <a
-            href="https://www.figma.com/proto/d3flG936CO8wKQd9woX1xe/NexusForce---Heizen?node-id=1-8674&p=f&viewport=378%2C-393%2C0.03&t=Q23yZ3GNZvDLxJ3r-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A8674&page-id=0%3A1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors mb-12"
-          >
-            View Prototype ↗
-          </a>
+          <div className="flex flex-wrap gap-3 mb-12">
+            <a
+              href="https://www.figma.com/proto/d3flG936CO8wKQd9woX1xe/NexusForce---Heizen?node-id=1-8674&p=f&viewport=378%2C-393%2C0.03&t=Q23yZ3GNZvDLxJ3r-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A8674&page-id=0%3A1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              View Prototype ↗
+            </a>
+            <a
+              href="/case-studies/nexusforce-deep-dive/exploratory-stage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              Exploratory Stage ↗
+            </a>
+          </div>
         </AnimatedSection>
         
         <AnimatedSection delay={0.4}>

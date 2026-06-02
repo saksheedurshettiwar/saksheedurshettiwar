@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NexusForce — Wireframes</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  padding: 56px 64px 80px;
+  min-width: 1100px;
+}
+.pg-header { margin-bottom: 52px; }
+.pg-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 10px; }
+.pg-title { font-family: 'Caveat', cursive; font-size: 52px; font-weight: 700; color: #111; line-height: 1.0; margin-bottom: 8px; }
+.pg-sub { font-size: 14px; color: #888; max-width: 600px; line-height: 1.6; }
+.screen { margin-bottom: 72px; }
+.screen-label {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px; padding-bottom: 12px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.sl-num {
+  font-size: 11px; font-weight: 700; color: #999;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.sl-title { font-family: 'Caveat', cursive; font-size: 24px; font-weight: 700; color: #111; }
+.sl-portal {
+  font-size: 11px; font-weight: 600; color: #888;
+  padding: 3px 10px; border: 1px solid #DDD; border-radius: 20px;
+  margin-left: auto;
+}
+.wf-svg { display: block; width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="pg-header">
+  <div class="pg-eyebrow">NexusForce · UX Phase 5 · 1440px Web</div>
+  <div class="pg-title">Lo-Fi Wireframes</div>
+  <div class="pg-sub">Simple line diagrams. Boxes = UI regions. Labels = content. No colour. Just structure.</div>
+</div>
+
+<div class="screen">
+  <div class="screen-label">
+    <span class="sl-num">Screen 01</span>
+    <span class="sl-title">Admin — Verification Queue</span>
+    <span class="sl-portal">Admin Portal</span>
+  </div>
+  <svg class="wf-svg" viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="12" fill="#222" stroke="none">
+    <rect x="1" y="1" width="1098" height="558" fill="none" stroke="#222" stroke-width="1.5"/>
+    <rect x="1" y="1" width="1098" height="34" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="18" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="32" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="46" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="70" y="10" width="300" height="16" rx="3" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="80" y="22" font-size="10" fill="#888">app.nexusforce.io/admin/verification</text>
+    <rect x="1" y="35" width="180" height="524" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="16" y="52" width="90" height="16" rx="2" fill="none" stroke="#444" stroke-width="1"/>
+    <text x="21" y="63" font-size="10" fill="#555">NexusForce</text>
+    <line x1="1" y1="80" x2="181" y2="80" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="100" font-size="11" fill="#888">Dashboard</text>
+    <line x1="1" y1="110" x2="181" y2="110" stroke="#DDD" stroke-width="1"/>
+    <rect x="1" y="111" width="180" height="28" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="16" y="129" font-size="11" fill="#111" font-weight="600">Verification  [4]</text>
+    <line x1="1" y1="140" x2="181" y2="140" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="158" font-size="11" fill="#888">Placements</text>
+    <line x1="1" y1="168" x2="181" y2="168" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="186" font-size="11" fill="#888">Compliance</text>
+    <line x1="1" y1="196" x2="181" y2="196" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="214" font-size="11" fill="#888">Users</text>
+    <line x1="1" y1="224" x2="181" y2="224" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="242" font-size="11" fill="#888">Settings</text>
+    <rect x="181" y="35" width="919" height="44" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="198" y="61" font-size="14" font-weight="600" fill="#111">Verification Queue</text>
+    <text x="370" y="61" font-size="11" fill="#888">[ 4 pending ]</text>
+    <rect x="750" y="46" width="160" height="22" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="758" y="61" font-size="10" fill="#AAA">Search nurse name...</text>
+    <rect x="920" y="46" width="90" height="22" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="937" y="61" font-size="10" fill="#888">Filter ▾</text>
+    <circle cx="1076" cy="57" r="12" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="198" y="96" width="196" height="64" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="210" y="116" font-size="10" fill="#888">PENDING VERIFICATIONS</text>
+    <text x="210" y="140" font-size="22" font-weight="600" fill="#111">4</text>
+    <rect x="406" y="96" width="196" height="64" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="418" y="116" font-size="10" fill="#888">AVG VERIFY TIME</text>
+    <text x="418" y="140" font-size="18" font-weight="600" fill="#111">38 min</text>
+    <rect x="614" y="96" width="196" height="64" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="626" y="116" font-size="10" fill="#888">STARTING THIS WEEK</text>
+    <text x="626" y="140" font-size="22" font-weight="600" fill="#111">2</text>
+    <rect x="822" y="96" width="196" height="64" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="834" y="116" font-size="10" fill="#888">DOCS EXPIRING SOON</text>
+    <text x="834" y="140" font-size="22" font-weight="600" fill="#111">6</text>
+    <rect x="198" y="178" width="920" height="32" rx="0" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="210" y="198" font-size="10" fill="#888" font-weight="600">NURSE</text>
+    <text x="370" y="198" font-size="10" fill="#888" font-weight="600">HOSPITAL</text>
+    <text x="530" y="198" font-size="10" fill="#888" font-weight="600">GAPS</text>
+    <text x="630" y="198" font-size="10" fill="#888" font-weight="600">START DATE</text>
+    <text x="770" y="198" font-size="10" fill="#888" font-weight="600">PRIORITY</text>
+    <text x="940" y="198" font-size="10" fill="#888" font-weight="600">ACTION</text>
+    <rect x="198" y="210" width="920" height="48" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="210" y="230" font-size="12" font-weight="600" fill="#111">Sarah M.</text>
+    <text x="210" y="246" font-size="10" fill="#888">ICU Nurse · HealthStaff</text>
+    <text x="370" y="234" font-size="12" fill="#111">St. Mary's, SF</text>
+    <text x="530" y="234" font-size="12" fill="#111">2 docs</text>
+    <text x="630" y="234" font-size="12" fill="#111">Tomorrow</text>
+    <text x="770" y="234" font-size="12" fill="#111">⚠ URGENT</text>
+    <rect x="934" y="220" width="72" height="26" rx="3" fill="none" stroke="#222" stroke-width="1.5"/>
+    <text x="954" y="237" font-size="11" font-weight="600" fill="#111">Review</text>
+    <rect x="198" y="258" width="920" height="48" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="210" y="278" font-size="12" font-weight="600" fill="#111">James R.</text>
+    <text x="210" y="294" font-size="10" fill="#888">ER Nurse · MedStaff</text>
+    <text x="370" y="282" font-size="12" fill="#111">General Hospital, LA</text>
+    <text x="530" y="282" font-size="12" fill="#111">1 doc</text>
+    <text x="630" y="282" font-size="12" fill="#111">In 3 days</text>
+    <text x="770" y="282" font-size="12" fill="#111">High</text>
+    <rect x="934" y="268" width="72" height="26" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="954" y="285" font-size="11" fill="#888">Review</text>
+    <rect x="198" y="306" width="920" height="48" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="210" y="326" font-size="12" font-weight="600" fill="#111">Priya K.</text>
+    <text x="210" y="342" font-size="10" fill="#888">ICU Nurse · NurseLink</text>
+    <text x="370" y="330" font-size="12" fill="#111">Bay Medical, SF</text>
+    <text x="530" y="330" font-size="12" fill="#111">2 docs</text>
+    <text x="630" y="330" font-size="12" fill="#111">In 7 days</text>
+    <text x="770" y="330" font-size="12" fill="#111">Normal</text>
+    <rect x="934" y="316" width="72" height="26" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="954" y="333" font-size="11" fill="#888">Review</text>
+    <rect x="198" y="354" width="920" height="48" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="210" y="374" font-size="12" font-weight="600" fill="#111">Marco T.</text>
+    <text x="210" y="390" font-size="10" fill="#888">ICU Nurse · HealthStaff</text>
+    <text x="370" y="378" font-size="12" fill="#111">St. Mary's, SF</text>
+    <text x="530" y="378" font-size="12" fill="#111">1 doc</text>
+    <text x="630" y="378" font-size="12" fill="#111">In 10 days</text>
+    <text x="770" y="378" font-size="12" fill="#111">Normal</text>
+    <rect x="934" y="364" width="72" height="26" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="954" y="381" font-size="11" fill="#888">Review</text>
+    <text x="198" y="432" font-size="10" fill="#AAA">Sorted by start date — urgent first</text>
+    <text x="198" y="448" font-size="10" fill="#AAA">Dashed border = requires immediate action</text>
+    <text x="198" y="464" font-size="10" fill="#AAA">Review CTA → opens Document Review screen</text>
+    <text x="198" y="480" font-size="10" fill="#AAA">Sidebar badge [4] = live count of pending verifications</text>
+  </svg>
+</div>
+
+<div class="screen">
+  <div class="screen-label">
+    <span class="sl-num">Screen 02</span>
+    <span class="sl-title">Admin — Document Review</span>
+    <span class="sl-portal">Admin Portal</span>
+  </div>
+  <svg class="wf-svg" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="12" fill="#222">
+    <rect x="1" y="1" width="1098" height="578" fill="none" stroke="#222" stroke-width="1.5"/>
+    <rect x="1" y="1" width="1098" height="34" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="18" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="32" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="46" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="70" y="10" width="340" height="16" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="78" y="22" font-size="10" fill="#888">app.nexusforce.io/admin/verification/PLM-2847</text>
+    <rect x="1" y="35" width="180" height="544" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="16" y="52" width="90" height="16" rx="2" fill="none" stroke="#444" stroke-width="1"/>
+    <text x="21" y="63" font-size="10" fill="#555">NexusForce</text>
+    <line x1="1" y1="80" x2="181" y2="80" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="100" font-size="11" fill="#888">Dashboard</text>
+    <line x1="1" y1="110" x2="181" y2="110" stroke="#DDD" stroke-width="1"/>
+    <rect x="1" y="111" width="180" height="28" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="16" y="129" font-size="11" fill="#111" font-weight="600">Verification</text>
+    <line x1="1" y1="140" x2="181" y2="140" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="158" font-size="11" fill="#888">Placements</text>
+    <line x1="1" y1="168" x2="181" y2="168" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="186" font-size="11" fill="#888">Compliance</text>
+    <rect x="181" y="35" width="919" height="44" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="198" y="55" font-size="11" fill="#888">← Queue</text>
+    <text x="248" y="61" font-size="14" font-weight="600" fill="#111">PLM-2847 · Sarah M. → St. Mary's ICU</text>
+    <text x="700" y="61" font-size="11" fill="#888">[ 2 gaps remaining ]</text>
+    <text x="860" y="61" font-size="11" fill="#888">Starts: Tomorrow</text>
+    <circle cx="1076" cy="57" r="12" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="181" y="79" width="260" height="500" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="196" y="102" font-size="10" fill="#888" font-weight="600">PLACEMENT</text>
+    <line x1="181" y1="112" x2="441" y2="112" stroke="#DDD" stroke-width="1"/>
+    <text x="196" y="130" font-size="12" font-weight="600" fill="#111">Sarah M. · ICU Nurse</text>
+    <text x="196" y="146" font-size="10" fill="#888">St. Mary's Hospital · 13 weeks</text>
+    <text x="196" y="162" font-size="10" fill="#888">HealthStaff Agency</text>
+    <line x1="181" y1="174" x2="441" y2="174" stroke="#DDD" stroke-width="1"/>
+    <text x="196" y="194" font-size="10" fill="#888" font-weight="600">COMPLIANCE TASKLIST</text>
+    <line x1="181" y1="204" x2="441" y2="204" stroke="#DDD" stroke-width="1"/>
+    <circle cx="207" cy="224" r="7" fill="none" stroke="#888" stroke-width="1"/>
+    <text x="203" y="228" font-size="10" fill="#888">✓</text>
+    <text x="218" y="228" font-size="11" fill="#888">BLS Certification</text>
+    <text x="358" y="228" font-size="10" fill="#888">✓ Approved</text>
+    <line x1="181" y1="238" x2="441" y2="238" stroke="#EEE" stroke-width="1"/>
+    <circle cx="207" cy="258" r="7" fill="none" stroke="#888" stroke-width="1"/>
+    <text x="203" y="262" font-size="10" fill="#888">✓</text>
+    <text x="218" y="262" font-size="11" fill="#888">TB Test</text>
+    <text x="358" y="262" font-size="10" fill="#888">✓ Approved</text>
+    <line x1="181" y1="272" x2="441" y2="272" stroke="#EEE" stroke-width="1"/>
+    <circle cx="207" cy="292" r="7" fill="none" stroke="#888" stroke-width="1"/>
+    <text x="203" y="296" font-size="10" fill="#888">✓</text>
+    <text x="218" y="296" font-size="11" fill="#888">ACLS Certification</text>
+    <text x="358" y="296" font-size="10" fill="#888">✓ Approved</text>
+    <line x1="181" y1="306" x2="441" y2="306" stroke="#EEE" stroke-width="1"/>
+    <rect x="185" y="312" width="252" height="40" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <circle cx="207" cy="331" r="7" fill="none" stroke="#222" stroke-width="1.5"/>
+    <text x="218" y="329" font-size="11" font-weight="600" fill="#111">State RN License</text>
+    <text x="218" y="344" font-size="10" fill="#888">Reviewing now</text>
+    <line x1="181" y1="354" x2="441" y2="354" stroke="#EEE" stroke-width="1"/>
+    <circle cx="207" cy="374" r="7" fill="none" stroke="#CCC" stroke-width="1"/>
+    <text x="218" y="378" font-size="11" fill="#BBB">Background Check</text>
+    <text x="358" y="378" font-size="10" fill="#BBB">Awaiting</text>
+    <line x1="181" y1="388" x2="441" y2="388" stroke="#EEE" stroke-width="1"/>
+    <rect x="441" y="79" width="659" height="500" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="441" y="79" width="659" height="50" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="458" y="90" width="28" height="36" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="460" y="103" font-size="8" fill="#AAA">PDF</text>
+    <text x="494" y="100" font-size="12" font-weight="600" fill="#111">State_RN_License_SarahM.pdf</text>
+    <text x="494" y="117" font-size="10" fill="#888">Uploaded by HealthStaff · 2 hrs ago · 1.2 MB</text>
+    <rect x="876" y="90" width="80" height="26" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="895" y="107" font-size="10" fill="#888">Full screen</text>
+    <rect x="970" y="90" width="70" height="26" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="987" y="107" font-size="10" fill="#888">Download</text>
+    <rect x="458" y="140" width="622" height="280" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="710" y="260" text-anchor="middle" font-size="13" fill="#CCC">[ PDF Viewer ]</text>
+    <text x="710" y="280" text-anchor="middle" font-size="11" fill="#CCC">State RN License · Expires Nov 2026</text>
+    <line x1="458" y1="432" x2="1082" y2="432" stroke="#EEE" stroke-width="1"/>
+    <text x="470" y="452" font-size="10" fill="#888">ISSUED</text>
+    <text x="470" y="467" font-size="12" font-weight="600" fill="#111">Nov 2023</text>
+    <text x="620" y="452" font-size="10" fill="#888">EXPIRES</text>
+    <text x="620" y="467" font-size="12" font-weight="600" fill="#111">Nov 2026</text>
+    <text x="770" y="452" font-size="10" fill="#888">LICENSE NO.</text>
+    <text x="770" y="467" font-size="12" font-weight="600" fill="#111">RN-XX-XXXXXX</text>
+    <text x="920" y="452" font-size="10" fill="#888">STATE</text>
+    <text x="920" y="467" font-size="12" font-weight="600" fill="#111">California</text>
+    <line x1="458" y1="488" x2="1082" y2="488" stroke="#EEE" stroke-width="1"/>
+    <rect x="458" y="500" width="292" height="40" rx="4" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="571" y="524" text-anchor="middle" font-size="13" font-weight="600" fill="#111">Approve</text>
+    <rect x="768" y="500" width="292" height="40" rx="4" fill="none" stroke="#AAA" stroke-width="1"/>
+    <text x="881" y="524" text-anchor="middle" font-size="13" fill="#888">Reject with reason</text>
+    <text x="198" y="530" font-size="10" fill="#AAA">Tasklist left — click item to load in viewer</text>
+    <text x="198" y="546" font-size="10" fill="#AAA">Selected item has dashed border</text>
+    <text x="480" y="546" font-size="10" fill="#AAA">Approve = bold primary · Reject = secondary + reason required</text>
+  </svg>
+</div>
+
+<div class="screen">
+  <div class="screen-label">
+    <span class="sl-num">Screen 03</span>
+    <span class="sl-title">Gloria — Post Job · Step 3: Compliance Pack</span>
+    <span class="sl-portal">Org Portal</span>
+  </div>
+  <svg class="wf-svg" viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="12" fill="#222">
+    <rect x="1" y="1" width="1098" height="558" fill="none" stroke="#222" stroke-width="1.5"/>
+    <rect x="1" y="1" width="1098" height="34" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="18" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="32" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="46" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="70" y="10" width="280" height="16" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="78" y="22" font-size="10" fill="#888">app.nexusforce.io/org/requisitions/new</text>
+    <rect x="1" y="35" width="180" height="524" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="16" y="52" width="90" height="16" rx="2" fill="none" stroke="#444" stroke-width="1"/>
+    <text x="21" y="63" font-size="10" fill="#555">NexusForce</text>
+    <line x1="1" y1="80" x2="181" y2="80" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="100" font-size="11" fill="#888">Dashboard</text>
+    <line x1="1" y1="110" x2="181" y2="110" stroke="#DDD" stroke-width="1"/>
+    <rect x="1" y="111" width="180" height="28" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="16" y="129" font-size="11" font-weight="600" fill="#111">Requisitions</text>
+    <line x1="1" y1="140" x2="181" y2="140" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="158" font-size="11" fill="#888">Candidates</text>
+    <line x1="1" y1="168" x2="181" y2="168" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="186" font-size="11" fill="#888">Placements</text>
+    <line x1="1" y1="196" x2="181" y2="196" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="214" font-size="11" fill="#888">Reports</text>
+    <rect x="181" y="35" width="919" height="44" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="198" y="55" font-size="11" fill="#888">← Requisitions</text>
+    <text x="280" y="61" font-size="14" font-weight="600" fill="#111">New Job Requisition</text>
+    <text x="520" y="61" font-size="11" fill="#888">[ Draft ]</text>
+    <circle cx="1076" cy="57" r="12" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="100" font-size="11" fill="#888">Step 1 ✓</text>
+    <line x1="258" y1="94" x2="320" y2="94" stroke="#888" stroke-width="1"/>
+    <text x="324" y="100" font-size="11" fill="#888">Step 2 ✓</text>
+    <line x1="384" y1="94" x2="446" y2="94" stroke="#888" stroke-width="1"/>
+    <text x="450" y="100" font-size="11" font-weight="700" fill="#111">Step 3 — Compliance Pack</text>
+    <line x1="598" y1="101" x2="598" y2="103" stroke="#111" stroke-width="2"/>
+    <line x1="450" y1="103" x2="598" y2="103" stroke="#111" stroke-width="2"/>
+    <line x1="612" y1="94" x2="674" y2="94" stroke="#CCC" stroke-width="1"/>
+    <text x="678" y="100" font-size="11" fill="#CCC">Step 4</text>
+    <line x1="718" y1="94" x2="780" y2="94" stroke="#CCC" stroke-width="1"/>
+    <text x="784" y="100" font-size="11" fill="#CCC">Step 5 — Review & Post</text>
+    <rect x="198" y="120" width="520" height="390" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="215" y="146" font-size="13" font-weight="600" fill="#111">Select Compliance Pack</text>
+    <text x="215" y="164" font-size="11" fill="#888">Choose the pack that matches this role. Requirements lock when you post.</text>
+    <line x1="198" y1="174" x2="718" y2="174" stroke="#EEE" stroke-width="1"/>
+    <rect x="214" y="184" width="488" height="58" rx="4" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <circle cx="232" cy="213" r="7" fill="none" stroke="#222" stroke-width="1.5"/>
+    <circle cx="232" cy="213" r="3" fill="#222"/>
+    <text x="248" y="207" font-size="12" font-weight="600" fill="#111">ICU Nurse Compliance Pack v2.1</text>
+    <text x="248" y="224" font-size="10" fill="#888">5 documents required · Includes BLS, ACLS, TB Test, RN License, Background Check</text>
+    <text x="648" y="211" font-size="10" fill="#888">Selected</text>
+    <rect x="214" y="252" width="488" height="54" rx="4" fill="none" stroke="#CCC" stroke-width="1"/>
+    <circle cx="232" cy="279" r="7" fill="none" stroke="#CCC" stroke-width="1"/>
+    <text x="248" y="272" font-size="12" fill="#888">ER Nurse Compliance Pack</text>
+    <text x="248" y="288" font-size="10" fill="#BBB">4 documents required</text>
+    <rect x="214" y="316" width="488" height="54" rx="4" fill="none" stroke="#CCC" stroke-width="1"/>
+    <circle cx="232" cy="343" r="7" fill="none" stroke="#CCC" stroke-width="1"/>
+    <text x="248" y="336" font-size="12" fill="#888">General Nurse Compliance Pack</text>
+    <text x="248" y="352" font-size="10" fill="#BBB">3 documents required</text>
+    <rect x="214" y="386" width="488" height="50" rx="4" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4 2"/>
+    <text x="230" y="406" font-size="11" font-weight="600" fill="#444">⚠  Once posted, compliance requirements cannot be changed.</text>
+    <text x="230" y="422" font-size="10" fill="#888">This is the Snapshot Rule. Review the pack carefully before continuing.</text>
+    <rect x="534" y="454" width="90" height="34" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="565" y="475" text-anchor="middle" font-size="12" fill="#888">Back</text>
+    <rect x="636" y="454" width="110" height="34" rx="4" fill="none" stroke="#111" stroke-width="2"/>
+    <text x="691" y="475" text-anchor="middle" font-size="12" font-weight="600" fill="#111">Continue →</text>
+    <rect x="730" y="120" width="370" height="390" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="746" y="146" font-size="13" font-weight="600" fill="#111">Pack Preview</text>
+    <text x="746" y="162" font-size="10" fill="#888">ICU Nurse Compliance Pack v2.1</text>
+    <line x1="730" y1="172" x2="1100" y2="172" stroke="#EEE" stroke-width="1"/>
+    <text x="746" y="192" font-size="10" fill="#888" font-weight="600">REQUIRED DOCUMENTS</text>
+    <line x1="746" y1="204" x2="1082" y2="204" stroke="#EEE" stroke-width="1"/>
+    <circle cx="755" cy="220" r="3" fill="#888"/><text x="766" y="224" font-size="11" fill="#444">BLS Certification</text>
+    <line x1="746" y1="234" x2="1082" y2="234" stroke="#EEE" stroke-width="1"/>
+    <circle cx="755" cy="250" r="3" fill="#888"/><text x="766" y="254" font-size="11" fill="#444">ACLS Certification</text>
+    <line x1="746" y1="264" x2="1082" y2="264" stroke="#EEE" stroke-width="1"/>
+    <circle cx="755" cy="280" r="3" fill="#888"/><text x="766" y="284" font-size="11" fill="#444">TB Test (within 12 months)</text>
+    <line x1="746" y1="294" x2="1082" y2="294" stroke="#EEE" stroke-width="1"/>
+    <circle cx="755" cy="310" r="3" fill="#888"/><text x="766" y="314" font-size="11" fill="#444">State RN License</text>
+    <line x1="746" y1="324" x2="1082" y2="324" stroke="#EEE" stroke-width="1"/>
+    <circle cx="755" cy="340" r="3" fill="#888"/><text x="766" y="344" font-size="11" fill="#444">Background Check</text>
+    <line x1="746" y1="354" x2="1082" y2="354" stroke="#EEE" stroke-width="1"/>
+    <text x="746" y="374" font-size="10" fill="#888">Last updated: Jan 2024</text>
+    <text x="746" y="390" font-size="10" fill="#888">Used in 142 placements</text>
+    <text x="198" y="530" font-size="10" fill="#AAA">Selected pack has dashed border  ·  Right panel updates live when selection changes</text>
+    <text x="198" y="546" font-size="10" fill="#AAA">Warning banner surfaces Snapshot Rule before Gloria submits  ·  Continue blocked if no pack selected</text>
+  </svg>
+</div>
+
+<div class="screen">
+  <div class="screen-label">
+    <span class="sl-num">Screen 04</span>
+    <span class="sl-title">Sarah — My Wallet</span>
+    <span class="sl-portal">Candidate Portal</span>
+  </div>
+  <svg class="wf-svg" viewBox="0 0 1100 540" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="12" fill="#222">
+    <rect x="1" y="1" width="1098" height="538" fill="none" stroke="#222" stroke-width="1.5"/>
+    <rect x="1" y="1" width="1098" height="34" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="18" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="32" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="46" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="70" y="10" width="240" height="16" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="78" y="22" font-size="10" fill="#888">app.nexusforce.io/candidate/wallet</text>
+    <rect x="1" y="35" width="180" height="504" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="16" y="52" width="90" height="16" rx="2" fill="none" stroke="#444" stroke-width="1"/>
+    <text x="21" y="63" font-size="10" fill="#555">NexusForce</text>
+    <line x1="1" y1="80" x2="181" y2="80" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="100" font-size="11" fill="#888">Dashboard</text>
+    <line x1="1" y1="110" x2="181" y2="110" stroke="#DDD" stroke-width="1"/>
+    <rect x="1" y="111" width="180" height="28" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="16" y="129" font-size="11" font-weight="600" fill="#111">My Wallet</text>
+    <line x1="1" y1="140" x2="181" y2="140" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="158" font-size="11" fill="#888">Submissions</text>
+    <line x1="1" y1="168" x2="181" y2="168" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="186" font-size="11" fill="#888">Placements</text>
+    <line x1="1" y1="196" x2="181" y2="196" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="214" font-size="11" fill="#888">Alerts  [1]</text>
+    <rect x="181" y="35" width="919" height="44" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="198" y="61" font-size="14" font-weight="600" fill="#111">My Wallet</text>
+    <text x="310" y="61" font-size="11" fill="#888">[ 1 expiring soon ]</text>
+    <rect x="876" y="47" width="140" height="28" rx="4" fill="none" stroke="#111" stroke-width="1.5"/>
+    <text x="920" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#111">+ Upload document</text>
+    <circle cx="1076" cy="57" r="12" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="102" font-size="12" font-weight="600" fill="#111">All (8)</text>
+    <line x1="198" y1="106" x2="248" y2="106" stroke="#111" stroke-width="2"/>
+    <text x="262" y="102" font-size="12" fill="#888">Approved (5)</text>
+    <text x="380" y="102" font-size="12" fill="#888">Pending (2)</text>
+    <text x="488" y="102" font-size="12" fill="#888">Expiring (1)</text>
+    <line x1="181" y1="108" x2="1100" y2="108" stroke="#EEE" stroke-width="1"/>
+    <rect x="198" y="120" width="620" height="56" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="214" y="136" width="28" height="36" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="252" y="144" font-size="12" font-weight="600" fill="#111">BLS Certification</text>
+    <text x="252" y="159" font-size="10" fill="#888">Expires: Mar 2026 · Approved by NexusForce Admin</text>
+    <text x="252" y="171" font-size="10" fill="#888">Linked to 2 active placements</text>
+    <text x="730" y="151" font-size="11" fill="#888">✓ Approved</text>
+    <rect x="198" y="184" width="620" height="56" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="214" y="200" width="28" height="36" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="252" y="208" font-size="12" font-weight="600" fill="#111">ACLS Certification</text>
+    <text x="252" y="224" font-size="10" fill="#888">Expires: Jun 2025 · Approved by NexusForce Admin</text>
+    <text x="252" y="236" font-size="10" fill="#888">Linked to 1 active placement</text>
+    <text x="730" y="216" font-size="11" fill="#888">✓ Approved</text>
+    <rect x="198" y="248" width="620" height="56" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="214" y="264" width="28" height="36" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="252" y="272" font-size="12" font-weight="600" fill="#111">Background Check</text>
+    <text x="252" y="288" font-size="10" fill="#888">Uploaded 2 hrs ago · Awaiting admin review</text>
+    <text x="730" y="278" font-size="11" fill="#888">⏳ Pending</text>
+    <rect x="198" y="312" width="620" height="64" rx="4" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <rect x="214" y="330" width="28" height="36" rx="2" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="252" y="338" font-size="12" font-weight="600" fill="#111">State RN License</text>
+    <text x="252" y="354" font-size="10" fill="#888">Expires in 6 weeks · Nov 2024</text>
+    <text x="252" y="368" font-size="10" fill="#888">⚠  Renew before expiry to keep placements active</text>
+    <text x="680" y="340" font-size="11" fill="#888">⚠ Expiring</text>
+    <rect x="720" y="330" width="80" height="26" rx="3" fill="none" stroke="#888" stroke-width="1.5"/>
+    <text x="745" y="347" text-anchor="middle" font-size="11" font-weight="600" fill="#444">Renew</text>
+    <rect x="836" y="120" width="264" height="160" rx="4" fill="none" stroke="#BBB" stroke-width="1" stroke-dasharray="6 3"/>
+    <text x="944" y="170" text-anchor="middle" font-size="11" fill="#AAA">Drag & drop file here</text>
+    <text x="944" y="188" text-anchor="middle" font-size="10" fill="#BBB">or</text>
+    <rect x="894" y="196" width="100" height="28" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="944" y="214" text-anchor="middle" font-size="11" fill="#888">Browse files</text>
+    <text x="944" y="268" text-anchor="middle" font-size="10" fill="#BBB">PDF, JPG, PNG · Max 10MB</text>
+    <rect x="836" y="296" width="264" height="130" rx="4" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="852" y="318" font-size="11" font-weight="600" fill="#111">Linked Placements</text>
+    <line x1="836" y1="326" x2="1100" y2="326" stroke="#EEE" stroke-width="1"/>
+    <circle cx="849" cy="346" r="4" fill="none" stroke="#888" stroke-width="1"/><text x="862" y="350" font-size="11" fill="#444">St. Mary's · ICU · Active</text>
+    <line x1="836" y1="360" x2="1100" y2="360" stroke="#EEE" stroke-width="1"/>
+    <circle cx="849" cy="380" r="4" fill="none" stroke="#888" stroke-width="1"/><text x="862" y="384" font-size="11" fill="#888">General Hospital · ER · Pending</text>
+    <line x1="836" y1="394" x2="1100" y2="394" stroke="#EEE" stroke-width="1"/>
+    <text x="852" y="414" font-size="10" fill="#888">Docs approved here auto-apply to all placements</text>
+    <text x="198" y="500" font-size="10" fill="#AAA">Expiring doc = dashed border + Renew CTA</text>
+    <text x="198" y="516" font-size="10" fill="#AAA">Upload zone right panel · Linked placements shows cross-placement carry-forward</text>
+  </svg>
+</div>
+
+<div class="screen">
+  <div class="screen-label">
+    <span class="sl-num">Screen 05</span>
+    <span class="sl-title">Marcus — Submit Candidate for Job</span>
+    <span class="sl-portal">Vendor Portal</span>
+  </div>
+  <svg class="wf-svg" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" font-size="12" fill="#222">
+    <rect x="1" y="1" width="1098" height="518" fill="none" stroke="#222" stroke-width="1.5"/>
+    <rect x="1" y="1" width="1098" height="34" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="18" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="32" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <circle cx="46" cy="18" r="5" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="70" y="10" width="310" height="16" rx="3" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="78" y="22" font-size="10" fill="#888">app.nexusforce.io/vendor/jobs/JOB-482/submit</text>
+    <rect x="1" y="35" width="180" height="484" fill="none" stroke="#222" stroke-width="1"/>
+    <rect x="16" y="52" width="90" height="16" rx="2" fill="none" stroke="#444" stroke-width="1"/>
+    <text x="21" y="63" font-size="10" fill="#555">NexusForce</text>
+    <line x1="1" y1="80" x2="181" y2="80" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="100" font-size="11" fill="#888">Dashboard</text>
+    <line x1="1" y1="110" x2="181" y2="110" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="128" font-size="11" fill="#888">Open Jobs</text>
+    <line x1="1" y1="138" x2="181" y2="138" stroke="#DDD" stroke-width="1"/>
+    <rect x="1" y="139" width="180" height="28" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="16" y="157" font-size="11" font-weight="600" fill="#111">My Roster</text>
+    <line x1="1" y1="168" x2="181" y2="168" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="186" font-size="11" fill="#888">Placements</text>
+    <line x1="1" y1="196" x2="181" y2="196" stroke="#DDD" stroke-width="1"/>
+    <text x="16" y="214" font-size="11" fill="#888">Invoices</text>
+    <rect x="181" y="35" width="919" height="44" fill="none" stroke="#222" stroke-width="1"/>
+    <text x="198" y="55" font-size="11" fill="#888">← Open Jobs</text>
+    <text x="270" y="61" font-size="14" font-weight="600" fill="#111">Submit for JOB-482 · ICU Nurse · St. Mary's, SF</text>
+    <circle cx="1076" cy="57" r="12" fill="none" stroke="#BBB" stroke-width="1"/>
+    <rect x="181" y="79" width="919" height="46" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="96" font-size="10" fill="#888">SPECIALTY</text><text x="198" y="112" font-size="12" font-weight="600" fill="#111">ICU Nurse</text>
+    <line x1="330" y1="82" x2="330" y2="122" stroke="#EEE" stroke-width="1"/>
+    <text x="344" y="96" font-size="10" fill="#888">SHIFT DATES</text><text x="344" y="112" font-size="12" font-weight="600" fill="#111">Mar 1 – May 31</text>
+    <line x1="500" y1="82" x2="500" y2="122" stroke="#EEE" stroke-width="1"/>
+    <text x="514" y="96" font-size="10" fill="#888">COMPLIANCE PACK</text><text x="514" y="112" font-size="12" font-weight="600" fill="#111">ICU Nurse Pack v2.1 · 5 docs</text>
+    <line x1="740" y1="82" x2="740" y2="122" stroke="#EEE" stroke-width="1"/>
+    <text x="754" y="96" font-size="10" fill="#888">RATE</text><text x="754" y="112" font-size="12" font-weight="600" fill="#111">$54 / hr</text>
+    <rect x="181" y="125" width="919" height="32" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="145" font-size="10" fill="#888" font-weight="600">NURSE</text>
+    <text x="390" y="145" font-size="10" fill="#888" font-weight="600">EXPERIENCE</text>
+    <text x="530" y="145" font-size="10" fill="#888" font-weight="600">GAPS vs THIS JOB</text>
+    <text x="700" y="145" font-size="10" fill="#888" font-weight="600">REQUIREMENTS MET</text>
+    <text x="890" y="145" font-size="10" fill="#888" font-weight="600">ACTION</text>
+    <rect x="181" y="157" width="919" height="52" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="177" font-size="12" font-weight="600" fill="#111">Chen, Amy</text>
+    <text x="198" y="194" font-size="10" fill="#888">ICU · 6 yrs · HealthStaff</text>
+    <text x="390" y="183" font-size="11" fill="#111">6 years ICU</text>
+    <text x="530" y="183" font-size="12" font-weight="600" fill="#111">0 gaps</text>
+    <circle cx="710" cy="183" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="710" cy="183" r="3" fill="#888"/>
+    <circle cx="726" cy="183" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="726" cy="183" r="3" fill="#888"/>
+    <circle cx="742" cy="183" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="742" cy="183" r="3" fill="#888"/>
+    <circle cx="758" cy="183" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="758" cy="183" r="3" fill="#888"/>
+    <circle cx="774" cy="183" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="774" cy="183" r="3" fill="#888"/>
+    <text x="796" y="187" font-size="10" fill="#888">5 / 5</text>
+    <rect x="886" y="166" width="100" height="28" rx="3" fill="none" stroke="#111" stroke-width="1.5"/>
+    <text x="924" y="184" text-anchor="middle" font-size="11" font-weight="600" fill="#111">Submit</text>
+    <rect x="181" y="209" width="919" height="52" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="198" y="229" font-size="12" font-weight="600" fill="#111">M., Sarah</text>
+    <text x="198" y="246" font-size="10" fill="#888">ICU · 4 yrs · HealthStaff</text>
+    <text x="390" y="235" font-size="11" fill="#111">4 years ICU</text>
+    <text x="530" y="229" font-size="12" font-weight="600" fill="#111">2 gaps</text>
+    <text x="530" y="245" font-size="10" fill="#888">BG Check + RN License missing</text>
+    <circle cx="710" cy="235" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="710" cy="235" r="3" fill="#888"/>
+    <circle cx="726" cy="235" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="726" cy="235" r="3" fill="#888"/>
+    <circle cx="742" cy="235" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="742" cy="235" r="3" fill="#888"/>
+    <circle cx="758" cy="235" r="6" fill="none" stroke="#BBB" stroke-width="1.5"/>
+    <circle cx="774" cy="235" r="6" fill="none" stroke="#BBB" stroke-width="1.5"/>
+    <text x="796" y="239" font-size="10" fill="#888">3 / 5</text>
+    <rect x="886" y="218" width="100" height="28" rx="3" fill="none" stroke="#888" stroke-width="1"/>
+    <text x="924" y="236" text-anchor="middle" font-size="11" fill="#888">Submit</text>
+    <rect x="181" y="261" width="919" height="52" fill="none" stroke="#BBB" stroke-width="1"/>
+    <text x="198" y="281" font-size="12" fill="#888">Torres, J.</text>
+    <text x="198" y="298" font-size="10" fill="#BBB">ICU · 2 yrs · NurseLink</text>
+    <text x="390" y="287" font-size="11" fill="#888">2 years ICU</text>
+    <text x="530" y="281" font-size="12" fill="#888">4 gaps</text>
+    <text x="530" y="297" font-size="10" fill="#BBB">Not recommended to submit</text>
+    <circle cx="710" cy="287" r="6" fill="none" stroke="#888" stroke-width="1.5"/><circle cx="710" cy="287" r="3" fill="#888"/>
+    <circle cx="726" cy="287" r="6" fill="none" stroke="#CCC" stroke-width="1"/>
+    <circle cx="742" cy="287" r="6" fill="none" stroke="#CCC" stroke-width="1"/>
+    <circle cx="758" cy="287" r="6" fill="none" stroke="#CCC" stroke-width="1"/>
+    <circle cx="774" cy="287" r="6" fill="none" stroke="#CCC" stroke-width="1"/>
+    <text x="796" y="291" font-size="10" fill="#BBB">1 / 5</text>
+    <rect x="886" y="270" width="100" height="28" rx="3" fill="none" stroke="#CCC" stroke-width="1"/>
+    <text x="924" y="288" text-anchor="middle" font-size="11" fill="#BBB">Submit</text>
+    <text x="198" y="360" font-size="10" fill="#AAA">Job context strip pinned — specialty, dates, rate, pack name always visible while browsing</text>
+    <text x="198" y="376" font-size="10" fill="#AAA">Gap count column — 0 gaps = bold, 2 gaps = dashed border, 4 gaps = greyed out</text>
+    <text x="198" y="392" font-size="10" fill="#AAA">Dot indicators — filled = doc approved in wallet, empty = missing</text>
+    <text x="198" y="408" font-size="10" fill="#AAA">Submit CTA strength matches readiness — bold primary / secondary / greyed</text>
+  </svg>
+</div>
+
+</body>
+</html>

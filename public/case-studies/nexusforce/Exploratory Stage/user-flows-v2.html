@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusForce — User Flows</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas: #F2EDE3;
+  --paper: #FEFCF8;
+  --ink: #1A1410;
+  --ink2: #3D3530;
+  --muted: #9A9088;
+  --border: #E2DAD0;
+  --purple: #6D28D9; --purple-l: #EDE9FE; --purple-m: #C4B5FD;
+  --amber: #D97706;  --amber-l: #FEF3C7;  --amber-m: #FCD34D;
+  --blue: #2563EB;   --blue-l: #DBEAFE;   --blue-m: #93C5FD;
+  --green: #16A34A;  --green-l: #DCFCE7;  --green-m: #86EFAC;
+  --red: #DC2626;    --red-l: #FEF2F2;
+  --line: #C8BFB2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--canvas);
+  font-family: 'DM Sans', sans-serif;
+  padding: 52px 60px 80px;
+  min-width: 1380px;
+  background-image:
+    linear-gradient(rgba(160,148,130,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,148,130,0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.page-header { margin-bottom: 40px; }
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.page-title { font-family: 'Caveat', cursive; font-size: 56px; font-weight: 700; color: var(--ink); line-height: 1.0; margin-bottom: 10px; }
+.page-sub { font-size: 15px; color: var(--muted); font-style: italic; max-width: 700px; line-height: 1.6; }
+
+/* ── FLOW CARD ── */
+.flow-card {
+  background: var(--paper);
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  box-shadow: 3px 5px 0 rgba(0,0,0,0.07);
+  margin-bottom: 40px;
+  overflow: hidden;
+  position: relative;
+}
+.flow-card::before {
+  content: '';
+  position: absolute;
+  top: -9px; left: 44px;
+  width: 64px; height: 18px;
+  background: rgba(255,255,180,0.78);
+  border-radius: 2px;
+  transform: rotate(-0.8deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ── HEADER ── */
+.fh {
+  padding: 26px 32px 22px;
+  display: flex; align-items: flex-start; gap: 22px;
+  border-bottom: 1.5px solid var(--border);
+}
+.fh-right { flex: 1; }
+.fh-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.fh-title { font-family: 'Caveat', cursive; font-size: 30px; font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 6px; }
+.fh-goal { font-size: 13.5px; color: var(--ink2); line-height: 1.6; max-width: 800px; }
+.fh-meta { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.fh-chip { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1.5px solid; }
+
+/* ── SVG FLOW CANVAS ── */
+.flow-svg-wrap { padding: 28px 32px 20px; overflow-x: auto; }
+
+/* ── LEGEND ── */
+.legend {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  padding: 10px 32px 16px; border-bottom: 1px dashed var(--border);
+}
+.leg-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); font-weight: 500; }
+.leg-box { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid; flex-shrink: 0; }
+.leg-diamond { width: 18px; height: 18px; transform: rotate(45deg); border-radius: 2px; border: 1.5px solid; flex-shrink: 0; }
+.leg-round { width: 40px; height: 18px; border-radius: 9px; border: 1.5px solid; flex-shrink: 0; }
+.leg-dashed { width: 18px; height: 18px; border-radius: 4px; border: 1.5px dashed; flex-shrink: 0; }
+
+/* ── SUCCESS / EDGE ── */
+.success-bar {
+  padding: 14px 32px;
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--green-l);
+  border-top: 1.5px solid var(--green-m);
+}
+.sb-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.sb-title { font-size: 13px; font-weight: 600; color: #166534; }
+.sb-sub { font-size: 12px; color: #15803D; margin-top: 2px; line-height: 1.5; }
+
+.edge-bar {
+  padding: 14px 32px;
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;
+  background: #FAFAF7;
+  border-top: 1.5px dashed var(--border);
+}
+.eb-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-right: 4px; flex-shrink: 0; margin-top: 4px; }
+.eb-chip { font-size: 11.5px; padding: 5px 12px; border-radius: 20px; border: 1.5px solid; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-eyebrow">NexusForce · UX Research Phase 4</div>
+  <div class="page-title">User Flows</div>
+  <div class="page-sub">How each persona moves through NexusForce to complete their most critical task. Every arrow is intentional. Every decision point is real.</div>
+</div>
+
+<!-- LEGEND -->
+<div style="background:var(--paper);border-radius:12px;border:1.5px solid var(--border);padding:12px 24px;margin-bottom:32px;display:flex;gap:24px;flex-wrap:wrap;align-items:center;box-shadow:2px 3px 0 rgba(0,0,0,0.05);">
+  <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);">Legend</span>
+  <div class="leg-item"><div style="width:42px;height:22px;border-radius:11px;background:var(--ink);flex-shrink:0;"></div>Start / End</div>
+  <div class="leg-item"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #999;background:var(--paper);flex-shrink:0;"></div>Screen / Action</div>
+  <div class="leg-item"><div style="width:22px;height:22px;transform:rotate(45deg);border-radius:3px;border:2px solid #999;background:var(--paper);flex-shrink:0;"></div>Decision</div>
+  <div class="leg-item"><div style="width:22px;height:22px;border-radius:6px;border:2px dashed #999;background:#FAFAF7;flex-shrink:0;"></div>System auto</div>
+  <div class="leg-item">
+    <svg width="40" height="16" viewBox="0 0 40 16"><line x1="0" y1="8" x2="32" y2="8" stroke="#888" stroke-width="2"/><polygon points="32,4 40,8 32,12" fill="#888"/></svg>
+    Arrow / connector
+  </div>
+  <div class="leg-item">
+    <svg width="40" height="16" viewBox="0 0 40 16"><line x1="0" y1="8" x2="32" y2="8" stroke="#16A34A" stroke-width="2"/><polygon points="32,4 40,8 32,12" fill="#16A34A"/></svg>
+    Yes / success path
+  </div>
+  <div class="leg-item">
+    <svg width="40" height="16" viewBox="0 0 40 16"><line x1="0" y1="8" x2="32" y2="8" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 2"/><polygon points="32,4 40,8 32,12" fill="#DC2626"/></svg>
+    No / error path
+  </div>
+</div>
+
+
+<!-- ════════════════════════ FLOW 1: GLORIA ════════════════════════ -->
+<div class="flow-card">
+  <div class="fh">
+    <svg width="72" height="80" viewBox="0 0 72 80" fill="none" flex-shrink="0" style="flex-shrink:0;">
+      <ellipse cx="36" cy="64" rx="20" ry="16" fill="#1E40AF"/>
+      <path d="M26 52 L36 62 L46 52 L42 46 L36 50 L30 46Z" fill="#1D3A9E"/>
+      <path d="M32 46 L36 50 L40 46" fill="white"/>
+      <circle cx="36" cy="32" r="18" fill="#F4C490"/>
+      <path d="M18 30 Q18 14 36 12 Q54 14 54 30 Q52 18 36 16 Q20 18 18 30Z" fill="#7C3A00"/>
+      <path d="M18 30 Q16 38 20 44" fill="#7C3A00"/><path d="M54 30 Q56 38 52 44" fill="#7C3A00"/>
+      <ellipse cx="29" cy="33" rx="2.2" ry="2.2" fill="#3D2B1A"/>
+      <ellipse cx="43" cy="33" rx="2.2" ry="2.2" fill="#3D2B1A"/>
+      <path d="M30 42 Q36 46 42 42" stroke="#C68642" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="17" cy="35" r="1.8" fill="#D97706"/><circle cx="55" cy="35" r="1.8" fill="#D97706"/>
+    </svg>
+    <div class="fh-right">
+      <div class="fh-eyebrow">👩‍💼 Gloria Dorsey · Hospital · Org Portal</div>
+      <div class="fh-title">Post a Job Requisition with Compliance Pack</div>
+      <div class="fh-goal">Gloria needs to post an ICU nurse opening — select the right template, attach the compliance pack, set shift dates, and submit. Once she hits submit, requirements lock permanently via the Snapshot Rule.</div>
+      <div class="fh-meta">
+        <div class="fh-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">Entry: Org Portal Dashboard</div>
+        <div class="fh-chip" style="background:var(--green-l);border-color:var(--green-m);color:#166534;">Success: Job live · Requirements locked</div>
+        <div class="fh-chip" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">~4 min avg task time</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-svg-wrap">
+    <!-- SWIM LANE SVG -->
+    <svg width="1240" height="320" viewBox="0 0 1240 320" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <defs>
+        <marker id="arr-g1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#C8BFB2"/></marker>
+        <marker id="arr-yes" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16A34A"/></marker>
+        <marker id="arr-no" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#DC2626"/></marker>
+        <marker id="arr-sys" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16A34A"/></marker>
+      </defs>
+
+      <!-- lane backgrounds -->
+      <rect x="0" y="0" width="1240" height="200" fill="#FFFCF8" rx="0"/>
+      <rect x="0" y="200" width="1240" height="120" fill="#F5FDF7" rx="0"/>
+
+      <!-- lane labels -->
+      <text x="10" y="95" font-size="11" font-weight="700" fill="#9A9088" text-anchor="start" transform="rotate(-90,10,95)">GLORIA</text>
+      <text x="10" y="96" font-size="9" fill="#C5BFB5" text-anchor="start" transform="rotate(-90,10,96)" dy="12">Org Portal</text>
+      <text x="10" y="265" font-size="11" font-weight="700" fill="#9A9088" text-anchor="start" transform="rotate(-90,10,265)">SYSTEM</text>
+      <text x="10" y="266" font-size="9" fill="#C5BFB5" text-anchor="start" transform="rotate(-90,10,266)" dy="12">Auto</text>
+
+      <!-- lane divider -->
+      <line x1="0" y1="200" x2="1240" y2="200" stroke="#E2DAD0" stroke-width="1.5"/>
+      <!-- left label divider -->
+      <line x1="36" y1="0" x2="36" y2="320" stroke="#E2DAD0" stroke-width="1.5"/>
+
+      <!-- ── GLORIA NODES ── -->
+      <!-- Start node -->
+      <rect x="50" y="80" width="110" height="52" rx="26" fill="#1A1410"/>
+      <text x="105" y="101" text-anchor="middle" font-size="18" fill="white">🚪</text>
+      <text x="105" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="white">Logs in</text>
+      <text x="105" y="133" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">Org Portal</text>
+
+      <!-- Arrow 1 -->
+      <line x1="160" y1="106" x2="188" y2="106" stroke="#C8BFB2" stroke-width="2" marker-end="url(#arr-g1)"/>
+
+      <!-- Node 2 -->
+      <rect x="190" y="74" width="118" height="64" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="249" y="95" text-anchor="middle" font-size="16">📋</text>
+      <text x="249" y="113" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">Clicks</text>
+      <text x="249" y="127" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">"Post New Job"</text>
+
+      <!-- Arrow 2 -->
+      <line x1="308" y1="106" x2="336" y2="106" stroke="#C8BFB2" stroke-width="2" marker-end="url(#arr-g1)"/>
+
+      <!-- Node 3 -->
+      <rect x="338" y="74" width="118" height="64" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="397" y="95" text-anchor="middle" font-size="16">🗂️</text>
+      <text x="397" y="113" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">Selects template</text>
+      <text x="397" y="127" text-anchor="middle" font-size="10" fill="#9A9088">Long-Term / Short-Term</text>
+
+      <!-- Arrow 3 -->
+      <line x1="456" y1="106" x2="484" y2="106" stroke="#C8BFB2" stroke-width="2" marker-end="url(#arr-g1)"/>
+
+      <!-- Node 4 -->
+      <rect x="486" y="74" width="118" height="64" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="545" y="95" text-anchor="middle" font-size="16">🔒</text>
+      <text x="545" y="113" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">Attaches</text>
+      <text x="545" y="127" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">Compliance Pack</text>
+
+      <!-- Arrow 4 -->
+      <line x1="604" y1="106" x2="632" y2="106" stroke="#C8BFB2" stroke-width="2" marker-end="url(#arr-g1)"/>
+
+      <!-- Node 5 -->
+      <rect x="634" y="74" width="118" height="64" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="693" y="95" text-anchor="middle" font-size="16">📅</text>
+      <text x="693" y="113" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1A1410">Sets shift dates</text>
+      <text x="693" y="127" text-anchor="middle" font-size="10" fill="#9A9088">$54/hr · 13 weeks</text>
+
+      <!-- Arrow 5 to diamond -->
+      <line x1="752" y1="106" x2="780" y2="106" stroke="#C8BFB2" stroke-width="2" marker-end="url(#arr-g1)"/>
+
+      <!-- Decision diamond -->
+      <rect x="790" y="76" width="68" height="60" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="2" transform="rotate(0)"/>
+      <!-- diamond shape via polygon -->
+      <polygon points="824,68 858,106 824,144 790,106" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <text x="824" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400E">Preview</text>
+      <text x="824" y="113" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400E">correct?</text>
+
+      <!-- YES arrow from diamond right -->
+      <line x1="858" y1="106" x2="888" y2="106" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arr-yes)"/>
+      <text x="873" y="100" text-anchor="middle" font-size="10" font-weight="700" fill="#16A34A">YES</text>
+
+      <!-- End node (submit) -->
+      <rect x="890" y="80" width="130" height="52" rx="26" fill="#1A1410"/>
+      <text x="955" y="101" text-anchor="middle" font-size="16">✅</text>
+      <text x="955" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="white">Submits job</text>
+      <text x="955" y="133" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">📸 Reqs lock</text>
+
+      <!-- NO arrow down from diamond -->
+      <line x1="824" y1="144" x2="824" y2="170" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#arr-no)"/>
+      <text x="835" y="162" font-size="10" font-weight="700" fill="#DC2626">NO</text>
+
+      <!-- Edit node below diamond -->
+      <rect x="764" y="172" width="120" height="48" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+      <text x="824" y="193" text-anchor="middle" font-size="11.5" font-weight="600" fill="#DC2626">Edits any field</text>
+      <text x="824" y="209" text-anchor="middle" font-size="10" fill="#9A9088">Back to form</text>
+
+      <!-- loop arrow back left from edit node -->
+      <path d="M764 196 Q680 196 680 160 Q680 106 634 106" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-no)"/>
+
+      <!-- ── SYSTEM LANE ── -->
+      <!-- vertical dotted connector from submit down -->
+      <line x1="955" y1="132" x2="955" y2="210" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-sys)"/>
+
+      <!-- System node -->
+      <rect x="890" y="212" width="130" height="52" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="955" y="232" text-anchor="middle" font-size="14">🔔</text>
+      <text x="955" y="249" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Notifies vendors</text>
+      <text x="955" y="262" text-anchor="middle" font-size="10" fill="#15803D">All registered agencies</text>
+
+    </svg>
+  </div>
+
+  <div class="success-bar">
+    <div class="sb-icon">🎉</div>
+    <div>
+      <div class="sb-title">Job is live. Compliance requirements permanently locked. All vendors notified instantly.</div>
+      <div class="sb-sub">Gloria sees the job in Active status. Snapshot Rule applied — nobody can change what was required retroactively.</div>
+    </div>
+  </div>
+  <div class="edge-bar">
+    <span class="eb-label">Edge cases</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ No compliance pack → blocked from submitting</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ End date before start date → inline validation error</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ No vendors for specialty → warning, can still post</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Draft auto-saved if browser closes mid-flow</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════ FLOW 2: MARCUS ════════════════════════ -->
+<div class="flow-card">
+  <div class="fh">
+    <svg width="72" height="80" viewBox="0 0 72 80" fill="none" style="flex-shrink:0;">
+      <ellipse cx="36" cy="64" rx="20" ry="16" fill="#1D4ED8"/>
+      <path d="M34 52 L36 56 L38 52 L37 46 L35 46Z" fill="#FBBF24"/>
+      <path d="M33 46 L36 50 L39 46" fill="white"/>
+      <circle cx="36" cy="32" r="18" fill="#6B4C2A"/>
+      <path d="M18 32 Q18 14 36 12 Q54 14 54 32" fill="#1A1008"/>
+      <path d="M18 32 Q18 22 36 20 Q54 22 54 32 Q52 26 36 24 Q20 26 18 32Z" fill="#1A1008"/>
+      <ellipse cx="29" cy="33" rx="2.2" ry="2.2" fill="#fff"/>
+      <ellipse cx="43" cy="33" rx="2.2" ry="2.2" fill="#fff"/>
+      <circle cx="29" cy="33" r="1.3" fill="#1A1008"/>
+      <circle cx="43" cy="33" r="1.3" fill="#1A1008"/>
+      <path d="M30 41 Q33 44 40 42" stroke="#8B6040" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="fh-right">
+      <div class="fh-eyebrow">🧑‍💻 Marcus Webb · Staffing Agency · Vendor Portal</div>
+      <div class="fh-title">Submit a Candidate + Close Compliance Gaps</div>
+      <div class="fh-goal">Marcus sees a new ICU job. He checks his roster against the requirements, selects Sarah, submits her, then uploads the 2 missing documents so admin can verify and the placement can activate.</div>
+      <div class="fh-meta">
+        <div class="fh-chip" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">Entry: Vendor Portal · Open Jobs</div>
+        <div class="fh-chip" style="background:var(--green-l);border-color:var(--green-m);color:#166534;">Success: Candidate submitted · Gaps uploaded · Admin notified</div>
+        <div class="fh-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">~8 min avg task time</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow-svg-wrap">
+    <svg width="1240" height="400" viewBox="0 0 1240 400" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <defs>
+        <marker id="am2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C8BFB2"/></marker>
+        <marker id="am2-yes" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+        <marker id="am2-sys" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+        <marker id="am2-amb" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#D97706"/></marker>
+      </defs>
+
+      <!-- lane backgrounds -->
+      <rect x="0" y="0" width="1240" height="180" fill="#FFFCF8"/>
+      <rect x="0" y="180" width="1240" height="110" fill="#F5FDF7"/>
+      <rect x="0" y="290" width="1240" height="110" fill="#FFFBEB"/>
+
+      <!-- lane lines -->
+      <line x1="0" y1="180" x2="1240" y2="180" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="0" y1="290" x2="1240" y2="290" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="36" y1="0" x2="36" y2="400" stroke="#E2DAD0" stroke-width="1.5"/>
+
+      <!-- lane labels -->
+      <text x="18" y="75" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,75)">MARCUS</text>
+      <text x="18" y="235" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,235)">SYSTEM</text>
+      <text x="18" y="345" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,345)">GLORIA</text>
+
+      <!-- MARCUS NODES -->
+      <!-- Start -->
+      <rect x="50" y="64" width="110" height="52" rx="26" fill="#1A1410"/>
+      <text x="105" y="84" text-anchor="middle" font-size="16">📩</text>
+      <text x="105" y="102" text-anchor="middle" font-size="11" font-weight="600" fill="white">Receives</text>
+      <text x="105" y="115" text-anchor="middle" font-size="11" font-weight="600" fill="white">job alert</text>
+
+      <line x1="160" y1="90" x2="186" y2="90" stroke="#C8BFB2" stroke-width="2" marker-end="url(#am2)"/>
+
+      <rect x="188" y="62" width="116" height="56" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="246" y="82" text-anchor="middle" font-size="15">🔍</text>
+      <text x="246" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">Opens job</text>
+      <text x="246" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">requirements</text>
+
+      <line x1="304" y1="90" x2="330" y2="90" stroke="#C8BFB2" stroke-width="2" marker-end="url(#am2)"/>
+
+      <rect x="332" y="62" width="116" height="56" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="390" y="82" text-anchor="middle" font-size="15">👥</text>
+      <text x="390" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">Browses roster</text>
+      <text x="390" y="112" text-anchor="middle" font-size="10" fill="#6B7EAA">Gap count per candidate</text>
+
+      <line x1="448" y1="90" x2="474" y2="90" stroke="#C8BFB2" stroke-width="2" marker-end="url(#am2)"/>
+
+      <rect x="476" y="62" width="116" height="56" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="534" y="82" text-anchor="middle" font-size="15">👩‍⚕️</text>
+      <text x="534" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">Selects Sarah M.</text>
+      <text x="534" y="112" text-anchor="middle" font-size="10" fill="#6B7EAA">2 gaps · BLS approved</text>
+
+      <line x1="592" y1="90" x2="618" y2="90" stroke="#C8BFB2" stroke-width="2" marker-end="url(#am2)"/>
+
+      <rect x="620" y="62" width="116" height="56" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="678" y="82" text-anchor="middle" font-size="15">📤</text>
+      <text x="678" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">Submits</text>
+      <text x="678" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">candidate</text>
+
+      <line x1="736" y1="90" x2="762" y2="90" stroke="#C8BFB2" stroke-width="2" marker-end="url(#am2)"/>
+
+      <rect x="764" y="62" width="124" height="56" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="826" y="82" text-anchor="middle" font-size="15">📎</text>
+      <text x="826" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1E3A8A">Uploads gap docs</text>
+      <text x="826" y="112" text-anchor="middle" font-size="10" fill="#6B7EAA">BG Check + RN License</text>
+
+      <line x1="888" y1="90" x2="914" y2="90" stroke="#16A34A" stroke-width="2.5" marker-end="url(#am2-yes)"/>
+
+      <!-- End -->
+      <rect x="916" y="64" width="130" height="52" rx="26" fill="#1A1410"/>
+      <text x="981" y="84" text-anchor="middle" font-size="15">⏳</text>
+      <text x="981" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="white">Awaiting admin</text>
+      <text x="981" y="114" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">Real-time status visible</text>
+
+      <!-- SYSTEM LANE -->
+      <!-- Vertical from "submits" down -->
+      <line x1="678" y1="118" x2="678" y2="190" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#am2-sys)"/>
+      <rect x="620" y="192" width="116" height="54" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="678" y="212" text-anchor="middle" font-size="12">∪</text>
+      <text x="678" y="228" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Union Rule</text>
+      <text x="678" y="241" text-anchor="middle" font-size="10" fill="#15803D">generates tasklist</text>
+
+      <!-- Vertical from "uploads gap docs" down -->
+      <line x1="826" y1="118" x2="826" y2="190" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#am2-sys)"/>
+      <rect x="764" y="192" width="124" height="54" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="826" y="213" text-anchor="middle" font-size="14">🔔</text>
+      <text x="826" y="229" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Admin notified</text>
+      <text x="826" y="242" text-anchor="middle" font-size="10" fill="#15803D">Verify task created</text>
+
+      <!-- GLORIA LANE -->
+      <!-- Vertical from "submits" down to Gloria lane -->
+      <line x1="678" y1="246" x2="678" y2="300" stroke="#D97706" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#am2-amb)"/>
+      <rect x="620" y="302" width="116" height="54" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="678" y="322" text-anchor="middle" font-size="14">👁️</text>
+      <text x="678" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#78350F">Gloria sees</text>
+      <text x="678" y="351" text-anchor="middle" font-size="10" fill="#92400E">Sarah on shortlist</text>
+
+      <!-- Vertical from "uploads" down to Gloria lane -->
+      <line x1="826" y1="246" x2="826" y2="300" stroke="#D97706" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#am2-amb)"/>
+      <rect x="764" y="302" width="124" height="54" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="826" y="322" text-anchor="middle" font-size="14">🔒</text>
+      <text x="826" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#78350F">Placement: Locked</text>
+      <text x="826" y="351" text-anchor="middle" font-size="10" fill="#92400E">Waiting on gaps</text>
+
+    </svg>
+  </div>
+  <div class="success-bar">
+    <div class="sb-icon">📋</div>
+    <div>
+      <div class="sb-title">Candidate submitted. Gap docs uploaded. Admin verification task created. Placement locked pending review.</div>
+      <div class="sb-sub">Marcus sees real-time upload status. Gloria sees "Locked — 2 gaps". No phone call needed. No email chain.</div>
+    </div>
+  </div>
+  <div class="edge-bar">
+    <span class="eb-label">Edge cases</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Wrong file format → inline format error</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Expired document uploaded → system flags immediately</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Hospital rejects candidate → Marcus notified, can resubmit another</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Job filled mid-flow → job marked closed, Marcus warned</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════ FLOW 3: SARAH ════════════════════════ -->
+<div class="flow-card">
+  <div class="fh">
+    <svg width="72" height="80" viewBox="0 0 72 80" fill="none" style="flex-shrink:0;">
+      <ellipse cx="36" cy="64" rx="20" ry="16" fill="#16A34A"/>
+      <rect x="28" y="56" width="12" height="8" rx="2" fill="#15803D"/>
+      <path d="M46 54 Q56 49 56 59 Q56 65 49 65" stroke="#059669" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <circle cx="48" cy="66" r="2.5" fill="#059669"/>
+      <circle cx="36" cy="32" r="18" fill="#FDDCB5"/>
+      <path d="M18 30 Q18 12 36 10 Q54 12 54 30 Q52 16 36 14 Q20 16 18 30Z" fill="#C85C00"/>
+      <path d="M52 20 Q60 22 58 36" stroke="#C85C00" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <ellipse cx="29" cy="33" rx="2.2" ry="2.2" fill="#3D2B1A"/>
+      <ellipse cx="43" cy="33" rx="2.2" ry="2.2" fill="#3D2B1A"/>
+      <path d="M30 42 Q36 47 42 42" stroke="#C68642" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="fh-right">
+      <div class="fh-eyebrow">👩‍⚕️ Sarah M. · Travel Nurse · Candidate Portal</div>
+      <div class="fh-title">Upload a Document to Wallet + Track Gap Status</div>
+      <div class="fh-goal">Sarah receives a gap notification — 2 items missing for her St. Mary's placement. She uploads her State RN License directly, flags the Background Check to Marcus, and tracks verification status in real time until the placement unlocks.</div>
+      <div class="fh-meta">
+        <div class="fh-chip" style="background:var(--green-l);border-color:var(--green-m);color:#166534;">Entry: Gap notification · Candidate Portal</div>
+        <div class="fh-chip" style="background:var(--green-l);border-color:var(--green-m);color:#166534;">Success: Docs uploaded · Status tracking live · Placement unlocks</div>
+        <div class="fh-chip" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">~5 min avg task time</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow-svg-wrap">
+    <svg width="1100" height="290" viewBox="0 0 1100 290" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <defs>
+        <marker id="as3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C8BFB2"/></marker>
+        <marker id="as3-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+        <marker id="as3-sys" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+      </defs>
+
+      <rect x="0" y="0" width="1100" height="185" fill="#FFFCF8"/>
+      <rect x="0" y="185" width="1100" height="105" fill="#F5FDF7"/>
+      <line x1="0" y1="185" x2="1100" y2="185" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="36" y1="0" x2="36" y2="290" stroke="#E2DAD0" stroke-width="1.5"/>
+
+      <text x="18" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,80)">SARAH</text>
+      <text x="18" y="237" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,237)">SYSTEM</text>
+
+      <!-- SARAH NODES -->
+      <rect x="50" y="68" width="110" height="50" rx="25" fill="#1A1410"/>
+      <text x="105" y="88" text-anchor="middle" font-size="15">🔔</text>
+      <text x="105" y="104" text-anchor="middle" font-size="11" font-weight="600" fill="white">Receives</text>
+      <text x="105" y="116" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">Gap alert</text>
+
+      <line x1="160" y1="93" x2="186" y2="93" stroke="#C8BFB2" stroke-width="2" marker-end="url(#as3)"/>
+
+      <rect x="188" y="61" width="116" height="64" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="246" y="82" text-anchor="middle" font-size="15">📋</text>
+      <text x="246" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">Opens gap notice</text>
+      <text x="246" y="112" text-anchor="middle" font-size="10" fill="#15803D">2 items · owner per item</text>
+
+      <line x1="304" y1="93" x2="330" y2="93" stroke="#C8BFB2" stroke-width="2" marker-end="url(#as3)"/>
+
+      <rect x="332" y="61" width="116" height="64" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="390" y="82" text-anchor="middle" font-size="15">👛</text>
+      <text x="390" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">Opens</text>
+      <text x="390" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">My Wallet</text>
+
+      <line x1="448" y1="93" x2="474" y2="93" stroke="#C8BFB2" stroke-width="2" marker-end="url(#as3)"/>
+
+      <rect x="476" y="61" width="116" height="64" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="534" y="82" text-anchor="middle" font-size="15">📄</text>
+      <text x="534" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">Uploads State</text>
+      <text x="534" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">RN License</text>
+
+      <line x1="592" y1="93" x2="618" y2="93" stroke="#C8BFB2" stroke-width="2" marker-end="url(#as3)"/>
+
+      <rect x="620" y="61" width="124" height="64" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="682" y="82" text-anchor="middle" font-size="15">💬</text>
+      <text x="682" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#78350F">Flags BG Check</text>
+      <text x="682" y="112" text-anchor="middle" font-size="10" fill="#92400E">→ Marcus (his task)</text>
+
+      <line x1="744" y1="93" x2="770" y2="93" stroke="#C8BFB2" stroke-width="2" marker-end="url(#as3)"/>
+
+      <rect x="772" y="61" width="116" height="64" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="830" y="82" text-anchor="middle" font-size="15">👁️</text>
+      <text x="830" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14532D">Tracks status</text>
+      <text x="830" y="112" text-anchor="middle" font-size="10" fill="#15803D">Pending → Approved</text>
+
+      <line x1="888" y1="93" x2="914" y2="93" stroke="#16A34A" stroke-width="2.5" marker-end="url(#as3-g)"/>
+
+      <rect x="916" y="68" width="120" height="50" rx="25" fill="#1A1410"/>
+      <text x="976" y="88" text-anchor="middle" font-size="15">✅</text>
+      <text x="976" y="104" text-anchor="middle" font-size="11" font-weight="600" fill="white">Both approved</text>
+      <text x="976" y="116" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">Placement unlocks</text>
+
+      <!-- SYSTEM LANE -->
+      <!-- Vertical from "uploads RN License" down -->
+      <line x1="534" y1="125" x2="534" y2="194" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#as3-sys)"/>
+      <rect x="476" y="196" width="116" height="54" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="534" y="216" text-anchor="middle" font-size="13">🏷️</text>
+      <text x="534" y="231" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Auto-tags doc</text>
+      <text x="534" y="244" text-anchor="middle" font-size="10" fill="#15803D">Wallet + tasklist updated</text>
+
+      <!-- Vertical from "tracks status" down -->
+      <line x1="830" y1="125" x2="830" y2="194" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#as3-sys)"/>
+      <rect x="772" y="196" width="116" height="54" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="830" y="216" text-anchor="middle" font-size="13">🔄</text>
+      <text x="830" y="231" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Updates all portals</text>
+      <text x="830" y="244" text-anchor="middle" font-size="10" fill="#15803D">Gloria + Marcus notified</text>
+
+    </svg>
+  </div>
+  <div class="success-bar">
+    <div class="sb-icon">👛</div>
+    <div>
+      <div class="sb-title">State RN License uploaded and auto-tagged. Background Check flagged to Marcus. Sarah tracks both in real time.</div>
+      <div class="sb-sub">When admin approves both, placement activates automatically. Sarah gets confirmation before Day 1 — not at the reception desk.</div>
+    </div>
+  </div>
+  <div class="edge-bar">
+    <span class="eb-label">Edge cases</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Uploads an expired document → expiry warning shown immediately</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Wrong file type → inline error with accepted formats</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Admin rejects document → Sarah notified with reason</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Marcus doesn't upload BG Check in 72hrs → auto-escalation alert</span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════ FLOW 4: ADMIN ════════════════════════ -->
+<div class="flow-card">
+  <div class="fh">
+    <svg width="72" height="80" viewBox="0 0 72 80" fill="none" style="flex-shrink:0;">
+      <ellipse cx="36" cy="64" rx="20" ry="16" fill="#5B21B6"/>
+      <path d="M31 54 L36 50 L41 54 L41 62 Q36 66 31 62Z" fill="#7C3AED"/>
+      <path d="M33 58 L35 60 L39 56" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="32" r="18" fill="#D4A87A"/>
+      <path d="M18 32 Q18 14 36 12 Q54 14 54 32 Q52 20 36 18 Q20 20 18 32Z" fill="#2C1810"/>
+      <path d="M18 32 Q16 28 18 26" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M54 32 Q56 28 54 26" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <rect x="24" y="29" width="10" height="7" rx="3.5" fill="none" stroke="#4B5563" stroke-width="1.2"/>
+      <rect x="38" y="29" width="10" height="7" rx="3.5" fill="none" stroke="#4B5563" stroke-width="1.2"/>
+      <line x1="34" y1="32" x2="38" y2="32" stroke="#4B5563" stroke-width="1.2"/>
+      <line x1="20" y1="32" x2="24" y2="32" stroke="#4B5563" stroke-width="1.2"/>
+      <line x1="48" y1="32" x2="52" y2="32" stroke="#4B5563" stroke-width="1.2"/>
+      <ellipse cx="29" cy="33" rx="1.8" ry="1.8" fill="#1A1008"/>
+      <ellipse cx="43" cy="33" rx="1.8" ry="1.8" fill="#1A1008"/>
+      <path d="M30 42 Q36 46 42 42" stroke="#B07840" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="fh-right">
+      <div class="fh-eyebrow">🛡️ Platform Admin · NexusForce Operations · Admin Portal</div>
+      <div class="fh-title">Verify Documents + Activate Placement</div>
+      <div class="fh-goal">Admin receives a verification task for Sarah's St. Mary's placement. They open the placement file, read both uploaded documents carefully, approve or reject each one, and trigger activation. The compliance snapshot locks permanently the moment they approve — creating an immutable, legally defensible record.</div>
+      <div class="fh-meta">
+        <div class="fh-chip" style="background:var(--purple-l);border-color:var(--purple-m);color:#5B21B6;">Entry: Admin Portal · Verification queue</div>
+        <div class="fh-chip" style="background:var(--green-l);border-color:var(--green-m);color:#166534;">Success: Docs approved · Placement activated · Snapshot locked</div>
+        <div class="fh-chip" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">~6 min avg task time</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow-svg-wrap">
+    <svg width="1240" height="420" viewBox="0 0 1240 420" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <defs>
+        <marker id="aa4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C8BFB2"/></marker>
+        <marker id="aa4-yes" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+        <marker id="aa4-no" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#DC2626"/></marker>
+        <marker id="aa4-sys" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+        <marker id="aa4-amb" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#D97706"/></marker>
+        <marker id="aa4-blu" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#2563EB"/></marker>
+        <marker id="aa4-grn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16A34A"/></marker>
+      </defs>
+
+      <!-- lanes -->
+      <rect x="0" y="0" width="1240" height="175" fill="#FFFCF8"/>
+      <rect x="0" y="175" width="1240" height="95" fill="#F5FDF7"/>
+      <rect x="0" y="270" width="1240" height="75" fill="#FFFBEB"/>
+      <rect x="0" y="345" width="1240" height="75" fill="#EFF6FF"/>
+      <rect x="0" y="345" width="1240" height="75" fill="#F0FDF4"/>
+
+      <line x1="0" y1="175" x2="1240" y2="175" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="0" y1="270" x2="1240" y2="270" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="0" y1="345" x2="1240" y2="345" stroke="#E2DAD0" stroke-width="1.5"/>
+      <line x1="36" y1="0" x2="36" y2="420" stroke="#E2DAD0" stroke-width="1.5"/>
+
+      <text x="18" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,80)">ADMIN</text>
+      <text x="18" y="222" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,222)">SYSTEM</text>
+      <text x="18" y="307" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,307)">GLORIA</text>
+      <text x="18" y="382" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9088" transform="rotate(-90,18,382)">MARCUS + SARAH</text>
+
+      <!-- ADMIN NODES -->
+      <rect x="50" y="62" width="110" height="52" rx="26" fill="#1A1410"/>
+      <text x="105" y="82" text-anchor="middle" font-size="15">🔔</text>
+      <text x="105" y="99" text-anchor="middle" font-size="11" font-weight="600" fill="white">Verify task</text>
+      <text x="105" y="111" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">In queue</text>
+
+      <line x1="160" y1="88" x2="186" y2="88" stroke="#C8BFB2" stroke-width="2" marker-end="url(#aa4)"/>
+
+      <rect x="188" y="60" width="116" height="56" rx="10" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="2"/>
+      <text x="246" y="80" text-anchor="middle" font-size="15">📂</text>
+      <text x="246" y="97" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3B1F6B">Opens placement</text>
+      <text x="246" y="110" text-anchor="middle" font-size="10" fill="#6D28D9">Sarah · St. Mary's ICU</text>
+
+      <line x1="304" y1="88" x2="330" y2="88" stroke="#C8BFB2" stroke-width="2" marker-end="url(#aa4)"/>
+
+      <rect x="332" y="60" width="116" height="56" rx="10" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="2"/>
+      <text x="390" y="80" text-anchor="middle" font-size="15">📄</text>
+      <text x="390" y="97" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3B1F6B">Reviews BG</text>
+      <text x="390" y="110" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3B1F6B">Check</text>
+
+      <line x1="448" y1="88" x2="474" y2="88" stroke="#C8BFB2" stroke-width="2" marker-end="url(#aa4)"/>
+
+      <rect x="476" y="60" width="116" height="56" rx="10" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="2"/>
+      <text x="534" y="80" text-anchor="middle" font-size="15">🪪</text>
+      <text x="534" y="97" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3B1F6B">Reviews State</text>
+      <text x="534" y="110" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3B1F6B">RN License</text>
+
+      <line x1="592" y1="88" x2="618" y2="88" stroke="#C8BFB2" stroke-width="2" marker-end="url(#aa4)"/>
+
+      <!-- Decision diamond -->
+      <polygon points="674,50 718,88 674,126 630,88" fill="#EDE9FE" stroke="#6D28D9" stroke-width="2"/>
+      <text x="674" y="83" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5B21B6">Both docs</text>
+      <text x="674" y="96" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5B21B6">valid?</text>
+
+      <!-- YES branch right -->
+      <line x1="718" y1="88" x2="746" y2="88" stroke="#16A34A" stroke-width="2.5" marker-end="url(#aa4-yes)"/>
+      <text x="732" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#16A34A">YES</text>
+
+      <rect x="748" y="62" width="120" height="52" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="808" y="82" text-anchor="middle" font-size="15">✅</text>
+      <text x="808" y="99" text-anchor="middle" font-size="11.5" font-weight="600" fill="#166534">Approves</text>
+      <text x="808" y="112" text-anchor="middle" font-size="11.5" font-weight="600" fill="#166534">both docs</text>
+
+      <line x1="868" y1="88" x2="894" y2="88" stroke="#16A34A" stroke-width="2.5" marker-end="url(#aa4-yes)"/>
+
+      <!-- End node -->
+      <rect x="896" y="62" width="130" height="52" rx="26" fill="#1A1410"/>
+      <text x="961" y="82" text-anchor="middle" font-size="15">🔒</text>
+      <text x="961" y="99" text-anchor="middle" font-size="11" font-weight="600" fill="white">Placement activates</text>
+      <text x="961" y="112" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">Snapshot locked forever</text>
+
+      <!-- NO branch down from diamond -->
+      <line x1="674" y1="126" x2="674" y2="152" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#aa4-no)"/>
+      <text x="685" y="143" font-size="10" font-weight="700" fill="#DC2626">NO</text>
+      <rect x="614" y="154" width="120" height="48" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+      <text x="674" y="174" text-anchor="middle" font-size="11.5" font-weight="600" fill="#DC2626">Rejects with</text>
+      <text x="674" y="188" text-anchor="middle" font-size="11.5" font-weight="600" fill="#DC2626">reason</text>
+      <!-- loop arrow left back to start -->
+      <path d="M614 178 Q560 178 560 140 Q560 88 476 88" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3" fill="none" marker-end="url(#aa4-no)"/>
+      <text x="540" y="145" font-size="9.5" fill="#DC2626">Vendor re-uploads</text>
+
+      <!-- SYSTEM LANE -->
+      <line x1="961" y1="114" x2="961" y2="184" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#aa4-sys)"/>
+      <rect x="896" y="186" width="130" height="54" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="961" y="207" text-anchor="middle" font-size="13">🔗</text>
+      <text x="961" y="222" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Syncs all 3 portals</text>
+      <text x="961" y="235" text-anchor="middle" font-size="10" fill="#15803D">Audit log · Immutability Rule</text>
+
+      <!-- GLORIA LANE -->
+      <line x1="961" y1="240" x2="961" y2="278" stroke="#D97706" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#aa4-amb)"/>
+      <rect x="896" y="280" width="130" height="48" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+      <text x="961" y="298" text-anchor="middle" font-size="13">👩‍💼</text>
+      <text x="961" y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#78350F">Sarah is Active</text>
+      <text x="961" y="325" text-anchor="middle" font-size="10" fill="#92400E">Roster updated</text>
+
+      <!-- MARCUS + SARAH LANE -->
+      <line x1="921" y1="328" x2="880" y2="354" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#aa4-blu)"/>
+      <rect x="770" y="356" width="110" height="46" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+      <text x="825" y="374" text-anchor="middle" font-size="13">🧑‍💻</text>
+      <text x="825" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#1E3A8A">Marcus: Live</text>
+
+      <line x1="1001" y1="328" x2="1026" y2="354" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#aa4-grn)"/>
+      <rect x="1028" y="356" width="110" height="46" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="2"/>
+      <text x="1083" y="374" text-anchor="middle" font-size="13">👩‍⚕️</text>
+      <text x="1083" y="390" text-anchor="middle" font-size="11" font-weight="600" fill="#14532D">Sarah: Cleared</text>
+
+    </svg>
+  </div>
+  <div class="success-bar">
+    <div class="sb-icon">🔒</div>
+    <div>
+      <div class="sb-title">Both documents verified. Placement activated. Compliance snapshot locked permanently. All 3 portals updated simultaneously.</div>
+      <div class="sb-sub">Immutability Rule fires: what was required, submitted, and verified is now frozen. Timestamped. Legally defensible. Nobody can edit this record.</div>
+    </div>
+  </div>
+  <div class="edge-bar">
+    <span class="eb-label">Edge cases</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Document is expired → admin rejects · vendor must re-upload</span>
+    <span class="eb-chip" style="background:var(--red-l);border-color:#FCA5A5;color:var(--red);">⚡ Document appears fraudulent → admin flags · placement frozen · ops alerted</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Partial approval (one valid, one not) → partial status shown to all</span>
+    <span class="eb-chip" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">⚠ Task unreviewed 48hrs → escalation reminder to admin</span>
+    <span class="eb-chip" style="background:var(--purple-l);border-color:var(--purple-m);color:#5B21B6;">🔒 Cannot activate placement with any open gap — system blocks it</span>
+  </div>
+</div>
+
+</body>
+</html>

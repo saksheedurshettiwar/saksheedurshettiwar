@@ -36,8 +36,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# local-only pages
-src/app/case-studies/nexusforce-deep-dive/exploratory-stage/
 
 # typescript
 *.tsbuildinfo

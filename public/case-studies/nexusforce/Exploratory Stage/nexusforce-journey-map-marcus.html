@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marcus — NexusForce Journey Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #18120E;
+  --canvas: #EDE8DF;
+  --paper: #FEFCF8;
+  --accent: #1E40AF;
+  --accent-mid: #2563EB;
+  --accent-light: #EFF6FF;
+  --red: #B91C1C; --red-bg: #FEF2F2;
+  --green: #15803D; --green-bg: #F0FDF4;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--canvas); font-family:'Plus Jakarta Sans',sans-serif; padding:48px 56px 68px; min-width:1480px; background-image:linear-gradient(rgba(160,148,130,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(160,148,130,0.1) 1px,transparent 1px); background-size:36px 36px; }
+.top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px; }
+.label-pill { display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:#fff; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:4px; margin-bottom:14px; box-shadow:2px 3px 0 rgba(30,64,175,0.3); }
+.big-title { font-family:'Caveat',cursive; font-size:56px; font-weight:700; color:var(--ink); line-height:1.0; }
+.big-sub { font-size:14px; color:#777; margin-top:8px; font-style:italic; }
+.persona-capsule { display:flex; align-items:center; gap:12px; background:var(--ink); border-radius:100px; padding:9px 22px 9px 9px; box-shadow:4px 5px 0 rgba(0,0,0,0.22); }
+.cap-face { width:46px; height:46px; background:var(--accent-light); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.cap-name { font-size:15px; font-weight:700; color:#fff; }
+.cap-role { font-size:11px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.dots { display:flex; gap:6px; margin-top:10px; justify-content:flex-end; }
+.dot { width:9px; height:9px; border-radius:50%; background:#CCC; }
+.dot.on { background:var(--accent-mid); width:26px; border-radius:5px; }
+.persona-card { background:var(--paper); border-radius:4px; padding:22px 26px; margin-bottom:30px; display:flex; align-items:flex-start; gap:22px; border-left:6px solid var(--accent-mid); box-shadow:3px 5px 0 rgba(0,0,0,0.09); position:relative; }
+.persona-card::before { content:''; position:absolute; top:-9px; left:50px; width:56px; height:18px; background:rgba(255,255,180,0.75); border-radius:2px; transform:rotate(-0.8deg); box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+.pc-emoji { font-size:56px; line-height:1; flex-shrink:0; }
+.pc-quote { font-family:'Caveat',cursive; font-size:20px; color:#1E3A8A; line-height:1.55; flex:1; }
+.pc-access { background:var(--accent-light); border-radius:10px; padding:12px 16px; min-width:195px; border:1.5px solid #BFDBFE; flex-shrink:0; }
+.pc-access-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin-bottom:8px; }
+.pc-access-item { font-size:13px; color:#444; line-height:2; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1.2fr 1fr 1fr; gap:16px; align-items:start; }
+.col { display:flex; flex-direction:column; }
+.col-head { background:var(--ink); color:#fff; border-radius:12px 12px 0 0; padding:14px 16px 12px; text-align:center; position:relative; }
+.col-head.hero { background:var(--accent); box-shadow:0 6px 20px rgba(30,64,175,0.4); }
+.ch-num { font-size:10px; opacity:0.35; letter-spacing:2px; text-transform:uppercase; margin-bottom:5px; }
+.ch-title { font-family:'Caveat',cursive; font-size:22px; font-weight:700; line-height:1.1; }
+.ch-sub { font-size:10px; opacity:0.45; margin-top:4px; }
+.star-tag { position:absolute; top:-12px; right:10px; background:#FCD34D; color:#18120E; font-size:9px; font-weight:800; padding:3px 9px; border-radius:10px; letter-spacing:0.3px; text-transform:uppercase; box-shadow:1px 2px 0 rgba(0,0,0,0.15); }
+.col-body { background:var(--paper); border-radius:0 0 12px 12px; border:2px solid #E2DBD0; border-top:none; overflow:hidden; flex:1; }
+.hero-body { border-color:#93C5FD; }
+.block { padding:13px 14px; border-bottom:1px solid #EDE8DF; }
+.block:last-child { border-bottom:none; }
+.blk-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#B5AFA5; margin-bottom:8px; }
+.thought { font-family:'Caveat',cursive; font-size:17px; line-height:1.5; color:#1E3A8A; background:#EFF6FF; border:2px solid #BFDBFE; border-radius:12px 12px 12px 3px; padding:11px 14px; position:relative; }
+.thought::after { content:''; position:absolute; bottom:-10px; left:14px; width:0; height:0; border-left:10px solid transparent; border-right:5px solid transparent; border-top:11px solid #BFDBFE; }
+.emo-row { display:flex; align-items:flex-start; gap:11px; }
+.emo-face { font-size:28px; line-height:1; flex-shrink:0; }
+.emo-state { font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:4px; }
+.emo-note { font-size:12.5px; color:#666; line-height:1.5; }
+.sticky { border-radius:3px; padding:10px 12px; font-size:13px; line-height:1.6; color:#1A1207; }
+.sy{background:#FEF9C3;box-shadow:2px 3px 7px rgba(0,0,0,0.11);} .so{background:#FEF3C7;box-shadow:2px 3px 7px rgba(0,0,0,0.11);} .sg{background:#D1FAE5;box-shadow:2px 3px 7px rgba(0,0,0,0.11);} .st{background:#CCFBF1;box-shadow:2px 3px 7px rgba(0,0,0,0.11);} .sb{background:#DBEAFE;box-shadow:2px 3px 7px rgba(0,0,0,0.11);} .sp{background:#EDE9FE;box-shadow:2px 3px 7px rgba(0,0,0,0.11);}
+.r1{transform:rotate(-0.7deg);} .r2{transform:rotate(0.5deg);} .r3{transform:rotate(-1.1deg);}
+.pain{background:var(--red-bg);border-left:4px solid var(--red);border-radius:0 6px 6px 0;padding:9px 12px;font-size:12.5px;color:#7F1D1D;line-height:1.6;font-weight:500;}
+.opp{background:var(--green-bg);border-left:4px solid var(--green);border-radius:0 6px 6px 0;padding:9px 12px;font-size:12.5px;color:#14532D;line-height:1.6;font-weight:500;}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-top:8px;}
+.chip-y{background:#FEF9C3;color:#78350F;border:1.5px solid #FDE68A;} .chip-g{background:#D1FAE5;color:#065F46;border:1.5px solid #6EE7B7;} .chip-b{background:#DBEAFE;color:#1E40AF;border:1.5px solid #93C5FD;} .chip-p{background:#EDE9FE;color:#5B21B6;border:1.5px solid #C4B5FD;}
+.sat-wrap{margin-top:24px;background:var(--paper);border-radius:14px;padding:22px 30px;border:1.5px solid #E2DBD0;display:flex;align-items:center;gap:26px;box-shadow:2px 4px 0 rgba(0,0,0,0.06);}
+.sat-label{font-family:'Caveat',cursive;font-size:19px;font-weight:700;color:var(--ink);min-width:118px;line-height:1.35;}
+.sat-note{font-size:12.5px;color:#555;max-width:220px;line-height:1.65;background:var(--accent-light);border-radius:8px;padding:11px 14px;border:1.5px solid #BFDBFE;}
+.rules-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;}
+.rule-card{background:var(--paper);border-radius:12px;border:1.5px solid #E2DBD0;padding:16px 18px;box-shadow:3px 4px 0 rgba(0,0,0,0.07);position:relative;}
+.rule-card::before{content:'📌';position:absolute;top:-11px;left:16px;font-size:18px;}
+.rule-title{font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:var(--ink);margin:7px 0 6px;line-height:1.2;}
+.rule-body{font-size:13px;color:#555;line-height:1.65;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="label-pill">🧑‍💻 Staffing Agency · Vendor Portal · 3 of 4</div>
+    <div class="big-title">The one in the middle,<br>carrying all the pressure</div>
+    <div class="big-sub">The hospital needs nurses fast. Sarah needs steady work. Marcus needs both to trust him — simultaneously.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;">
+    <div class="persona-capsule">
+      <div class="cap-face">🧑‍💻</div>
+      <div><div class="cap-name">Marcus Webb</div><div class="cap-role">Account Manager · HealthStaff Agency</div></div>
+    </div>
+    <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div></div>
+  </div>
+</div>
+
+<div class="persona-card">
+  <div class="pc-emoji">🧑‍💻</div>
+  <div class="pc-quote">"I was the middleman carrying two clipboards — and neither one was complete. The hospital had requirements. Sarah had documents somewhere. My job was to hope they matched. I'd find out they didn't when the hospital called, angry, with Sarah already sitting in their lobby."</div>
+  <div class="pc-access">
+    <div class="pc-access-label">Vendor Portal Access</div>
+    <div class="pc-access-item">✓ Job requirements + pack</div>
+    <div class="pc-access-item">✓ Candidate wallet — full view</div>
+    <div class="pc-access-item">✓ Placement status + bill rate</div>
+    <div class="pc-access-item">✗ Hospital budget — never</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 01</div><div class="ch-title">Job Lands</div><div class="ch-sub">New ICU req from St. Mary's</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"New ICU req — 13 weeks, SF. Let me see the full compliance pack before I call anyone. I don't want to pitch someone and then find a gap."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">🎯</div>
+          <div><div class="emo-state">Motivated. Careful.</div><div class="emo-note">A new opportunity — but he's been burned enough times to check requirements before calling nurses.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky sb r2">Receives job notification in Vendor Portal. Reviews full structured compliance pack. Scans roster for ICU-qualified nurses with strong wallet status.</div>
+        <div class="chip chip-p">Rate isolation — hospital budget invisible</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Requirements arrived in a 3-paragraph email with a PDF. No checklist. Marcus built his own comparison manually every single time.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 02</div><div class="ch-title">Submitting Sarah</div><div class="ch-sub">Not a guess — an informed match</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"Sarah fits — 4 years ICU, BLS already approved in her wallet. I can see her gap count before I submit her. That's new. I used to be completely blind at this step."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">🤝</div>
+          <div><div class="emo-state">Confident. Eyes open.</div><div class="emo-note">Submitting with full information — not hoping the gaps aren't too bad.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky sb r1">Reviews Sarah's wallet against job checklist before submitting. Sees 2 gaps upfront. Submits profile — gap count visible to hospital too.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Submitted candidates blind. Discovered gaps only after the hospital selected — always too late to prevent a delay or a lost contract.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">✦ Now</div>
+        <div class="opp">Wallet status visible before submission. Marcus knows what needs fixing and starts on it before selection — not scrambling after.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head hero">
+      <div class="star-tag">⭐ Critical Stage</div>
+      <div class="ch-num">Stage 03</div>
+      <div class="ch-title">Closing the Gaps</div>
+      <div class="ch-sub">Marcus owns this. Nobody else can.</div>
+    </div>
+    <div class="col-body hero-body" style="background:linear-gradient(180deg,#EFF6FF 0%,var(--paper) 60%);">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought" style="background:#DBEAFE;border-color:#93C5FD;color:#1E3A8A;">"Two gaps — Background Check and State RN License. System told me exactly what, who's responsible, what format. Uploading now. Sarah's start date depends on this."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😤</div>
+          <div><div class="emo-state">Pressured — but clear.</div><div class="emo-note">The deadline is real. Credentialing delays mean Sarah loses income and the hospital stays understaffed. At least he knows exactly what to do.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky so r3">Receives gap notification. Uploads Background Check and State RN License to Sarah's wallet. Monitors verification status in real time in Vendor Portal.</div>
+        <div class="chip chip-b">∪ Union Rule — only real gaps surface</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Got a vague email: "some documents are missing." No list. No owner. No deadline. Called the hospital to decode. Meanwhile Sarah's start date slipped — she lost income.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 04</div><div class="ch-title">Placement Confirmed</div><div class="ch-sub">Contract live. Sarah is on.</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"Activated. Sarah starts Monday. Rate confirmed. Everything's in the portal. I don't have to follow up with anyone. It's just done."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😤</div>
+          <div><div class="emo-state">Satisfied. Done.</div><div class="emo-note">The deal closed cleanly. No last-minute scramble. Marcus can trust what's in the portal.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky sg r2">Placement activates. Marcus sees shift schedule, confirmed contract terms, bill rate in Vendor Portal. Compliance record is frozen.</div>
+        <div class="chip chip-g">🔒 Record frozen at activation</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">✦ Now</div>
+        <div class="opp">Contract terms locked at activation. No call weeks later saying requirements changed. The deal is the deal.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 05</div><div class="ch-title">Staying Ahead</div><div class="ch-sub">Renewals without the last-minute scramble</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"Sarah's State RN License expires in 6 weeks. The platform told me. Six weeks is enough time to handle it properly — not scramble the night before a shift."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😌</div>
+          <div><div class="emo-state">Relieved. Ahead of it.</div><div class="emo-note">In the old world this call would have come from the hospital, angry, with the shift already at risk.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky st r1">Receives 30-day pre-expiry alert. Manages renewal in Vendor Portal. Can extend or close placement at contract end.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Tracked renewals in a personal spreadsheet nobody else could see. First signal of a lapse was usually an angry call from the hospital.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">✦ Now</div>
+        <div class="opp">Marcus and Gloria get the same 30-day alerts. Both sides stay in sync — no phone tag, no surprises.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="sat-wrap">
+  <div class="sat-label">Marcus satisfaction<br>across stages</div>
+  <div style="flex:1;">
+    <svg width="100%" height="84" viewBox="0 0 920 84" preserveAspectRatio="none">
+      <defs><marker id="am" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L10 6L2 10" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <line x1="20" y1="22" x2="910" y2="22" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <line x1="20" y1="48" x2="910" y2="48" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <line x1="20" y1="74" x2="910" y2="74" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <text x="4" y="20" font-size="10" fill="#CCC" font-family="Plus Jakarta Sans">High</text>
+      <text x="4" y="76" font-size="10" fill="#CCC" font-family="Plus Jakarta Sans">Low</text>
+      <path d="M90 36 C185 32, 260 28, 340 30 C390 50, 448 62, 525 34 C610 12, 710 9, 830 6" fill="none" stroke="#BFDBFE" stroke-width="10" stroke-linecap="round"/>
+      <path d="M90 36 C185 32, 260 28, 340 30 C390 50, 448 62, 525 34 C610 12, 710 9, 830 6" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" marker-end="url(#am)"/>
+      <circle cx="90" cy="36" r="6" fill="#2563EB" stroke="#fff" stroke-width="2"/>
+      <circle cx="260" cy="28" r="5" fill="#2563EB" opacity="0.4"/>
+      <circle cx="448" cy="62" r="9" fill="#EF4444" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="580" cy="22" r="6" fill="#2563EB" stroke="#fff" stroke-width="2"/>
+      <circle cx="830" cy="6" r="6" fill="#2563EB" stroke="#fff" stroke-width="2"/>
+      <line x1="448" y1="70" x2="448" y2="80" stroke="#FCA5A5" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <rect x="358" y="78" width="180" height="16" rx="4" fill="#B91C1C"/>
+      <text x="448" y="89" text-anchor="middle" font-size="9" fill="#fff" font-family="Caveat, cursive" font-weight="700">pressure to close gaps fast — Sarah's income</text>
+      <rect x="750" y="-2" width="152" height="16" rx="4" fill="#2563EB"/>
+      <text x="826" y="9" text-anchor="middle" font-size="9" fill="#fff" font-family="Caveat, cursive" font-weight="700">in control, finally ★</text>
+      <text x="90" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Job lands</text>
+      <text x="260" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Submitting</text>
+      <text x="640" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Confirmed ★</text>
+      <text x="830" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Ongoing</text>
+    </svg>
+  </div>
+  <div class="sat-note">Stage 3 is where Marcus used to lose sleep — vague gaps, no owner, no deadline, Sarah's income on the line. NexusForce turns it into a clear, owned, real-time checklist with a visible progress indicator.</div>
+</div>
+
+<div class="rules-row">
+  <div class="rule-card">
+    <div class="chip chip-p">🔒 Rate Isolation</div>
+    <div class="rule-title">His margin. His business. His data.</div>
+    <div class="rule-body">Gloria never sees what Marcus charges. The rate lives in a separate data layer — not hidden behind a permission toggle. Two portals, two different data structures. Commercial confidentiality is structural, not a setting.</div>
+  </div>
+  <div class="rule-card">
+    <div class="chip chip-b">∪ Union Rule</div>
+    <div class="rule-title">No more submitting candidates blind</div>
+    <div class="rule-body">Marcus sees Sarah's wallet against the job checklist before he submits. Gap count visible upfront. He makes a real decision — not a hopeful one. The hospital gets an informed candidate, not a surprise.</div>
+  </div>
+  <div class="rule-card">
+    <div class="chip chip-g">🔒 Immutability Rule</div>
+    <div class="rule-title">The deal is the deal</div>
+    <div class="rule-body">Once activated, rate, compliance record, and contract terms are frozen. Marcus doesn't get a call six weeks in saying requirements changed. What was agreed stays agreed. The contract is the contract.</div>
+  </div>
+</div>
+
+</body>
+</html>

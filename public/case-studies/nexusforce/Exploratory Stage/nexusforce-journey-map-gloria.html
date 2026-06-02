@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gloria — NexusForce Journey Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #18120E;
+  --canvas: #EDE8DF;
+  --paper: #FEFCF8;
+  --accent: #B45309;
+  --accent-mid: #D97706;
+  --accent-light: #FEF3C7;
+  --red: #B91C1C; --red-bg: #FEF2F2;
+  --green: #15803D; --green-bg: #F0FDF4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--canvas);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 48px 56px 68px;
+  min-width: 1480px;
+  background-image: linear-gradient(rgba(160,148,130,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(160,148,130,0.1) 1px,transparent 1px);
+  background-size: 36px 36px;
+}
+.top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px; }
+.label-pill { display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:#fff; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:4px; margin-bottom:14px; box-shadow:2px 3px 0 rgba(180,83,9,0.3); }
+.big-title { font-family:'Caveat',cursive; font-size:56px; font-weight:700; color:var(--ink); line-height:1.0; }
+.big-sub { font-size:14px; color:#777; margin-top:8px; font-style:italic; }
+.persona-capsule { display:flex; align-items:center; gap:12px; background:var(--ink); border-radius:100px; padding:9px 22px 9px 9px; box-shadow:4px 5px 0 rgba(0,0,0,0.22); }
+.cap-face { width:46px; height:46px; background:var(--accent-light); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.cap-name { font-size:15px; font-weight:700; color:#fff; }
+.cap-role { font-size:11px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.dots { display:flex; gap:6px; margin-top:10px; justify-content:flex-end; }
+.dot { width:9px; height:9px; border-radius:50%; background:#CCC; }
+.dot.on { background:var(--accent-mid); width:26px; border-radius:5px; }
+.persona-card { background:var(--paper); border-radius:4px; padding:22px 26px; margin-bottom:30px; display:flex; align-items:flex-start; gap:22px; border-left:6px solid var(--accent-mid); box-shadow:3px 5px 0 rgba(0,0,0,0.09); position:relative; }
+.persona-card::before { content:''; position:absolute; top:-9px; left:50px; width:56px; height:18px; background:rgba(255,255,180,0.75); border-radius:2px; transform:rotate(-0.8deg); box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+.pc-emoji { font-size:56px; line-height:1; flex-shrink:0; }
+.pc-quote { font-family:'Caveat',cursive; font-size:20px; color:#4A2000; line-height:1.55; flex:1; }
+.pc-access { background:var(--accent-light); border-radius:10px; padding:12px 16px; min-width:195px; border:1.5px solid #FDE68A; flex-shrink:0; }
+.pc-access-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin-bottom:8px; }
+.pc-access-item { font-size:13px; color:#444; line-height:2; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1.2fr 1fr 1fr; gap:16px; align-items:start; }
+.col { display:flex; flex-direction:column; }
+.col-head { background:var(--ink); color:#fff; border-radius:12px 12px 0 0; padding:14px 16px 12px; text-align:center; position:relative; }
+.col-head.hero { background:var(--accent); box-shadow:0 6px 20px rgba(180,83,9,0.4); }
+.ch-num { font-size:10px; opacity:0.35; letter-spacing:2px; text-transform:uppercase; margin-bottom:5px; }
+.ch-title { font-family:'Caveat',cursive; font-size:22px; font-weight:700; line-height:1.1; }
+.ch-sub { font-size:10px; opacity:0.45; margin-top:4px; }
+.star-tag { position:absolute; top:-12px; right:10px; background:#FCD34D; color:#18120E; font-size:9px; font-weight:800; padding:3px 9px; border-radius:10px; letter-spacing:0.3px; text-transform:uppercase; box-shadow:1px 2px 0 rgba(0,0,0,0.15); }
+.col-body { background:var(--paper); border-radius:0 0 12px 12px; border:2px solid #E2DBD0; border-top:none; overflow:hidden; flex:1; }
+.hero-body { border-color:#FDE68A; }
+.block { padding:13px 14px; border-bottom:1px solid #EDE8DF; }
+.block:last-child { border-bottom:none; }
+.blk-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#B5AFA5; margin-bottom:8px; }
+.thought { font-family:'Caveat',cursive; font-size:17px; line-height:1.5; color:#4A2000; background:#FEF9EC; border:2px solid #FDE68A; border-radius:12px 12px 12px 3px; padding:11px 14px; position:relative; }
+.thought::after { content:''; position:absolute; bottom:-10px; left:14px; width:0; height:0; border-left:10px solid transparent; border-right:5px solid transparent; border-top:11px solid #FDE68A; }
+.emo-row { display:flex; align-items:flex-start; gap:11px; }
+.emo-face { font-size:28px; line-height:1; flex-shrink:0; }
+.emo-state { font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:4px; }
+.emo-note { font-size:12.5px; color:#666; line-height:1.5; }
+.sticky { border-radius:3px; padding:10px 12px; font-size:13px; line-height:1.6; color:#1A1207; }
+.sy { background:#FEF9C3; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.so { background:#FEF3C7; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.sg { background:#D1FAE5; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.st { background:#CCFBF1; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.sb { background:#DBEAFE; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.sp { background:#EDE9FE; box-shadow:2px 3px 7px rgba(0,0,0,0.11); }
+.r1 { transform:rotate(-0.7deg); } .r2 { transform:rotate(0.5deg); } .r3 { transform:rotate(-1.1deg); }
+.pain { background:var(--red-bg); border-left:4px solid var(--red); border-radius:0 6px 6px 0; padding:9px 12px; font-size:12.5px; color:#7F1D1D; line-height:1.6; font-weight:500; }
+.opp { background:var(--green-bg); border-left:4px solid var(--green); border-radius:0 6px 6px 0; padding:9px 12px; font-size:12.5px; color:#14532D; line-height:1.6; font-weight:500; }
+.chip { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:700; letter-spacing:0.4px; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-top:8px; }
+.chip-y { background:#FEF9C3; color:#78350F; border:1.5px solid #FDE68A; }
+.chip-g { background:#D1FAE5; color:#065F46; border:1.5px solid #6EE7B7; }
+.chip-b { background:#DBEAFE; color:#1E40AF; border:1.5px solid #93C5FD; }
+.chip-o { background:#FEF3C7; color:#92400E; border:1.5px solid #FCD34D; }
+.sat-wrap { margin-top:24px; background:var(--paper); border-radius:14px; padding:22px 30px; border:1.5px solid #E2DBD0; display:flex; align-items:center; gap:26px; box-shadow:2px 4px 0 rgba(0,0,0,0.06); }
+.sat-label { font-family:'Caveat',cursive; font-size:19px; font-weight:700; color:var(--ink); min-width:118px; line-height:1.35; }
+.sat-note { font-size:12.5px; color:#555; max-width:220px; line-height:1.65; background:var(--accent-light); border-radius:8px; padding:11px 14px; border:1.5px solid #FDE68A; }
+.rules-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px; }
+.rule-card { background:var(--paper); border-radius:12px; border:1.5px solid #E2DBD0; padding:16px 18px; box-shadow:3px 4px 0 rgba(0,0,0,0.07); position:relative; }
+.rule-card::before { content:'📌'; position:absolute; top:-11px; left:16px; font-size:18px; }
+.rule-title { font-family:'Caveat',cursive; font-size:20px; font-weight:700; color:var(--ink); margin:7px 0 6px; line-height:1.2; }
+.rule-body { font-size:13px; color:#555; line-height:1.65; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="label-pill">👩‍💼 Hospital · Org Portal · 2 of 4</div>
+    <div class="big-title">The one who can't afford<br>to get this wrong</div>
+    <div class="big-sub">She's not filling a spreadsheet. She's staffing an ICU — and legally responsible for every nurse who walks in.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;">
+    <div class="persona-capsule">
+      <div class="cap-face">👩‍💼</div>
+      <div><div class="cap-name">Gloria Dorsey</div><div class="cap-role">Client Executive · St. Mary's Hospital, SF</div></div>
+    </div>
+    <div class="dots"><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
+  </div>
+</div>
+
+<div class="persona-card">
+  <div class="pc-emoji">👩‍💼</div>
+  <div class="pc-quote">"As the hospital, we're legally responsible for every nurse treating our patients — even the travel nurses the agency placed. That's not the agency's liability. It's mine. So when I say I need to know she's compliant before Monday — I don't mean I'd prefer it. I mean it's not optional."</div>
+  <div class="pc-access">
+    <div class="pc-access-label">Org Portal Access</div>
+    <div class="pc-access-item">✓ Post jobs + compliance packs</div>
+    <div class="pc-access-item">✓ Candidate profiles + wallet status</div>
+    <div class="pc-access-item">✓ Placement status + alerts</div>
+    <div class="pc-access-item">✗ Vendor bill rates — blocked</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 01</div><div class="ch-title">Posting the Job</div><div class="ch-sub">Requisition wizard · locks on submit</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"ICU expansion — 3 nurses, 13 weeks. I need the template to enforce the right compliance. I shouldn't have to remember every requirement myself."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">🧩</div>
+          <div><div class="emo-state">Purposeful.</div><div class="emo-note">Getting structure in at the start means she won't chase problems later.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky sy r2">Selects Long-Term Order template. Attaches ICU Nurse Compliance Pack v2.1. Sets shift dates. Posts — requirements lock immediately on submit.</div>
+        <div class="chip chip-y">📸 Snapshot Rule fires here</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Free-text forms. Compliance packs not enforced. Manually emailed requirements to the agency every single posting — no guarantee they'd be followed.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 02</div><div class="ch-title">Picking a Candidate</div><div class="ch-sub">Shortlist arrives from vendor</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"I can see Sarah's wallet and compliance score. And I cannot see what the agency is charging. Good — that number has no business being on my screen."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">🔍</div>
+          <div><div class="emo-state">Focused. Evaluating.</div><div class="emo-note">Selecting on clinical fit and compliance — not commercial noise.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky so r1">Reviews candidates with compliance scores. Selects Sarah M. — 4 years ICU, BLS approved, 2 gaps visible before she even clicks confirm.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Cross-referenced a spreadsheet against an email chain. By the time she selected someone, she still had no clear picture of what was missing.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">✦ Now</div>
+        <div class="opp">Gap count shown before she selects — not after. Full information, before the commitment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head hero">
+      <div class="star-tag">⭐ Critical Stage</div>
+      <div class="ch-num">Stage 03</div>
+      <div class="ch-title">Waiting on the Gate</div>
+      <div class="ch-sub">Placement locked — gaps must close first</div>
+    </div>
+    <div class="col-body hero-body" style="background:linear-gradient(180deg,#FFFBF0 0%,var(--paper) 60%);">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought" style="background:#FEF9EC;border-color:#FCD34D;color:#4A2000;">"Two gaps flagged. The system is telling me exactly what they are and who fixes them. I'm not calling the agency. I'm watching the tasklist clear."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😤</div>
+          <div><div class="emo-state">Impatient — but trusting.</div><div class="emo-note">She needs the nurse. But the friction is the right friction. The gate is protecting her legal exposure.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky so r3">Sees placement locked in Org Portal. Tasklist shows 2 gaps — Background Check and State RN License — both owned by the vendor. Status updates in real time as Marcus uploads.</div>
+        <div class="chip chip-b">∪ Union Rule active</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Compliance check was post-placement. Nurses showed up Day 1 with expired licenses. Hospital was legally exposed without knowing it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 04</div><div class="ch-title">She's Cleared</div><div class="ch-sub">Day 1 confirmed before Day 1</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"Every document verified. The system made it impossible to skip a step. That's the first time I've felt genuinely sure before someone walked through our doors."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😮‍💨</div>
+          <div><div class="emo-state">Real relief.</div><div class="emo-note">Not hope. The system gave her certainty. That's new.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky sg r2">Receives placement confirmation. Sarah shows as Active on shift roster. Compliance record frozen and accessible anytime for audit.</div>
+        <div class="chip chip-g">🔒 Record frozen at activation</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">✦ Now</div>
+        <div class="opp">Activation is system-gated, not human-memory-gated. Gloria doesn't have to trust anyone's word — the gate closed on verified facts.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-head"><div class="ch-num">Stage 05</div><div class="ch-title">Ongoing Visibility</div><div class="ch-sub">Alerts before problems, not after</div></div>
+    <div class="col-body">
+      <div class="block">
+        <div class="blk-label">💬 Thinking</div>
+        <div class="thought">"I need 30 days' warning before Sarah's license expires — not a call the morning she walks in and someone at reception figures it out."</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">😐 Feeling</div>
+        <div class="emo-row">
+          <div class="emo-face">😌</div>
+          <div><div class="emo-state">Calm confidence.</div><div class="emo-note">The platform watches what she physically can't watch herself.</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="blk-label">⚡ Action</div>
+        <div class="sticky st r1">Monitors active placements. Gets pre-expiry alerts 30 days out. Downloads immutable audit log per placement for regulatory reviews.</div>
+      </div>
+      <div class="block">
+        <div class="blk-label">🔴 Before</div>
+        <div class="pain">Licenses expired silently. First Gloria found out was in a post-incident review — after a compliance failure had already happened on the floor.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="sat-wrap">
+  <div class="sat-label">Gloria satisfaction<br>across stages</div>
+  <div style="flex:1;">
+    <svg width="100%" height="84" viewBox="0 0 920 84" preserveAspectRatio="none">
+      <defs><marker id="ag" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L10 6L2 10" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <line x1="20" y1="22" x2="910" y2="22" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <line x1="20" y1="48" x2="910" y2="48" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <line x1="20" y1="74" x2="910" y2="74" stroke="#EEE" stroke-width="1" stroke-dasharray="5 4"/>
+      <text x="4" y="20" font-size="10" fill="#CCC" font-family="Plus Jakarta Sans">High</text>
+      <text x="4" y="76" font-size="10" fill="#CCC" font-family="Plus Jakarta Sans">Low</text>
+      <path d="M90 34 C185 30, 265 32, 340 30 C380 52, 448 62, 525 38 C610 14, 710 10, 830 6" fill="none" stroke="#FEF3C7" stroke-width="10" stroke-linecap="round"/>
+      <path d="M90 34 C185 30, 265 32, 340 30 C380 52, 448 62, 525 38 C610 14, 710 10, 830 6" fill="none" stroke="#D97706" stroke-width="3.5" stroke-linecap="round" marker-end="url(#ag)"/>
+      <circle cx="90" cy="34" r="6" fill="#D97706" stroke="#fff" stroke-width="2"/>
+      <circle cx="265" cy="32" r="5" fill="#D97706" opacity="0.4"/>
+      <circle cx="448" cy="62" r="9" fill="#EF4444" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="580" cy="24" r="6" fill="#D97706" stroke="#fff" stroke-width="2"/>
+      <circle cx="830" cy="6" r="6" fill="#D97706" stroke="#fff" stroke-width="2"/>
+      <line x1="448" y1="70" x2="448" y2="80" stroke="#FCA5A5" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <rect x="364" y="78" width="168" height="16" rx="4" fill="#B91C1C"/>
+      <text x="448" y="89" text-anchor="middle" font-size="9" fill="#fff" font-family="Caveat, cursive" font-weight="700">waiting — right friction, wrong feeling</text>
+      <rect x="756" y="-2" width="148" height="16" rx="4" fill="#D97706"/>
+      <text x="830" y="9" text-anchor="middle" font-size="9" fill="#fff" font-family="Caveat, cursive" font-weight="700">finally: real certainty ★</text>
+      <text x="90" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Posted</text>
+      <text x="265" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Reviewing</text>
+      <text x="640" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Cleared ★</text>
+      <text x="830" y="78" text-anchor="middle" font-size="10" fill="#AAA" font-family="Plus Jakarta Sans">Ongoing</text>
+    </svg>
+  </div>
+  <div class="sat-note">The dip at Stage 3 is real and honest — Gloria is waiting and can't control it. But that's the correct friction. The gate is there to protect her legal exposure. Once it clears, her confidence is higher than it has ever been.</div>
+</div>
+
+<div class="rules-row">
+  <div class="rule-card">
+    <div class="chip chip-y">📸 Snapshot Rule</div>
+    <div class="rule-title">She set the rules. Nobody can change them.</div>
+    <div class="rule-body">Gloria's compliance checklist froze at posting. The agency can't quietly drop a requirement under deadline pressure. What Gloria asked for is what gets verified — no retroactive changes.</div>
+  </div>
+  <div class="rule-card">
+    <div class="chip chip-b">∪ Union Rule</div>
+    <div class="rule-title">She sees what's actually missing</div>
+    <div class="rule-body">The tasklist shows only real gaps — documents already approved in Sarah's wallet are already cleared. Gloria gets clear signal, not a 20-item checklist to decode every time.</div>
+  </div>
+  <div class="rule-card">
+    <div class="chip chip-g">🔒 Legal defensibility</div>
+    <div class="rule-title">She can prove compliance — always</div>
+    <div class="rule-body">As the hospital, Gloria is legally responsible for every worker on her floor. The immutable audit log is her evidence. Timestamped. Locked. If a regulator or lawyer ever asks — the record is right there.</div>
+  </div>
+</div>
+
+</body>
+</html>

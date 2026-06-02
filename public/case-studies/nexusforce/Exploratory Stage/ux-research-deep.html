@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NexusForce — Deep UX Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas: #F2EDE3;
+  --paper: #FEFCF8;
+  --ink: #1A1410;
+  --ink2: #3D3530;
+  --muted: #9A9088;
+  --border: #E2DAD0;
+  --red: #DC2626; --red-l: #FEF2F2; --red-m: #FCA5A5;
+  --amber: #D97706; --amber-l: #FEF3C7; --amber-m: #FCD34D;
+  --green: #16A34A; --green-l: #DCFCE7; --green-m: #86EFAC;
+  --blue: #2563EB; --blue-l: #DBEAFE; --blue-m: #93C5FD;
+  --purple: #6D28D9; --purple-l: #EDE9FE;
+  --teal: #0D9488; --teal-l: #CCFBF1;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--canvas);
+  font-family: 'DM Sans', sans-serif;
+  background-image: linear-gradient(rgba(160,148,130,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(160,148,130,0.08) 1px,transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ── STICKY TOC ── */
+.toc {
+  position: fixed; left: 0; top: 0; bottom: 0;
+  width: 220px; background: var(--ink);
+  overflow-y: auto; z-index: 100;
+  padding: 28px 0 40px;
+}
+.toc-logo { padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px; }
+.toc-title { font-family: 'Caveat', cursive; font-size: 18px; font-weight: 700; color: #fff; }
+.toc-sub { font-size: 9.5px; color: rgba(255,255,255,0.3); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
+.toc-section { padding: 2px 20px 0; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 16px; }
+.toc-item { display: block; padding: 7px 20px; font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; border-left: 2px solid transparent; }
+.toc-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+/* ── MAIN ── */
+.main { margin-left: 220px; padding: 52px 60px 96px; max-width: 1200px; }
+
+/* ── PAGE HEADER ── */
+.pg-header { margin-bottom: 52px; }
+.pg-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.pg-title { font-family: 'Caveat', cursive; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1.0; margin-bottom: 10px; }
+.pg-sub { font-size: 14px; color: var(--muted); max-width: 680px; line-height: 1.65; font-style: italic; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 64px; scroll-margin-top: 24px; }
+.section-hdr { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1.5px solid var(--border); }
+.s-num { font-family: 'Caveat', cursive; font-size: 42px; font-weight: 700; color: var(--border); line-height: 1; flex-shrink: 0; }
+.s-right {}
+.s-title { font-family: 'Caveat', cursive; font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.s-sub { font-size: 13.5px; color: var(--muted); line-height: 1.6; max-width: 660px; }
+
+/* ── SCAN LABEL ── */
+.scan-label { display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+
+/* ── STAT STRIP ── */
+.stat-strip { display: flex; gap: 0; background: var(--paper); border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; margin-bottom: 28px; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.stat-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Caveat', cursive; font-size: 34px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+.stat-label { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.stat-source { font-size: 10px; color: #C5BFB5; margin-top: 3px; font-style: italic; }
+
+/* ── COMPETITOR CARD ── */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.comp-card { background: var(--paper); border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.cc-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 12px; }
+.cc-badge { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 20px; border: 1.5px solid; margin-bottom: 6px; display: inline-block; }
+.cc-name { font-size: 17px; font-weight: 700; color: var(--ink); }
+.cc-type { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.cc-right { flex: 1; }
+.cc-body { padding: 16px 20px; }
+.cc-section { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.1px; color: var(--muted); margin-bottom: 8px; margin-top: 14px; }
+.cc-section:first-child { margin-top: 0; }
+
+/* voice quote — real user/source */
+.voice { display: flex; gap: 10px; padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; }
+.voice-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.voice-text { font-size: 12.5px; line-height: 1.55; flex: 1; }
+.voice-source { font-size: 10px; color: var(--muted); margin-top: 3px; font-style: italic; }
+
+/* gap tag */
+.gap-box { border-radius: 8px; padding: 10px 14px; margin-top: 12px; }
+.gap-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.gap-text { font-size: 12.5px; line-height: 1.55; }
+
+/* ── FINDING CARD ── */
+.finding-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 28px; }
+.finding { background: var(--paper); border-radius: 12px; border: 1.5px solid var(--border); padding: 18px 20px; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.f-icon { font-size: 22px; margin-bottom: 8px; }
+.f-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 5px; }
+.f-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+.f-body { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+
+/* ── INSIGHT BOX ── */
+.insight-box { background: var(--ink); border-radius: 16px; padding: 26px 30px; margin-bottom: 28px; display: flex; gap: 18px; align-items: flex-start; }
+.ib-icon { font-size: 30px; flex-shrink: 0; }
+.ib-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+.ib-title { font-family: 'Caveat', cursive; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+.ib-body { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.65; }
+
+/* ── DOMAIN CARD ── */
+.domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.domain-card { background: var(--paper); border-radius: 12px; border: 1.5px solid var(--border); padding: 20px; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.dc-title { font-family: 'Caveat', cursive; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.dc-item { display: flex; gap: 9px; margin-bottom: 9px; padding: 8px 10px; border-radius: 7px; }
+.dci-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.dci-body {}
+.dci-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 2px; }
+.dci-text { font-size: 12.5px; color: var(--ink2); line-height: 1.5; }
+
+/* ── TENSION / GOALS TABLE ── */
+.tension-grid { display: flex; flex-direction: column; gap: 14px; }
+.tension-card { background: var(--paper); border-radius: 12px; border: 1.5px solid var(--border); overflow: hidden; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.tc-head { display: grid; grid-template-columns: 1fr 44px 1fr; align-items: stretch; }
+.tc-left { padding: 14px 16px; }
+.tc-vs { background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.6); writing-mode: vertical-rl; letter-spacing: 1px; }
+.tc-right { padding: 14px 16px; }
+.tc-persona { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.tc-text { font-size: 12.5px; color: var(--ink2); line-height: 1.5; }
+.tc-foot { padding: 12px 16px; border-top: 1px solid var(--border); background: #FAFAF5; }
+.tcf-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--purple); margin-bottom: 4px; }
+.tcf-text { font-size: 12.5px; color: var(--ink2); line-height: 1.5; }
+
+/* ── METRIC CARD ── */
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.metric-card { background: var(--paper); border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; box-shadow: 2px 3px 0 rgba(0,0,0,0.05); }
+.mc-head { padding: 14px 18px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.mc-av { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.mc-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.mc-role { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.mc-body { padding: 14px 18px; }
+.mc-quote { font-family: 'Caveat', cursive; font-size: 14.5px; line-height: 1.55; padding: 9px 13px; border-radius: 8px 8px 8px 2px; margin-bottom: 12px; }
+.mc-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 9px; }
+.mc-num { font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700; line-height: 1; flex-shrink: 0; width: 60px; }
+.mc-info {}
+.mc-mlabel { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 2px; }
+.mc-mtext { font-size: 12px; color: var(--ink2); line-height: 1.5; }
+
+/* ── PILL TAG ── */
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; border: 1.5px solid; }
+</style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-logo">
+    <div class="toc-title">NexusForce</div>
+    <div class="toc-sub">UX Research Report</div>
+  </div>
+  <div class="toc-section">Research</div>
+  <a href="#market" class="toc-item">Market Context</a>
+  <a href="#comp" class="toc-item">Competitive Analysis</a>
+  <a href="#user-voice" class="toc-item">What Users Are Saying</a>
+  <a href="#gaps" class="toc-item">Market Gaps Found</a>
+  <div class="toc-section">Domain</div>
+  <a href="#domain" class="toc-item">Regulations & Laws</a>
+  <div class="toc-section">Strategy</div>
+  <a href="#goals" class="toc-item">Business vs User Goals</a>
+  <a href="#metrics" class="toc-item">Success Metrics</a>
+</nav>
+
+<div class="main">
+
+<!-- PAGE HEADER -->
+<div class="pg-header">
+  <div class="pg-eyebrow">NexusForce · Primary UX Research · Discovery Phase</div>
+  <div class="pg-title">Deep Research Report</div>
+  <div class="pg-sub">Sources: Capterra, G2, BBB, Reddit, BluePipes, StaffingHub, Joint Commission, CMS, SIA, Verisys, NPR. Includes real user voices from practitioners, nurses, and platform reviewers — not just analyst reports.</div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- MARKET CONTEXT                -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="market">
+  <div class="section-hdr">
+    <div class="s-num">01</div>
+    <div class="s-right">
+      <div class="s-title">Market Context — Why This Problem Matters Now</div>
+      <div class="s-sub">Numbers that set the stage. These aren't background stats — they're the business case for why compliance enforcement is a product problem, not just a process problem.</div>
+    </div>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">$19.5B</div>
+      <div class="stat-label">US healthcare staffing market, 2024</div>
+      <div class="stat-source">Grand View Research</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$40B</div>
+      <div class="stat-label">Projected by 2034 · 13.5% CAGR</div>
+      <div class="stat-source">Grand View Research, 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">37%</div>
+      <div class="stat-label">Drop in travel nurse revenue, 2024 alone</div>
+      <div class="stat-source">Staffing Industry Analysts, 2024</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.8%</div>
+      <div class="stat-label">Median EBITDA for travel nurse firms in 2024 — near break-even for bottom quartile</div>
+      <div class="stat-source">SIA Pulse Survey, Sept 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">83%</div>
+      <div class="stat-label">Of sentinel events linked to communication failures, staffing issues, inadequate training</div>
+      <div class="stat-source">Joint Commission, 2023</div>
+    </div>
+  </div>
+
+  <div class="finding-row">
+    <div class="finding">
+      <div class="f-icon">⚠️</div>
+      <div class="f-label">Enforcement reality</div>
+      <div class="f-title">Non-compliance in credentialing triggered multiple OIG enforcement actions in 2024</div>
+      <div class="f-body">The HHS Office of Inspector General maintains an exclusion list. Placing someone on it can cost a facility millions in fines — and in some cases disqualification from Medicare/Medicaid billing entirely.</div>
+    </div>
+    <div class="finding">
+      <div class="f-icon">📉</div>
+      <div class="f-label">Margin pressure</div>
+      <div class="f-title">Agencies are under existential margin pressure — compliance shortcuts become tempting</div>
+      <div class="f-body">With travel nurse revenue down 37% in one year and bottom-quartile EBITDA near zero, agencies face pressure to close placements faster than safety permits. The system has to make compliance the easiest path, not an obstacle.</div>
+    </div>
+    <div class="finding">
+      <div class="f-icon">📋</div>
+      <div class="f-label">Bullhorn's own data</div>
+      <div class="f-title">38% of staffing professionals say credentialing's biggest challenge is being manual and time-consuming</div>
+      <div class="f-body">A further 28% say technology is not tailored to support healthcare. This is from Bullhorn's own internal survey — the dominant platform in the space is publicly acknowledging the gap it hasn't closed.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- COMPETITIVE ANALYSIS          -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="comp">
+  <div class="section-hdr">
+    <div class="s-num">02</div>
+    <div class="s-right">
+      <div class="s-title">Competitive Analysis — What Each Platform Gets Wrong</div>
+      <div class="s-sub">Six platforms. Real reviews from Capterra, G2, BBB, and industry forums. Not vendor marketing — what users actually said after using them.</div>
+    </div>
+  </div>
+
+  <div class="comp-grid">
+
+    <!-- BULLHORN -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">Recruitment CRM · ATS</div>
+          <div class="cc-name">Bullhorn</div>
+          <div class="cc-type">10,000+ staffing firms · 22 of top 25 healthcare agencies</div>
+        </div>
+      </div>
+      <div class="cc-body">
+
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">"Bullhorn runs every aspect of our healthcare organisation from end to end — candidate application and submission, job order management, compliance credentialing, timekeeping, and billing."</div>
+            <div class="voice-source">Amy Reed, VP Operational Strategy, CHG Healthcare — StaffingHub, 2023</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">"Bullhorn's earliest credentialing capabilities were a tremendous change in allowing our team to see all of the documentation they needed for credentialing in one place."</div>
+            <div class="voice-source">RNnetwork — StaffingHub, 2023</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ What users actually complain about</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"Their analytics feature is non-functional, and they admitted to implementing the wrong version, requesting more time to fix it."</div>
+            <div class="voice-source">Capterra review, July 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"It's still one of the most expensive platforms on the market, but it's not worth the price."</div>
+            <div class="voice-source">Capterra, Oct 2025</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"They did mass layoffs because they are losing market share."</div>
+            <div class="voice-source">Capterra verified review, Oct 2025</div>
+          </div>
+        </div>
+        <div class="voice" style="background:#FFF7ED;">
+          <div class="voice-icon">⚠️</div>
+          <div>
+            <div class="voice-text" style="color:#78350F;">Compliance Manager (launched 2023) shows credential status and has checklists — but Bullhorn's own documentation confirms it "shows" and "tracks." No evidence anywhere that it can structurally block a placement activation when gaps are open. It is a visibility tool, not a gate.</div>
+            <div class="voice-source">Bullhorn.com + StaffingHub analysis, 2023</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">A checklist a coordinator can tick past under pressure is not compliance enforcement. Bullhorn's "Compliance Manager" surfaced the gap — NexusForce closes it architecturally.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIFTMED -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:var(--teal-l);border-color:#5EEAD4;color:var(--teal);">On-Demand Mobile · W-2</div>
+          <div class="cc-name">ShiftMed</div>
+          <div class="cc-type">250,000+ credentialed clinicians · $250M raised · 631K shifts in 2025</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">Fast shift fulfilment for per diem — real-time matching against pre-credentialed pool. In 2025 alone, supported 631,000 shifts and $189M in labour savings for health systems.</div>
+            <div class="voice-source">ShiftMed company data, 2026</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ What users actually complain about</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"I downloaded ShiftMed and uploaded my credentials in 2021. I asked their bot what else was needed — it sent a link to a different state. After going back and forth I gave up."</div>
+            <div class="voice-source">App Store review, JustUseApp, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"There are NO live representatives, no customer support. There is a bot computer that is not much help — and for healthcare you need someone to contact for issues."</div>
+            <div class="voice-source">App Store review, JustUseApp, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:#FFF7ED;">
+          <div class="voice-icon">⚠️</div>
+          <div>
+            <div class="voice-text" style="color:#78350F;">ShiftMed credentials workers once at platform onboarding. For per diem this works. For 13-week travel contracts at a specific ICU with specific requirements, a blanket W-2 credential set is insufficient — it cannot enforce hospital-specific compliance packs.</div>
+            <div class="voice-source">Research synthesis, 2024</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">Built for per diem speed, not contract-level compliance. No per-placement checklist tied to a specific hospital's requirements. And bot-first onboarding means credentialing errors go unresolved — nurses literally give up.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIPBOARD HEALTH -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:#FDF2F8;border-color:#F9A8D4;color:#9D174D;">Per Diem Marketplace · LTC</div>
+          <div class="cc-name">Clipboard Health</div>
+          <div class="cc-type">Shift marketplace · Transparent pay · Speed-focused</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">Transparent pay before shift acceptance. Workers see the rate upfront. Fast matching for LTC and SNF facilities that need same-day or next-day coverage.</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ What users actually complain about</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"They deactivated my account for the second time. I woke up to a deactivated account because of me laying my sister to rest today. I did provide documentation and also my score was 80."</div>
+            <div class="voice-source">BBB review, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"They treat the clinicians like [disposable] and praise the facilities. Their supervisors do not respond whatsoever to concerns. They have several lawsuits against them."</div>
+            <div class="voice-source">BBB verified review, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:#FFF7ED;">
+          <div class="voice-icon">⚠️</div>
+          <div>
+            <div class="voice-text" style="color:#78350F;">One credential set applies to all facilities on the platform. An ICU at St. Mary's SF and an LTC in rural Ohio have identical compliance requirements on Clipboard. In reality, they don't — the ICU requires ACLS, PALS, specific state license verifications, and facility-specific documentation that the LTC doesn't need.</div>
+            <div class="voice-source">Research synthesis</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">Speed at the cost of per-placement compliance specificity. Workers have no visibility into why their account gets deactivated — the credentialing process is a black box to the nurse.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIVIAN HEALTH -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:var(--amber-l);border-color:var(--amber-m);color:#92400E;">Job Marketplace</div>
+          <div class="cc-name">Vivian Health</div>
+          <div class="cc-type">Travel nurse job board · Transparent pay · Multi-agency</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">Transparent pay posts with full package breakdown — nurses can compare agencies before applying. Strong UX for job search. Multi-agency marketplace means nurses have real choice.</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ The structural problem</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">Vivian is a job board. It does not handle compliance at all. A nurse can find a role, apply through an agency, and the entire credentialing and placement process happens off-platform — in email chains, PDF attachments, and agency-specific portals.</div>
+            <div class="voice-source">Platform analysis, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">Hospitals have zero compliance visibility through Vivian. The hiring decision happens on the platform — then the compliance process disappears into whatever the agency's internal system happens to be. There is no standard.</div>
+            <div class="voice-source">Research synthesis</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">The hospital is completely removed from the compliance verification loop. They see a candidate — they don't see the credentialing process at all until a problem surfaces, usually at or after placement.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYMPLR -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:var(--purple-l);border-color:#C4B5FD;color:var(--purple);">Credentialing Software</div>
+          <div class="cc-name">Symplr / Ceipal</div>
+          <div class="cc-type">Provider data management · Compliance tracking · Hospital-facing</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">Joint Commission standard tracking built in. Automated renewal reminders. Designed for audit-readiness. The most compliance-aware of the group.</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ What G2/Capterra users actually say</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"'Packets' don't work the way they were explained to us, and sought clarification/direction twice."</div>
+            <div class="voice-source">G2 verified review, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"System is still very manual with data entry, and dashboards are not very user-friendly."</div>
+            <div class="voice-source">Capterra verified review, 2024</div>
+          </div>
+        </div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">"The CVO and software teams do not coordinate well."</div>
+            <div class="voice-source">Capterra review</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">Hospital-only tool with no agency or candidate portal. Compliance tracking happens in isolation — the agency and nurse have no real-time visibility. Manual data entry problems mean the data itself isn't trusted.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QGENDA -->
+    <div class="comp-card">
+      <div class="cc-head">
+        <div class="cc-right">
+          <div class="cc-badge" style="background:var(--blue-l);border-color:var(--blue-m);color:#1E40AF;">Scheduling + Credentials</div>
+          <div class="cc-name">QGenda</div>
+          <div class="cc-type">Cloud scheduling · Physician + clinical staff · Internal workforce</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-section" style="color:var(--green);">✓ What it gets right</div>
+        <div class="voice" style="background:var(--green-l);">
+          <div class="voice-icon">💬</div>
+          <div>
+            <div class="voice-text" style="color:#14532D;">Real-time scheduling with built-in credential tracking. Strong for internal workforce management — flags expiry, reduces scheduling conflicts. Most sophisticated internal scheduling tool in the market.</div>
+          </div>
+        </div>
+
+        <div class="cc-section" style="color:var(--red);">✗ The structural problem</div>
+        <div class="voice" style="background:var(--red-l);">
+          <div class="voice-icon">😤</div>
+          <div>
+            <div class="voice-text" style="color:#7F1D1D;">Designed for a single organisation's internal staff. There is no model for a 3-party structure where hospital, agency, and candidate each have separate, siloed data views. Rate isolation between hospital and vendor is not a concept that exists in QGenda's architecture.</div>
+            <div class="voice-source">Research synthesis</div>
+          </div>
+        </div>
+
+        <div class="gap-box" style="background:var(--red-l);border:1.5px solid var(--red-m);">
+          <div class="gap-label" style="color:var(--red);">Critical gap vs NexusForce</div>
+          <div class="gap-text" style="color:#7F1D1D;">Cannot model the hospital-agency-candidate relationship. Credential management tracks but cannot enforce — it's a calendar-adjacent tool, not a compliance gate for placements.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- WHAT USERS ARE SAYING          -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="user-voice">
+  <div class="section-hdr">
+    <div class="s-num">03</div>
+    <div class="s-right">
+      <div class="s-title">What Real Users Are Saying</div>
+      <div class="s-sub">Direct from nurses, recruiters, and credentialing specialists — Reddit threads, app reviews, industry blogs, NPR, and practitioner forums. Unfiltered.</div>
+    </div>
+  </div>
+
+  <div class="finding-row">
+    <div class="finding" style="border-color:var(--red-m);background:var(--red-l);">
+      <div class="f-icon">👩‍⚕️</div>
+      <div class="f-label" style="color:var(--red);">Travel nurses — on credentialing burden</div>
+      <div class="f-title" style="color:#7F1D1D;">"I've seen hospitals push start dates back by weeks"</div>
+      <div class="f-body" style="color:#991B1B;">
+        <em>"Hospitals have become extremely nit-picky with their requirements. Every facility seems to have its own packet of facility-specific documentation that can take travel nurses up to 12 hours to complete."</em>
+        <br><br>BluePipes travel nurse resource, updated 2025 — a practitioner-facing blog that has tracked this problem since 2012
+      </div>
+    </div>
+    <div class="finding" style="border-color:var(--red-m);background:var(--red-l);">
+      <div class="f-icon">🔄</div>
+      <div class="f-label" style="color:var(--red);">Travel nurses — on document re-upload hell</div>
+      <div class="f-title" style="color:#7F1D1D;">"Most would prefer a single place to update their credentials"</div>
+      <div class="f-body" style="color:#991B1B;">
+        <em>"Healthcare providers are equally challenged by manual credentialing processes and inefficient technology which require them to fax or email credentials for every new position."</em>
+        <br><br>Bullhorn's own internal survey data, 2023 — the market leader is publicly acknowledging what nurses have been saying for years
+      </div>
+    </div>
+    <div class="finding" style="border-color:var(--red-m);background:var(--red-l);">
+      <div class="f-icon">🚑</div>
+      <div class="f-label" style="color:var(--red);">Travel nurses — on the Day 1 failure</div>
+      <div class="f-title" style="color:#7F1D1D;">"The state really needs nurses, but you're delaying us"</div>
+      <div class="f-body" style="color:#991B1B;">
+        <em>"There's a lot of travel nurses that want to come to Pennsylvania and want to work, but it's just — this whole process is just — it's ridiculous."</em>
+        <br><br>Reeny Pereira, travel nurse — NPR, via researcher Brian Sholtis on credentialing delays and their effect on patient care
+      </div>
+    </div>
+  </div>
+
+  <div class="finding-row">
+    <div class="finding" style="border-color:var(--amber-m);background:var(--amber-l);">
+      <div class="f-icon">📧</div>
+      <div class="f-label" style="color:var(--amber);">Agency coordinators — on the old process</div>
+      <div class="f-title" style="color:#78350F;">"Flying blind on credentialing for hospitals they haven't worked with"</div>
+      <div class="f-body" style="color:#92400E;">
+        <em>"Many agencies have limited to no experience placing candidates at most of the hospitals they work with. They might be flying blind when it comes to credentialing for a particular hospital — which can cause delays."</em>
+        <br><br>Kyle Schmidt, former travel nurse recruiter — BluePipes, describing the structural problem agencies face when they can't see hospital requirements in advance
+      </div>
+    </div>
+    <div class="finding" style="border-color:var(--amber-m);background:var(--amber-l);">
+      <div class="f-icon">🤖</div>
+      <div class="f-label" style="color:var(--amber);">ShiftMed users — on the credentialing UX</div>
+      <div class="f-title" style="color:#78350F;">"The bot sent me a link to a different state. I gave up."</div>
+      <div class="f-body" style="color:#92400E;">
+        <em>"I downloaded ShiftMed and uploaded my credentials in 2021. Asked their worthless bot what was needed — it sent a link to a different state. After going back and forth, I gave up."</em>
+        <br><br>App Store review — when a nurse gives up on credentialing, that's a lost placement and a staffing gap somewhere that needed covering
+      </div>
+    </div>
+    <div class="finding" style="border-color:var(--amber-m);background:var(--amber-l);">
+      <div class="f-icon">🔒</div>
+      <div class="f-label" style="color:var(--amber);">Clipboard Health users — on account deactivation</div>
+      <div class="f-title" style="color:#78350F;">"Deactivated my account while I was laying my sister to rest"</div>
+      <div class="f-body" style="color:#92400E;">
+        <em>"I woke up to a deactivated account... I did provide documentation and also my score was 80. I have a family to care for."</em>
+        <br><br>BBB review, 2024 — opaque automated credentialing decisions with no human escalation path. For a nurse this means immediate income loss with no explanation.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <div class="ib-icon">🎙️</div>
+    <div>
+      <div class="ib-label">The through-line across all user voices</div>
+      <div class="ib-title">The system fails nurses at the worst possible moment — and nobody takes ownership</div>
+      <div class="ib-body">Whether it's finding out about missing documents on Day 1 in scrubs, getting deactivated with no explanation, or re-uploading the same BLS cert for the fourth time — every complaint traces back to the same root cause. Nobody in the existing system owns the gap between "documents submitted" and "nurse cleared to work." The hospital assumes the agency handled it. The agency assumes the nurse uploaded it. The nurse assumes someone reviewed it. Nobody built a gate. NexusForce is the gate.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- MARKET GAPS                   -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="gaps">
+  <div class="section-hdr">
+    <div class="s-num">04</div>
+    <div class="s-right">
+      <div class="s-title">Market Gaps — What No One Has Solved</div>
+      <div class="s-sub">Five structural gaps that exist across all six platforms reviewed. These are not feature gaps — they are architectural assumptions the entire industry shares.</div>
+    </div>
+  </div>
+
+  <div class="finding-row">
+    <div class="finding" style="border-left:4px solid var(--red);">
+      <div class="f-icon">⏰</div>
+      <div class="f-label">Gap 01 — Timing</div>
+      <div class="f-title">Compliance verified after placement — not before activation</div>
+      <div class="f-body">Every platform checks documents after a selection decision has been made. The industry default is: select first, verify later. This is the root cause of Day 1 failures. Nobody has built a structural gate at the moment of activation.</div>
+    </div>
+    <div class="finding" style="border-left:4px solid var(--red);">
+      <div class="f-icon">🏗️</div>
+      <div class="f-label">Gap 02 — Architecture</div>
+      <div class="f-title">Rate separation lives in the UI — not the data layer</div>
+      <div class="f-body">Every platform that claims rate separation between hospital and agency implements it as a filtered view — the data is technically in the DOM, just hidden. A browser inspector, a report, or a new screen built without the filter can expose it. No platform has removed vendor rates from the hospital's data model entirely.</div>
+    </div>
+    <div class="finding" style="border-left:4px solid var(--red);">
+      <div class="f-icon">📸</div>
+      <div class="f-label">Gap 03 — Snapshot Integrity</div>
+      <div class="f-title">Template edits can affect active placements retroactively</div>
+      <div class="f-body">No platform freezes requirements at the moment of job creation. A template updated after a nurse is already on contract can technically change what she needs to remain compliant. This is an audit risk nobody in the market has structurally solved.</div>
+    </div>
+  </div>
+  <div class="finding-row">
+    <div class="finding" style="border-left:4px solid var(--amber);">
+      <div class="f-icon">👛</div>
+      <div class="f-label">Gap 04 — Document Wallet</div>
+      <div class="f-title">Nurses re-submit the same documents for every placement</div>
+      <div class="f-body">Bullhorn's own survey confirms it: "most would prefer a single place to update credentials." Yet no platform has built a portable, placement-portable wallet where an approved document carries forward automatically. The nurse re-proves themselves from scratch every 13 weeks.</div>
+    </div>
+    <div class="finding" style="border-left:4px solid var(--amber);">
+      <div class="f-icon">👁️</div>
+      <div class="f-label">Gap 05 — Visibility Symmetry</div>
+      <div class="f-title">No platform gives all four parties the same real-time compliance picture</div>
+      <div class="f-body">Hospital uses one system. Agency uses another. Nurse has no system. Admin maintains a spreadsheet. When compliance status changes, it travels by email and phone call. Nobody has a shared, real-time view of where a placement stands — each party sees a different version of the truth.</div>
+    </div>
+    <div class="finding" style="border-left:4px solid var(--amber);">
+      <div class="f-icon">🔒</div>
+      <div class="f-label">Gap 06 — Immutable Audit Trail</div>
+      <div class="f-title">No permanent, tamper-proof record of what was verified and when</div>
+      <div class="f-body">The Joint Commission requires a defensible audit trail. Yet no platform creates an immutable, timestamped record at the moment of activation. Approvals are stored in mutable databases — editable after the fact. A regulator asking "who approved this and when?" gets an answer from a system that can be changed.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- DOMAIN RESEARCH               -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="domain">
+  <div class="section-hdr">
+    <div class="s-num">05</div>
+    <div class="s-right">
+      <div class="s-title">Domain Research — Laws That Shaped Every Design Decision</div>
+      <div class="s-sub">Not background reading. These are the specific regulations that made certain design choices legally non-negotiable — not just good UX.</div>
+    </div>
+  </div>
+
+  <div class="domain-grid">
+    <div class="domain-card">
+      <div class="dc-title">🏛️ Joint Commission — What They Actually Require</div>
+      <div class="dc-item" style="background:var(--purple-l);">
+        <div class="dci-icon">📜</div>
+        <div>
+          <div class="dci-label">Standard HR.1.20</div>
+          <div class="dci-text">"Staff qualifications must be consistent with job responsibilities." The hospital cannot delegate this liability to the agency — they are legally responsible for every nurse treating their patients, regardless of who placed them.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--purple-l);">
+        <div class="dci-icon">📜</div>
+        <div>
+          <div class="dci-label">Standard LD.3.50</div>
+          <div class="dci-text">"Services provided by contractual arrangements must be provided safely and effectively." This standard is what makes Gloria legally exposed — not the agency. The placement is the hospital's responsibility.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--purple-l);">
+        <div class="dci-icon">📊</div>
+        <div>
+          <div class="dci-label">2022 Performance Measures Update</div>
+          <div class="dci-text">Certified staffing firms must collect monthly placement data separately for per diem and travel staff. Monthly data collection and audit trails are not optional — they are a certification requirement.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--purple-l);">
+        <div class="dci-icon">🎯</div>
+        <div>
+          <div class="dci-label">Why it matters for NexusForce</div>
+          <div class="dci-text">The Immutability Rule is not a nice design decision. It is a legal requirement. A timestamped, permanent, tamper-proof approval record is what the Joint Commission's audit trail requires.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain-card">
+      <div class="dc-title">🏥 CMS + OIG — Federal Stakes</div>
+      <div class="dc-item" style="background:var(--blue-l);">
+        <div class="dci-icon">⚖️</div>
+        <div>
+          <div class="dci-label">CMS Conditions of Participation</div>
+          <div class="dci-text">CMS IG 482.22(a)(1): qualifications must be appraised at minimum every 24 months. A nurse with an expired license mid-placement puts the hospital's Medicare and Medicaid billing eligibility at risk — not just patient safety.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--blue-l);">
+        <div class="dci-icon">🚨</div>
+        <div>
+          <div class="dci-label">OIG Exclusion List</div>
+          <div class="dci-text">Placing someone on the HHS OIG exclusion list can cost a facility millions in fines. A 2024 OIG report found non-compliance in credentialing as a contributing factor in multiple enforcement actions. The list is real and current — and no platform auto-screens against it per placement.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--blue-l);">
+        <div class="dci-icon">🎯</div>
+        <div>
+          <div class="dci-label">Why it matters for NexusForce</div>
+          <div class="dci-text">The 30-day pre-expiry alert is legally motivated. A nurse whose license expires during a 13-week contract is not just an operational problem — she's a CMS violation in progress. The hospital needs 30 days to act, not 3.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain-card">
+      <div class="dc-title">🗺️ State Licensing Patchwork</div>
+      <div class="dc-item" style="background:var(--amber-l);">
+        <div class="dci-icon">📍</div>
+        <div>
+          <div class="dci-label">Per-state requirements</div>
+          <div class="dci-text">Every US state has its own licensure requirements. A California RN license does not automatically permit practice in Texas. Travel nurses crossing state lines need state-specific verification — and the requirements change when they move.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--amber-l);">
+        <div class="dci-icon">🤝</div>
+        <div>
+          <div class="dci-label">Nurse Licensure Compact (NLC)</div>
+          <div class="dci-text">40+ states participate — but non-compact states require individual licensure. A nurse from a compact state working in a non-compact state needs a separate license. The system must track both compact status and non-compact requirements per placement location — not just per nurse.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--amber-l);">
+        <div class="dci-icon">🎯</div>
+        <div>
+          <div class="dci-label">Why it matters for NexusForce</div>
+          <div class="dci-text">The Snapshot Rule locks requirements to a specific location at the time of posting. A template built for a California ICU cannot be used for a Texas placement without updating the license requirement — the system enforces this at the data layer, not through a policy reminder.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain-card">
+      <div class="dc-title">📄 Standard Document Complexity</div>
+      <div class="dc-item" style="background:var(--green-l);">
+        <div class="dci-icon">🩺</div>
+        <div>
+          <div class="dci-label">The document list has grown dramatically since 2006</div>
+          <div class="dci-text">In 2006, a travel nurse recruiter needed: license copies, certs, basic medical records, one unit test. Today: facility-specific orientation modules up to 12 hours long, specific TB test formats (QuantiFERON-Gold+ only, not skin test), front AND back copies of every document, specific verbiage on physical exam reports, office stamps, exact signature formatting. Each hospital has its own variant.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--green-l);">
+        <div class="dci-icon">🔁</div>
+        <div>
+          <div class="dci-label">Background checks do not transfer between placements</div>
+          <div class="dci-text">Most hospital credentialing departments require a fresh background check per placement — even if the nurse was cleared at a different facility 3 months earlier. This is a structural re-work burden for agencies and nurses that no platform has solved with deduplication logic.</div>
+        </div>
+      </div>
+      <div class="dc-item" style="background:var(--green-l);">
+        <div class="dci-icon">🎯</div>
+        <div>
+          <div class="dci-label">Why it matters for NexusForce</div>
+          <div class="dci-text">The Union Rule — tasklist = job requirements ∪ candidate wallet (deduplicated). Documents already approved in Sarah's wallet that satisfy this specific job's requirements are automatically cleared. She only uploads what is genuinely new for this placement. Background checks still require fresh upload per placement — but BLS, ACLS, and TB can carry forward when still valid.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- BUSINESS vs USER GOALS        -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="goals">
+  <div class="section-hdr">
+    <div class="s-num">06</div>
+    <div class="s-right">
+      <div class="s-title">Business Goals vs User Goals — Where They Conflict</div>
+      <div class="s-sub">The tensions that drove every major architectural decision. These aren't UX tradeoffs — they're structural conflicts the design had to resolve, not paper over.</div>
+    </div>
+  </div>
+
+  <div class="tension-grid">
+
+    <div class="tension-card">
+      <div class="tc-head">
+        <div class="tc-left" style="background:var(--red-l);">
+          <div class="tc-persona" style="color:var(--red);">👩‍💼 Hospital — Business Goal</div>
+          <div class="tc-text">Staff ICU fast. Every day of vacancy costs patient care quality and staff overtime. ICU nurses are the hardest to find and the slowest to credential.</div>
+        </div>
+        <div class="tc-vs">VS</div>
+        <div class="tc-right" style="background:var(--green-l);">
+          <div class="tc-persona" style="color:var(--green);">🛡️ Compliance — System Requirement</div>
+          <div class="tc-text">Every document must be reviewed by a qualified admin before any nurse treats a patient. Verification cannot be rushed or skipped under operational pressure.</div>
+        </div>
+      </div>
+      <div class="tc-foot">
+        <div class="tcf-label">NexusForce resolution — Snapshot Rule + parallel verification</div>
+        <div class="tcf-text">Requirements lock at posting — not at placement. Verification begins the moment a candidate is submitted, days before the start date. The compliance process runs in parallel with selection, not sequentially after it.</div>
+      </div>
+    </div>
+
+    <div class="tension-card">
+      <div class="tc-head">
+        <div class="tc-left" style="background:var(--red-l);">
+          <div class="tc-persona" style="color:var(--red);">🧑‍💻 Agency — Business Goal</div>
+          <div class="tc-text">Close placements fast. Every unactivated placement is deferred commission. Margin pressure in 2024 makes speed even more urgent — bottom-quartile agencies are near break-even.</div>
+        </div>
+        <div class="tc-vs">VS</div>
+        <div class="tc-right" style="background:var(--green-l);">
+          <div class="tc-persona" style="color:var(--green);">🏥 Hospital — User Goal</div>
+          <div class="tc-text">Cannot allow a nurse to start without full verification. Legal liability sits with the hospital. One non-compliant placement can trigger a CMS investigation or JC audit.</div>
+        </div>
+      </div>
+      <div class="tc-foot">
+        <div class="tcf-label">NexusForce resolution — Union Rule + gap visibility before submission</div>
+        <div class="tcf-text">Marcus sees the exact gap list before submitting. He knows what to upload before the hospital even selects the candidate. Gap-closure starts earlier, so activation is faster — not because standards are lowered, but because the workflow is front-loaded.</div>
+      </div>
+    </div>
+
+    <div class="tension-card">
+      <div class="tc-head">
+        <div class="tc-left" style="background:var(--red-l);">
+          <div class="tc-persona" style="color:var(--red);">🧑‍💻 Agency — Business Goal</div>
+          <div class="tc-text">Needs his bill rate visible to manage his margin. He quoted the hospital a rate that includes his fee — he needs to see that number to manage his business.</div>
+        </div>
+        <div class="tc-vs">VS</div>
+        <div class="tc-right" style="background:var(--green-l);">
+          <div class="tc-persona" style="color:var(--green);">👩‍💼 Hospital — User Goal</div>
+          <div class="tc-text">Must never see the vendor's mark-up. Her procurement department negotiated a client rate — knowing the agency's margin would create disputes and erode trust across every future contract.</div>
+        </div>
+      </div>
+      <div class="tc-foot">
+        <div class="tcf-label">NexusForce resolution — Rate isolation at the data layer, not the UI layer</div>
+        <div class="tcf-text">Vendor rates are computed server-side and never sent to the Org Portal client. Not hidden. Not filtered in a view. Structurally absent from Gloria's data model. This is not a UX decision — it is a data architecture decision. No DOM inspector, export, or new screen can surface it.</div>
+      </div>
+    </div>
+
+    <div class="tension-card">
+      <div class="tc-head">
+        <div class="tc-left" style="background:var(--red-l);">
+          <div class="tc-persona" style="color:var(--red);">👩‍⚕️ Nurse — User Goal</div>
+          <div class="tc-text">Has submitted BLS cert 4 times in 12 months. Wants her approved documents to carry forward — not restart from scratch every 13 weeks for every new hospital.</div>
+        </div>
+        <div class="tc-vs">VS</div>
+        <div class="tc-right" style="background:var(--green-l);">
+          <div class="tc-persona" style="color:var(--green);">🏥 Hospital — Business Goal</div>
+          <div class="tc-text">Cannot accept a document from another hospital — each placement requires verification against this specific job's requirements. A document approved elsewhere is not automatically accepted here.</div>
+        </div>
+      </div>
+      <div class="tc-foot">
+        <div class="tcf-label">NexusForce resolution — Document Wallet with Union Rule deduplication</div>
+        <div class="tcf-text">Documents upload once. The Union Rule deduplicates: if Sarah's BLS is already approved in her wallet and it satisfies this job's BLS requirement, it's cleared automatically. She only uploads what is genuinely new for this specific placement. Background checks still re-trigger per placement as required — but BLS, ACLS, TB carry forward when still valid.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════ -->
+<!-- SUCCESS METRICS               -->
+<!-- ══════════════════════════════ -->
+<div class="section" id="metrics">
+  <div class="section-hdr">
+    <div class="s-num">07</div>
+    <div class="s-right">
+      <div class="s-title">Success Metrics — What "Done" Looks Like Per Persona</div>
+      <div class="s-sub">Defined before the first wireframe. Not vanity metrics. The specific, measurable outcomes each persona would use to judge whether the platform actually worked for them.</div>
+    </div>
+  </div>
+
+  <div class="metric-grid">
+
+    <div class="metric-card">
+      <div class="mc-head">
+        <div class="mc-av" style="background:var(--amber-l);">👩‍💼</div>
+        <div>
+          <div class="mc-name">Gloria Dorsey — Hospital</div>
+          <div class="mc-role">Client Executive · Legally responsible for every nurse on her floor</div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-quote" style="background:var(--amber-l);border:1.5px solid var(--amber-m);color:#78350F;">"I need to know she's compliant before she walks in. Not hope. Not assume. Know."</div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--amber);">0</div><div><div class="mc-mlabel">Non-compliant Day 1 arrivals</div><div class="mc-mtext">No nurse starts a shift with an unverified document. Not reduced — structurally eliminated. The system cannot activate a placement with open gaps.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--amber);">100%</div><div><div class="mc-mlabel">Compliance confirmation before activation</div><div class="mc-mtext">Every placement shows verified status before Gloria sees it as Active on her roster. She doesn't check — the system guarantees it.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--amber);">&lt;5m</div><div><div class="mc-mlabel">Time to post a requisition</div><div class="mc-mtext">From Dashboard to posted job with compliance pack attached, dates set, and vendors notified — under 5 minutes.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--amber);">0</div><div><div class="mc-mlabel">Vendor rate exposures</div><div class="mc-mtext">Bill rate in Org Portal. Vendor rate absent from her data model — in any screen, export, or report generated from her portal.</div></div></div>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="mc-head">
+        <div class="mc-av" style="background:var(--blue-l);">🧑‍💻</div>
+        <div>
+          <div class="mc-name">Marcus Webb — Agency</div>
+          <div class="mc-role">Account Manager · Carrying pressure from both sides</div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-quote" style="background:var(--blue-l);border:1.5px solid var(--blue-m);color:#1E3A8A;">"I need to know what's missing before the hospital sees the candidate — not after."</div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--blue);">0</div><div><div class="mc-mlabel">Post-selection gap surprises</div><div class="mc-mtext">Gap count visible before submission. Marcus never discovers a problem after the hospital has already selected the candidate.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--blue);">&lt;8m</div><div><div class="mc-mlabel">Time to submit a candidate</div><div class="mc-mtext">From opening the job to submitting with full gap visibility — under 8 minutes.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--blue);">30d</div><div><div class="mc-mlabel">Pre-expiry alert lead time</div><div class="mc-mtext">30 days notice before any credential expires on an active placement. Enough time to renew without disrupting the contract.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--blue);">1×</div><div><div class="mc-mlabel">Upload per document type</div><div class="mc-mtext">A document uploaded to a candidate's wallet auto-applies to all placements that require it. No re-uploading per hospital.</div></div></div>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="mc-head">
+        <div class="mc-av" style="background:var(--green-l);">👩‍⚕️</div>
+        <div>
+          <div class="mc-name">Sarah M. — Travel Nurse</div>
+          <div class="mc-role">ICU Travel Nurse · Real income loss when the system fails her</div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-quote" style="background:var(--green-l);border:1.5px solid var(--green-m);color:#14532D;">"I've been sent home on Day 1 before. I need to actually know — not find out at reception."</div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--green);">0</div><div><div class="mc-mlabel">Day 1 reception surprises</div><div class="mc-mtext">Sarah receives placement confirmation — all documents verified — before she arrives for her first shift.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--green);">1×</div><div><div class="mc-mlabel">Document uploads per credential type</div><div class="mc-mtext">Upload BLS cert once. Carries forward to every placement that requires it. Zero re-uploads of the same document for different hospitals.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--green);">Live</div><div><div class="mc-mlabel">Gap status visibility</div><div class="mc-mtext">Real-time status in her portal — not a phone call from Marcus or an email from admin 2 days later.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--green);">30d</div><div><div class="mc-mlabel">Expiry notice lead time</div><div class="mc-mtext">30 days warning before any credential expires. Time to renew without risking a placement cancellation and income loss.</div></div></div>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="mc-head">
+        <div class="mc-av" style="background:var(--purple-l);">🛡️</div>
+        <div>
+          <div class="mc-name">Platform Admin</div>
+          <div class="mc-role">NexusForce Ops · The last gate before a nurse treats a patient</div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-quote" style="background:var(--purple-l);border:1.5px solid #C4B5FD;color:#3B1F6B;">"If I approve something, I need to be able to prove what I approved, when, and why. Forever."</div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--purple);">0</div><div><div class="mc-mlabel">Non-compliant placements activated</div><div class="mc-mtext">System structurally prevents activation with open gaps. Admin's approval is the final gate — and the system enforces that gate, not bypasses it.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--purple);">100%</div><div><div class="mc-mlabel">Immutable audit trail coverage</div><div class="mc-mtext">Every approval timestamped, attributed, permanently stored. Cannot be edited, deleted, or backdated after activation — Joint Commission requirement.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--purple);">&lt;6m</div><div><div class="mc-mlabel">Time to verify a placement</div><div class="mc-mtext">Open queue → review documents inline → approve or reject with reason — all in one screen without switching tools or emailing anyone.</div></div></div>
+        <div class="mc-row"><div class="mc-num" style="color:var(--purple);">Auto</div><div><div class="mc-mlabel">Queue sorted by urgency</div><div class="mc-mtext">Placements starting soonest always at top of queue. Admin never has to decide what's urgent — the system decides.</div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="insight-box" style="margin-top:28px;">
+    <div class="ib-icon">📐</div>
+    <div>
+      <div class="ib-label">What every metric had in common</div>
+      <div class="ib-title">Not speed. Certainty.</div>
+      <div class="ib-body">Gloria doesn't measure success in hours-to-hire. She measures it in zero Day 1 surprises. Sarah doesn't measure success in time-to-apply. She measures it in zero times turned away at reception. Marcus doesn't measure success in candidates submitted per day. He measures it in zero post-selection gap discoveries. Admin doesn't measure success in verifications per hour. They measure it in zero non-compliant activations and a legally defensible audit trail. Every single success metric across all four personas pointed to the same root cause: the system did not give people certainty at the moment they needed it most. Every competitor reminder, warning, and checklist is an attempt to create certainty through behaviour change. NexusForce creates it through architecture.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+</body>
+</html>
