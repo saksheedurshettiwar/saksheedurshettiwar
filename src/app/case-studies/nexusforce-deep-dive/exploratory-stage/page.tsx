@@ -116,15 +116,16 @@ export default function ExploratoryStagePage() {
         />
 
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 mt-16">
-          Competitor Landscape
+          Thinking
         </h2>
 
-        <JourneyMap
-          src="/case-studies/nexusforce/Exploratory%20Stage/competitor-landscape.html"
-          title="NexusForce Competitor Landscape"
-          nativeW={1360}
-          nativeH={7000}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          <img src="/case-studies/nexusforce/Exploratory%20Stage/thinking-4.jpeg" alt="Thinking 1" className="w-full rounded-2xl border border-gray-200" />
+          <img src="/case-studies/nexusforce/Exploratory%20Stage/thinking-5.jpeg" alt="Thinking 2" className="w-full rounded-2xl border border-gray-200" />
+          <img src="/case-studies/nexusforce/Exploratory%20Stage/thinking-3.jpeg" alt="Thinking 3" className="w-full rounded-2xl border border-gray-200" />
+          <img src="/case-studies/nexusforce/Exploratory%20Stage/thinking-1.jpeg" alt="Thinking 4" className="w-full rounded-2xl border border-gray-200" />
+          <img src="/case-studies/nexusforce/Exploratory%20Stage/thinking-2.jpeg" alt="Thinking 5" className="w-full rounded-2xl border border-gray-200" />
+        </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 mt-16">
           Lo-Fi Wireframes
